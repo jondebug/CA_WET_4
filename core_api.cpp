@@ -19,6 +19,10 @@ class thread {
 									thread_id(thread_id), prev_run_CC(prev_run_CC), wait_CC_remaining(wait_CC_remaining), halted_flag(halted_flag){}
 };
 
+int execute_instruction (Instruction inst, std::vector<thread> * thread_vec){
+
+}
+
 int get_next_thread(std::vector<thread> * thread_vec){
 	int i=0, min_thread_id =0, thread_available_flag=0;
 	int current_run_cycle, minimum_run_cycle = (*thread_vec)[0].prev_run_CC ;
@@ -41,18 +45,34 @@ int get_next_thread(std::vector<thread> * thread_vec){
 
 	return min_thread_id; //return the thread that has been waiting the longest time to run and is available. 
 }
+void update_wait_time(std::vector<thread> * thread_vec, int time){
+	int i=0;
+	for(i=0; i<thread_vec->size(); i++)
+	{
+		(*thread_vec)[i].wait_CC_remaining-=time;
+
+		if((*thread_vec)[i].wait_CC_remaining<0){
+			(*thread_vec)[i].wait_CC_remaining=0;
+		}
+	}
+}
+
+
+tcontext *blocked;
 
 void CORE_BlockedMT() {
 	/////////////////////////////////////
 	///initializing variables
 	/////////////////////////////////////
-	int i=0, store_time, load_time , current_thread=0, CC=0, num_of_halted_threads=0, thread_num/*, current_line*/;
+	int i=0, store_time, load_time , current_thread=0, CC=0, num_of_halted_threads=0, thread_num/*, current_line*/, switch_overhead;
+	switch_overhead = SIM_GetSwitchCycles();
 	thread_num = SIM_GetThreadsNum();
 	load_time =SIM_GetLoadLat();
 	store_time = SIM_GetStoreLat();
 	std::vector<thread> thread_vec;
 	Instruction current_instruction;
-	
+	blocked =(tcontext*)malloc(thread_num * sizeof(tcontext));
+
 	/////////////////////////////////////
 	///initialize instruction vector
 	/////////////////////////////////////
@@ -68,15 +88,27 @@ void CORE_BlockedMT() {
 	while(num_of_halted_threads<thread_num){
 
 		if(thread_vec[current_thread].halted_flag || thread_vec[current_thread].wait_CC_remaining>0){//check if current thread can run now
-			current_thread=get_next_thread(&thread_vec);
-			if(current_thread<0){
-				CC++; //TODO: add treatment for idle cycle(?)
-				continue;
+
+			int temp = get_next_thread(&thread_vec);
+			
+			while(temp<0){ //idle time
+				CC++;
+				update_wait_time(&thread_vec, 1);
+				temp = get_next_thread(&thread_vec);
 			}
+
+			current_thread = temp;
+			CC+=switch_overhead;
+			update_wait_time(&thread_vec, switch_overhead);
 		}
 
 		SIM_MemInstRead(thread_vec[current_thread].next_line_to_read,&current_instruction,current_thread);
+		thread_vec[current_thread].prev_run_CC=CC;
+		thread_vec[current_thread].next_line_to_read++;
+		
+
 		CC++;
+		update_wait_time(&thread_vec, 1);
 	}
 }
 
@@ -92,7 +124,11 @@ double CORE_FinegrainedMT_CPI(){
 }
 
 void CORE_BlockedMT_CTX(tcontext* context, int threadid) {
+	for (int i=0; i<7; i++){
+		context[threadid].reg[i] = blocked[threadid].reg[i];
+	}
 }
+
 
 void CORE_FinegrainedMT_CTX(tcontext* context, int threadid) {
 }
