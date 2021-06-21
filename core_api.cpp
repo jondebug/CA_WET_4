@@ -3,7 +3,7 @@
 #include "core_api.h"
 #include "sim_api.h"
 #include <vector>
-#include <stdio.h>
+#include <stdio>
 
 
 class thread {
@@ -112,7 +112,48 @@ void CORE_BlockedMT() {
 	}
 }
 
-void CORE_FinegrainedMT() {
+void CORE_FinegrainedMT(){
+
+	//////// init /////////
+
+	int i=0, store_time, load_time , current_thread=0, CC=0, num_of_halted_threads=0, thread_num;
+	store_time = SIM_GetStoreLat();
+	load_time =SIM_GetLoadLat();
+	thread_num = SIM_GetThreadsNum();
+	std::vector<thread> thread_vec;
+	thread_vec.resize(thread_num)
+	for (size_t i = 0; i < thread_vec.size(); i++)
+	{
+		thread_vec[i].thread_id = i;
+	}
+	
+
+	Instruction current_instruction;
+	fine_grained =(tcontext*)malloc(thread_num * sizeof(tcontext));
+
+	//TODO: should we init a vector of empty threads or fill the each thread and then use fine_grained.push_back() ?
+
+	//////// main loop /////////
+
+	while(num_of_halted_threads < thread_num){ // means we can still execute
+		int next_thread = get_next_thread(&thread_vec);
+		
+		while(next_thread < 0){ // idle time
+			CC++;
+			update_wait_time(thread_vec);
+			next_thread = get_next_thread(&thread_vec);
+		}
+
+		current_thread = next_thread;
+		CC++;
+		// no switch overhead in fineGrained
+		/* here need to handle the command and halt the thread if finished,
+		or move to the next command */
+	}
+
+	// TODO: here implement what to do once all the threads have finished
+
+
 }
 
 double CORE_BlockedMT_CPI(){
