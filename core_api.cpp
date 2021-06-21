@@ -3,7 +3,7 @@
 #include "core_api.h"
 #include "sim_api.h"
 #include <vector>
-#include <stdio>
+#include <stdio.h>
 
 
 class thread {
@@ -19,7 +19,8 @@ class thread {
 									thread_id(thread_id), prev_run_CC(prev_run_CC), wait_CC_remaining(wait_CC_remaining), halted_flag(halted_flag){}
 };
 
-int execute_instruction (Instruction inst, std::vector<thread> * thread_vec, tcontext *context, int thread_id){
+void execute_instruction (Instruction inst, std::vector<thread> * thread_vec, tcontext *context, int thread_id){
+	int address =0;
 	switch(inst.opcode){
 		case CMD_ADD:
 		  context[thread_id].reg[inst.dst_index]=context[thread_id].reg[inst.src1_index]+context[thread_id].reg[inst.src2_index_imm];	  
@@ -38,7 +39,7 @@ int execute_instruction (Instruction inst, std::vector<thread> * thread_vec, tco
 		  break;
 
 		case CMD_LOAD:
-		  int address=context[thread_id].reg[inst.src1_index];
+		  address =context[thread_id].reg[inst.src1_index];
 		  if(inst.isSrc2Imm){
 			  address += inst.src2_index_imm;
 		  }
@@ -52,7 +53,7 @@ int execute_instruction (Instruction inst, std::vector<thread> * thread_vec, tco
 
 		case CMD_STORE:
 	//	#	STORE $dst, $src1, $src2 	(Mem[dst + src2] <- src1  src2 may be an immediate)
-		  int address=context[thread_id].reg[inst.dst_index];
+		  address=context[thread_id].reg[inst.dst_index];
 		  if(inst.isSrc2Imm){
 			  address += inst.src2_index_imm;
 		  }
@@ -111,7 +112,7 @@ void update_wait_time(std::vector<thread> * thread_vec, int time){
 tcontext *blocked;
 tcontext *fine_grained;
 double block_CPI = 0;
-double fineGrained_CPI = 0
+double fineGrained_CPI = 0;
 
 void CORE_BlockedMT() {
 	/////////////////////////////////////
@@ -167,7 +168,7 @@ void CORE_BlockedMT() {
 		CC++;
 		update_wait_time(&thread_vec, 1);
 		num_of_instructions++;
-		execute_instruction(current_instruction, &thread_vec, blocked, CC);
+		execute_instruction(current_instruction, &thread_vec, blocked, current_thread);
 		if (current_instruction.opcode == CMD_HALT){
 			num_of_halted_threads++;
 		}
@@ -179,7 +180,7 @@ void CORE_FinegrainedMT(){
 
 	//////// init /////////
 
-	int i=0, current_thread=0, CC=0, num_of_halted_threads=0, thread_num, switch_overhead, num_of_instructions = 0;
+	int i=0, current_thread=0, CC=0, num_of_halted_threads=0, thread_num, num_of_instructions = 0;
 	thread_num = SIM_GetThreadsNum();
 	std::vector<thread> thread_vec;
 	Instruction current_instruction;
@@ -215,7 +216,7 @@ void CORE_FinegrainedMT(){
 		CC++;
 		update_wait_time(&thread_vec, 1);
 		num_of_instructions++;
-		execute_instruction(current_instruction, &thread_vec, fine_grained, CC);
+		execute_instruction(current_instruction, &thread_vec, fine_grained, current_thread);
 		if (current_instruction.opcode == CMD_HALT){
 			num_of_halted_threads++;
 		}
