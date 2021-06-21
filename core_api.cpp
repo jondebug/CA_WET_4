@@ -19,24 +19,74 @@ class thread {
 									thread_id(thread_id), prev_run_CC(prev_run_CC), wait_CC_remaining(wait_CC_remaining), halted_flag(halted_flag){}
 };
 
-int execute_instruction (Instruction inst, std::vector<thread> * thread_vec){
+int execute_instruction (Instruction inst, std::vector<thread> * thread_vec, tcontext *context, int thread_id){
+	switch(inst.opcode){
+		case CMD_ADD:
+		  context[thread_id].reg[inst.dst_index]=context[thread_id].reg[inst.src1_index]+context[thread_id].reg[inst.src2_index_imm];	  
+		  break;
+
+		case CMD_SUB:
+		  context[thread_id].reg[inst.dst_index]=context[thread_id].reg[inst.src1_index]-context[thread_id].reg[inst.src2_index_imm];	  
+		  break;
+
+		case CMD_ADDI:
+		  context[thread_id].reg[inst.dst_index]=context[thread_id].reg[inst.src1_index]+inst.src2_index_imm;	  
+		  break;
+
+		case CMD_SUBI:
+		  context[thread_id].reg[inst.dst_index]=context[thread_id].reg[inst.src1_index]-inst.src2_index_imm;	  		
+		  break;
+
+		case CMD_LOAD:
+		  int address=context[thread_id].reg[inst.src1_index];
+		  if(inst.isSrc2Imm){
+			  address += inst.src2_index_imm;
+		  }
+		  else{
+			  address += context[thread_id].reg[inst.src2_index_imm];
+		  }
+		  SIM_MemDataRead(address,&(context[thread_id].reg[inst.dst_index]));
+		  (*thread_vec)[thread_id].wait_CC_remaining=SIM_GetLoadLat();
+		  
+		  break;
+
+		case CMD_STORE:
+	//	#	STORE $dst, $src1, $src2 	(Mem[dst + src2] <- src1  src2 may be an immediate)
+		  int address=context[thread_id].reg[inst.dst_index];
+		  if(inst.isSrc2Imm){
+			  address += inst.src2_index_imm;
+		  }
+		  else{
+			  address += context[thread_id].reg[inst.src2_index_imm];
+		  }
+  		  SIM_MemDataWrite(address,context[thread_id].reg[inst.src1_index]);
+		  (*thread_vec)[thread_id].wait_CC_remaining=SIM_GetStoreLat();
+
+		  break;
+		case CMD_HALT:
+		  (*thread_vec)[thread_id].halted_flag=1;
+
+		  break;
+
+	}
+
 
 }
 
-int get_next_thread(std::vector<thread> * thread_vec){
+int get_next_thread(std::vector<thread> * thread_vec, int current_CC){
 	int i=0, min_thread_id =0, thread_available_flag=0;
-	int current_run_cycle, minimum_run_cycle = (*thread_vec)[0].prev_run_CC ;
+	int last_run_cycle, minimum_last_CC = current_CC+1 ;
 	bool thread_active;
 
 	for(i=0; i<thread_vec->size(); i++)
 	{	
-		thread_active = !(*thread_vec)[i].halted_flag;
-		current_run_cycle = (*thread_vec)[i].prev_run_CC;
+		thread_active = !(*thread_vec)[i].halted_flag && (*thread_vec)[i].wait_CC_remaining==0;
+		last_run_cycle = (*thread_vec)[i].prev_run_CC;
 
-		if( thread_active && (*thread_vec)[i].wait_CC_remaining==0 && current_run_cycle<= minimum_run_cycle){
-			minimum_run_cycle=current_run_cycle;
+		if( thread_active && last_run_cycle < minimum_last_CC){
+			minimum_last_CC=last_run_cycle;
 			thread_available_flag =1;
-			min_thread_id =i;
+			min_thread_id = i;
 		}
 	}
 
@@ -82,19 +132,29 @@ void CORE_BlockedMT() {
 	{
 		thread_vec[i].thread_id=i;
 	}
+	thread_vec[0].halted_flag=1; 																				// thread 0 is initiated with halt
+	num_of_halted_threads++;
+	CC++;
+
 	/////////////////////////////////////
 	///main run loop
 	/////////////////////////////////////
+	//current_thread=1;
 	while(num_of_halted_threads<thread_num){
+		
+		if(thread_vec[current_thread].halted_flag || thread_vec[current_thread].wait_CC_remaining>0){		  	//check if current thread can run now
 
-		if(thread_vec[current_thread].halted_flag || thread_vec[current_thread].wait_CC_remaining>0){//check if current thread can run now
-
-			int temp = get_next_thread(&thread_vec);
+			int temp = get_next_thread(&thread_vec, CC);
 			
 			while(temp<0){ //idle time
 				CC++;
 				update_wait_time(&thread_vec, 1);
-				temp = get_next_thread(&thread_vec);
+				if(thread_vec[current_thread].halted_flag || thread_vec[current_thread].wait_CC_remaining>0){ 	//check if current thread is ready now
+					temp = get_next_thread(&thread_vec, CC);
+				}
+				else{																						  	//current thread is ready, we can continue with it
+					temp=current_thread;
+				}
 			}
 
 			current_thread = temp;
@@ -105,14 +165,17 @@ void CORE_BlockedMT() {
 		SIM_MemInstRead(thread_vec[current_thread].next_line_to_read,&current_instruction,current_thread);
 		thread_vec[current_thread].prev_run_CC=CC;
 		thread_vec[current_thread].next_line_to_read++;
-		
-
+		//
 		CC++;
 		update_wait_time(&thread_vec, 1);
+
+		execute_instruction(current_instruction, &thread_vec, blocked, CC);
 	}
+	
 }
 
 void CORE_FinegrainedMT() {
+
 }
 
 double CORE_BlockedMT_CPI(){
