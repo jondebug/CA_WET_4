@@ -22,8 +22,9 @@ class thread {
 };
 
 void execute_instruction (Instruction inst, std::vector<thread> * thread_vec, tcontext *context, int thread_id){
-	//cout<<" executing instruction: " << inst.opcode <<" for thread " << thread_id << endl;
+	////cout<<" executing instruction: " << inst.opcode <<" for thread " << thread_id << endl;
 	int address =0;
+	int loaded_value =25;
 	switch(inst.opcode){
 		case CMD_ADD:
 		  context[thread_id].reg[inst.dst_index]=context[thread_id].reg[inst.src1_index]+context[thread_id].reg[inst.src2_index_imm];	  
@@ -43,22 +44,26 @@ void execute_instruction (Instruction inst, std::vector<thread> * thread_vec, tc
 
 		case CMD_LOAD:
 		  address =context[thread_id].reg[inst.src1_index];
-		  cout << " executing load instruction for thread: " << thread_id ;
-		  cout << " address: "<<address<<endl;
+		  //cout << " executing load instruction for thread: " << thread_id ;
+		  //cout << " address: "<<address<<endl;
 		  if(inst.isSrc2Imm){
 			  address += inst.src2_index_imm;
-	  		  cout << " immidiate addition: "<<address<<endl;
+	  		  //cout << " immidiate addition: "<<address<<endl;
 
 		  }
 		  else{
 			  address += context[thread_id].reg[inst.src2_index_imm];
-  	  		  cout << " reg addition: "<<address<<endl;
+  	  		  //cout << " reg addition: "<<address<<endl;
 
 		  }
-		  cout << " ,loading address: "<<address<<endl;
+		  
+		  // cout << " executing load instruction for thread: " << thread_id << " address: "<<address<<endl;
+		  //cout << "register: " << inst.dst_index << " holds value before load: " << context[thread_id].reg[inst.dst_index] << endl;
 		  SIM_MemDataRead(address,&(context[thread_id].reg[inst.dst_index]));
 		  (*thread_vec)[thread_id].wait_CC_remaining=SIM_GetLoadLat();
-		  
+		  //cout << " executing load instruction for thread: " << thread_id << " address: "<<address << "now register: " << inst.dst_index << " holds value after load: " << context[thread_id].reg[inst.dst_index] << endl;
+		  SIM_MemDataRead(address,&loaded_value);
+		  //cout << "--------------loaded_value: " <<loaded_value<<endl;
 		  break;
 
 		case CMD_STORE:
@@ -70,6 +75,7 @@ void execute_instruction (Instruction inst, std::vector<thread> * thread_vec, tc
 		  else{
 			  address += context[thread_id].reg[inst.src2_index_imm];
 		  }
+		  //	cout<< " ----- executing store instruction for thread: " << thread_id << " in address: " <<address << " writing value: "<< context[thread_id].reg[inst.src1_index] << endl;
   		  SIM_MemDataWrite(address,context[thread_id].reg[inst.src1_index]);
 		  (*thread_vec)[thread_id].wait_CC_remaining=SIM_GetStoreLat();
 
@@ -79,13 +85,28 @@ void execute_instruction (Instruction inst, std::vector<thread> * thread_vec, tc
 		
 		  break;
 
-		  cout<<" done executing instruction" << endl;
+		  ////cout<<" done executing instruction" << endl;
 
 	}
 
 
 }
-int get_next_thread(std::vector<thread> * thread_vec, int current_CC){
+int get_next_thread_FG(std::vector<thread> * thread_vec, int current_thread){
+	int thread_num = (*thread_vec).size(), thread_it=0;
+	bool thread_active;
+	//int next_thread=-1;
+	for(int i=1; i<= thread_num; i++){
+		thread_it=(current_thread+i)%thread_num;
+		thread_active = !(*thread_vec)[thread_it].halted_flag && (*thread_vec)[thread_it].wait_CC_remaining==0;
+		if(thread_active){
+			return thread_it;
+		}
+	}
+	return -1;
+
+}
+
+int get_next_thread_B(std::vector<thread> * thread_vec, int current_CC){
 	int i=0, min_thread_id =0, thread_available_flag=0;
 	int last_run_cycle, minimum_last_CC = current_CC+1 ;
 	bool thread_active;
@@ -95,7 +116,7 @@ int get_next_thread(std::vector<thread> * thread_vec, int current_CC){
 	{
 		thread_active = !(*thread_vec)[i].halted_flag && (*thread_vec)[i].wait_CC_remaining==0;
 		last_run_cycle = (*thread_vec)[i].prev_run_CC;
-		std::cout << " thread: " << i << " last ran in CC: " << last_run_cycle <<" halted: "<< (*thread_vec)[i].halted_flag <<" remaining wait CC: "<< (*thread_vec)[i].wait_CC_remaining << endl;
+		////cout << " thread: " << i << " last ran in CC: " << last_run_cycle <<" halted: "<< (*thread_vec)[i].halted_flag <<" remaining wait CC: "<< (*thread_vec)[i].wait_CC_remaining << endl;
 
 		if( thread_active && last_run_cycle < minimum_last_CC){
 			minimum_last_CC=last_run_cycle;
@@ -103,7 +124,7 @@ int get_next_thread(std::vector<thread> * thread_vec, int current_CC){
 			min_thread_id = i;
 		}
 	}
-	cout << "current_CC is:"<< current_CC<<" -----next thread is: ----- " << ((thread_available_flag)?min_thread_id:-1) << endl;
+	////cout << "current_CC is:"<< current_CC<<" -----next thread is: ----- " << ((thread_available_flag)?min_thread_id:-1) << endl;
 
 	if (!thread_available_flag) //no flags are available to run in this cycle
 		return -1;
@@ -160,13 +181,13 @@ void CORE_BlockedMT() {
 		
 		if(thread_vec[current_thread].halted_flag || thread_vec[current_thread].wait_CC_remaining>0){		  	//check if current thread can run now
 
-			int temp = get_next_thread(&thread_vec, CC);
+			int temp = get_next_thread_B(&thread_vec, CC);
 			
 			while(temp<0){ //idle time
 				CC++;
 				update_wait_time(&thread_vec, 1);
 				if(thread_vec[current_thread].halted_flag || thread_vec[current_thread].wait_CC_remaining>0){ 	//check if current thread is ready now
-					temp = get_next_thread(&thread_vec, CC);
+					temp = get_next_thread_B(&thread_vec, CC);
 				}
 				else{																						  	//current thread is ready, we can continue with it
 					temp=current_thread;
@@ -181,7 +202,7 @@ void CORE_BlockedMT() {
 
 		SIM_MemInstRead(thread_vec[current_thread].next_line_to_read,&current_instruction,current_thread);
 		thread_vec[current_thread].prev_run_CC=CC;
-		cout<< "thread: " << current_thread << " is running in cycle " << CC << endl;
+		////cout<< "thread: " << current_thread << " is running in cycle " << CC << endl;
 		thread_vec[current_thread].next_line_to_read++;
 		//
 		CC++;
@@ -192,15 +213,15 @@ void CORE_BlockedMT() {
 			num_of_halted_threads++;
 		}
 	}
-	cout <<"clock cycles "<< CC <<" num of instructions: "<<num_of_instructions<< endl;
+	////cout <<"clock cycles "<< CC <<" num of instructions: "<<num_of_instructions<< endl;
 	block_CPI = CC / (double)num_of_instructions;
 }
 
 void CORE_FinegrainedMT(){
-	printf("\n-----starting Finegrained MT Simulation -----\n");
+	//printf("\n-----starting Finegrained MT Simulation -----\n");
 	//////// init /////////
 
-	int i=0, current_thread=0, CC=0, num_of_halted_threads=0, thread_num, num_of_instructions = 0;
+	int i=0, current_thread=-1, CC=0, num_of_halted_threads=0, thread_num, num_of_instructions = 0;
 	thread_num = SIM_GetThreadsNum();
 	std::vector<thread> thread_vec;
 	Instruction current_instruction;
@@ -218,13 +239,15 @@ void CORE_FinegrainedMT(){
 	}
 
 	//////// main loop /////////
-
+	int next_thread=-1;
 	while(num_of_halted_threads < thread_num){ // means we can still execute
-		int next_thread = get_next_thread(&thread_vec, CC);
+		//cout<< "prev_thread is: " <<next_thread;
+		next_thread = get_next_thread_FG(&thread_vec, current_thread);
+		
 		while(next_thread < 0){ // idle time
 			CC++;
 			update_wait_time(&thread_vec, 1);
-			next_thread = get_next_thread(&thread_vec, CC);
+			next_thread = get_next_thread_FG(&thread_vec, next_thread);
 		}
 		current_thread = next_thread;
 		
@@ -235,16 +258,17 @@ void CORE_FinegrainedMT(){
 		SIM_MemInstRead(thread_vec[current_thread].next_line_to_read,&current_instruction,current_thread);
 		thread_vec[current_thread].prev_run_CC=CC;
 		thread_vec[current_thread].next_line_to_read++;
-		cout << "thread to run is: " << current_thread << " cycle " << CC << " instruction: " << current_instruction.opcode <<  endl;
+		////cout << "thread to run is: " << current_thread << " cycle " << CC << " instruction: " << current_instruction.opcode <<  endl;
 		CC++;
 		update_wait_time(&thread_vec, 1);
 		num_of_instructions++;
+		//cout<< " current_thread is: " <<next_thread << " opcode: " << current_instruction.opcode << endl;;
 		execute_instruction(current_instruction, &thread_vec, fine_grained, current_thread);
 		if (current_instruction.opcode == CMD_HALT){
 			num_of_halted_threads++;
 		}
 	}
-	cout <<"clock cycles "<< CC <<" num of instructions: "<<num_of_instructions<< endl;
+	//cout <<"clock cycles "<< CC <<" num of instructions: "<<num_of_instructions<< endl;
 
 	fineGrained_CPI = CC / (double)num_of_instructions;
 
