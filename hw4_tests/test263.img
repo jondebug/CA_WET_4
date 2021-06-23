@@ -1,0 +1,117 @@
+# Test N.263
+#
+L8
+S8
+O9
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+LOAD $4, $1, 0x01C00DD7           
+SUB $7, $7, $7
+STORE $7, $2, 0x01C00DBF          
+ADDI $7, $7, 0x5A752EE3           
+SUBI $0, $1, 0x1FA377EA           
+SUB $2, $2, $2
+STORE $2, $4, 0x01C00DC3          
+NOP                               
+SUB $0, $2, $0                    
+SUB $0, $0, $0
+LOAD $6, $0, 0x01C00DCF           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x01C00DF3
+LOAD $5, $0, $4                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $3, $0, $4                    
+ADDI $5, $5, 0xBEA4780C           
+SUBI $2, $0, 0x2074510B           
+NOP                               
+SUB $2, $2, $2
+STORE $2, $1, 0x01C00DC3          
+SUB $3, $3, $3
+LOAD $5, $3, 0x01C00DBF           
+NOP                               
+ADD $0, $0, $2                    
+ADDI $6, $5, 0x48D2958E           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+NOP                               
+ADDI $0, $3, 0x2ECE9793           
+ADD $7, $3, $5                    
+NOP                               
+SUB $2, $6, $3                    
+SUB $5, $5, $5
+LOAD $2, $5, 0x01C00DD7           
+SUB $7, $7, $7
+LOAD $7, $7, 0x01C00DDF           
+SUB $6, $4, $3                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADDI $1, $1, 0xB9E03747           
+NOP                               
+SUB $5, $7, $3                    
+SUB $5, $5, $5
+LOAD $2, $5, 0x01C00DF3           
+SUB $2, $2, $2
+STORE $2, $1, 0x01C00DCB          
+SUB $4, $0, $4                    
+NOP                               
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x01C00DEB
+STORE $6, $7, $3                  
+SUB $0, $0, $0
+LOAD $0, $0, 0x01C00DDF           
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x01C00DD7
+STORE $5, $0, $3                  
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x01C00DCB
+STORE $6, $1, $4                  
+SUB $1, $1, $1
+STORE $1, $5, 0x01C00DE3          
+SUBI $5, $7, 0xCB49DF04           
+HALT $0
+#
+D@0x01C00DBF
+0x86513AC1		# 01C00DBF		= -2041496895
+0x0C601FDF		# 01C00DC3		= 207626207
+0x13BA70F7		# 01C00DC7		= 330985719
+0x78C596BF		# 01C00DCB		= 2026215103
+0x35650A2E		# 01C00DCF		= 895814190
+0x3352B940		# 01C00DD3		= 861059392
+0xB210FF1F		# 01C00DD7		= -1307508961
+0x76F03CE1		# 01C00DDB		= 1995455713
+0xA666129C		# 01C00DDF		= -1503260004
+0x5F97E291		# 01C00DE3		= 1603789457
+0xE72FE1CE		# 01C00DE7		= -416292402
+0x1E7988ED		# 01C00DEB		= 511281389
+0x117D2757		# 01C00DEF		= 293414743
+0x0AB7B2C3		# 01C00DF3		= 179811011
+0xBDAD122E		# 01C00DF7		= -1112731090

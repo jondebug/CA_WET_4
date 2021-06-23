@@ -1,0 +1,116 @@
+# Test N.1688
+#
+L6
+S3
+O8
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $3, $3
+STORE $3, $6, 0x10CA155E          
+ADDI $1, $2, 0x1D711A66           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x10CA157E
+STORE $3, $4, $7                  
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x10CA1576
+LOAD $1, $7, $5                   
+SUB $1, $1, $1
+STORE $1, $1, 0x10CA156A          
+SUBI $1, $1, 0xBF8853EA           
+SUB $7, $2, $4                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x10CA155A
+LOAD $7, $4, $7                   
+NOP                               
+SUB $7, $3, $2                    
+SUB $3, $3, $3
+STORE $3, $5, 0x10CA157A          
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x10CA1572
+LOAD $5, $4, $3                   
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x10CA156E
+STORE $0, $5, $3                  
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x10CA1566
+STORE $0, $7, $2                  
+SUB $0, $7, $5                    
+SUB $5, $5, $5
+LOAD $6, $5, 0x10CA1556           
+ADD $4, $7, $6                    
+ADD $5, $0, $7                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $5, $0, $2                    
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x10CA157E
+LOAD $2, $6, $4                   
+NOP                               
+SUB $1, $1, $1
+STORE $1, $1, 0x10CA155A          
+ADD $7, $6, $0                    
+ADD $4, $5, $5                    
+SUB $6, $3, $4                    
+SUB $7, $7, $7
+LOAD $3, $7, 0x10CA1572           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $4, 0x10CA156E          
+SUBI $4, $5, 0x38C54CAB           
+SUB $6, $2, $2                    
+SUBI $2, $3, 0x25AE7D74           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUBI $4, $6, 0x4F16C973           
+SUBI $6, $3, 0x36CB5730           
+ADD $0, $3, $7                    
+ADDI $6, $2, 0x1555C63C           
+SUB $7, $2, $1                    
+ADD $1, $7, $6                    
+NOP                               
+ADD $0, $7, $7                    
+SUB $6, $5, $5                    
+HALT $0
+#
+D@0x10CA1556
+0x66D4F0F9		# 10CA1556		= 1725231353
+0xF956F069		# 10CA155A		= -111742871
+0xC13FB0B3		# 10CA155E		= -1052790605
+0xD68FC928		# 10CA1562		= -695219928
+0x66CA6F27		# 10CA1566		= 1724542759
+0xB8126A5A		# 10CA156A		= -1206752678
+0x45987E7D		# 10CA156E		= 1167621757
+0x0CBA116D		# 10CA1572		= 213520749
+0x2F9CFAB1		# 10CA1576		= 798816945
+0x4E16D21F		# 10CA157A		= 1310118431
+0xA6952B38		# 10CA157E		= -1500173512

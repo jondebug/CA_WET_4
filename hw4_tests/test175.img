@@ -1,0 +1,64 @@
+# Test N.175
+#
+L3
+S5
+O9
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $6, $3, 0xC747D797           
+SUB $5, $5, $5
+STORE $5, $4, 0x5ADF5C63          
+SUB $3, $3, $3
+STORE $3, $4, 0x5ADF5C83          
+NOP                               
+SUB $5, $5, $5
+LOAD $2, $5, 0x5ADF5C6F           
+SUB $5, $5, $1                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $7, $2, 0x4808E4C8           
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x5ADF5C77
+LOAD $5, $5, $7                   
+SUB $1, $6, $6                    
+NOP                               
+ADDI $5, $6, 0xE47D13CA           
+NOP                               
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x5ADF5C7F
+LOAD $2, $7, $5                   
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x5ADF5C97
+STORE $3, $7, $2                  
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x5ADF5C9B
+LOAD $7, $6, $7                   
+HALT $0
+#
+D@0x5ADF5C63
+0x5F339762		# 5ADF5C63		= 1597216610
+0x6D6C0C55		# 5ADF5C67		= 1835797589
+0x01B7F348		# 5ADF5C6B		= 28832584
+0xA38C60D8		# 5ADF5C6F		= -1551081256
+0x7FD54583		# 5ADF5C73		= 2144683395
+0x715D36F5		# 5ADF5C77		= 1901934325
+0xDE11854E		# 5ADF5C7B		= -569277106
+0x0654E2FB		# 5ADF5C7F		= 106226427
+0xCFFCA01B		# 5ADF5C83		= -805527525
+0xFE246E08		# 5ADF5C87		= -31166968
+0x213E4748		# 5ADF5C8B		= 557729608
+0x665E80F7		# 5ADF5C8F		= 1717469431
+0x17610C80		# 5ADF5C93		= 392236160
+0xDA5952A5		# 5ADF5C97		= -631680347
+0x10EDB876		# 5ADF5C9B		= 284014710
+0xAC5E3291		# 5ADF5C9F		= -1403112815

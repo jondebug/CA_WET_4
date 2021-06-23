@@ -1,0 +1,54 @@
+# Test N.821
+#
+L3
+S2
+O7
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x25CAEE1C
+LOAD $0, $7, $4                   
+SUB $4, $4, $4
+STORE $4, $5, 0x25CAEE18          
+SUBI $7, $6, 0x328231F7           
+ADD $1, $5, $0                    
+SUB $3, $3, $0                    
+SUB $7, $7, $7
+LOAD $3, $7, 0x25CAEE18           
+SUB $1, $4, $6                    
+SUB $6, $0, $1                    
+ADDI $7, $1, 0xE64DD901           
+SUB $5, $5, $5
+LOAD $1, $5, 0x25CAEE2C           
+NOP                               
+SUB $3, $3, $3
+LOAD $3, $3, 0x25CAEE38           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $6, $7                    
+NOP                               
+NOP                               
+HALT $0
+#
+D@0x25CAEE14
+0x071CA4EC		# 25CAEE14		= 119317740
+0x9E92F363		# 25CAEE18		= -1634536605
+0x1E2512BB		# 25CAEE1C		= 505746107
+0xA7C9CD1B		# 25CAEE20		= -1479946981
+0x9BD0E96F		# 25CAEE24		= -1680807569
+0xFE25FCC1		# 25CAEE28		= -31064895
+0xBF075964		# 25CAEE2C		= -1090037404
+0x69262EC9		# 25CAEE30		= 1764110025
+0x08089AD5		# 25CAEE34		= 134781653
+0xF7D20E57		# 25CAEE38		= -137228713
+0xB11C9A94		# 25CAEE3C		= -1323525484
+0x2ED86BA2		# 25CAEE40		= 785935266
+0x059074CB		# 25CAEE44		= 93353163
+0xBE321D7E		# 25CAEE48		= -1104011906

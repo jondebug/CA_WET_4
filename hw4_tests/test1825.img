@@ -1,0 +1,69 @@
+# Test N.1825
+#
+L9
+S2
+O5
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $3, $3
+LOAD $6, $3, 0x3F2F35D3           
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x3F2F35E7
+STORE $5, $5, $4                  
+ADDI $3, $1, 0x8C510FCF           
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x3F2F35C7
+LOAD $4, $5, $6                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $2, $2, $0                    
+SUBI $2, $6, 0xB3CF0691           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $2, $6                    
+ADD $6, $1, $1                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $1, 0x3F2F35E3          
+NOP                               
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x3F2F35DB
+STORE $7, $5, $3                  
+SUB $2, $2, $2
+STORE $2, $7, 0x3F2F35D7          
+ADD $2, $5, $7                    
+SUB $2, $2, $2
+LOAD $1, $2, 0x3F2F35CB           
+SUB $1, $6, $5                    
+SUBI $6, $1, 0x86F2E01C           
+SUB $5, $5, $5
+STORE $5, $5, 0x3F2F35C7          
+HALT $0
+#
+D@0x3F2F35C3
+0x6DADCEB5		# 3F2F35C3		= 1840107189
+0x600DB86F		# 3F2F35C7		= 1611511919
+0x5471A1F0		# 3F2F35CB		= 1416733168
+0x9234E63F		# 3F2F35CF		= -1842026945
+0xDDE576A3		# 3F2F35D3		= -572164445
+0x70482F0B		# 3F2F35D7		= 1883778827
+0x995B6D16		# 3F2F35DB		= -1722061546
+0x1545E981		# 3F2F35DF		= 356903297
+0xB5623E74		# 3F2F35E3		= -1251852684
+0x5D2E4451		# 3F2F35E7		= 1563313233

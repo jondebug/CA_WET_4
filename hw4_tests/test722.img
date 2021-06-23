@@ -1,0 +1,77 @@
+# Test N.722
+#
+L1
+S6
+O9
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $7, $4, 0x450EDC85           
+SUB $6, $3, $7                    
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x09A4EF12
+STORE $2, $5, $3                  
+SUBI $6, $7, 0x190490F6           
+NOP                               
+NOP                               
+SUBI $4, $6, 0xFC75E93C           
+NOP                               
+ADD $7, $4, $5                    
+SUBI $6, $0, 0xF6172344           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $1, $4, 0xC2A1F9DA           
+SUB $5, $5, $5
+STORE $5, $0, 0x09A4EEFE          
+ADD $1, $1, $3                    
+SUB $6, $6, $6
+LOAD $4, $6, 0x09A4EF22           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x09A4EF16
+LOAD $7, $6, $1                   
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x09A4EF36
+LOAD $7, $2, $1                   
+ADD $3, $1, $1                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+LOAD $2, $0, 0x09A4EF2E           
+NOP                               
+NOP                               
+SUB $5, $5, $5
+STORE $5, $2, 0x09A4EF26          
+HALT $0
+#
+D@0x09A4EEEE
+0x711223CB		# 09A4EEEE		= 1897014219
+0xB4370205		# 09A4EEF2		= -1271463419
+0xBADEBBC4		# 09A4EEF6		= -1159808060
+0x637E4941		# 09A4EEFA		= 1669220673
+0xB5BFF20E		# 09A4EEFE		= -1245711858
+0x5762E927		# 09A4EF02		= 1466100007
+0x74590C11		# 09A4EF06		= 1951992849
+0xED535192		# 09A4EF0A		= -313306734
+0xE2ECA283		# 09A4EF0E		= -487808381
+0xC8DEB943		# 09A4EF12		= -924927677
+0xBACBEAF0		# 09A4EF16		= -1161041168
+0xC65DC480		# 09A4EF1A		= -966933376
+0x98B72EA6		# 09A4EF1E		= -1732825434
+0x179AF584		# 09A4EF22		= 396031364
+0x0B98A12E		# 09A4EF26		= 194552110
+0x553A369A		# 09A4EF2A		= 1429878426
+0x4E73DDB9		# 09A4EF2E		= 1316216249
+0xD8063C53		# 09A4EF32		= -670679981
+0xA695D702		# 09A4EF36		= -1500129534

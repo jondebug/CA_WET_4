@@ -1,0 +1,96 @@
+# Test N.1960
+#
+L7
+S1
+O2
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $5, $6, 0xD6D18BD5           
+ADD $4, $2, $2                    
+SUBI $5, $3, 0x35F4F23B           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $5, $0, $7                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $7, $7, $6                    
+SUB $1, $5, $1                    
+ADD $4, $7, $3                    
+ADDI $0, $3, 0xC6D55683           
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x1BA296E2
+LOAD $7, $0, $6                   
+NOP                               
+SUB $7, $5, $3                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $5, $1                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUB $7, $7, $7
+LOAD $7, $7, 0x1BA296CA           
+SUBI $1, $7, 0x7AE7BFBB           
+NOP                               
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x1BA296CA
+LOAD $3, $5, $1                   
+ADDI $6, $1, 0xFC9FA516           
+NOP                               
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x1BA296C2
+LOAD $5, $3, $0                   
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x1BA296D2
+LOAD $6, $1, $6                   
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $7, 0x1BA296BE          
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+HALT $0
+#
+D@0x1BA296BE
+0x0220470C		# 1BA296BE		= 35669772
+0xCA474D75		# 1BA296C2		= -901296779
+0x3AEE95C9		# 1BA296C6		= 988714441
+0xD5D63325		# 1BA296CA		= -707382491
+0x1387968C		# 1BA296CE		= 327653004
+0xADE18188		# 1BA296D2		= -1377730168
+0x35F84C4E		# 1BA296D6		= 905464910
+0xE13DDBA0		# 1BA296DA		= -516039776
+0x5F5C77E1		# 1BA296DE		= 1599895521
+0xBF568A88		# 1BA296E2		= -1084847480
+0x20C21A4B		# 1BA296E6		= 549591627
+0x345CCAFB		# 1BA296EA		= 878496507

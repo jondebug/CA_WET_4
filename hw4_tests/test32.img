@@ -1,0 +1,22 @@
+# Test N.32
+#
+L7
+S5
+O5
+N1
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $6, $0, 0xFB086A4B           
+NOP                               
+ADDI $6, $6, 0x2BE36890           
+ADD $1, $7, $3                    
+SUBI $7, $5, 0xF51A94C3           
+ADD $6, $1, $6                    
+HALT $0
+#
+D@0x3A1E9EB7
+0x7681090A		# 3A1E9EB7		= 1988167946
+0x4CE74C9A		# 3A1E9EBB		= 1290226842
+0x8F732E17		# 3A1E9EBF		= -1888276969

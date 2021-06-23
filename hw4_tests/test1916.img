@@ -1,0 +1,44 @@
+# Test N.1916
+#
+L7
+S5
+O2
+N3
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $7, $2                    
+SUB $7, $7, $7
+LOAD $1, $7, 0x7FD83662           
+SUB $5, $6, $5                    
+NOP                               
+SUBI $5, $0, 0x96004019           
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x7FD83662
+STORE $5, $0, $0                  
+ADDI $3, $3, 0x739594FD           
+SUB $5, $5, $5
+STORE $5, $3, 0x7FD83662          
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x7FD83662
+STORE $4, $1, $1                  
+SUBI $2, $6, 0xD393E5D7           
+SUB $3, $0, $0                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $1, $6, $7                    
+HALT $0
+#
+D@0x7FD83662
+0x297B3958		# 7FD83662		= 695941464

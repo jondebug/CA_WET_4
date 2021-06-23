@@ -1,0 +1,63 @@
+# Test N.1422
+#
+L8
+S1
+O1
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $3, $3
+LOAD $2, $3, 0x7DBC1CFE           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $3, $0                    
+ADD $7, $5, $4                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $6, $1, 0x675AFCCA           
+SUB $4, $7, $1                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $5, $7, $2                    
+ADDI $2, $6, 0xF97FF109           
+SUB $2, $2, $2
+STORE $2, $1, 0x7DBC1D0E          
+SUBI $1, $7, 0xB1C40333           
+ADD $5, $6, $4                    
+SUBI $4, $1, 0x986D030B           
+SUB $6, $6, $6
+STORE $6, $4, 0x7DBC1CFA          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $2, $2
+LOAD $3, $2, 0x7DBC1D02           
+ADDI $1, $5, 0x2598A252           
+NOP                               
+SUB $4, $1, $2                    
+SUB $4, $4, $1                    
+HALT $0
+#
+D@0x7DBC1CFA
+0x28BF7818		# 7DBC1CFA		= 683636760
+0xF88D94A3		# 7DBC1CFE		= -124939101
+0xF8640F56		# 7DBC1D02		= -127660202
+0xE44F3991		# 7DBC1D06		= -464569967
+0x823EF901		# 7DBC1D0A		= -2109802239
+0xE273009C		# 7DBC1D0E		= -495779684
+0xE0B369E2		# 7DBC1D12		= -525112862
+0xA5B56F45		# 7DBC1D16		= -1514836155
+0xD4530256		# 7DBC1D1A		= -732757418

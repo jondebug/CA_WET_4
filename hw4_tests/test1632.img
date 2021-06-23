@@ -1,0 +1,44 @@
+# Test N.1632
+#
+L6
+S7
+O9
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $3, $7                    
+SUBI $0, $4, 0xD292710B           
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x0CBFD9A4
+STORE $2, $7, $6                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $7, $3, $3                    
+ADDI $6, $1, 0x5FCC36A0           
+SUB $7, $7, $7
+STORE $7, $1, 0x0CBFD9A4          
+SUB $0, $0, $0
+STORE $0, $7, 0x0CBFD9A4          
+SUBI $1, $5, 0x99094C94           
+SUB $7, $7, $7
+STORE $7, $0, 0x0CBFD9A4          
+ADDI $7, $5, 0x0AD1131D           
+ADD $7, $5, $4                    
+SUB $3, $4, $7                    
+SUB $0, $0, $0
+STORE $0, $1, 0x0CBFD9A4          
+NOP                               
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x0CBFD9A4
+STORE $7, $4, $1                  
+HALT $0
+#
+D@0x0CBFD9A4
+0xAE794E08		# 0CBFD9A4		= -1367781880

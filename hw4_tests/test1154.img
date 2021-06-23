@@ -1,0 +1,61 @@
+# Test N.1154
+#
+L3
+S5
+O6
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+LOAD $4, $5, 0x3A77DFBC           
+SUB $5, $5, $5
+STORE $5, $7, 0x3A77DFAC          
+ADD $5, $1, $0                    
+SUB $6, $3, $1                    
+SUB $7, $7, $7
+LOAD $4, $7, 0x3A77DFD4           
+SUB $0, $1, $4                    
+SUBI $1, $6, 0x970BAF28           
+ADD $6, $4, $7                    
+ADDI $2, $2, 0xE52CD898           
+SUB $7, $6, $5                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $1, $0                    
+SUBI $4, $3, 0x9B8EF18B           
+ADD $0, $3, $1                    
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x3A77DFB4
+LOAD $0, $3, $6                   
+SUBI $2, $2, 0xB5A80699           
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x3A77DFBC
+STORE $1, $3, $7                  
+SUB $5, $5, $5
+STORE $5, $0, 0x3A77DFB0          
+SUB $2, $4, $3                    
+NOP                               
+HALT $0
+#
+D@0x3A77DFA8
+0x1FC42249		# 3A77DFA8		= 532947529
+0xC5499721		# 3A77DFAC		= -985032927
+0xF810D155		# 3A77DFB0		= -133115563
+0x9AB1043F		# 3A77DFB4		= -1699675073
+0x41EA7F3E		# 3A77DFB8		= 1105887038
+0xCC3FD5C5		# 3A77DFBC		= -868231739
+0x263BB717		# 3A77DFC0		= 641447703
+0xACDB9354		# 3A77DFC4		= -1394896044
+0x7C1ED170		# 3A77DFC8		= 2082394480
+0x0FA74D76		# 3A77DFCC		= 262622582
+0x6835BDDD		# 3A77DFD0		= 1748352477
+0xD39C0617		# 3A77DFD4		= -744749545
+0x12CE469A		# 3A77DFD8		= 315508378
+0x6C4E6CAF		# 3A77DFDC		= 1817078959

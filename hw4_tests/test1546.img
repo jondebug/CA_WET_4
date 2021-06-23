@@ -1,0 +1,66 @@
+# Test N.1546
+#
+L6
+S4
+O5
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $2, $6                    
+ADD $5, $3, $7                    
+NOP                               
+ADD $5, $2, $0                    
+SUB $4, $4, $4
+STORE $4, $5, 0x1B82F1EB          
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+NOP                               
+ADDI $5, $0, 0xAAA14BC0           
+SUB $0, $2, $3                    
+NOP                               
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x1B82F1F3
+LOAD $5, $0, $6                   
+SUBI $5, $5, 0x27CDF7F5           
+SUBI $1, $2, 0xBB460E31           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $6, $3, 0xFB308641           
+ADD $2, $5, $6                    
+SUB $5, $5, $5
+STORE $5, $4, 0x1B82F207          
+SUB $2, $2, $2
+LOAD $4, $2, 0x1B82F1E3           
+SUBI $3, $6, 0xB4EFD4B7           
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x1B82F1EF
+STORE $0, $1, $4                  
+NOP                               
+ADD $0, $5, $1                    
+SUB $0, $1, $4                    
+HALT $0
+#
+D@0x1B82F1E3
+0x68D637CE		# 1B82F1E3		= 1758869454
+0xA1EF3A93		# 1B82F1E7		= -1578157421
+0x2830C459		# 1B82F1EB		= 674284633
+0x39030B9F		# 1B82F1EF		= 956500895
+0x73C0107B		# 1B82F1F3		= 1941966971
+0xE358D02E		# 1B82F1F7		= -480718802
+0x6973736C		# 1B82F1FB		= 1769173868
+0x92120CE7		# 1B82F1FF		= -1844310809
+0xDB5C5F7F		# 1B82F203		= -614703233
+0xDB3C262F		# 1B82F207		= -616815057
+0x22FD51D9		# 1B82F20B		= 587026905

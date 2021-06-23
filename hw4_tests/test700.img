@@ -1,0 +1,112 @@
+# Test N.700
+#
+L8
+S4
+O7
+N6
+
+# Thread 0
+T0
+I@0x00000000
+ADD $2, $1, $5                    
+ADDI $1, $7, 0x52ED62E5           
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x0F9A1A14
+STORE $4, $6, $2                  
+SUBI $7, $6, 0x5BDBDB83           
+SUB $4, $4, $4
+LOAD $7, $4, 0x0F9A1A24           
+ADDI $5, $4, 0xBC71D2CE           
+NOP                               
+ADDI $6, $7, 0x38667B23           
+ADD $3, $2, $6                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x0F9A1A10
+LOAD $2, $1, $4                   
+SUBI $3, $6, 0x60FB74B1           
+SUBI $5, $5, 0x82E79F3C           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $3, 0x0F9A1A14          
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x0F9A1A08
+STORE $6, $3, $0                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $4, $7                    
+ADD $3, $0, $5                    
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x0F9A1A14
+LOAD $7, $4, $7                   
+SUBI $0, $7, 0xCD02172C           
+NOP                               
+SUB $4, $4, $4
+LOAD $7, $4, 0x0F9A1A28           
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x0F9A1A18
+STORE $0, $2, $4                  
+SUB $4, $4, $4
+LOAD $7, $4, 0x0F9A1A14           
+NOP                               
+ADDI $3, $2, 0x2C80A6E1           
+ADDI $5, $0, 0xB253B5BD           
+SUB $6, $6, $6
+STORE $6, $3, 0x0F9A1A10          
+SUB $5, $0, $4                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $3, $2, $2                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUBI $5, $7, 0x725236AE           
+SUB $3, $5, $5                    
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x0F9A1A04
+LOAD $7, $5, $0                   
+ADDI $7, $2, 0x7DC9FB48           
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x0F9A1A20
+STORE $1, $1, $4                  
+SUBI $6, $0, 0x5B49C7CF           
+ADDI $6, $3, 0x437A27C7           
+SUB $1, $6, $7                    
+HALT $0
+#
+D@0x0F9A1A04
+0x0BCD1E4A		# 0F9A1A04		= 197992010
+0x57F40B5A		# 0F9A1A08		= 1475611482
+0xA95FB104		# 0F9A1A0C		= -1453346556
+0x86CC083F		# 0F9A1A10		= -2033448897
+0x43DB182F		# 0F9A1A14		= 1138432047
+0xED04D181		# 0F9A1A18		= -318451327
+0xBF1D1F29		# 0F9A1A1C		= -1088610519
+0xD6C533E7		# 0F9A1A20		= -691719193
+0xB6BEA696		# 0F9A1A24		= -1229019498
+0xD8E70D4D		# 0F9A1A28		= -655946419

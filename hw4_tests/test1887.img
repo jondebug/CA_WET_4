@@ -1,0 +1,107 @@
+# Test N.1887
+#
+L7
+S6
+O7
+N6
+
+# Thread 0
+T0
+I@0x00000000
+ADD $6, $6, $3                    
+ADDI $6, $1, 0x41037C98           
+SUB $0, $6, $2                    
+SUB $4, $4, $4
+STORE $4, $4, 0x46788B28          
+SUB $5, $6, $0                    
+NOP                               
+ADDI $7, $5, 0x22C6AA1D           
+ADDI $1, $7, 0xA29C8F65           
+ADDI $0, $2, 0x36FE7A80           
+NOP                               
+SUB $7, $7, $7
+LOAD $5, $7, 0x46788B2C           
+NOP                               
+ADDI $7, $6, 0xE325C5EF           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $3, $2, 0x31451598           
+ADDI $1, $6, 0x6A1885BC           
+ADD $4, $4, $0                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $4, $4
+LOAD $2, $4, 0x46788B30           
+SUBI $7, $1, 0x848D0E48           
+NOP                               
+NOP                               
+ADDI $4, $2, 0x8C6CB61F           
+SUB $4, $6, $6                    
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x46788B18
+LOAD $2, $6, $3                   
+NOP                               
+ADD $4, $2, $4                    
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x46788B20
+LOAD $6, $2, $7                   
+ADDI $1, $1, 0xB15ABA61           
+SUB $0, $0, $0
+LOAD $6, $0, 0x46788B14           
+ADDI $3, $6, 0x45191BE3           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $1, $0, $4                    
+NOP                               
+ADDI $7, $5, 0xC2C0F174           
+SUB $4, $4, $7                    
+SUB $4, $4, $4
+STORE $4, $1, 0x46788B20          
+ADD $1, $3, $3                    
+ADDI $1, $0, 0xADD9F736           
+SUB $4, $0, $0                    
+SUBI $0, $1, 0xCED626C2           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $0, $6, 0x6C0373E8           
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $4, $2, $0                    
+SUBI $2, $0, 0xB787EFA3           
+SUBI $1, $2, 0xE65AAC70           
+ADD $7, $1, $2                    
+ADD $3, $3, $0                    
+SUB $1, $1, $1
+LOAD $1, $1, 0x46788B2C           
+NOP                               
+HALT $0
+#
+D@0x46788B0C
+0x2600580F		# 46788B0C		= 637556751
+0xFD647CA6		# 46788B10		= -43746138
+0xF4E91DC5		# 46788B14		= -186049083
+0xF333061A		# 46788B18		= -214759910
+0x2CB3DF21		# 46788B1C		= 749985569
+0xE9D633E2		# 46788B20		= -371837982
+0x6CD54714		# 46788B24		= 1825916692
+0x985E38F4		# 46788B28		= -1738655500
+0x909B129E		# 46788B2C		= -1868885346
+0x0328301A		# 46788B30		= 52965402

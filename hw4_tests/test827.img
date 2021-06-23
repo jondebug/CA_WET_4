@@ -1,0 +1,16 @@
+# Test N.827
+#
+L5
+S7
+O4
+N1
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $5, $7                    
+ADDI $5, $0, 0xA442F105           
+HALT $0
+#
+D@0x2EBDAE07
+0x4110375D		# 2EBDAE07		= 1091581789

@@ -1,0 +1,44 @@
+# Test N.1804
+#
+L5
+S4
+O5
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x2A3BCE4B
+LOAD $0, $7, $1                   
+SUB $4, $7, $0                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $5, $2, 0x317386D2           
+SUB $4, $3, $6                    
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x2A3BCE4B
+LOAD $4, $6, $0                   
+ADDI $6, $6, 0x2A83F39D           
+SUB $2, $2, $2
+LOAD $1, $2, 0x2A3BCE47           
+ADD $0, $3, $7                    
+ADD $7, $0, $4                    
+SUB $6, $6, $6
+STORE $6, $0, 0x2A3BCE47          
+ADDI $5, $6, 0x3D7CACFF           
+SUB $4, $1, $6                    
+ADDI $2, $1, 0x9C656E18           
+ADDI $2, $4, 0xC9670640           
+SUB $1, $2, $1                    
+SUBI $7, $4, 0xB5E820EE           
+HALT $0
+#
+D@0x2A3BCE47
+0xA9C7F5AF		# 2A3BCE47		= -1446513233
+0x8B32777A		# 2A3BCE4B		= -1959626886

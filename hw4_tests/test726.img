@@ -1,0 +1,120 @@
+# Test N.726
+#
+L7
+S4
+O7
+N7
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $2, $2, 0xA4C1025C           
+NOP                               
+SUBI $6, $3, 0xA49AE812           
+NOP                               
+SUB $3, $4, $2                    
+NOP                               
+SUB $6, $6, $6
+STORE $6, $3, 0x50203E3C          
+ADDI $3, $4, 0x7565D18C           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x50203E48
+LOAD $6, $5, $1                   
+NOP                               
+SUBI $4, $2, 0x91439F3C           
+SUB $1, $1, $1
+LOAD $0, $1, 0x50203E48           
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x50203E40
+LOAD $2, $0, $7                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $1, $1                    
+SUBI $5, $7, 0x47FE3185           
+SUB $7, $7, $7
+LOAD $2, $7, 0x50203E3C           
+ADD $0, $5, $6                    
+ADDI $6, $4, 0xB7DAB90A           
+SUB $1, $3, $2                    
+ADD $3, $5, $0                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $7, $2, 0x0EDC329D           
+NOP                               
+SUBI $7, $0, 0x70C76BAC           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x50203E40
+LOAD $3, $3, $5                   
+ADDI $0, $4, 0x07D37B3D           
+NOP                               
+SUBI $5, $4, 0x48F63192           
+ADD $5, $2, $3                    
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x50203E48
+LOAD $7, $1, $6                   
+NOP                               
+SUB $4, $4, $4
+LOAD $6, $4, 0x50203E3C           
+SUB $1, $6, $0                    
+SUB $3, $4, $7                    
+SUB $7, $4, $2                    
+SUB $2, $2, $2
+STORE $2, $0, 0x50203E44          
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x50203E3C
+LOAD $1, $4, $7                   
+SUB $3, $1, $1                    
+SUB $6, $6, $6
+STORE $6, $7, 0x50203E48          
+SUBI $4, $4, 0xFFAB4471           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADD $4, $3, $2                    
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x50203E40
+STORE $4, $2, $7                  
+NOP                               
+ADDI $2, $2, 0x415DEBA9           
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x50203E44
+LOAD $2, $5, $7                   
+HALT $0
+#
+D@0x50203E3C
+0xFCCE5F05		# 50203E3C		= -53584123
+0xAA0934D8		# 50203E40		= -1442237224
+0xFF628E5F		# 50203E44		= -10318241
+0x9292BAF4		# 50203E48		= -1835877644
+0x1FDE2399		# 50203E4C		= 534651801

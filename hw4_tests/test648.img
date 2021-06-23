@@ -1,0 +1,72 @@
+# Test N.648
+#
+L2
+S10
+O9
+N5
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $2, $7, 0x4C1DD6EB           
+NOP                               
+SUBI $5, $0, 0x0B78DA04           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $0, $7                    
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x5CD1B45C
+STORE $0, $1, $7                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $2, $2, 0x0ECB352A           
+SUB $2, $2, $5                    
+SUB $6, $6, $6
+LOAD $1, $6, 0x5CD1B468           
+SUBI $2, $6, 0x28B01352           
+NOP                               
+SUBI $3, $6, 0xB5848479           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $7, $1, 0xC2BF64D4           
+ADD $3, $0, $0                    
+SUB $0, $5, $3                    
+ADDI $4, $7, 0x9132CF9E           
+SUBI $1, $3, 0xBFB6130E           
+SUB $4, $2, $4                    
+SUB $2, $2, $2
+STORE $2, $4, 0x5CD1B468          
+ADDI $5, $7, 0x87D68F2F           
+SUB $5, $5, $5
+STORE $5, $2, 0x5CD1B470          
+ADD $6, $6, $4                    
+NOP                               
+HALT $0
+#
+D@0x5CD1B44C
+0x54D9E6A6		# 5CD1B44C		= 1423566502
+0xA47CA04E		# 5CD1B450		= -1535336370
+0x1CDF2788		# 5CD1B454		= 484386696
+0xCF941AB1		# 5CD1B458		= -812377423
+0xD3D36378		# 5CD1B45C		= -741121160
+0xB391289A		# 5CD1B460		= -1282332518
+0xA0C894C3		# 5CD1B464		= -1597467453
+0xA5F06F46		# 5CD1B468		= -1510969530
+0x028804B0		# 5CD1B46C		= 42468528
+0x42AB1504		# 5CD1B470		= 1118508292
+0x0428A145		# 5CD1B474		= 69771589

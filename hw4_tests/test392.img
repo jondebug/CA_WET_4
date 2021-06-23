@@ -1,0 +1,64 @@
+# Test N.392
+#
+L9
+S4
+O7
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADD $4, $5, $1                    
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x658DAA2B
+LOAD $5, $4, $3                   
+ADD $0, $7, $2                    
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x658DAA27
+LOAD $6, $6, $2                   
+NOP                               
+NOP                               
+SUBI $5, $0, 0x99AEDDD3           
+ADDI $4, $2, 0x699B1962           
+SUB $6, $6, $6
+LOAD $6, $6, 0x658DAA2F           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x658DAA2F
+LOAD $6, $7, $4                   
+ADD $7, $4, $2                    
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x658DAA2F
+LOAD $7, $2, $5                   
+ADDI $1, $4, 0xF6C25047           
+ADD $5, $4, $5                    
+ADD $5, $3, $7                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $5, $7                    
+SUB $4, $4, $4
+STORE $4, $0, 0x658DAA27          
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x658DAA2B
+LOAD $6, $1, $6                   
+SUB $0, $5, $5                    
+HALT $0
+#
+D@0x658DAA1F
+0x8D4D56AA		# 658DAA1F		= -1924311382
+0xA3D08283		# 658DAA23		= -1546616189
+0x97D52D8D		# 658DAA27		= -1747636851
+0xF2DEE9FE		# 658DAA2B		= -220272130
+0x4FC918D9		# 658DAA2F		= 1338579161

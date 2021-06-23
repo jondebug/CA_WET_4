@@ -1,0 +1,72 @@
+# Test N.1104
+#
+L6
+S5
+O4
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $6, $7, 0x32C82BDB           
+SUB $5, $3, $2                    
+NOP                               
+SUB $4, $4, $4
+LOAD $5, $4, 0x6C20FEB6           
+ADD $1, $4, $7                    
+SUBI $0, $5, 0x5DB41977           
+NOP                               
+SUB $1, $7, $1                    
+SUB $0, $0, $0
+STORE $0, $4, 0x6C20FEBA          
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x6C20FEAE
+STORE $2, $7, $5                  
+SUBI $6, $5, 0xDC8AE86B           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $2, 0x6C20FEC6          
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x6C20FEAE
+STORE $2, $3, $3                  
+NOP                               
+ADD $3, $4, $5                    
+SUBI $0, $5, 0x8A270212           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x6C20FEA6
+STORE $1, $6, $0                  
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x6C20FEBE
+STORE $4, $6, $1                  
+SUB $0, $0, $0
+LOAD $3, $0, 0x6C20FEA6           
+NOP                               
+SUBI $4, $0, 0xC9BA14BF           
+ADD $3, $1, $4                    
+SUBI $6, $0, 0x33E64BD3           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+D@0x6C20FEA6
+0xF2392FFA		# 6C20FEA6		= -231133190
+0x88D157C8		# 6C20FEAA		= -1999546424
+0x31A48BC0		# 6C20FEAE		= 832867264
+0xB4147D21		# 6C20FEB2		= -1273725663
+0x8230F21C		# 6C20FEB6		= -2110721508
+0xC2773F29		# 6C20FEBA		= -1032372439
+0x3C52DF7C		# 6C20FEBE		= 1012064124
+0x00719556		# 6C20FEC2		= 7443798
+0xD1A47817		# 6C20FEC6		= -777750505
+0x9619B0AD		# 6C20FECA		= -1776701267

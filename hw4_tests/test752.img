@@ -1,0 +1,101 @@
+# Test N.752
+#
+L5
+S9
+O3
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $5, $4, 0x4C5D907B           
+SUB $5, $5, $5
+LOAD $2, $5, 0x79D11348           
+SUBI $6, $0, 0x3BB8BE5D           
+SUB $7, $7, $7
+STORE $7, $6, 0x79D11344          
+SUBI $7, $2, 0x64080E29           
+SUB $7, $1, $1                    
+SUBI $4, $4, 0xE914E454           
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x79D11344
+STORE $0, $5, $1                  
+SUB $0, $0, $0
+LOAD $6, $0, 0x79D11340           
+SUBI $0, $1, 0x69F81782           
+SUB $6, $6, $6
+STORE $6, $6, 0x79D11340          
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x79D11344
+LOAD $6, $6, $4                   
+SUB $0, $0, $0
+LOAD $0, $0, 0x79D11348           
+SUB $3, $3, $3
+STORE $3, $3, 0x79D11344          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $0, $6, 0x0B030584           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $5, $5
+LOAD $7, $5, 0x79D11348           
+SUB $6, $5, $6                    
+ADDI $5, $5, 0x473B0CD4           
+SUB $0, $0, $0
+LOAD $6, $0, 0x79D11340           
+NOP                               
+ADD $6, $4, $6                    
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x79D11340
+STORE $3, $5, $7                  
+SUB $4, $4, $4
+STORE $4, $2, 0x79D11344          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $1, $2, $1                    
+ADDI $0, $6, 0x38CF7A5B           
+SUBI $2, $2, 0x4F77C204           
+SUB $7, $7, $7
+LOAD $7, $7, 0x79D11348           
+NOP                               
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x79D11344
+STORE $2, $0, $6                  
+ADDI $2, $2, 0x125CD055           
+ADDI $2, $6, 0x74120035           
+ADDI $0, $7, 0x0BEA5DE4           
+SUB $0, $0, $0
+STORE $0, $2, 0x79D11348          
+NOP                               
+ADDI $3, $5, 0xACFCF62B           
+SUBI $7, $3, 0x567C7C1B           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $1, $5, $1                    
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x79D11340
+LOAD $2, $2, $7                   
+SUBI $6, $0, 0x1101C160           
+HALT $0
+#
+D@0x79D11340
+0xDE31905B		# 79D11340		= -567177125
+0xFE7117E8		# 79D11344		= -26142744
+0x6E1C1EC8		# 79D11348		= 1847336648

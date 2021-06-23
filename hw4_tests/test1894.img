@@ -1,0 +1,136 @@
+# Test N.1894
+#
+L10
+S10
+O5
+N7
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $6, $6, $6
+LOAD $7, $6, 0x561AC6FB           
+ADDI $4, $5, 0x93FE7E23           
+ADDI $5, $2, 0x1DDFB0A7           
+ADD $6, $2, $5                    
+ADDI $6, $2, 0xE432C280           
+ADD $5, $3, $5                    
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x561AC71B
+STORE $1, $2, $6                  
+ADD $0, $0, $0                    
+NOP                               
+NOP                               
+SUB $2, $5, $5                    
+SUB $3, $7, $4                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+NOP                               
+SUBI $5, $1, 0x3F786F0B           
+ADD $1, $5, $7                    
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x561AC703
+STORE $1, $0, $6                  
+SUB $6, $7, $1                    
+ADDI $5, $0, 0x99062F81           
+ADDI $2, $6, 0xCD37E708           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x561AC70F
+LOAD $0, $0, $6                   
+SUB $4, $4, $4
+LOAD $6, $4, 0x561AC70B           
+SUB $3, $3, $3
+STORE $3, $4, 0x561AC703          
+SUB $3, $3, $3
+STORE $3, $5, 0x561AC717          
+SUB $0, $0, $0
+STORE $0, $7, 0x561AC6FB          
+SUB $3, $3, $3
+LOAD $5, $3, 0x561AC717           
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x561AC6FF
+STORE $0, $7, $5                  
+NOP                               
+SUBI $3, $0, 0x0A3F6663           
+SUB $7, $7, $7
+STORE $7, $5, 0x561AC6FB          
+SUB $1, $3, $2                    
+SUB $0, $0, $0
+LOAD $1, $0, 0x561AC707           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x561AC71B
+STORE $5, $7, $1                  
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x561AC6FB
+LOAD $3, $3, $0                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $2, 0x561AC6FB          
+ADDI $6, $0, 0x365BC135           
+SUB $3, $1, $3                    
+SUB $4, $4, $4
+LOAD $3, $4, 0x561AC707           
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x561AC713
+LOAD $2, $4, $5                   
+ADD $1, $7, $3                    
+NOP                               
+SUB $4, $4, $4
+STORE $4, $6, 0x561AC707          
+SUB $7, $2, $5                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $6, $6, $6
+LOAD $4, $6, 0x561AC70B           
+NOP                               
+SUB $0, $4, $2                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADD $2, $0, $5                    
+HALT $0
+#
+D@0x561AC6F7
+0x1656E34E		# 561AC6F7		= 374793038
+0x7A0B5CC2		# 561AC6FB		= 2047564994
+0xAD3651CF		# 561AC6FF		= -1388949041
+0xF38C949C		# 561AC703		= -208890724
+0xED0BB7FE		# 561AC707		= -317999106
+0x9DDC5608		# 561AC70B		= -1646504440
+0x1932AB5E		# 561AC70F		= 422751070
+0x5B81F3B6		# 561AC713		= 1535243190
+0x556C3C16		# 561AC717		= 1433156630
+0x4C35990A		# 561AC71B		= 1278581002
+0x550644E7		# 561AC71F		= 1426474215

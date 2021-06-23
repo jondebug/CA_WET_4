@@ -1,0 +1,170 @@
+# Test N.1124
+#
+L10
+S4
+O3
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+LOAD $5, $5, 0x79B4A509           
+NOP                               
+NOP                               
+ADDI $2, $2, 0x15D49C76           
+NOP                               
+SUB $2, $2, $2
+LOAD $6, $2, 0x79B4A52D           
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x79B4A515
+LOAD $3, $3, $1                   
+ADD $6, $1, $3                    
+SUB $3, $0, $7                    
+SUB $7, $4, $4                    
+ADDI $1, $4, 0xF37CFA4E           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+LOAD $0, $2, 0x79B4A509           
+SUB $3, $3, $7                    
+NOP                               
+ADD $1, $6, $2                    
+ADDI $1, $0, 0x2C21F576           
+SUB $1, $1, $0                    
+SUB $1, $4, $7                    
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x79B4A509
+STORE $6, $7, $2                  
+NOP                               
+SUBI $0, $7, 0xA3E81C55           
+SUBI $5, $2, 0x2E5B13AA           
+SUB $0, $0, $0
+STORE $0, $6, 0x79B4A511          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+LOAD $0, $7, 0x79B4A525           
+SUBI $7, $7, 0x9F5F353F           
+ADDI $0, $3, 0x920F995E           
+NOP                               
+SUB $0, $0, $0
+STORE $0, $6, 0x79B4A51D          
+ADDI $2, $1, 0xA1938520           
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x79B4A515
+STORE $0, $3, $3                  
+ADD $2, $5, $3                    
+NOP                               
+SUB $7, $7, $6                    
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x79B4A511
+LOAD $0, $4, $5                   
+ADD $4, $3, $7                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x79B4A515
+STORE $5, $2, $1                  
+SUB $5, $6, $3                    
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x79B4A521
+STORE $2, $4, $5                  
+SUB $0, $0, $0
+STORE $0, $5, 0x79B4A531          
+SUB $4, $4, $4
+STORE $4, $1, 0x79B4A50D          
+SUB $3, $0, $4                    
+ADD $0, $2, $0                    
+SUBI $1, $1, 0x875CB5DA           
+SUBI $2, $1, 0x343C1080           
+SUB $6, $6, $6
+LOAD $7, $6, 0x79B4A52D           
+SUB $6, $6, $6
+LOAD $4, $6, 0x79B4A531           
+SUB $5, $5, $5
+LOAD $6, $5, 0x79B4A525           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUB $1, $1, $1
+LOAD $7, $1, 0x79B4A501           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADDI $3, $1, 0xB024758B           
+NOP                               
+SUB $2, $2, $7                    
+NOP                               
+ADD $5, $6, $5                    
+SUBI $1, $4, 0xFD870066           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUBI $0, $3, 0xBFC1E5FE           
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x79B4A515
+LOAD $6, $7, $2                   
+NOP                               
+SUB $7, $0, $7                    
+SUB $7, $7, $7
+LOAD $4, $7, 0x79B4A511           
+SUB $7, $7, $7
+STORE $7, $1, 0x79B4A511          
+ADD $7, $7, $1                    
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $6, 0x79B4A525          
+ADDI $5, $4, 0x5D3692B0           
+ADDI $0, $5, 0xD68A9218           
+SUBI $5, $0, 0x7E4B509B           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x79B4A511
+LOAD $3, $1, $0                   
+SUB $1, $1, $2                    
+HALT $0
+#
+D@0x79B4A501
+0x43BF5518		# 79B4A501		= 1136612632
+0xE42A0F7F		# 79B4A505		= -467005569
+0x3284E8D5		# 79B4A509		= 847571157
+0x47EDC4B3		# 79B4A50D		= 1206764723
+0x84C12982		# 79B4A511		= -2067715710
+0x82AAC204		# 79B4A515		= -2102738428
+0x43BB1D18		# 79B4A519		= 1136336152
+0x2960D243		# 79B4A51D		= 694211139
+0x37E75FD2		# 79B4A521		= 937910226
+0x17652A31		# 79B4A525		= 392505905
+0x96738031		# 79B4A529		= -1770815439
+0xBB97C29E		# 79B4A52D		= -1147682146
+0x7FBB2EA2		# 79B4A531		= 2142973602
+0x4A937BC1		# 79B4A535		= 1251179457
+0x629E6A6C		# 79B4A539		= 1654549100

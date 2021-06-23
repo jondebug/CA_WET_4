@@ -1,0 +1,91 @@
+# Test N.524
+#
+L7
+S3
+O3
+N4
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $2, $5                    
+ADDI $3, $6, 0x30DA9797           
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x1DA91D82
+STORE $7, $2, $3                  
+SUB $4, $1, $3                    
+SUB $1, $1, $1
+STORE $1, $6, 0x1DA91D96          
+ADD $5, $6, $1                    
+SUBI $6, $5, 0xE834A16C           
+NOP                               
+SUB $2, $2, $2
+LOAD $0, $2, 0x1DA91D76           
+SUB $4, $4, $4
+LOAD $0, $4, 0x1DA91D86           
+ADDI $1, $1, 0x51402E6F           
+ADDI $0, $6, 0x052919AB           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $7, $2                    
+SUB $4, $4, $7                    
+ADDI $0, $6, 0x5C1F9357           
+SUB $3, $3, $3
+STORE $3, $7, 0x1DA91D6E          
+SUB $5, $7, $0                    
+SUB $1, $1, $1
+STORE $1, $4, 0x1DA91D7A          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $5, 0x1DA91D8A          
+ADD $2, $2, $2                    
+SUBI $4, $3, 0x1D3D5720           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x1DA91D86
+STORE $5, $3, $1                  
+ADDI $4, $0, 0xD503AF27           
+ADDI $6, $6, 0xEAC3DF16           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x1DA91D72
+STORE $1, $3, $5                  
+ADDI $3, $0, 0x106B7227           
+SUB $7, $7, $7
+STORE $7, $3, 0x1DA91D7E          
+NOP                               
+SUBI $7, $7, 0x978A99DB           
+SUBI $2, $7, 0x3F92EEF4           
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x1DA91D6E
+STORE $4, $4, $2                  
+HALT $0
+#
+D@0x1DA91D6E
+0xB960C2DD		# 1DA91D6E		= -1184840995
+0x7E800A67		# 1DA91D72		= 2122320487
+0x7C33054E		# 1DA91D76		= 2083718478
+0xB27AB53C		# 1DA91D7A		= -1300581060
+0x9045089B		# 1DA91D7E		= -1874524005
+0xBA8EC541		# 1DA91D82		= -1165048511
+0xF2F7181D		# 1DA91D86		= -218687459
+0x410D8D4B		# 1DA91D8A		= 1091407179
+0xE95EE3E0		# 1DA91D8E		= -379657248
+0x00695CC0		# 1DA91D92		= 6905024
+0x3B84E8CA		# 1DA91D96		= 998566090
+0x6D0A7BF7		# 1DA91D9A		= 1829403639
+0x1A2301C0		# 1DA91D9E		= 438501824

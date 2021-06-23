@@ -1,0 +1,42 @@
+# Test N.1581
+#
+L10
+S9
+O6
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $7, $3, 0x42DDE716           
+SUBI $1, $3, 0x3325E15C           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $1, $6                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $1, $6, 0xD69958DB           
+SUB $6, $5, $2                    
+SUBI $2, $2, 0xFCCAC7A2           
+SUB $3, $3, $3
+STORE $3, $1, 0x071C8F8E          
+SUB $1, $1, $1
+LOAD $2, $1, 0x071C8F96           
+ADD $0, $7, $3                    
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x071C8F92
+STORE $3, $2, $1                  
+HALT $0
+#
+D@0x071C8F8E
+0xCB45B3D4		# 071C8F8E		= -884624428
+0x18BDE79E		# 071C8F92		= 415098782
+0x0EE4B656		# 071C8F96		= 249869910
+0xA84626CB		# 071C8F9A		= -1471797557

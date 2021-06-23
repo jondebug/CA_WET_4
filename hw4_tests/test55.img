@@ -1,0 +1,109 @@
+# Test N.55
+#
+L3
+S10
+O10
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x48B04DFE
+LOAD $6, $0, $3                   
+ADD $1, $3, $2                    
+ADDI $1, $2, 0x549DCBAC           
+ADDI $1, $6, 0xB71F3977           
+SUB $2, $5, $0                    
+SUB $6, $6, $6
+LOAD $2, $6, 0x48B04DDE           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $1, $6, 0xD26C5D8B           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $3, $0, 0xFDDC6797           
+SUB $1, $3, $2                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $3, $0, $6                    
+NOP                               
+SUB $1, $1, $1
+LOAD $2, $1, 0x48B04E02           
+SUB $4, $4, $3                    
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x48B04DDE
+LOAD $2, $1, $3                   
+ADDI $4, $6, 0x92FFA68C           
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x48B04DEA
+LOAD $4, $0, $5                   
+SUBI $3, $1, 0x26589904           
+SUB $1, $6, $1                    
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x48B04DF2
+STORE $3, $6, $2                  
+NOP                               
+SUB $3, $0, $7                    
+SUBI $0, $7, 0xDE481A70           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $5, $0, 0x278C5058           
+SUB $3, $3, $3
+STORE $3, $1, 0x48B04DE2          
+SUB $2, $2, $2
+STORE $2, $0, 0x48B04DEA          
+ADD $4, $5, $4                    
+SUB $3, $0, $1                    
+SUB $1, $4, $5                    
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $6, $6, $6
+STORE $6, $7, 0x48B04DE2          
+SUBI $4, $4, 0x9768B917           
+ADDI $0, $2, 0xA254B594           
+SUB $5, $7, $4                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $4, $5, $3                    
+ADDI $0, $6, 0x9FF3406D           
+SUB $5, $5, $5
+STORE $5, $5, 0x48B04E02          
+HALT $0
+#
+D@0x48B04DDE
+0xB783FC58		# 48B04DDE		= -1216086952
+0x03AD7328		# 48B04DE2		= 61698856
+0x17195326		# 48B04DE6		= 387535654
+0xE5BA7F19		# 48B04DEA		= -440762599
+0xA357ED79		# 48B04DEE		= -1554518663
+0x0524E626		# 48B04DF2		= 86304294
+0xC15DEA45		# 48B04DF6		= -1050809787
+0x0A5D6114		# 48B04DFA		= 173891860
+0x956C0B8D		# 48B04DFE		= -1788081267
+0xB7538DB5		# 48B04E02		= -1219261003
+0x98154447		# 48B04E06		= -1743436729
+0xDE9D82E5		# 48B04E0A		= -560102683

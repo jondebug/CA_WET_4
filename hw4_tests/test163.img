@@ -1,0 +1,109 @@
+# Test N.163
+#
+L4
+S5
+O1
+N6
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $3, $5, 0xF17E8060           
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x798E7A7A
+LOAD $2, $2, $6                   
+ADDI $0, $7, 0xCE2B9C33           
+NOP                               
+ADD $6, $0, $3                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $6, $2                    
+SUBI $7, $3, 0xC1C1D1BE           
+SUBI $3, $4, 0x8C857649           
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x798E7A92
+STORE $2, $1, $1                  
+SUBI $5, $2, 0x41CD7959           
+SUB $1, $1, $1
+STORE $1, $7, 0x798E7A72          
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x798E7A8A
+LOAD $1, $7, $6                   
+SUB $5, $5, $5
+STORE $5, $7, 0x798E7AA2          
+ADD $6, $1, $2                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUBI $6, $4, 0xDBD4BA4D           
+SUBI $7, $7, 0x1856B353           
+ADD $5, $4, $4                    
+ADD $5, $1, $6                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $6, $6, $2                    
+ADDI $7, $1, 0x8F0F4929           
+SUB $3, $1, $2                    
+NOP                               
+SUB $5, $2, $3                    
+SUB $2, $7, $3                    
+SUB $5, $5, $5
+STORE $5, $4, 0x798E7A76          
+ADDI $4, $1, 0x4FE42DD7           
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x798E7A6A
+LOAD $2, $1, $7                   
+ADDI $7, $0, 0xC45C344F           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+SUBI $3, $0, 0x94D41C6F           
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x798E7A7A
+LOAD $3, $6, $5                   
+SUB $6, $1, $4                    
+NOP                               
+SUB $4, $4, $4
+LOAD $1, $4, 0x798E7A82           
+ADD $2, $5, $1                    
+ADD $1, $1, $0                    
+HALT $0
+#
+D@0x798E7A6A
+0x1F515AFD		# 798E7A6A		= 525425405
+0x3B8C0651		# 798E7A6E		= 999032401
+0x3FA9108C		# 798E7A72		= 1068044428
+0x8213C998		# 798E7A76		= -2112632424
+0x9D200BB3		# 798E7A7A		= -1658844237
+0x079CE7CA		# 798E7A7E		= 127723466
+0x3F088EF3		# 798E7A82		= 1057525491
+0xE07670F5		# 798E7A86		= -529108747
+0xCBB61EA2		# 798E7A8A		= -877257054
+0xE1A534FF		# 798E7A8E		= -509266689
+0xBFA8CC9A		# 798E7A92		= -1079456614
+0xE711519B		# 798E7A96		= -418295397
+0x49BD4225		# 798E7A9A		= 1237140005
+0x457EA950		# 798E7A9E		= 1165928784
+0x60D5F850		# 798E7AA2		= 1624635472

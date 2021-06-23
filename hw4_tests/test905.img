@@ -1,0 +1,66 @@
+# Test N.905
+#
+L10
+S10
+O10
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $5, $2, 0xFB58072C           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $5, $7, 0x944BF464           
+ADDI $5, $4, 0x2F86BF55           
+NOP                               
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x3BDA51E2
+STORE $7, $7, $6                  
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x3BDA51E2
+STORE $0, $5, $2                  
+SUB $0, $0, $2                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $7, $7, 0x6667303F           
+SUB $7, $7, $7
+LOAD $1, $7, 0x3BDA51E2           
+NOP                               
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $7, $1, $7                    
+ADDI $6, $3, 0x51B6FF16           
+SUBI $3, $4, 0xBD832775           
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x3BDA51E2
+STORE $0, $1, $5                  
+SUB $3, $3, $3
+STORE $3, $6, 0x3BDA51E2          
+NOP                               
+SUB $7, $7, $7
+STORE $7, $3, 0x3BDA51E2          
+ADDI $5, $3, 0x3016137D           
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x3BDA51E2
+STORE $0, $6, $7                  
+HALT $0
+#
+D@0x3BDA51E2
+0xB44B3F42		# 3BDA51E2		= -1270137022

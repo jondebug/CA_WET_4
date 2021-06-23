@@ -1,0 +1,116 @@
+# Test N.132
+#
+L9
+S7
+O8
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $0, 0x524E4D8C          
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x524E4DB0
+LOAD $0, $3, $0                   
+SUBI $1, $4, 0x8FD18994           
+SUB $7, $7, $7
+STORE $7, $2, 0x524E4D74          
+SUBI $6, $0, 0x9AF663C6           
+SUB $2, $0, $0                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x524E4DAC
+STORE $1, $5, $6                  
+SUB $6, $1, $6                    
+SUB $6, $6, $6
+LOAD $3, $6, 0x524E4DB0           
+SUB $7, $7, $7
+STORE $7, $0, 0x524E4D74          
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x524E4D8C
+STORE $4, $0, $7                  
+ADDI $5, $7, 0x335D06A1           
+ADDI $0, $2, 0xC26D1EE5           
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x524E4D9C
+LOAD $6, $0, $1                   
+NOP                               
+SUBI $6, $4, 0x4BAD8A4A           
+SUB $1, $1, $1
+LOAD $0, $1, 0x524E4D94           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $0, $5, 0x3CF61662           
+ADD $1, $6, $7                    
+ADD $5, $7, $2                    
+SUBI $6, $0, 0xEDF95CF8           
+SUB $6, $6, $6
+STORE $6, $7, 0x524E4D88          
+ADDI $0, $6, 0xDB174AA7           
+SUBI $2, $2, 0x54E008A2           
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x524E4DB0
+LOAD $7, $1, $6                   
+SUB $6, $6, $6
+LOAD $7, $6, 0x524E4D84           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $0, $5, 0x1AEB3009           
+ADDI $0, $2, 0x50B3D528           
+ADDI $2, $2, 0xB235C25B           
+NOP                               
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x524E4D98
+STORE $5, $6, $3                  
+SUB $7, $7, $7
+STORE $7, $6, 0x524E4DA8          
+SUB $1, $1, $1
+LOAD $0, $1, 0x524E4DA4           
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x524E4D90
+LOAD $1, $3, $1                   
+SUB $7, $4, $7                    
+SUB $2, $2, $2
+LOAD $7, $2, 0x524E4D70           
+SUBI $3, $1, 0xC357B07F           
+SUB $1, $1, $1
+LOAD $6, $1, 0x524E4DA0           
+ADD $4, $7, $0                    
+HALT $0
+#
+D@0x524E4D70
+0x102BD2BE		# 524E4D70		= 271307454
+0x4C1836BA		# 524E4D74		= 1276655290
+0xE7AD0B58		# 524E4D78		= -408089768
+0xF0B5DF11		# 524E4D7C		= -256516335
+0x37D93B0A		# 524E4D80		= 936983306
+0x3486289B		# 524E4D84		= 881207451
+0x9BC4C984		# 524E4D88		= -1681602172
+0x02CF5922		# 524E4D8C		= 47143202
+0x11647857		# 524E4D90		= 291797079
+0x951ED29D		# 524E4D94		= -1793142115
+0x030121CC		# 524E4D98		= 50405836
+0x4BEECD7C		# 524E4D9C		= 1273941372
+0xFE1805AB		# 524E4DA0		= -31980117
+0x1F9B03CB		# 524E4DA4		= 530252747
+0xF1BCF0BD		# 524E4DA8		= -239275843
+0x7E607A63		# 524E4DAC		= 2120252003
+0x0D171D41		# 524E4DB0		= 219618625

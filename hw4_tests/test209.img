@@ -1,0 +1,35 @@
+# Test N.209
+#
+L3
+S6
+O8
+N3
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $1, 0x47EEBAB7          
+SUB $5, $5, $5
+LOAD $0, $5, 0x47EEBAB7           
+ADDI $2, $4, 0x1AC6079B           
+NOP                               
+SUBI $2, $0, 0x8BD33C2B           
+NOP                               
+ADDI $1, $6, 0x53664812           
+ADD $3, $6, $1                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+D@0x47EEBAB7
+0xB5232380		# 47EEBAB7		= -1255988352
+0xE3910DED		# 47EEBABB		= -477032979

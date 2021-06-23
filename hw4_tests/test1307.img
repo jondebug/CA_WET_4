@@ -1,0 +1,66 @@
+# Test N.1307
+#
+L8
+S6
+O8
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $4, $3                    
+NOP                               
+SUB $0, $3, $7                    
+ADDI $2, $2, 0xAD9A2B9D           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $0, $7, $7                    
+NOP                               
+SUBI $3, $1, 0xB4D841D3           
+NOP                               
+SUB $0, $0, $0
+STORE $0, $6, 0x0F7A57A8          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $3, $7, 0x1967F037           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $6, $6, $6
+LOAD $4, $6, 0x0F7A57A8           
+ADD $2, $2, $1                    
+SUB $5, $2, $4                    
+SUB $4, $0, $0                    
+SUB $1, $1, $1
+LOAD $3, $1, 0x0F7A57B0           
+SUB $1, $1, $1
+STORE $1, $3, 0x0F7A57A8          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $7, $5, 0xEB5ADA1A           
+SUBI $4, $5, 0x234CE49B           
+ADD $4, $7, $6                    
+ADDI $3, $3, 0x87D40679           
+SUBI $7, $6, 0xDEE086D1           
+SUB $2, $5, $4                    
+SUBI $6, $2, 0xFD07E0ED           
+SUBI $6, $2, 0xBDEAB84C           
+ADD $0, $0, $5                    
+SUB $6, $0, $2                    
+HALT $0
+#
+D@0x0F7A57A8
+0x2377E8FD		# 0F7A57A8		= 595060989
+0x9BCAD670		# 0F7A57AC		= -1681205648
+0x4BBC6E22		# 0F7A57B0		= 1270640162

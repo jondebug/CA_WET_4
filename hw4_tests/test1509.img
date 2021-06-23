@@ -1,0 +1,178 @@
+# Test N.1509
+#
+L4
+S1
+O8
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $0, 0x09AB7165          
+ADDI $6, $6, 0xA30093BC           
+ADD $6, $2, $6                    
+SUB $0, $2, $7                    
+ADD $5, $3, $6                    
+SUB $1, $6, $5                    
+SUBI $7, $3, 0xB008E837           
+NOP                               
+NOP                               
+SUB $3, $1, $7                    
+NOP                               
+ADD $1, $7, $6                    
+SUB $5, $5, $5
+LOAD $2, $5, 0x09AB7175           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $3, $0, 0x539F0B67           
+SUB $7, $7, $7
+STORE $7, $6, 0x09AB7149          
+SUB $5, $5, $5
+STORE $5, $3, 0x09AB7149          
+ADDI $1, $1, 0xEADB6E6D           
+SUB $6, $6, $6
+LOAD $6, $6, 0x09AB7169           
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x09AB7151
+LOAD $1, $0, $3                   
+SUB $2, $2, $7                    
+ADD $1, $3, $2                    
+ADDI $5, $5, 0x76F9D4AC           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+NOP                               
+SUB $6, $6, $6
+LOAD $1, $6, 0x09AB7155           
+NOP                               
+NOP                               
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x09AB7169
+STORE $5, $5, $0                  
+SUB $5, $7, $4                    
+SUBI $3, $3, 0xFB8C2248           
+SUB $7, $7, $7
+LOAD $6, $7, 0x09AB7145           
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $1, $7, $5                    
+SUB $3, $3, $7                    
+SUB $4, $4, $4
+STORE $4, $0, 0x09AB7161          
+SUB $2, $2, $2
+LOAD $3, $2, 0x09AB7159           
+SUB $2, $2, $2
+LOAD $6, $2, 0x09AB7159           
+SUBI $5, $0, 0x46E25EEB           
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x09AB7171
+LOAD $0, $0, $3                   
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x09AB716D
+STORE $5, $0, $1                  
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $6, $2, $5                    
+ADDI $5, $6, 0xFA59BC45           
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x09AB7155
+STORE $2, $7, $7                  
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x09AB7149
+LOAD $3, $0, $7                   
+SUB $6, $0, $5                    
+SUB $2, $7, $1                    
+SUBI $7, $6, 0x4BF9613E           
+SUB $6, $6, $6
+STORE $6, $6, 0x09AB7149          
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUBI $2, $1, 0xE8778B20           
+SUB $2, $2, $2
+STORE $2, $6, 0x09AB716D          
+SUBI $6, $2, 0xED8D33F6           
+SUBI $0, $1, 0xF2D29C61           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x09AB716D
+STORE $1, $6, $7                  
+ADD $2, $0, $0                    
+NOP                               
+ADDI $4, $7, 0x894E81B1           
+SUB $2, $3, $5                    
+ADD $3, $1, $7                    
+ADDI $3, $3, 0xB73A990A           
+ADD $5, $6, $1                    
+ADDI $2, $4, 0x7AB96DBC           
+SUB $3, $3, $3
+STORE $3, $1, 0x09AB715D          
+SUB $1, $6, $4                    
+NOP                               
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+ADD $6, $1, $3                    
+NOP                               
+SUB $2, $2, $2
+STORE $2, $7, 0x09AB715D          
+SUB $4, $2, $2                    
+SUB $2, $2, $2
+LOAD $5, $2, 0x09AB7165           
+SUB $3, $3, $3
+LOAD $0, $3, 0x09AB7165           
+ADDI $2, $1, 0x727830BF           
+SUBI $2, $3, 0x7E4CD632           
+SUB $6, $6, $6
+LOAD $5, $6, 0x09AB7175           
+SUBI $2, $4, 0xC781239D           
+SUB $7, $7, $7
+LOAD $7, $7, 0x09AB7171           
+SUB $2, $2, $2
+LOAD $0, $2, 0x09AB7171           
+HALT $0
+#
+D@0x09AB7145
+0x19426486		# 09AB7145		= 423781510
+0x53FC1BFB		# 09AB7149		= 1409031163
+0x705BDD53		# 09AB714D		= 1885068627
+0xFE90A478		# 09AB7151		= -24075144
+0xA845B598		# 09AB7155		= -1471826536
+0x568126DE		# 09AB7159		= 1451304670
+0xCAC91BA7		# 09AB715D		= -892789849
+0x9C879387		# 09AB7161		= -1668836473
+0xD3C5B004		# 09AB7165		= -742019068
+0xCA5B50BA		# 09AB7169		= -899985222
+0x3CC63698		# 09AB716D		= 1019623064
+0xD9505D60		# 09AB7171		= -649044640
+0x320E3F7B		# 09AB7175		= 839794555

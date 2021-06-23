@@ -1,0 +1,29 @@
+# Test N.1814
+#
+L4
+S3
+O8
+N1
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $0, $6, 0xBB9F72BD           
+SUB $2, $2, $2
+LOAD $6, $2, 0x5DFD9DE6           
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x5DFD9DDA
+STORE $2, $2, $4                  
+SUBI $6, $2, 0x615A7656           
+NOP                               
+SUB $0, $0, $0
+LOAD $2, $0, 0x5DFD9DDA           
+HALT $0
+#
+D@0x5DFD9DDA
+0x6F7DB9E6		# 5DFD9DDA		= 1870510566
+0xD716D69E		# 5DFD9DDE		= -686369122
+0x7703B387		# 5DFD9DE2		= 1996731271
+0x198C712F		# 5DFD9DE6		= 428634415
+0x6F3CA2FC		# 5DFD9DEA		= 1866244860

@@ -1,0 +1,58 @@
+# Test N.759
+#
+L2
+S8
+O5
+N3
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+NOP                               
+ADD $2, $7, $7                    
+SUB $7, $7, $7
+LOAD $5, $7, 0x6AACF5FB           
+NOP                               
+SUB $3, $7, $5                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $3, $2, 0xE874A82E           
+ADD $2, $0, $5                    
+ADDI $5, $2, 0x704FF0C2           
+NOP                               
+SUBI $7, $3, 0x5DC37F18           
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x6AACF5FB
+LOAD $6, $4, $7                   
+ADDI $2, $4, 0x64955650           
+NOP                               
+SUB $2, $2, $2
+STORE $2, $7, 0x6AACF5F7          
+SUB $7, $7, $7
+LOAD $3, $7, 0x6AACF5FB           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $5, $0, 0x43AD4ED7           
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x6AACF5F7
+STORE $7, $5, $2                  
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x6AACF5F7
+STORE $6, $4, $2                  
+HALT $0
+#
+D@0x6AACF5F7
+0xB3880AC0		# 6AACF5F7		= -1282929984
+0x49EDA960		# 6AACF5FB		= 1240312160

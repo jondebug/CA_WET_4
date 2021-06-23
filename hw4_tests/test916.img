@@ -1,0 +1,76 @@
+# Test N.916
+#
+L2
+S5
+O8
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $1, $1                    
+NOP                               
+SUB $1, $1, $1
+LOAD $2, $1, 0x3609566C           
+SUB $0, $0, $0
+STORE $0, $0, 0x36095670          
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x36095670
+STORE $4, $6, $3                  
+SUB $6, $6, $6
+LOAD $7, $6, 0x3609566C           
+SUB $3, $2, $1                    
+SUB $3, $2, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $3, 0x3609566C          
+SUB $2, $6, $5                    
+ADDI $5, $0, 0x9E07E8BD           
+NOP                               
+SUB $2, $2, $2
+STORE $2, $3, 0x3609566C          
+ADDI $0, $7, 0x8FBBD79F           
+SUB $4, $3, $5                    
+NOP                               
+ADD $7, $0, $2                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $1, $4, 0x37746846           
+SUBI $1, $5, 0xDE26D7AB           
+NOP                               
+ADD $1, $2, $0                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $1, $1, $1
+LOAD $3, $1, 0x3609566C           
+ADDI $4, $6, 0x150C2935           
+ADD $6, $6, $2                    
+SUB $2, $2, $2
+LOAD $2, $2, 0x3609566C           
+SUB $3, $2, $7                    
+SUB $3, $3, $2                    
+SUB $0, $7, $5                    
+SUB $0, $0, $0
+STORE $0, $2, 0x36095670          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+HALT $0
+#
+D@0x3609566C
+0xE95CFCE3		# 3609566C		= -379781917
+0x23981F68		# 36095670		= 597172072

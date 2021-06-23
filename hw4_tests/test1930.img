@@ -1,0 +1,61 @@
+# Test N.1930
+#
+L5
+S1
+O7
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADD $0, $7, $0                    
+ADDI $5, $7, 0x01265AFC           
+SUB $0, $0, $0
+STORE $0, $6, 0x5FE3C883          
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x5FE3C883
+STORE $6, $2, $7                  
+SUB $7, $7, $7
+STORE $7, $3, 0x5FE3C883          
+SUB $6, $2, $3                    
+SUB $5, $5, $5
+STORE $5, $6, 0x5FE3C883          
+ADD $5, $0, $5                    
+NOP                               
+SUB $0, $0, $2                    
+SUB $2, $4, $6                    
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $4, $7                    
+NOP                               
+SUB $4, $4, $4
+LOAD $4, $4, 0x5FE3C883           
+NOP                               
+SUB $1, $1, $1
+STORE $1, $5, 0x5FE3C883          
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x5FE3C883
+STORE $7, $2, $5                  
+ADDI $5, $0, 0x31BDB48C           
+ADDI $2, $1, 0x7F054773           
+ADDI $2, $4, 0x4B62743E           
+SUBI $4, $4, 0x19E20C62           
+ADD $1, $3, $4                    
+SUB $4, $4, $4
+STORE $4, $7, 0x5FE3C883          
+SUB $2, $2, $2                    
+HALT $0
+#
+D@0x5FE3C883
+0x1F9135F6		# 5FE3C883		= 529610230

@@ -1,0 +1,35 @@
+# Test N.1587
+#
+L5
+S7
+O7
+N1
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $4, $0, 0xBD4E9A3C           
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x01F34EB3
+STORE $2, $5, $7                  
+NOP                               
+ADDI $5, $0, 0x14C9DA6A           
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x01F34ECB
+LOAD $0, $4, $5                   
+SUBI $0, $4, 0xB1F91C09           
+NOP                               
+HALT $0
+#
+D@0x01F34EB3
+0xC1152D4B		# 01F34EB3		= -1055576757
+0x9E7E0FFB		# 01F34EB7		= -1635905541
+0x05AD6CF8		# 01F34EBB		= 95251704
+0x7962906B		# 01F34EBF		= 2036502635
+0xF9C1FB4F		# 01F34EC3		= -104727729
+0xBBD207EB		# 01F34EC7		= -1143863317
+0x3D2CCEB5		# 01F34ECB		= 1026346677
+0xC2ACBCA5		# 01F34ECF		= -1028866907

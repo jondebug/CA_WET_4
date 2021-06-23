@@ -1,0 +1,92 @@
+# Test N.1736
+#
+L5
+S7
+O9
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $6, $1                    
+SUB $2, $2, $2
+STORE $2, $4, 0x5756BA99          
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x5756BA95
+LOAD $7, $0, $6                   
+SUBI $4, $5, 0x3B44B8A3           
+SUBI $0, $3, 0xDE117B9E           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $5, $0                    
+SUB $0, $0, $0                    
+SUB $6, $4, $5                    
+NOP                               
+NOP                               
+NOP                               
+ADDI $0, $4, 0x53C04B90           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x5756BA91
+STORE $6, $2, $4                  
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x5756BA8D
+LOAD $2, $2, $1                   
+ADD $6, $7, $7                    
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x5756BA99
+STORE $2, $6, $5                  
+ADDI $1, $3, 0xD3F0438F           
+NOP                               
+SUB $7, $3, $1                    
+ADD $6, $5, $1                    
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x5756BA95
+STORE $0, $2, $6                  
+SUBI $1, $7, 0x75FE2413           
+SUBI $1, $1, 0xD36B491D           
+SUB $7, $7, $7
+LOAD $1, $7, 0x5756BA95           
+SUBI $2, $1, 0x83DECC76           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $6, $4, $0                    
+SUB $3, $3, $3
+LOAD $6, $3, 0x5756BA99           
+SUB $3, $3, $3
+LOAD $7, $3, 0x5756BA8D           
+SUB $3, $3, $3
+LOAD $7, $3, 0x5756BA8D           
+NOP                               
+SUBI $5, $0, 0xC1DCDB10           
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x5756BA95
+LOAD $4, $6, $2                   
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x5756BA95
+STORE $0, $3, $6                  
+HALT $0
+#
+D@0x5756BA8D
+0x6ED14C90		# 5756BA8D		= 1859210384
+0x289EA2D6		# 5756BA91		= 681485014
+0x10DB85B5		# 5756BA95		= 282822069
+0xA0E17267		# 5756BA99		= -1595837849

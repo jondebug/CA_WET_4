@@ -1,0 +1,102 @@
+# Test N.1161
+#
+L5
+S4
+O7
+N5
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADD $1, $0, $0                    
+SUB $2, $2, $2
+LOAD $2, $2, 0x4A09A9D5           
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x4A09A9F1
+STORE $6, $0, $4                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $6, $4, 0x6D98CBEA           
+SUBI $0, $0, 0xBA9ACC6B           
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x4A09A9F1
+LOAD $1, $4, $6                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $7, $4, 0xBA1CC03E           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x4A09A9E9
+STORE $6, $3, $1                  
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x4A09A9D9
+LOAD $2, $7, $4                   
+SUB $5, $5, $5
+LOAD $2, $5, 0x4A09A9DD           
+ADD $1, $0, $4                    
+SUB $0, $0, $4                    
+NOP                               
+NOP                               
+SUB $1, $1, $1
+STORE $1, $5, 0x4A09A9DD          
+ADDI $4, $3, 0xE06E839A           
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x4A09A9ED
+LOAD $4, $0, $6                   
+SUB $6, $6, $6
+LOAD $1, $6, 0x4A09A9DD           
+SUBI $5, $7, 0x58003D33           
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $2, $4, 0x8435A18C           
+ADDI $5, $7, 0x57EFE8F5           
+ADDI $0, $2, 0x76F9AEE1           
+SUB $0, $7, $5                    
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x4A09A9E5
+LOAD $2, $6, $7                   
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x4A09A9F1
+STORE $4, $5, $0                  
+ADD $5, $5, $2                    
+SUB $2, $2, $2
+LOAD $7, $2, 0x4A09A9D5           
+SUB $2, $2, $2
+LOAD $7, $2, 0x4A09A9DD           
+NOP                               
+ADD $7, $5, $7                    
+HALT $0
+#
+D@0x4A09A9CD
+0x74686E59		# 4A09A9CD		= 1953001049
+0xFE802404		# 4A09A9D1		= -25156604
+0xCFE48B99		# 4A09A9D5		= -807105639
+0x29E36834		# 4A09A9D9		= 702769204
+0x896F2614		# 4A09A9DD		= -1989204460
+0xAC979A7E		# 4A09A9E1		= -1399350658
+0xE0A15E6E		# 4A09A9E5		= -526295442
+0xB6DBAA68		# 4A09A9E9		= -1227117976
+0x4B2E482F		# 4A09A9ED		= 1261324335
+0x5758B147		# 4A09A9F1		= 1465430343

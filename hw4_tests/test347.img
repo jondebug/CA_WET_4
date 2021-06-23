@@ -1,0 +1,88 @@
+# Test N.347
+#
+L3
+S7
+O10
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6
+STORE $6, $4, 0x614FC5E2          
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $1, $6                    
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x614FC5CE
+STORE $4, $4, $5                  
+SUB $1, $6, $7                    
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x614FC5CE
+LOAD $6, $5, $4                   
+SUB $0, $6, $4                    
+SUB $3, $3, $3
+LOAD $4, $3, 0x614FC5D6           
+SUBI $2, $3, 0x92A66A2C           
+SUB $0, $5, $3                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $6, $2, 0x69E02F2F           
+SUB $2, $2, $2
+LOAD $4, $2, 0x614FC5DA           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x614FC5DA
+STORE $1, $3, $0                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x614FC5DE
+LOAD $4, $0, $1                   
+SUB $5, $2, $1                    
+ADDI $0, $0, 0xE570E4F5           
+ADDI $6, $6, 0x615BD673           
+SUBI $7, $1, 0x1C3D1F10           
+NOP                               
+ADD $6, $0, $6                    
+NOP                               
+SUB $1, $1, $1
+LOAD $4, $1, 0x614FC5E6           
+SUB $2, $3, $2                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x614FC5DE
+LOAD $0, $6, $5                   
+SUB $5, $5, $5
+STORE $5, $2, 0x614FC5D6          
+ADDI $1, $0, 0xB51E8DF1           
+SUB $4, $3, $6                    
+HALT $0
+#
+D@0x614FC5CE
+0x1ADDE335		# 614FC5CE		= 450749237
+0x32E28FD6		# 614FC5D2		= 853708758
+0xC77160CD		# 614FC5D6		= -948870963
+0xABE72706		# 614FC5DA		= -1410914554
+0x7F93BC50		# 614FC5DE		= 2140388432
+0x4387D3D3		# 614FC5E2		= 1132975059
+0xB695BDE5		# 614FC5E6		= -1231700507
+0x12AB1ED1		# 614FC5EA		= 313204433

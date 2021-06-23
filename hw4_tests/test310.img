@@ -1,0 +1,54 @@
+# Test N.310
+#
+L3
+S3
+O9
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $2, $5, 0x74D17F96           
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x4BFBCCBE
+STORE $7, $2, $3                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $4, $5, 0x8FF741C6           
+SUBI $5, $2, 0xECF4D605           
+NOP                               
+ADD $3, $5, $7                    
+SUB $0, $4, $4                    
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x4BFBCCBA
+LOAD $5, $0, $5                   
+SUB $1, $1, $1
+LOAD $2, $1, 0x4BFBCCA6           
+ADD $0, $7, $0                    
+SUBI $3, $2, 0x3E836601           
+SUB $4, $4, $4
+STORE $4, $0, 0x4BFBCCC2          
+SUB $1, $1, $1
+LOAD $6, $1, 0x4BFBCCB2           
+SUBI $2, $6, 0xD451F48A           
+ADD $4, $4, $2                    
+ADDI $0, $0, 0x7C6F31CC           
+HALT $0
+#
+D@0x4BFBCCA2
+0x8D41DBF6		# 4BFBCCA2		= -1925063690
+0x0FFB2A10		# 4BFBCCA6		= 268118544
+0xBBA64B29		# 4BFBCCAA		= -1146729687
+0x4B669C12		# 4BFBCCAE		= 1265015826
+0xF1EEFAFA		# 4BFBCCB2		= -235996422
+0x81E83965		# 4BFBCCB6		= -2115487387
+0x5953588E		# 4BFBCCBA		= 1498634382
+0xB0A86F84		# 4BFBCCBE		= -1331138684
+0x39ACA5CA		# 4BFBCCC2		= 967615946
+0x32E77E41		# 4BFBCCC6		= 854031937
+0xDFE72773		# 4BFBCCCA		= -538499213

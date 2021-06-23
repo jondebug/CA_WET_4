@@ -1,0 +1,111 @@
+# Test N.250
+#
+L5
+S10
+O2
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $1, 0x3DBD804B          
+NOP                               
+SUB $0, $0, $0
+LOAD $5, $0, 0x3DBD802F           
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x3DBD803F
+LOAD $5, $1, $4                   
+NOP                               
+ADD $5, $5, $6                    
+SUBI $1, $0, 0x58503877           
+SUB $7, $1, $7                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $5, $3, 0x5AEDAA31           
+SUB $2, $2, $2
+LOAD $1, $2, 0x3DBD803F           
+ADDI $3, $1, 0x592EA9C5           
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x3DBD8043
+STORE $6, $3, $4                  
+SUB $0, $0, $0
+LOAD $1, $0, 0x3DBD802F           
+SUB $7, $7, $7
+STORE $7, $1, 0x3DBD803B          
+SUB $6, $0, $6                    
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x3DBD8037
+STORE $1, $5, $7                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $3, $1, 0x6D3CE087           
+NOP                               
+SUB $5, $2, $4                    
+SUB $6, $6, $6
+STORE $6, $4, 0x3DBD802F          
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $1, $1                    
+ADDI $1, $7, 0xED476B84           
+NOP                               
+SUBI $3, $5, 0x2CD397BB           
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x3DBD802F
+STORE $0, $7, $1                  
+ADDI $1, $4, 0x19BB19AB           
+SUB $1, $1, $1
+LOAD $7, $1, 0x3DBD8033           
+NOP                               
+SUBI $2, $5, 0x0931B2A5           
+SUBI $7, $3, 0x3918603F           
+ADD $3, $7, $2                    
+SUB $6, $6, $6
+LOAD $3, $6, 0x3DBD8043           
+ADD $7, $0, $4                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x3DBD803B
+LOAD $5, $7, $0                   
+SUB $6, $6, $6
+STORE $6, $7, 0x3DBD802B          
+SUBI $7, $0, 0x36CFCC30           
+SUB $5, $1, $1                    
+SUB $3, $3, $3
+STORE $3, $2, 0x3DBD803F          
+HALT $0
+#
+D@0x3DBD802B
+0x41BA6B0C		# 3DBD802B		= 1102736140
+0xAE62E210		# 3DBD802F		= -1369251312
+0xD3031074		# 3DBD8033		= -754773900
+0x95F14BB5		# 3DBD8037		= -1779348555
+0xB0ABD3DF		# 3DBD803B		= -1330916385
+0xFF81ED7F		# 3DBD803F		= -8262273
+0x343803AA		# 3DBD8043		= 876086186
+0x7E85C4E5		# 3DBD8047		= 2122695909
+0xC79BBFE9		# 3DBD804B		= -946094103

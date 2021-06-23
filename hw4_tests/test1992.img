@@ -1,0 +1,86 @@
+# Test N.1992
+#
+L10
+S8
+O6
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $7, $3, 0xD301E71F           
+SUB $2, $2, $2
+STORE $2, $4, 0x2DEE3899          
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x2DEE38A9
+LOAD $0, $7, $4                   
+ADD $0, $7, $5                    
+ADD $4, $5, $1                    
+SUB $1, $5, $2                    
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $0, $0
+LOAD $1, $0, 0x2DEE38AD           
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x2DEE3899
+STORE $3, $3, $1                  
+ADDI $7, $2, 0x353C094E           
+ADD $3, $1, $3                    
+SUBI $0, $5, 0xD95B769B           
+SUBI $5, $0, 0xA9534103           
+SUBI $0, $0, 0x39783FC8           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADD $4, $3, $4                    
+SUB $3, $3, $3
+LOAD $6, $3, 0x2DEE38BD           
+SUB $0, $7, $3                    
+SUBI $4, $0, 0x41EDF673           
+SUB $2, $4, $7                    
+SUBI $0, $0, 0x6C8F82EA           
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x2DEE3895
+STORE $1, $0, $7                  
+ADD $0, $1, $5                    
+ADDI $3, $6, 0x4F19D551           
+NOP                               
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x2DEE38A9
+LOAD $2, $7, $0                   
+ADDI $0, $2, 0x3011EC90           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $4, $5, 0x1D001867           
+ADDI $4, $4, 0x0E109992           
+ADD $3, $3, $1                    
+ADD $0, $0, $0                    
+HALT $0
+#
+D@0x2DEE3895
+0xABABF65F		# 2DEE3895		= -1414793633
+0x052C91F3		# 2DEE3899		= 86807027
+0x4820861F		# 2DEE389D		= 1210091039
+0x7FF9D7A1		# 2DEE38A1		= 2147080097
+0x7D504792		# 2DEE38A5		= 2102413202
+0xE61A51D6		# 2DEE38A9		= -434482730
+0x2276618F		# 2DEE38AD		= 578183567
+0x481A7032		# 2DEE38B1		= 1209692210
+0xE3A03056		# 2DEE38B5		= -476041130
+0x6E9EACEE		# 2DEE38B9		= 1855892718
+0xBAD6A485		# 2DEE38BD		= -1160338299

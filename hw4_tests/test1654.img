@@ -1,0 +1,110 @@
+# Test N.1654
+#
+L10
+S7
+O3
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x668A334B
+LOAD $3, $4, $0                   
+SUB $6, $5, $4                    
+NOP                               
+ADD $2, $1, $2                    
+ADDI $5, $4, 0xEE7915DE           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x668A334B
+STORE $1, $7, $5                  
+SUB $2, $4, $6                    
+NOP                               
+NOP                               
+NOP                               
+SUB $0, $4, $3                    
+ADD $1, $3, $5                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $6, $0                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x668A333B
+LOAD $7, $3, $6                   
+SUB $2, $2, $2
+LOAD $7, $2, 0x668A334B           
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x668A333B
+STORE $1, $6, $2                  
+SUB $7, $7, $0                    
+ADD $7, $4, $0                    
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x668A334B
+LOAD $7, $1, $4                   
+ADD $1, $7, $0                    
+NOP                               
+NOP                               
+SUB $5, $2, $3                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $1, 0x668A334B          
+SUB $7, $7, $7
+STORE $7, $5, 0x668A334B          
+SUBI $6, $5, 0x6DAE191F           
+SUB $6, $1, $0                    
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x668A333F
+STORE $5, $2, $7                  
+ADD $0, $7, $4                    
+SUBI $3, $4, 0x0DCD8084           
+ADDI $3, $0, 0xCA701181           
+SUB $6, $4, $7                    
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x668A3343
+STORE $1, $4, $0                  
+ADDI $3, $4, 0xB51FCA0B           
+SUBI $5, $1, 0xCAA1AADC           
+SUB $0, $0, $0
+LOAD $5, $0, 0x668A333B           
+ADD $2, $7, $6                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $7, $7, 0x71E1B33C           
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x668A334B
+STORE $0, $5, $2                  
+NOP                               
+ADDI $1, $7, 0xD812AD25           
+NOP                               
+SUBI $3, $7, 0x97060DA7           
+ADDI $6, $5, 0xA80B1958           
+HALT $0
+#
+D@0x668A333B
+0xC7A88F71		# 668A333B		= -945254543
+0x3EED6021		# 668A333F		= 1055744033
+0x63E543A2		# 668A3343		= 1675969442
+0x2F35691B		# 668A3347		= 792029467
+0x02AFA955		# 668A334B		= 45066581

@@ -1,0 +1,46 @@
+# Test N.1983
+#
+L10
+S2
+O1
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADD $5, $2, $4                    
+ADDI $3, $0, 0xDD503570           
+SUB $1, $1, $1
+STORE $1, $4, 0x078F5DA8          
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $3, 0x078F5DA8          
+NOP                               
+SUB $3, $3, $3
+STORE $3, $3, 0x078F5DAC          
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x078F5DAC
+LOAD $5, $6, $7                   
+ADDI $0, $4, 0xB646BC74           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $1, $1
+LOAD $1, $1, 0x078F5DA8           
+NOP                               
+SUB $7, $0, $7                    
+SUB $6, $1, $6                    
+ADD $2, $5, $7                    
+HALT $0
+#
+D@0x078F5DA8
+0xE4234540		# 078F5DA8		= -467450560
+0x7C4987BD		# 078F5DAC		= 2085193661

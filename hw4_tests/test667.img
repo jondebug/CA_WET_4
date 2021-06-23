@@ -1,0 +1,51 @@
+# Test N.667
+#
+L8
+S6
+O10
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $3, $3, 0x98F8C4E3           
+SUB $2, $2, $2
+LOAD $4, $2, 0x4437A8CF           
+ADD $6, $2, $6                    
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x4437A8CF
+STORE $1, $1, $0                  
+NOP                               
+NOP                               
+SUB $4, $4, $4
+LOAD $5, $4, 0x4437A8CF           
+ADD $5, $3, $1                    
+SUB $5, $1, $0                    
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x4437A8CF
+STORE $6, $2, $1                  
+SUBI $1, $2, 0xC4A11D40           
+ADD $6, $4, $2                    
+ADDI $2, $3, 0x72BDB7D8           
+SUB $3, $4, $7                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $6, $1, 0x7E88DD53           
+ADDI $3, $7, 0x3D15A070           
+ADDI $2, $5, 0x92BB00AC           
+ADDI $3, $5, 0xEB6DE28C           
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x4437A8CF
+LOAD $0, $4, $0                   
+SUB $2, $2, $2
+LOAD $6, $2, 0x4437A8CF           
+HALT $0
+#
+D@0x4437A8CF
+0xA9990B52		# 4437A8CF		= -1449587886

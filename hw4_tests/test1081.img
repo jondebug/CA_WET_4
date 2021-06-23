@@ -1,0 +1,59 @@
+# Test N.1081
+#
+L5
+S8
+O4
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADD $2, $3, $3                    
+NOP                               
+SUBI $4, $3, 0x7B279403           
+ADDI $1, $0, 0x387160E5           
+SUB $2, $4, $5                    
+SUB $0, $0, $0
+LOAD $4, $0, 0x16FC20CD           
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x16FC20C9
+STORE $6, $2, $5                  
+ADD $5, $3, $2                    
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x16FC20D1
+STORE $2, $6, $4                  
+SUB $7, $2, $2                    
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x16FC20D1
+STORE $4, $4, $7                  
+SUB $4, $2, $3                    
+SUBI $2, $7, 0x34DABD6C           
+SUB $1, $1, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x16FC20C9
+LOAD $4, $4, $7                   
+SUB $1, $1, $1
+LOAD $1, $1, 0x16FC20BD           
+SUBI $6, $6, 0xF4515923           
+SUB $0, $0, $0
+STORE $0, $1, 0x16FC20D5          
+NOP                               
+HALT $0
+#
+D@0x16FC20BD
+0xFC434CF9		# 16FC20BD		= -62698247
+0x9E18FBEC		# 16FC20C1		= -1642529812
+0xEA0C64B2		# 16FC20C5		= -368286542
+0xB113E862		# 16FC20C9		= -1324095390
+0x04E7C6E4		# 16FC20CD		= 82298596
+0x5F84E2ED		# 16FC20D1		= 1602544365
+0x27077C11		# 16FC20D5		= 654801937

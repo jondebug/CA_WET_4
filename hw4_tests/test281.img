@@ -1,0 +1,114 @@
+# Test N.281
+#
+L5
+S6
+O10
+N6
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x65E4FCB6
+LOAD $7, $7, $4                   
+SUB $4, $0, $1                    
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x65E4FCDA
+LOAD $7, $1, $4                   
+NOP                               
+ADD $0, $0, $6                    
+ADD $0, $3, $1                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+NOP                               
+SUB $1, $4, $0                    
+SUB $2, $2, $2
+STORE $2, $1, 0x65E4FCE2          
+SUBI $1, $7, 0x365A1ED7           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $2, $0, 0x5C8ACEA2           
+NOP                               
+NOP                               
+SUB $6, $6, $6
+STORE $6, $1, 0x65E4FCB6          
+NOP                               
+NOP                               
+SUBI $5, $4, 0x58F24F44           
+NOP                               
+NOP                               
+ADD $3, $3, $1                    
+SUB $7, $7, $6                    
+NOP                               
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x65E4FCB2
+LOAD $1, $2, $6                   
+SUB $5, $5, $5
+STORE $5, $4, 0x65E4FCEE          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $3, $2, 0xE2ABA64A           
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x65E4FCDE
+LOAD $5, $3, $0                   
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUBI $6, $3, 0x235EDA98           
+ADD $3, $2, $6                    
+SUB $4, $3, $3                    
+SUB $2, $7, $3                    
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x65E4FCBA
+LOAD $7, $5, $2                   
+SUB $6, $1, $7                    
+SUB $0, $0, $0
+LOAD $1, $0, 0x65E4FCBE           
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x65E4FCCA
+STORE $4, $3, $0                  
+SUB $0, $7, $3                    
+SUBI $3, $6, 0xEEF9DCB8           
+ADDI $3, $5, 0x64914AD4           
+HALT $0
+#
+D@0x65E4FCB2
+0xDE3ACF54		# 65E4FCB2		= -566571180
+0x23CBD1DC		# 65E4FCB6		= 600560092
+0xD7B23347		# 65E4FCBA		= -676187321
+0x10277ADF		# 65E4FCBE		= 271022815
+0x41E54A80		# 65E4FCC2		= 1105545856
+0xCAE62CC0		# 65E4FCC6		= -890884928
+0x03455B5A		# 65E4FCCA		= 54877018
+0x0CF36A16		# 65E4FCCE		= 217278998
+0x7CA63967		# 65E4FCD2		= 2091268455
+0x3D290871		# 65E4FCD6		= 1026099313
+0x7903045C		# 65E4FCDA		= 2030240860
+0xAFF59C7F		# 65E4FCDE		= -1342858113
+0x8E0C9EFB		# 65E4FCE2		= -1911775493
+0x71C7BF76		# 65E4FCE6		= 1908916086
+0x886E9850		# 65E4FCEA		= -2006017968
+0xC081619F		# 65E4FCEE		= -1065262689

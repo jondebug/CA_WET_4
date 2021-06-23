@@ -1,0 +1,95 @@
+# Test N.438
+#
+L3
+S8
+O1
+N6
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+ADDI $1, $2, 0xF72A197A           
+NOP                               
+NOP                               
+ADD $0, $7, $6                    
+SUB $7, $1, $6                    
+SUB $1, $6, $2                    
+ADDI $0, $0, 0x240DA27D           
+SUB $2, $2, $2
+LOAD $0, $2, 0x53DF50B6           
+SUBI $7, $6, 0x2FC651A9           
+SUBI $0, $0, 0xAD65B2B2           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $1, $1, 0xBD929D6C           
+NOP                               
+SUB $7, $7, $7
+STORE $7, $7, 0x53DF50B6          
+ADDI $5, $7, 0x10C26011           
+SUB $2, $2, $2
+LOAD $0, $2, 0x53DF50C2           
+ADDI $7, $6, 0x468F2E77           
+SUB $4, $4, $4
+STORE $4, $6, 0x53DF50BA          
+SUBI $7, $7, 0x9E5FC013           
+NOP                               
+SUB $4, $2, $1                    
+ADDI $7, $5, 0x1D25C26C           
+SUBI $2, $4, 0x56227D8F           
+ADDI $2, $7, 0x0402EF7F           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $0, $1                    
+ADDI $7, $5, 0x0C1C0D05           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $1, $2, $0                    
+SUB $7, $7, $7
+STORE $7, $3, 0x53DF50C2          
+SUB $6, $6, $6
+STORE $6, $4, 0x53DF50B6          
+SUB $4, $5, $2                    
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $0, $4, $3                    
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x53DF50BE
+LOAD $6, $3, $7                   
+NOP                               
+ADD $2, $2, $5                    
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x53DF50BE
+LOAD $7, $5, $6                   
+ADD $2, $1, $4                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $7, $2, $7                    
+SUB $6, $6, $6
+LOAD $2, $6, 0x53DF50BE           
+SUBI $3, $5, 0x1F343642           
+HALT $0
+#
+D@0x53DF50B6
+0x73245DCE		# 53DF50B6		= 1931763150
+0xFE645E8B		# 53DF50BA		= -26976629
+0x8061084E		# 53DF50BE		= -2141124530
+0xD45E147E		# 53DF50C2		= -732031874

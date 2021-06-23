@@ -1,0 +1,90 @@
+# Test N.1322
+#
+L5
+S4
+O1
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x3BFBC1F7
+LOAD $5, $2, $3                   
+SUB $5, $5, $5
+LOAD $6, $5, 0x3BFBC1FF           
+ADDI $0, $2, 0x738A807F           
+ADD $2, $1, $6                    
+SUB $4, $3, $5                    
+SUBI $2, $1, 0xDD4C6B05           
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x3BFBC1FB
+LOAD $2, $5, $6                   
+SUBI $6, $3, 0x8954B810           
+SUB $7, $7, $7
+STORE $7, $1, 0x3BFBC207          
+ADD $3, $7, $4                    
+SUB $6, $6, $6
+LOAD $6, $6, 0x3BFBC20B           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $1, $5, $0                    
+SUB $2, $0, $0                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x3BFBC203
+LOAD $7, $3, $7                   
+NOP                               
+ADD $7, $2, $5                    
+ADD $6, $4, $2                    
+NOP                               
+ADDI $1, $7, 0x55C9FF19           
+SUB $2, $2, $2
+STORE $2, $0, 0x3BFBC203          
+SUBI $4, $2, 0x3DE6308E           
+ADDI $2, $7, 0x5BC7E867           
+ADD $0, $7, $1                    
+ADDI $7, $4, 0x22E4B2E3           
+SUB $6, $6, $6
+STORE $6, $6, 0x3BFBC207          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $5, $7                    
+ADDI $5, $2, 0xFF6C6160           
+SUB $3, $7, $2                    
+ADD $7, $1, $4                    
+NOP                               
+SUB $1, $3, $6                    
+ADDI $4, $3, 0xF4FABB65           
+ADD $5, $1, $3                    
+SUB $4, $6, $2                    
+ADD $5, $0, $1                    
+ADDI $7, $6, 0x88EB0FE4           
+NOP                               
+ADD $2, $1, $0                    
+HALT $0
+#
+D@0x3BFBC1F7
+0xC151DEBE		# 3BFBC1F7		= -1051599170
+0xB8EA1CDF		# 3BFBC1FB		= -1192616737
+0x6D51342E		# 3BFBC1FF		= 1834038318
+0x1B099A9D		# 3BFBC203		= 453614237
+0x5A63966C		# 3BFBC207		= 1516476012
+0x7FFE9506		# 3BFBC20B		= 2147390726
+0x42890CC5		# 3BFBC20F		= 1116277957
+0xABFAF008		# 3BFBC213		= -1409617912

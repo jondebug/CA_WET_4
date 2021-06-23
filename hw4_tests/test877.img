@@ -1,0 +1,44 @@
+# Test N.877
+#
+L5
+S9
+O8
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $2, $2                    
+SUB $6, $6, $6
+LOAD $6, $6, 0x2DA36ABE           
+SUBI $1, $4, 0xAFC98D7C           
+SUB $1, $0, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $4, $0                    
+NOP                               
+ADDI $7, $4, 0xB154E146           
+ADD $4, $6, $1                    
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x2DA36A9A
+LOAD $7, $0, $5                   
+NOP                               
+NOP                               
+ADDI $7, $2, 0xF3AECD14           
+HALT $0
+#
+D@0x2DA36A9A
+0x859F71E3		# 2DA36A9A		= -2053148189
+0x97AA93FC		# 2DA36A9E		= -1750428676
+0xEBFAF1B4		# 2DA36AA2		= -335875660
+0x67BE31AF		# 2DA36AA6		= 1740517807
+0x891BA3EC		# 2DA36AAA		= -1994677268
+0x5AF2D458		# 2DA36AAE		= 1525863512
+0x14FCFC63		# 2DA36AB2		= 352124003
+0x0C2ECC66		# 2DA36AB6		= 204393574
+0xB2B1EE73		# 2DA36ABA		= -1296961933
+0xFD022EF1		# 2DA36ABE		= -50188559

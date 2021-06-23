@@ -1,0 +1,84 @@
+# Test N.1056
+#
+L4
+S6
+O6
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x06AB51BD
+LOAD $3, $2, $0                   
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x06AB51D1
+LOAD $5, $5, $3                   
+SUBI $2, $6, 0x30DC47EB           
+SUBI $4, $5, 0x32CCC3F3           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $5, $0, $5                    
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x06AB51B9
+LOAD $3, $7, $3                   
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x06AB51C1
+LOAD $1, $2, $3                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $3, $3
+LOAD $2, $3, 0x06AB51C9           
+ADD $7, $2, $3                    
+NOP                               
+SUBI $6, $0, 0x30379A05           
+SUB $4, $1, $6                    
+SUBI $2, $5, 0x016EA747           
+ADD $4, $1, $4                    
+NOP                               
+SUBI $5, $5, 0x7483E7B1           
+NOP                               
+ADDI $1, $7, 0xC9D4B5E3           
+SUB $2, $2, $2
+LOAD $5, $2, 0x06AB51B1           
+SUBI $5, $1, 0x19AFC509           
+SUB $6, $1, $6                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $0, $7, 0x7EA67454           
+SUB $7, $7, $7
+STORE $7, $0, 0x06AB51BD          
+NOP                               
+SUB $3, $3, $3
+STORE $3, $4, 0x06AB51C1          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+HALT $0
+#
+D@0x06AB51AD
+0x25038FCE		# 06AB51AD		= 620990414
+0x80E97557		# 06AB51B1		= -2132183721
+0xC34C4101		# 06AB51B5		= -1018412799
+0x829B8E4A		# 06AB51B9		= -2103734710
+0x43E7FBA6		# 06AB51BD		= 1139276710
+0x151BFC2C		# 06AB51C1		= 354155564
+0x882673D0		# 06AB51C5		= -2010745904
+0x710B84BD		# 06AB51C9		= 1896580285
+0xED01C118		# 06AB51CD		= -318652136
+0x6B77D582		# 06AB51D1		= 1803015554

@@ -1,0 +1,177 @@
+# Test N.710
+#
+L3
+S4
+O6
+N8
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+ADD $7, $7, $5                    
+SUBI $6, $0, 0x38D382D1           
+SUB $6, $3, $6                    
+SUBI $7, $5, 0x39668D4A           
+SUB $6, $6, $6
+STORE $6, $6, 0x08FB9B6B          
+NOP                               
+SUB $3, $3, $3
+STORE $3, $1, 0x08FB9B7B          
+SUBI $7, $4, 0xA507CF05           
+NOP                               
+ADDI $2, $5, 0x4FED27BA           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $4, $4
+LOAD $3, $4, 0x08FB9B6B           
+SUB $7, $7, $5                    
+SUB $1, $2, $0                    
+SUB $6, $4, $0                    
+SUB $0, $3, $5                    
+SUBI $2, $7, 0x6CEBE7B9           
+ADD $5, $5, $5                    
+ADDI $0, $7, 0x0D2284F4           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $4, $3                    
+SUBI $7, $2, 0x6B1041A7           
+SUB $3, $3, $3
+STORE $3, $4, 0x08FB9B6F          
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x08FB9B53
+LOAD $5, $5, $6                   
+SUBI $4, $2, 0xA5EE822D           
+SUBI $2, $0, 0x0E413164           
+SUB $7, $7, $7
+LOAD $6, $7, 0x08FB9B6F           
+SUBI $3, $3, 0x4D2AE2AD           
+ADD $3, $1, $3                    
+NOP                               
+SUB $6, $6, $6
+STORE $6, $0, 0x08FB9B63          
+SUB $3, $3, $3
+LOAD $1, $3, 0x08FB9B6B           
+SUB $7, $2, $1                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $5, $0, $4                    
+SUBI $1, $6, 0xE7C364B2           
+ADD $2, $6, $5                    
+ADD $3, $6, $2                    
+SUB $1, $1, $1
+LOAD $7, $1, 0x08FB9B77           
+SUB $4, $2, $6                    
+ADDI $3, $7, 0xC7F14FD4           
+ADD $7, $0, $3                    
+ADDI $3, $6, 0x11BBC9F1           
+SUBI $7, $6, 0xC8AB88D1           
+ADDI $6, $5, 0x8DC686E8           
+ADD $5, $3, $7                    
+ADD $0, $7, $2                    
+SUB $7, $7, $7
+STORE $7, $2, 0x08FB9B5B          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x08FB9B5F
+STORE $5, $7, $0                  
+ADDI $5, $3, 0x984F54E2           
+NOP                               
+SUB $7, $7, $7
+LOAD $5, $7, 0x08FB9B4F           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x08FB9B5B
+LOAD $5, $6, $1                   
+ADD $3, $6, $7                    
+SUBI $6, $0, 0x421962E6           
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x08FB9B67
+STORE $5, $6, $6                  
+SUB $3, $1, $5                    
+NOP                               
+SUBI $3, $4, 0x091A213A           
+NOP                               
+SUB $4, $4, $4
+LOAD $3, $4, 0x08FB9B67           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUBI $0, $4, 0x652747FE           
+SUB $4, $4, $4
+STORE $4, $6, 0x08FB9B67          
+SUB $7, $7, $2                    
+SUB $4, $4, $4                    
+SUB $2, $2, $2
+STORE $2, $3, 0x08FB9B7F          
+NOP                               
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x08FB9B5F
+LOAD $7, $7, $1                   
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $0, $2, $5                    
+ADD $7, $0, $2                    
+ADD $0, $5, $1                    
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+ADD $2, $2, $6                    
+SUB $7, $5, $0                    
+SUB $0, $1, $1                    
+SUB $3, $3, $6                    
+SUB $1, $1, $1
+STORE $1, $5, 0x08FB9B6F          
+SUBI $4, $7, 0x728D83B0           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x08FB9B63
+LOAD $3, $6, $1                   
+SUB $4, $4, $5                    
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x08FB9B4F
+STORE $3, $3, $5                  
+NOP                               
+SUB $4, $4, $7                    
+HALT $0
+#
+D@0x08FB9B4B
+0x32675231		# 08FB9B4B		= 845632049
+0xF767CE2A		# 08FB9B4F		= -144191958
+0xADFB5DDC		# 08FB9B53		= -1376035364
+0x5DBD8178		# 08FB9B57		= 1572700536
+0xAE59CCD4		# 08FB9B5B		= -1369846572
+0xDB70F932		# 08FB9B5F		= -613353166
+0x6A096722		# 08FB9B63		= 1779001122
+0xA5D5B288		# 08FB9B67		= -1512721784
+0x1233C3D0		# 08FB9B6B		= 305382352
+0x71615692		# 08FB9B6F		= 1902204562
+0x79FB5D67		# 08FB9B73		= 2046516583
+0xA31E52FC		# 08FB9B77		= -1558293764
+0x8BB26273		# 08FB9B7B		= -1951243661
+0xB563CF23		# 08FB9B7F		= -1251750109

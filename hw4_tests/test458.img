@@ -1,0 +1,37 @@
+# Test N.458
+#
+L6
+S1
+O4
+N1
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $2, $2, 0x82F33D6A           
+SUBI $7, $7, 0x858F8144           
+SUB $5, $5, $5
+STORE $5, $6, 0x6E3CB123          
+ADD $0, $5, $2                    
+SUB $4, $4, $4
+LOAD $5, $4, 0x6E3CB123           
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x6E3CB11F
+LOAD $3, $6, $0                   
+ADDI $3, $0, 0x2FDDC06D           
+SUB $2, $2, $2
+LOAD $7, $2, 0x6E3CB127           
+SUBI $6, $1, 0x61E08379           
+ADDI $4, $0, 0x8B514925           
+ADDI $5, $4, 0x19214BEA           
+SUB $5, $5, $5
+LOAD $0, $5, 0x6E3CB11B           
+SUBI $5, $6, 0xBF76E0F1           
+HALT $0
+#
+D@0x6E3CB11B
+0x4D53E5FA		# 6E3CB11B		= 1297343994
+0xFCEB30A0		# 6E3CB11F		= -51695456
+0x532B3E49		# 6E3CB123		= 1395342921
+0xC7E387B4		# 6E3CB127		= -941389900

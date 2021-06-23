@@ -1,0 +1,29 @@
+# Test N.1211
+#
+L7
+S1
+O2
+N1
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $7, $3                    
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x7EBEFA2F
+LOAD $7, $0, $4                   
+SUBI $4, $1, 0x1E58E471           
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x7EBEFA33
+LOAD $3, $7, $2                   
+SUBI $0, $0, 0x8A4E98A3           
+ADDI $6, $2, 0xFAF5E815           
+SUBI $6, $2, 0x6C74983E           
+SUB $0, $0, $3                    
+HALT $0
+#
+D@0x7EBEFA2F
+0xFD85F882		# 7EBEFA2F		= -41551742
+0xD5FC8C5C		# 7EBEFA33		= -704869284

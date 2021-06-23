@@ -1,0 +1,65 @@
+# Test N.530
+#
+L1
+S5
+O5
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x16F5B632
+STORE $5, $4, $0                  
+SUB $7, $1, $5                    
+NOP                               
+NOP                               
+SUB $7, $1, $4                    
+ADDI $7, $6, 0x0AB157EC           
+NOP                               
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x16F5B646
+LOAD $1, $6, $1                   
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $3                    
+ADD $6, $3, $7                    
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x16F5B632
+LOAD $7, $1, $4                   
+SUB $5, $5, $7                    
+ADD $7, $2, $3                    
+SUBI $6, $7, 0x6E6941F8           
+SUB $6, $6, $6
+STORE $6, $1, 0x16F5B62E          
+SUB $0, $0, $0
+LOAD $0, $0, 0x16F5B64A           
+SUB $4, $4, $4
+STORE $4, $7, 0x16F5B646          
+ADDI $5, $1, 0x653AD940           
+SUB $0, $6, $0                    
+ADDI $7, $7, 0xCBCBFA78           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $5, $3, 0x7B0D5B0E           
+HALT $0
+#
+D@0x16F5B62E
+0x5F936B99		# 16F5B62E		= 1603496857
+0xAFB8FD9C		# 16F5B632		= -1346830948
+0x33961EDF		# 16F5B636		= 865476319
+0x8BE7A148		# 16F5B63A		= -1947754168
+0x5FCB8D39		# 16F5B63E		= 1607175481
+0x76CFEDB5		# 16F5B642		= 1993338293
+0x58FAAA18		# 16F5B646		= 1492822552
+0x5579E1EA		# 16F5B64A		= 1434051050

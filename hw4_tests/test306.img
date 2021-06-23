@@ -1,0 +1,101 @@
+# Test N.306
+#
+L4
+S6
+O10
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADD $7, $5, $4                    
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x6C39E64B
+STORE $1, $7, $5                  
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x6C39E653
+LOAD $2, $5, $6                   
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x6C39E653
+LOAD $0, $7, $6                   
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x6C39E657
+STORE $4, $0, $2                  
+SUBI $1, $0, 0x825534E0           
+SUBI $6, $2, 0xC10B6502           
+ADDI $6, $3, 0x6C8D8550           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x6C39E653
+STORE $1, $7, $0                  
+ADD $0, $7, $7                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADDI $4, $2, 0xA83A3050           
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x6C39E64F
+LOAD $7, $5, $4                   
+NOP                               
+SUB $3, $0, $4                    
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x6C39E64B
+STORE $7, $1, $0                  
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x6C39E64B
+LOAD $2, $2, $3                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $7, $1, 0x7E5D2B5F           
+SUB $6, $6, $6
+LOAD $7, $6, 0x6C39E657           
+SUB $0, $5, $0                    
+SUBI $7, $4, 0xB82DA723           
+SUBI $2, $7, 0xFCAC7C2C           
+ADDI $3, $2, 0x36FB7466           
+ADDI $6, $4, 0xD8C27A67           
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x6C39E64B
+LOAD $3, $7, $0                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x6C39E64F
+LOAD $2, $0, $3                   
+SUB $7, $2, $1                    
+ADDI $4, $7, 0x4CFCC48B           
+ADD $1, $0, $0                    
+SUBI $0, $2, 0xECE9A5A4           
+SUB $2, $2, $4                    
+SUBI $0, $3, 0xBABAB2CA           
+ADDI $2, $5, 0x9A18F3C3           
+ADDI $0, $7, 0x11EAF586           
+ADDI $4, $0, 0x49B03D79           
+NOP                               
+NOP                               
+SUBI $4, $3, 0x8E292FEF           
+HALT $0
+#
+D@0x6C39E64B
+0xF8013A9A		# 6C39E64B		= -134137190
+0x311E755E		# 6C39E64F		= 824079710
+0x24CF46B3		# 6C39E653		= 617563827
+0x7ACB792A		# 6C39E657		= 2060155178

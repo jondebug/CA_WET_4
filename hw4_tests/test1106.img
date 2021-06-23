@@ -1,0 +1,116 @@
+# Test N.1106
+#
+L6
+S4
+O5
+N7
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $3, $2, 0x8A191EDA           
+SUB $2, $2, $2
+LOAD $0, $2, 0x23F2E5C3           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x23F2E5B3
+LOAD $4, $3, $7                   
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $0, $0, 0x5D61FC03           
+SUBI $2, $1, 0xB7E82E4F           
+ADD $1, $4, $0                    
+ADDI $2, $6, 0x741288C1           
+ADD $0, $1, $0                    
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x23F2E5AF
+STORE $2, $7, $3                  
+SUB $5, $5, $5
+STORE $5, $6, 0x23F2E5B3          
+ADD $2, $3, $0                    
+SUBI $4, $0, 0x3C2B0E23           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $6, $0, 0x0DCE5261           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+ADD $0, $3, $7                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $6, $7, 0x61CEBD3F           
+ADDI $6, $7, 0x6AB2AC88           
+SUB $6, $6, $6
+STORE $6, $7, 0x23F2E59F          
+ADDI $2, $1, 0x75D15F49           
+SUB $4, $4, $4
+STORE $4, $6, 0x23F2E59F          
+SUB $7, $7, $7
+STORE $7, $0, 0x23F2E597          
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x23F2E58F
+LOAD $4, $1, $5                   
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x23F2E5C3
+LOAD $0, $1, $7                   
+ADDI $0, $3, 0x6FA65093           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+NOP                               
+SUB $3, $3, $3
+LOAD $4, $3, 0x23F2E5C7           
+NOP                               
+ADD $4, $0, $2                    
+NOP                               
+SUB $4, $4, $4
+LOAD $7, $4, 0x23F2E5AB           
+NOP                               
+ADDI $4, $3, 0xB0DFB521           
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x23F2E597
+LOAD $6, $4, $0                   
+HALT $0
+#
+D@0x23F2E58B
+0x7933D35B		# 23F2E58B		= 2033439579
+0x879AF050		# 23F2E58F		= -2019889072
+0x9C80E0D7		# 23F2E593		= -1669275433
+0xB87DEB02		# 23F2E597		= -1199707390
+0x519C0E89		# 23F2E59B		= 1369181833
+0x3F23559D		# 23F2E59F		= 1059280285
+0x47808B2C		# 23F2E5A3		= 1199606572
+0x607774CA		# 23F2E5A7		= 1618441418
+0xF62AF763		# 23F2E5AB		= -164956317
+0x1777D8CD		# 23F2E5AF		= 393730253
+0x31B2A101		# 23F2E5B3		= 833790209
+0x341103FF		# 23F2E5B7		= 873530367
+0xC1238F05		# 23F2E5BB		= -1054634235
+0x2BB2F235		# 23F2E5BF		= 733147701
+0xDF6F4155		# 23F2E5C3		= -546356907
+0x721CB870		# 23F2E5C7		= 1914484848

@@ -1,0 +1,78 @@
+# Test N.194
+#
+L5
+S9
+O10
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x024D1EE5
+LOAD $3, $4, $0                   
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x024D1EED
+STORE $2, $1, $0                  
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x024D1EE9
+STORE $3, $6, $5                  
+ADDI $2, $3, 0xBF76404C           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x024D1EED
+LOAD $3, $7, $3                   
+ADD $1, $0, $2                    
+SUB $2, $4, $5                    
+SUBI $4, $2, 0xCD5099E3           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $1, $6, 0x52125023           
+ADDI $7, $2, 0x9C2556E5           
+ADDI $1, $7, 0x4FA6C59B           
+NOP                               
+SUB $4, $4, $4
+STORE $4, $5, 0x024D1EE1          
+SUB $7, $7, $7
+STORE $7, $4, 0x024D1EE1          
+SUBI $6, $2, 0xA5E8FCE7           
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x024D1EED
+STORE $5, $4, $7                  
+SUBI $3, $2, 0x76EA8D72           
+SUB $1, $7, $0                    
+ADDI $1, $5, 0x7B0ECEB4           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $2, $1, 0x8F162CF4           
+NOP                               
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x024D1EE1
+LOAD $7, $3, $5                   
+ADDI $0, $5, 0xD1ECAED7           
+ADD $1, $2, $0                    
+HALT $0
+#
+D@0x024D1EE1
+0x513CF1E9		# 024D1EE1		= 1362948585
+0xB5D9E99C		# 024D1EE5		= -1244010084
+0x5270FD80		# 024D1EE9		= 1383136640
+0xE4F629E2		# 024D1EED		= -453629470

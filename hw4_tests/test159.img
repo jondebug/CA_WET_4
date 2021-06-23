@@ -1,0 +1,93 @@
+# Test N.159
+#
+L4
+S2
+O7
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $3, $5, 0xE477F7D0           
+SUB $1, $7, $1                    
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x7F85EBEC
+LOAD $4, $7, $3                   
+SUB $1, $1, $1
+STORE $1, $1, 0x7F85EBF4          
+SUB $0, $0, $0
+LOAD $4, $0, 0x7F85EC00           
+SUBI $5, $3, 0xDC63181D           
+SUBI $3, $0, 0xE576B640           
+ADDI $1, $5, 0x9A19D6AD           
+SUB $7, $0, $0                    
+SUB $0, $5, $3                    
+ADD $0, $0, $1                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x7F85EBF4
+STORE $4, $1, $2                  
+NOP                               
+SUB $6, $6, $6
+LOAD $3, $6, 0x7F85EBEC           
+NOP                               
+SUB $3, $2, $2                    
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x7F85EBE4
+STORE $4, $4, $3                  
+ADDI $0, $7, 0xE05AD552           
+SUB $1, $1, $1
+STORE $1, $1, 0x7F85EBFC          
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x7F85EC0C
+STORE $5, $3, $6                  
+SUBI $4, $6, 0xEE507622           
+SUBI $6, $0, 0xB34C4D6B           
+SUBI $4, $4, 0x588B0B6F           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $6, $3, $6                    
+SUBI $1, $1, 0x899DAB59           
+ADDI $6, $6, 0x37A32E7A           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $4, $4, 0x44C60F79           
+SUB $5, $5, $5
+LOAD $2, $5, 0x7F85EC08           
+SUB $5, $6, $5                    
+SUB $3, $2, $3                    
+SUB $4, $7, $7                    
+HALT $0
+#
+D@0x7F85EBE0
+0x67ED4155		# 7F85EBE0		= 1743602005
+0x89F85572		# 7F85EBE4		= -1980213902
+0x366D0D38		# 7F85EBE8		= 913116472
+0x7EF6207D		# 7F85EBEC		= 2130059389
+0xBCAB25EE		# 7F85EBF0		= -1129634322
+0x09CD8FC4		# 7F85EBF4		= 164466628
+0xFC448947		# 7F85EBF8		= -62617273
+0x9B909878		# 7F85EBFC		= -1685022600
+0x86E32966		# 7F85EC00		= -2031933082
+0x5587AE28		# 7F85EC04		= 1434955304
+0x92CA3A4C		# 7F85EC08		= -1832240564
+0xBC9E927F		# 7F85EC0C		= -1130458497

@@ -1,0 +1,84 @@
+# Test N.1342
+#
+L5
+S3
+O1
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $2, $7, 0xB8AC4526           
+SUB $1, $4, $3                    
+ADDI $0, $3, 0xB611B1CF           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x3CBF41BF
+STORE $1, $1, $0                  
+SUB $7, $7, $3                    
+SUB $7, $7, $2                    
+SUB $1, $1, $1
+STORE $1, $0, 0x3CBF41BF          
+SUB $3, $3, $3
+LOAD $3, $3, 0x3CBF41D7           
+SUB $6, $4, $4                    
+SUB $0, $0, $2                    
+SUB $0, $0, $0
+LOAD $7, $0, 0x3CBF41CF           
+SUBI $0, $7, 0x85F195CF           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADD $3, $2, $2                    
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x3CBF419B
+LOAD $6, $6, $2                   
+ADD $2, $3, $3                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $7, $6                    
+SUB $4, $0, $0                    
+SUB $2, $2, $2
+LOAD $1, $2, 0x3CBF41C7           
+SUBI $3, $7, 0x43E9C9EC           
+SUB $5, $5, $5
+STORE $5, $1, 0x3CBF41CB          
+NOP                               
+NOP                               
+ADD $5, $2, $3                    
+ADD $0, $4, $5                    
+NOP                               
+SUB $6, $6, $6
+STORE $6, $2, 0x3CBF41BB          
+SUB $0, $4, $2                    
+SUB $6, $6, $6
+LOAD $1, $6, 0x3CBF41AB           
+HALT $0
+#
+D@0x3CBF4197
+0xBD99F9DA		# 3CBF4197		= -1113982502
+0x180F64A5		# 3CBF419B		= 403661989
+0x768F289A		# 3CBF419F		= 1989093530
+0x2456C409		# 3CBF41A3		= 609666057
+0x8571D5B7		# 3CBF41A7		= -2056137289
+0x0A1E4206		# 3CBF41AB		= 169755142
+0xE50351D3		# 3CBF41AF		= -452767277
+0x70C461BD		# 3CBF41B3		= 1891918269
+0x1EEA50BE		# 3CBF41B7		= 518672574
+0xF59FB8B4		# 3CBF41BB		= -174081868
+0x266B463D		# 3CBF41BF		= 644564541
+0x4C4C5AFE		# 3CBF41C3		= 1280072446
+0x99A2F6EB		# 3CBF41C7		= -1717373205
+0xC9520F0D		# 3CBF41CB		= -917369075
+0x41710DA7		# 3CBF41CF		= 1097928103
+0x96CBFFC8		# 3CBF41D3		= -1765015608
+0x5AD86B4C		# 3CBF41D7		= 1524132684
+0x40C80597		# 3CBF41DB		= 1086850455
+0xD519170A		# 3CBF41DF		= -719775990

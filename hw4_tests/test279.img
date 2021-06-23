@@ -1,0 +1,70 @@
+# Test N.279
+#
+L7
+S6
+O6
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $2, $1, 0x88DBD809           
+ADDI $3, $4, 0x503E1BFF           
+SUBI $6, $5, 0xB1CA91DC           
+SUB $5, $7, $5                    
+ADD $1, $7, $0                    
+ADDI $0, $5, 0x9F1F06AE           
+SUB $5, $5, $5
+LOAD $1, $5, 0x65E4E257           
+SUB $3, $0, $2                    
+SUB $0, $0, $0
+STORE $0, $6, 0x65E4E253          
+ADDI $6, $7, 0x300E33B6           
+SUB $4, $7, $5                    
+NOP                               
+ADDI $5, $1, 0xE2D4B392           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $4, $5, 0xEE306623           
+NOP                               
+SUB $0, $0, $4                    
+SUBI $7, $6, 0xA32D978F           
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x65E4E23F
+STORE $0, $6, $3                  
+SUB $0, $4, $0                    
+SUBI $7, $6, 0x6AF7F016           
+ADDI $4, $0, 0x23FC45B7           
+ADDI $5, $4, 0xCB77C71D           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+LOAD $7, $0, 0x65E4E253           
+SUBI $1, $0, 0x53767C73           
+SUB $3, $3, $3
+LOAD $1, $3, 0x65E4E257           
+NOP                               
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x65E4E257
+LOAD $0, $2, $4                   
+SUB $6, $0, $6                    
+NOP                               
+HALT $0
+#
+D@0x65E4E23B
+0x889DEC34		# 65E4E23B		= -2002916300
+0x811B6FE1		# 65E4E23F		= -2128908319
+0xFA65ED76		# 65E4E243		= -93983370
+0x7140FCAE		# 65E4E247		= 1900084398
+0x62CFBC7A		# 65E4E24B		= 1657781370
+0x71F36912		# 65E4E24F		= 1911777554
+0xAA0D31BB		# 65E4E253		= -1441975877
+0x5961C5E9		# 65E4E257		= 1499579881

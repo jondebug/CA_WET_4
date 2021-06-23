@@ -1,0 +1,35 @@
+# Test N.1781
+#
+L2
+S1
+O1
+N1
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+ADD $5, $6, $0                    
+SUB $3, $5, $5                    
+SUB $7, $7, $7
+LOAD $0, $7, 0x04ABA8DC           
+SUB $2, $5, $5                    
+NOP                               
+ADD $1, $7, $5                    
+NOP                               
+ADDI $6, $6, 0x51CB8625           
+ADDI $4, $4, 0x3EBFDBDF           
+ADDI $6, $5, 0x36B69B62           
+HALT $0
+#
+D@0x04ABA8B8
+0x5B3A47BE		# 04ABA8B8		= 1530546110
+0x8196CB6A		# 04ABA8BC		= -2120823958
+0x003DA3BB		# 04ABA8C0		= 4039611
+0x29551517		# 04ABA8C4		= 693441815
+0xD695EC2C		# 04ABA8C8		= -694817748
+0x938F3157		# 04ABA8CC		= -1819332265
+0x6F9950E5		# 04ABA8D0		= 1872318693
+0x35884464		# 04ABA8D4		= 898122852
+0x6E5C7D2B		# 04ABA8D8		= 1851555115
+0x46B7B02E		# 04ABA8DC		= 1186443310

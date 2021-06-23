@@ -1,0 +1,50 @@
+# Test N.720
+#
+L5
+S3
+O6
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $4, $0, 0xFCD9F00C           
+NOP                               
+ADDI $0, $1, 0x5438DD6C           
+NOP                               
+ADDI $7, $3, 0xF65C3F0D           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $2, $5                    
+ADDI $5, $0, 0xE9E8FD11           
+ADD $0, $0, $3                    
+SUB $4, $4, $4
+LOAD $6, $4, 0x10607DAA           
+ADDI $2, $3, 0x050EBBD8           
+SUBI $3, $5, 0x0B8AE503           
+NOP                               
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x10607DAA
+LOAD $7, $4, $5                   
+SUBI $7, $0, 0xE1AE2F6B           
+NOP                               
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x10607DAA
+STORE $3, $1, $1                  
+SUB $1, $0, $0                    
+HALT $0
+#
+D@0x10607DA2
+0x2F5ED78C		# 10607DA2		= 794744716
+0xE29DFAEC		# 10607DA6		= -492963092
+0x9FDB31E3		# 10607DAA		= -1613024797

@@ -1,0 +1,67 @@
+# Test N.1796
+#
+L9
+S7
+O1
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $2, $1, $2                    
+ADD $3, $0, $5                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $7, 0x4EF2DC28          
+SUB $3, $4, $1                    
+SUB $4, $4, $4
+LOAD $1, $4, 0x4EF2DC10           
+ADDI $2, $4, 0x4C649348           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $0                    
+NOP                               
+SUB $0, $0, $0
+LOAD $7, $0, 0x4EF2DBF8           
+SUB $6, $6, $6
+LOAD $1, $6, 0x4EF2DC2C           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+NOP                               
+SUB $6, $7, $7                    
+SUB $0, $4, $0                    
+HALT $0
+#
+D@0x4EF2DBF8
+0xA9E77B68		# 4EF2DBF8		= -1444447384
+0x17259CA0		# 4EF2DBFC		= 388340896
+0x5A537085		# 4EF2DC00		= 1515417733
+0xA044C2A7		# 4EF2DC04		= -1606106457
+0xD04E93B1		# 4EF2DC08		= -800156751
+0x525CEE70		# 4EF2DC0C		= 1381822064
+0xDC33135D		# 4EF2DC10		= -600632483
+0x0BE54510		# 4EF2DC14		= 199574800
+0x19000DF5		# 4EF2DC18		= 419433973
+0xA5FF9597		# 4EF2DC1C		= -1509976681
+0xA30F301E		# 4EF2DC20		= -1559285730
+0xDF23578C		# 4EF2DC24		= -551331956
+0x7937A0A8		# 4EF2DC28		= 2033688744
+0x24B1B24B		# 4EF2DC2C		= 615625291
+0x2E247C8D		# 4EF2DC30		= 774143117
+0x7541F61E		# 4EF2DC34		= 1967257118

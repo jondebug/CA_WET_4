@@ -1,0 +1,75 @@
+# Test N.641
+#
+L7
+S5
+O6
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $0, $0, 0x9391B726           
+ADDI $7, $6, 0x1D1FCB73           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $6, $2, $2                    
+NOP                               
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x2F9D53E5
+LOAD $6, $5, $2                   
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x2F9D53CD
+LOAD $2, $6, $4                   
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x2F9D53E1
+STORE $0, $4, $5                  
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x2F9D53E1
+LOAD $5, $7, $4                   
+ADD $7, $4, $2                    
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x2F9D53D5
+STORE $5, $6, $7                  
+NOP                               
+SUB $0, $0, $0
+STORE $0, $6, 0x2F9D53F5          
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x2F9D53DD
+LOAD $5, $3, $7                   
+ADDI $2, $0, 0x952EDDB2           
+SUB $5, $7, $0                    
+ADDI $5, $1, 0x1329360A           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x2F9D53ED
+STORE $3, $0, $6                  
+HALT $0
+#
+D@0x2F9D53C9
+0x5802D2D0		# 2F9D53C9		= 1476580048
+0x5BD3140D		# 2F9D53CD		= 1540559885
+0xDAF470D3		# 2F9D53D1		= -621514541
+0xDC2A3C5F		# 2F9D53D5		= -601211809
+0x1A0180CF		# 2F9D53D9		= 436306127
+0x9B26355F		# 2F9D53DD		= -1691994785
+0xFD68DB9F		# 2F9D53E1		= -43459681
+0x4C9AD88B		# 2F9D53E5		= 1285216395
+0xC56541CC		# 2F9D53E9		= -983219764
+0xDA541E70		# 2F9D53ED		= -632021392
+0xE90DD150		# 2F9D53F1		= -384970416
+0xD591029C		# 2F9D53F5		= -711916900
+0x0024D4E9		# 2F9D53F9		= 2413801

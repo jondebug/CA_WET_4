@@ -1,0 +1,101 @@
+# Test N.966
+#
+L5
+S10
+O8
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6
+STORE $6, $1, 0x4C0C78D6          
+SUBI $1, $4, 0x43136E31           
+SUB $1, $1, $1
+LOAD $4, $1, 0x4C0C789A           
+SUB $1, $1, $1
+STORE $1, $6, 0x4C0C78D2          
+NOP                               
+SUB $1, $1, $1
+STORE $1, $4, 0x4C0C78AE          
+NOP                               
+ADD $1, $0, $2                    
+ADDI $5, $3, 0x8FC95D83           
+NOP                               
+ADD $5, $6, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $3, $5, 0x0E486C51           
+ADDI $5, $0, 0x1E1A4327           
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x4C0C78B6
+LOAD $2, $4, $2                   
+SUB $3, $3, $3
+LOAD $3, $3, 0x4C0C78B2           
+NOP                               
+SUBI $3, $0, 0x27426B78           
+NOP                               
+SUBI $1, $0, 0x737928C4           
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x4C0C78B2
+STORE $7, $7, $4                  
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x4C0C789A
+STORE $1, $4, $6                  
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x4C0C78B6
+STORE $4, $2, $5                  
+SUBI $0, $7, 0x58CAB2D5           
+SUBI $6, $6, 0x8ADDC57A           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x4C0C78B6
+LOAD $3, $1, $2                   
+SUB $6, $6, $6
+LOAD $3, $6, 0x4C0C78D6           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $0, $0                    
+NOP                               
+ADD $7, $6, $4                    
+SUB $7, $7, $7
+LOAD $6, $7, 0x4C0C78BA           
+ADD $5, $4, $3                    
+SUB $7, $7, $7
+LOAD $3, $7, 0x4C0C78BE           
+NOP                               
+SUB $3, $3, $0                    
+HALT $0
+#
+D@0x4C0C789A
+0x30024942		# 4C0C789A		= 805456194
+0xB6010F0E		# 4C0C789E		= -1241444594
+0x576A7A14		# 4C0C78A2		= 1466595860
+0xB9604929		# 4C0C78A6		= -1184872151
+0x8F2E178C		# 4C0C78AA		= -1892804724
+0x8F5F9B48		# 4C0C78AE		= -1889559736
+0x3838E45F		# 4C0C78B2		= 943252575
+0xE5CE4D45		# 4C0C78B6		= -439464635
+0xC0DD15E6		# 4C0C78BA		= -1059252762
+0xBA698E26		# 4C0C78BE		= -1167487450
+0x3C152014		# 4C0C78C2		= 1008017428
+0x0759091B		# 4C0C78C6		= 123275547
+0x4042527C		# 4C0C78CA		= 1078088316
+0x522B2F05		# 4C0C78CE		= 1378561797
+0xE11C3A70		# 4C0C78D2		= -518243728
+0xDC1AA16D		# 4C0C78D6		= -602234515

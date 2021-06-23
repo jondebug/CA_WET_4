@@ -1,0 +1,69 @@
+# Test N.1016
+#
+L1
+S10
+O5
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADD $0, $7, $5                    
+SUBI $1, $3, 0x57C18B30           
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x0BF36F1D
+LOAD $3, $2, $7                   
+ADD $7, $6, $5                    
+SUBI $0, $1, 0x878430C7           
+ADDI $3, $1, 0x2064DE11           
+ADDI $4, $0, 0x83307526           
+NOP                               
+SUB $6, $6, $6
+LOAD $0, $6, 0x0BF36F09           
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x0BF36F1D
+LOAD $4, $4, $7                   
+SUB $2, $7, $5                    
+SUB $7, $0, $1                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $5, $5, $5
+STORE $5, $5, 0x0BF36F09          
+NOP                               
+SUBI $6, $3, 0xA10376D3           
+ADDI $3, $0, 0x2A1DFEC6           
+SUB $3, $3, $3
+LOAD $4, $3, 0x0BF36EF9           
+SUB $3, $3, $3
+STORE $3, $7, 0x0BF36F21          
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x0BF36F19
+STORE $5, $7, $7                  
+NOP                               
+SUB $7, $1, $6                    
+ADDI $7, $7, 0x01EBCE81           
+SUBI $0, $3, 0x739F4D91           
+SUB $5, $1, $6                    
+SUBI $5, $5, 0xA709FB21           
+HALT $0
+#
+D@0x0BF36EF9
+0x5063BD50		# 0BF36EF9		= 1348713808
+0xD154BFD4		# 0BF36EFD		= -782975020
+0xF6D2CD36		# 0BF36F01		= -153957066
+0x9459DE0A		# 0BF36F05		= -1806049782
+0x7C3E659F		# 0BF36F09		= 2084464031
+0x5B05FEEA		# 0BF36F0D		= 1527119594
+0x1092E81C		# 0BF36F11		= 278063132
+0xA5BDED53		# 0BF36F15		= -1514279597
+0x000D70E2		# 0BF36F19		= 880866
+0x2F8D00AF		# 0BF36F1D		= 797769903
+0x247075F6		# 0BF36F21		= 611350006
+0x83178632		# 0BF36F25		= -2095610318

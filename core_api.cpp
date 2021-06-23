@@ -91,7 +91,7 @@ void execute_instruction (Instruction inst, std::vector<thread> * thread_vec, tc
 
 
 }
-int get_next_thread_FG(std::vector<thread> * thread_vec, int current_thread){
+int get_next_thread(std::vector<thread> * thread_vec, int current_thread){
 	int thread_num = (*thread_vec).size(), thread_it=0;
 	bool thread_active;
 	for(int i=1; i<= thread_num; i++){
@@ -103,32 +103,6 @@ int get_next_thread_FG(std::vector<thread> * thread_vec, int current_thread){
 	}
 	return -1;
 
-}
-
-int get_next_thread_B(std::vector<thread> * thread_vec, int current_CC){
-	int i=0, min_thread_id =0, thread_available_flag=0;
-	int last_run_cycle, minimum_last_CC = current_CC+1 ;
-	bool thread_active;
-	
-
-	for(i=0; i<thread_vec->size(); i++)
-	{
-		thread_active = !(*thread_vec)[i].halted_flag && (*thread_vec)[i].wait_CC_remaining==0;
-		last_run_cycle = (*thread_vec)[i].prev_run_CC;
-		////cout << " thread: " << i << " last ran in CC: " << last_run_cycle <<" halted: "<< (*thread_vec)[i].halted_flag <<" remaining wait CC: "<< (*thread_vec)[i].wait_CC_remaining << endl;
-
-		if( thread_active && last_run_cycle < minimum_last_CC){
-			minimum_last_CC=last_run_cycle;
-			thread_available_flag =1;
-			min_thread_id = i;
-		}
-	}
-	////cout << "current_CC is:"<< current_CC<<" -----next thread is: ----- " << ((thread_available_flag)?min_thread_id:-1) << endl;
-
-	if (!thread_available_flag) //no flags are available to run in this cycle
-		return -1;
-
-	return min_thread_id; //return the thread that has been waiting the longest time to run and is available. 
 }
 void update_wait_time(std::vector<thread> * thread_vec, int time){
 	int i=0;
@@ -180,13 +154,13 @@ void CORE_BlockedMT() {
 		
 		if(thread_vec[current_thread].halted_flag || thread_vec[current_thread].wait_CC_remaining>0){		  	//check if current thread can run now
 
-			int temp = get_next_thread_B(&thread_vec, CC);
+			int temp = get_next_thread(&thread_vec, current_thread);
 			
 			while(temp<0){ //idle time
 				CC++;
 				update_wait_time(&thread_vec, 1);
 				if(thread_vec[current_thread].halted_flag || thread_vec[current_thread].wait_CC_remaining>0){ 	//check if current thread is ready now
-					temp = get_next_thread_B(&thread_vec, CC);
+					temp = get_next_thread(&thread_vec, current_thread);
 				}
 				else{																						  	//current thread is ready, we can continue with it
 					temp=current_thread;
@@ -241,12 +215,12 @@ void CORE_FinegrainedMT(){
 	int next_thread=-1;
 	while(num_of_halted_threads < thread_num){ // means we can still execute
 		//cout<< "prev_thread is: " <<next_thread;
-		next_thread = get_next_thread_FG(&thread_vec, current_thread);
+		next_thread = get_next_thread(&thread_vec, current_thread);
 		update_wait_time(&thread_vec, 1);
 		
 		while(next_thread < 0){ // idle time
 			//cout<<"nop"<<", thread 10 wait time:" <<thread_vec[10].wait_CC_remaining <<endl;
-			next_thread = get_next_thread_FG(&thread_vec, current_thread);
+			next_thread = get_next_thread(&thread_vec, current_thread);
 			CC++;
 			update_wait_time(&thread_vec, 1);
 		}

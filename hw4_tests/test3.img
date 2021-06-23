@@ -1,0 +1,104 @@
+# Test N.3
+#
+L9
+S9
+O8
+N5
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $6, $3, $0                    
+ADDI $1, $0, 0xFAD75442           
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x15155A7B
+LOAD $6, $1, $7                   
+NOP                               
+NOP                               
+ADD $0, $0, $2                    
+ADD $0, $7, $2                    
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x15155A7F
+LOAD $4, $4, $6                   
+ADD $2, $7, $7                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $6, 0x15155A7F          
+ADDI $4, $4, 0x830E7947           
+ADDI $6, $5, 0xFDB48AA3           
+NOP                               
+NOP                               
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x15155A7F
+LOAD $1, $5, $7                   
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x15155A73
+STORE $4, $1, $7                  
+SUB $2, $2, $2
+LOAD $7, $2, 0x15155A73           
+ADD $4, $5, $1                    
+ADDI $4, $3, 0x8C60DC14           
+SUBI $2, $5, 0x96645B43           
+ADDI $5, $6, 0xF1AF085A           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $4, $4                    
+ADDI $7, $5, 0x5AF447B2           
+SUB $1, $2, $1                    
+SUB $5, $6, $2                    
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x15155A73
+STORE $3, $2, $6                  
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x15155A73
+LOAD $3, $3, $1                   
+ADD $0, $3, $3                    
+SUB $6, $4, $7                    
+SUB $6, $6, $6
+LOAD $6, $6, 0x15155A7B           
+ADD $6, $6, $1                    
+SUBI $3, $1, 0x4112181D           
+ADDI $5, $2, 0xD00FF110           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $1, $0, $3                    
+ADDI $5, $4, 0x5BA8529A           
+NOP                               
+SUB $1, $1, $1
+STORE $1, $5, 0x15155A73          
+SUBI $4, $6, 0xD2CFA64C           
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $5, $1, 0xE1C368FD           
+SUB $3, $3, $3
+LOAD $3, $3, 0x15155A7B           
+NOP                               
+HALT $0
+#
+D@0x15155A73
+0xEE6E36D2		# 15155A73		= -294766894
+0xF62B0FA5		# 15155A77		= -164950107
+0x0728AB39		# 15155A7B		= 120105785
+0xF166EDFF		# 15155A7F		= -244912641

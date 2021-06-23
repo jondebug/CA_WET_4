@@ -1,0 +1,84 @@
+# Test N.489
+#
+L1
+S6
+O9
+N5
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $3, $3, $3
+STORE $3, $0, 0x262ECFAB          
+NOP                               
+NOP                               
+SUB $5, $1, $3                    
+SUB $6, $3, $6                    
+ADDI $6, $0, 0xC7E47336           
+NOP                               
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x262ECFC3
+LOAD $3, $5, $1                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $2
+LOAD $2, $2, 0x262ECFBF           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x262ECFC3
+STORE $2, $2, $1                  
+SUBI $7, $0, 0x911E9A3E           
+SUBI $5, $4, 0x33A774DB           
+SUB $7, $7, $7
+STORE $7, $7, 0x262ECFAB          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $7, $0, $0                    
+ADDI $3, $1, 0x1F1B9515           
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x262ECFC7
+STORE $0, $0, $6                  
+SUBI $6, $1, 0xD50DF813           
+SUBI $2, $7, 0xC4DED019           
+SUBI $2, $6, 0xA97B91FC           
+NOP                               
+SUB $2, $2, $2
+LOAD $3, $2, 0x262ECFAF           
+SUB $1, $1, $1
+STORE $1, $5, 0x262ECFBB          
+SUB $4, $4, $4
+LOAD $0, $4, 0x262ECFBB           
+ADDI $0, $0, 0xD082AB4F           
+NOP                               
+HALT $0
+#
+D@0x262ECFAB
+0x0F0B44D3		# 262ECFAB		= 252396755
+0x30EB47C5		# 262ECFAF		= 820725701
+0x338E6640		# 262ECFB3		= 864970304
+0x48972712		# 262ECFB7		= 1217865490
+0x2E95F741		# 262ECFBB		= 781580097
+0x2D0ED540		# 262ECFBF		= 755946816
+0x43C2B0CC		# 262ECFC3		= 1136832716
+0xF0F3B489		# 262ECFC7		= -252463991
+0x6622C530		# 262ECFCB		= 1713554736

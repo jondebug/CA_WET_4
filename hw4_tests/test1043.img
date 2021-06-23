@@ -1,0 +1,174 @@
+# Test N.1043
+#
+L3
+S9
+O2
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x527B02D7
+STORE $5, $5, $2                  
+ADD $7, $1, $2                    
+SUBI $5, $5, 0xDB6EBC1B           
+ADDI $1, $7, 0x4865C293           
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x527B02EB
+LOAD $7, $1, $4                   
+SUB $2, $5, $2                    
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x527B02D3
+STORE $2, $4, $1                  
+SUB $0, $3, $4                    
+NOP                               
+NOP                               
+SUB $4, $4, $4
+LOAD $7, $4, 0x527B02D3           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $2, $1, 0x468BB420           
+ADDI $2, $7, 0x7E3759AE           
+SUBI $4, $1, 0xEADC1627           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x527B0307
+LOAD $1, $7, $0                   
+NOP                               
+ADD $5, $0, $4                    
+NOP                               
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x527B02EF
+LOAD $0, $1, $4                   
+ADD $5, $5, $6                    
+SUB $3, $3, $3
+LOAD $5, $3, 0x527B02F3           
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x527B02DF
+STORE $6, $5, $2                  
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x527B02E7
+STORE $5, $1, $4                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x527B02E7
+LOAD $1, $2, $5                   
+SUBI $0, $6, 0xE5D3A951           
+ADD $4, $1, $7                    
+SUB $1, $1, $1
+STORE $1, $2, 0x527B02CF          
+ADDI $7, $1, 0x274FE8FC           
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x527B02EF
+STORE $2, $5, $6                  
+SUBI $7, $0, 0x411F946F           
+ADDI $5, $2, 0x5CDCC884           
+ADD $7, $7, $1                    
+SUBI $7, $0, 0x977F6BE1           
+SUB $0, $1, $2                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $0, $4, 0x7E62AD62           
+ADDI $6, $5, 0xF0F88040           
+SUB $3, $3, $3
+LOAD $0, $3, 0x527B02F7           
+ADD $4, $7, $1                    
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x527B02DF
+STORE $2, $0, $0                  
+ADD $2, $6, $1                    
+SUB $6, $6, $6
+STORE $6, $3, 0x527B02CB          
+ADDI $4, $5, 0xCF3E32AB           
+NOP                               
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x527B02FF
+LOAD $6, $7, $6                   
+NOP                               
+SUBI $5, $3, 0xA1D83409           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+SUB $0, $1, $2                    
+SUB $0, $5, $1                    
+ADDI $3, $0, 0x47EE26EB           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADD $1, $7, $2                    
+SUB $7, $7, $7
+STORE $7, $7, 0x527B02E3          
+ADDI $6, $5, 0x873A4148           
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x527B02E3
+STORE $3, $6, $6                  
+ADD $6, $7, $3                    
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $3, $7, $3                    
+ADD $0, $4, $5                    
+ADDI $0, $6, 0x16C93A92           
+SUB $7, $5, $1                    
+SUB $5, $6, $2                    
+ADDI $6, $5, 0xA78F0AB7           
+SUB $5, $6, $4                    
+NOP                               
+NOP                               
+ADD $5, $4, $1                    
+SUBI $0, $0, 0xF25FEB7B           
+NOP                               
+HALT $0
+#
+D@0x527B02C7
+0x070726C4		# 527B02C7		= 117909188
+0xB7587024		# 527B02CB		= -1218940892
+0x51167E2E		# 527B02CF		= 1360428590
+0xC436BB46		# 527B02D3		= -1003046074
+0xED277FEB		# 527B02D7		= -316178453
+0x592E0B2C		# 527B02DB		= 1496189740
+0x9563264D		# 527B02DF		= -1788664243
+0x080D8DAF		# 527B02E3		= 135105967
+0x438D39C7		# 527B02E7		= 1133328839
+0x0BEFED6D		# 527B02EB		= 200273261
+0x301A6A74		# 527B02EF		= 807037556
+0x75A6F7EE		# 527B02F3		= 1973876718
+0xDFB0DEC8		# 527B02F7		= -542056760
+0xAFB2D0FF		# 527B02FB		= -1347235585
+0x724BB5F0		# 527B02FF		= 1917564400
+0x0F7B4832		# 527B0303		= 259737650
+0xD9163095		# 527B0307		= -652857195

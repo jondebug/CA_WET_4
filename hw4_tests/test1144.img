@@ -1,0 +1,57 @@
+# Test N.1144
+#
+L1
+S3
+O10
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $1, $3, 0xFCD81B64           
+SUBI $0, $0, 0xD86821C5           
+ADD $1, $6, $0                    
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x65B07AA9
+LOAD $6, $4, $2                   
+ADD $1, $3, $6                    
+SUB $4, $4, $4
+LOAD $3, $4, 0x65B07AB1           
+NOP                               
+ADD $7, $5, $6                    
+SUBI $7, $0, 0x45D153B7           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x65B07AB5
+STORE $5, $5, $4                  
+NOP                               
+HALT $0
+#
+D@0x65B07A9D
+0x4EEFD7B2		# 65B07A9D		= 1324341170
+0x72E89E87		# 65B07AA1		= 1927847559
+0xBBF4D6FD		# 65B07AA5		= -1141582083
+0x6EA912DE		# 65B07AA9		= 1856574174
+0x702E85A9		# 65B07AAD		= 1882097065
+0xB64CF8B2		# 65B07AB1		= -1236469582
+0xB4F212F1		# 65B07AB5		= -1259203855
+0x0C6DE997		# 65B07AB9		= 208529815
+0x69ABFAC9		# 65B07ABD		= 1772878537
+0xD9D3EEDD		# 65B07AC1		= -640422179
+0x57CFB51A		# 65B07AC5		= 1473230106
+0xF75BEFD9		# 65B07AC9		= -144969767
+0xB176CBE7		# 65B07ACD		= -1317614617
+0x8DC34B99		# 65B07AD1		= -1916580967

@@ -1,0 +1,107 @@
+# Test N.267
+#
+L10
+S7
+O8
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $5, $6                    
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x6FB6D624
+STORE $1, $7, $4                  
+ADD $5, $7, $4                    
+SUB $7, $2, $5                    
+SUB $2, $2, $4                    
+SUB $7, $7, $7
+LOAD $0, $7, 0x6FB6D618           
+ADDI $4, $1, 0xD27B0611           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $6, $6, 0xA14144F2           
+SUBI $0, $1, 0xD131E8F0           
+NOP                               
+NOP                               
+SUBI $1, $4, 0xBE37114F           
+ADD $5, $5, $3                    
+ADDI $6, $0, 0x3B68A6BF           
+ADD $4, $2, $0                    
+SUBI $4, $7, 0xB2576074           
+SUB $3, $3, $3
+LOAD $4, $3, 0x6FB6D614           
+ADD $3, $0, $7                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x6FB6D60C
+STORE $2, $3, $1                  
+NOP                               
+NOP                               
+SUBI $0, $7, 0x77934B15           
+SUB $1, $0, $3                    
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x6FB6D600
+STORE $2, $1, $1                  
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x6FB6D608
+LOAD $2, $2, $1                   
+NOP                               
+ADDI $6, $3, 0xA99F1659           
+NOP                               
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x6FB6D618
+STORE $6, $3, $1                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $4, $1, $2                    
+SUBI $7, $2, 0x9070AF5F           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $0, $1, 0x2296FD96           
+SUBI $6, $2, 0x695FB167           
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x6FB6D624
+STORE $2, $2, $5                  
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADDI $4, $6, 0xAD1CE5AF           
+HALT $0
+#
+D@0x6FB6D600
+0x5FBC737F		# 6FB6D600		= 1606185855
+0x3DF68E4E		# 6FB6D604		= 1039568462
+0xA7FEECDF		# 6FB6D608		= -1476465441
+0x17FAB8F3		# 6FB6D60C		= 402307315
+0x94554082		# 6FB6D610		= -1806352254
+0x63F9F80A		# 6FB6D614		= 1677326346
+0x136E8615		# 6FB6D618		= 326010389
+0xA1EC8EED		# 6FB6D61C		= -1578332435
+0x4260C8D2		# 6FB6D620		= 1113639122
+0xEE75D1F0		# 6FB6D624		= -294268432
+0xCC3D2EAB		# 6FB6D628		= -868405589
+0x71B9B1E4		# 6FB6D62C		= 1907995108

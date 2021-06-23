@@ -1,0 +1,95 @@
+# Test N.1239
+#
+L3
+S10
+O4
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $7, $6                    
+ADD $2, $5, $3                    
+SUB $7, $2, $6                    
+SUBI $4, $3, 0xAEEC5E3B           
+ADD $3, $7, $3                    
+SUB $5, $5, $5
+LOAD $5, $5, 0x5B7AA552           
+SUBI $0, $6, 0xE0638CB4           
+SUB $4, $2, $1                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $5, $0, 0x06A933A1           
+SUB $1, $1, $5                    
+NOP                               
+SUBI $2, $2, 0x11E6CD73           
+ADDI $2, $1, 0x1640925D           
+SUB $1, $7, $4                    
+NOP                               
+SUBI $0, $4, 0x131D7B96           
+SUB $7, $3, $6                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADDI $4, $6, 0x86CE2ABE           
+NOP                               
+ADD $4, $0, $3                    
+SUBI $3, $2, 0x917205FA           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $5, $3, $5                    
+SUBI $1, $5, 0x06016C59           
+SUB $3, $3, $3
+LOAD $3, $3, 0x5B7AA57E           
+ADDI $2, $0, 0x2D65167C           
+ADDI $5, $1, 0x2F7DB3F4           
+SUB $4, $4, $4
+STORE $4, $4, 0x5B7AA572          
+ADDI $5, $3, 0xC5F785AB           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $7, $4, 0x53E2B657           
+SUB $3, $3, $3
+LOAD $0, $3, 0x5B7AA562           
+ADD $2, $0, $0                    
+ADD $3, $3, $5                    
+SUBI $5, $2, 0xF33818EC           
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x5B7AA56A
+LOAD $1, $4, $1                   
+ADDI $0, $5, 0xF5D5E287           
+HALT $0
+#
+D@0x5B7AA536
+0x2D0D3458		# 5B7AA536		= 755840088
+0x81BB5C05		# 5B7AA53A		= -2118427643
+0xFB4A3C10		# 5B7AA53E		= -79021040
+0xA14F5908		# 5B7AA542		= -1588635384
+0x3D6873A5		# 5B7AA546		= 1030255525
+0x241BFD2A		# 5B7AA54A		= 605814058
+0x8F8263CD		# 5B7AA54E		= -1887280179
+0xCAAFCA27		# 5B7AA552		= -894449113
+0x7722EC1C		# 5B7AA556		= 1998777372
+0x9964AA9B		# 5B7AA55A		= -1721455973
+0xB413A761		# 5B7AA55E		= -1273780383
+0xF7FC166D		# 5B7AA562		= -134474131
+0xF4DEE237		# 5B7AA566		= -186719689
+0x6460B516		# 5B7AA56A		= 1684059414
+0x428B65B4		# 5B7AA56E		= 1116431796
+0x7673E0BC		# 5B7AA572		= 1987305660
+0x801D77A9		# 5B7AA576		= -2145552471
+0x60A545CF		# 5B7AA57A		= 1621444047
+0x409F2A84		# 5B7AA57E		= 1084172932

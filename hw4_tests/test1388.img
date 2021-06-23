@@ -1,0 +1,21 @@
+# Test N.1388
+#
+L3
+S8
+O2
+N1
+
+# Thread 0
+T0
+I@0x00000000
+ADD $4, $6, $0                    
+SUB $5, $6, $0                    
+SUB $1, $1, $1
+LOAD $2, $1, 0x04AEC4BE           
+HALT $0
+#
+D@0x04AEC4B6
+0xDD8AC2C7		# 04AEC4B6		= -578108729
+0xE83DBD90		# 04AEC4BA		= -398606960
+0xB8B5B8F7		# 04AEC4BE		= -1196050185
+0x0988279A		# 04AEC4C2		= 159917978

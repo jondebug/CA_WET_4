@@ -1,0 +1,104 @@
+# Test N.362
+#
+L4
+S1
+O10
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $5, $6                    
+SUBI $4, $7, 0x595F491C           
+SUB $0, $3, $2                    
+SUBI $0, $7, 0xF309B4FD           
+ADD $4, $5, $6                    
+SUB $3, $1, $5                    
+SUB $3, $2, $0                    
+NOP                               
+SUB $2, $7, $5                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $1, $7, $2                    
+ADDI $4, $5, 0xA34024DB           
+NOP                               
+SUB $6, $1, $0                    
+SUB $0, $0, $0
+LOAD $1, $0, 0x66FC3A0F           
+SUB $7, $3, $0                    
+SUBI $1, $2, 0xB72D6A58           
+SUB $1, $1, $1
+STORE $1, $2, 0x66FC3A17          
+SUB $1, $1, $1
+LOAD $0, $1, 0x66FC3A13           
+ADD $7, $1, $7                    
+SUB $4, $1, $7                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x66FC3A13
+STORE $1, $6, $4                  
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x66FC3A1B
+LOAD $4, $7, $2                   
+SUB $1, $4, $7                    
+SUBI $5, $4, 0x868381A6           
+ADD $0, $6, $1                    
+ADDI $2, $5, 0xAAB7DAAF           
+NOP                               
+SUB $5, $5, $5
+STORE $5, $5, 0x66FC3A0F          
+SUB $7, $7, $7
+LOAD $6, $7, 0x66FC3A1B           
+ADDI $2, $3, 0xAA83D40C           
+SUB $7, $6, $5                    
+NOP                               
+SUBI $7, $7, 0x1922DC1C           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $5, 0x66FC3A1B          
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x66FC3A17
+STORE $3, $6, $4                  
+ADDI $0, $6, 0xEB13E963           
+SUB $1, $6, $0                    
+SUB $0, $5, $2                    
+ADDI $0, $0, 0x4B9405E7           
+SUB $0, $2, $2                    
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x66FC3A17
+LOAD $4, $7, $5                   
+ADD $2, $6, $7                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x66FC3A1B
+LOAD $7, $5, $7                   
+SUB $5, $0, $4                    
+NOP                               
+ADDI $0, $4, 0x57DAB72B           
+HALT $0
+#
+D@0x66FC3A0F
+0x8D55A0BF		# 66FC3A0F		= -1923768129
+0xDFE09DA4		# 66FC3A13		= -538927708
+0xA0249727		# 66FC3A17		= -1608214745
+0x8F46827C		# 66FC3A1B		= -1891204484

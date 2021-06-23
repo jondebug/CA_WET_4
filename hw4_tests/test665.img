@@ -1,0 +1,103 @@
+# Test N.665
+#
+L4
+S2
+O4
+N8
+
+# Thread 0
+T0
+I@0x00000000
+ADD $5, $4, $3                    
+ADD $6, $3, $4                    
+SUB $5, $5, $5
+STORE $5, $7, 0x205BE8C6          
+ADDI $3, $2, 0xF24D89CE           
+ADD $4, $4, $1                    
+SUBI $7, $0, 0x632259B4           
+ADDI $7, $0, 0xE52A3E8C           
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x205BE8AE
+STORE $0, $2, $4                  
+NOP                               
+SUB $7, $0, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $1, $0, 0xD36D5ED8           
+SUB $3, $7, $1                    
+SUB $3, $3, $3
+STORE $3, $5, 0x205BE8A6          
+SUB $4, $4, $4
+STORE $4, $4, 0x205BE8BE          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADDI $0, $1, 0x79FBFC02           
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x205BE8BA
+LOAD $4, $4, $6                   
+SUBI $5, $6, 0x6208C62E           
+ADD $6, $7, $1                    
+NOP                               
+SUBI $5, $3, 0x345F6890           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $7, $6, $3                    
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUB $4, $4, $4
+STORE $4, $2, 0x205BE8C6          
+SUB $3, $5, $5                    
+ADD $2, $7, $2                    
+ADD $4, $0, $1                    
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $0, $7, $0                    
+SUBI $0, $1, 0x01FB0320           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $1, 0x205BE8BA          
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+NOP                               
+SUBI $2, $5, 0x6D95BC21           
+SUBI $1, $1, 0x8E56DF03           
+HALT $0
+#
+D@0x205BE8A6
+0x7A7832C8		# 205BE8A6		= 2054697672
+0x818C9163		# 205BE8AA		= -2121494173
+0x7AFE7BFD		# 205BE8AE		= 2063498237
+0xD6B2FA0A		# 205BE8B2		= -692913654
+0xAF3B0CA8		# 205BE8B6		= -1355084632
+0xDED2A2AF		# 205BE8BA		= -556621137
+0xA9F541AC		# 205BE8BE		= -1443544660
+0xE4B296F3		# 205BE8C2		= -458057997
+0x2DFE2CBE		# 205BE8C6		= 771632318

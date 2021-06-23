@@ -1,0 +1,141 @@
+# Test N.120
+#
+L9
+S8
+O1
+N7
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $6, $6, $7                    
+ADDI $7, $4, 0x8C474C4F           
+SUB $1, $1, $1
+LOAD $0, $1, 0x12EA152A           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x12EA150A
+LOAD $5, $0, $4                   
+NOP                               
+SUBI $5, $0, 0x07FDD588           
+SUB $5, $5, $2                    
+NOP                               
+NOP                               
+ADD $0, $1, $6                    
+ADDI $7, $2, 0x0570B017           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADDI $0, $3, 0x90016C69           
+SUBI $4, $1, 0x53C12E81           
+ADD $4, $2, $4                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $0, $5, $0                    
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x12EA150A
+LOAD $0, $1, $5                   
+NOP                               
+ADDI $7, $3, 0x19ACFC25           
+ADDI $4, $4, 0x6437FB3D           
+SUB $0, $0, $0                    
+SUBI $3, $3, 0xC4F8E6E7           
+SUBI $6, $6, 0xA7DAC67A           
+ADDI $0, $0, 0x8C9DB048           
+SUB $5, $5, $5
+LOAD $0, $5, 0x12EA150A           
+SUBI $7, $1, 0xD4B18E22           
+NOP                               
+ADD $2, $5, $0                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $0, $5, 0x5CE17110           
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x12EA14FE
+LOAD $3, $0, $6                   
+ADDI $1, $4, 0x53A8ABEE           
+ADDI $5, $3, 0xE81677DB           
+SUB $1, $2, $5                    
+ADDI $5, $4, 0x98939E22           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $1, $7, $5                    
+SUB $1, $1, $1
+STORE $1, $0, 0x12EA152E          
+SUBI $6, $0, 0xD1D1DDB2           
+NOP                               
+SUB $2, $1, $2                    
+SUBI $5, $7, 0x8B65E214           
+NOP                               
+SUB $6, $6, $6
+STORE $6, $1, 0x12EA1532          
+NOP                               
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x12EA1516
+STORE $3, $5, $0                  
+SUBI $3, $2, 0x5FF24C0F           
+ADD $4, $4, $4                    
+ADD $7, $5, $0                    
+ADDI $5, $6, 0x9BC15F4F           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $7, $4, $3                    
+NOP                               
+SUBI $1, $0, 0x3F467CD5           
+ADD $6, $4, $3                    
+ADD $5, $3, $5                    
+ADDI $3, $2, 0x9F6C634B           
+NOP                               
+SUB $2, $1, $7                    
+NOP                               
+SUBI $6, $6, 0x302C098A           
+ADD $3, $3, $4                    
+ADDI $0, $5, 0x7FEE8AA9           
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x12EA151A
+STORE $2, $1, $4                  
+HALT $0
+#
+D@0x12EA14FE
+0x590A7B95		# 12EA14FE		= 1493859221
+0x778E32D4		# 12EA1502		= 2005807828
+0x369DCF95		# 12EA1506		= 916311957
+0x8960FCF0		# 12EA150A		= -1990132496
+0x946CC10E		# 12EA150E		= -1804812018
+0x46C27C9F		# 12EA1512		= 1187151007
+0xD9D30B4E		# 12EA1516		= -640480434
+0xA310502D		# 12EA151A		= -1559211987
+0x5DAE7021		# 12EA151E		= 1571713057
+0x709D9A96		# 12EA1522		= 1889376918
+0x0806E160		# 12EA1526		= 134668640
+0x1BA1ABD7		# 12EA152A		= 463580119
+0x94023B2A		# 12EA152E		= -1811793110
+0xE33E962E		# 12EA1532		= -482437586
+0xFDCDC29E		# 12EA1536		= -36846946
+0x2D539415		# 12EA153A		= 760452117
+0x3D925522		# 12EA153E		= 1033000226

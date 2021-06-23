@@ -1,0 +1,75 @@
+# Test N.1636
+#
+L10
+S1
+O6
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $1, $6, $2                    
+ADD $3, $2, $3                    
+ADD $5, $6, $7                    
+ADDI $7, $5, 0xC3F2D0D8           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $3, $1                    
+SUBI $7, $6, 0x198ED321           
+ADD $2, $1, $3                    
+NOP                               
+SUB $3, $2, $3                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $6, 0x73EB65CE          
+ADD $7, $0, $0                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $3, $7                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x73EB65BE
+LOAD $4, $2, $1                   
+SUB $1, $3, $5                    
+ADD $6, $2, $6                    
+SUBI $0, $2, 0x3D590C4F           
+ADD $2, $1, $0                    
+SUB $2, $2, $2
+LOAD $4, $2, 0x73EB65C6           
+ADDI $2, $2, 0x38563738           
+NOP                               
+ADDI $7, $0, 0x6D91C4AB           
+SUB $5, $5, $5
+LOAD $3, $5, 0x73EB65CE           
+SUBI $4, $6, 0x6A9FD4DC           
+SUB $7, $1, $5                    
+SUB $1, $2, $6                    
+HALT $0
+#
+D@0x73EB65B6
+0x84A7B3B6		# 73EB65B6		= -2069384266
+0x5CA85142		# 73EB65BA		= 1554534722
+0x2D93C791		# 73EB65BE		= 764659601
+0xCB746C2E		# 73EB65C2		= -881562578
+0x0BD931FB		# 73EB65C6		= 198783483
+0x7CF3C740		# 73EB65CA		= 2096351040
+0x8E06861D		# 73EB65CE		= -1912175075
+0xAE5DCF74		# 73EB65D2		= -1369583756
+0x569E2A94		# 73EB65D6		= 1453206164
+0x99EE234B		# 73EB65DA		= -1712446645

@@ -1,0 +1,180 @@
+# Test N.1608
+#
+L7
+S1
+O8
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x2EA9168C
+LOAD $1, $5, $0                   
+SUB $2, $2, $2
+STORE $2, $2, 0x2EA91688          
+SUB $2, $2, $2
+STORE $2, $4, 0x2EA91688          
+ADDI $5, $1, 0x3F44A601           
+NOP                               
+NOP                               
+SUBI $0, $5, 0xBB1186FE           
+SUBI $1, $4, 0x9345597A           
+NOP                               
+SUB $5, $0, $5                    
+NOP                               
+SUB $5, $5, $5
+LOAD $1, $5, 0x2EA9167C           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $6, $6, $6
+LOAD $7, $6, 0x2EA91668           
+NOP                               
+NOP                               
+SUBI $4, $7, 0x61D6444C           
+ADD $6, $4, $1                    
+SUBI $6, $0, 0x299CA5AC           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x2EA91668
+STORE $3, $7, $1                  
+ADD $1, $3, $2                    
+ADD $4, $7, $0                    
+SUB $6, $5, $7                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $0, $0
+LOAD $2, $0, 0x2EA91654           
+ADDI $7, $5, 0x8CD8A9B8           
+SUB $1, $1, $1
+STORE $1, $3, 0x2EA91684          
+ADDI $4, $3, 0xE1958C8C           
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x2EA91684
+LOAD $3, $4, $1                   
+NOP                               
+ADDI $1, $5, 0x7F217BF6           
+SUB $1, $1, $1
+LOAD $6, $1, 0x2EA91668           
+SUB $4, $4, $4
+STORE $4, $4, 0x2EA91660          
+SUB $1, $1, $1
+LOAD $6, $1, 0x2EA9166C           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x2EA9167C
+STORE $2, $7, $3                  
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x2EA91660
+LOAD $6, $7, $5                   
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x2EA91668
+LOAD $6, $6, $3                   
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $2, $0, $6                    
+SUB $7, $7, $7
+LOAD $1, $7, 0x2EA91654           
+NOP                               
+SUBI $5, $4, 0xA4EEE4B2           
+NOP                               
+SUB $1, $1, $1
+LOAD $2, $1, 0x2EA9167C           
+ADD $2, $6, $2                    
+ADDI $7, $3, 0xF1491262           
+SUB $1, $1, $1
+STORE $1, $1, 0x2EA9168C          
+NOP                               
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $6, $4, $4                    
+SUB $1, $7, $7                    
+NOP                               
+SUBI $2, $0, 0xA98DF4E9           
+SUB $7, $1, $3                    
+ADDI $1, $0, 0x776F3D67           
+SUB $3, $3, $3
+STORE $3, $5, 0x2EA91680          
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x2EA91660
+LOAD $0, $4, $2                   
+ADD $0, $5, $5                    
+ADDI $5, $7, 0x86F233EC           
+SUB $5, $5, $5
+STORE $5, $0, 0x2EA91668          
+ADDI $0, $1, 0x54BBE3A5           
+SUB $6, $6, $6                    
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+NOP                               
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x2EA91674
+STORE $6, $6, $5                  
+SUB $0, $0, $0
+LOAD $3, $0, 0x2EA91650           
+SUB $1, $1, $1
+LOAD $5, $1, 0x2EA91684           
+SUB $0, $0, $0
+STORE $0, $2, 0x2EA9166C          
+SUBI $6, $6, 0x4AC556EE           
+SUB $3, $3, $3
+STORE $3, $3, 0x2EA91678          
+SUBI $3, $4, 0x76138730           
+SUB $5, $5, $5
+STORE $5, $4, 0x2EA91660          
+SUB $3, $6, $5                    
+SUB $7, $4, $7                    
+ADD $6, $6, $6                    
+HALT $0
+#
+D@0x2EA91650
+0xC0A3267A		# 2EA91650		= -1063049606
+0x0AE444BE		# 2EA91654		= 182731966
+0x43F42A03		# 2EA91658		= 1140075011
+0xF668F920		# 2EA9165C		= -160892640
+0x8DBE28BA		# 2EA91660		= -1916917574
+0x2FB0D8A1		# 2EA91664		= 800118945
+0x4B54DCF7		# 2EA91668		= 1263852791
+0xD7321539		# 2EA9166C		= -684583623
+0xA871A4E4		# 2EA91670		= -1468947228
+0xC560003F		# 2EA91674		= -983564225
+0x55B90592		# 2EA91678		= 1438188946
+0x0A6C4CDF		# 2EA9167C		= 174869727
+0xDC579B51		# 2EA91680		= -598238383
+0x549E97B4		# 2EA91684		= 1419679668
+0x979D2A51		# 2EA91688		= -1751307695
+0xB86F538E		# 2EA9168C		= -1200663666

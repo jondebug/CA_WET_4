@@ -1,0 +1,70 @@
+# Test N.1725
+#
+L10
+S4
+O8
+N4
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+LOAD $7, $5, 0x08ADABCA           
+ADDI $3, $1, 0x3B0D3F76           
+ADD $6, $7, $0                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x08ADABDA
+STORE $2, $6, $4                  
+SUB $1, $1, $1
+LOAD $3, $1, 0x08ADABE2           
+ADDI $2, $4, 0xE8EDA389           
+SUB $4, $6, $1                    
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x08ADABDE
+LOAD $0, $3, $4                   
+ADD $0, $1, $7                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUBI $5, $1, 0x9D6D4D4E           
+SUBI $5, $2, 0xE231A838           
+SUBI $0, $1, 0xFF5C996A           
+ADDI $3, $3, 0xA3C5E341           
+SUB $2, $7, $1                    
+SUB $4, $7, $2                    
+NOP                               
+ADD $2, $0, $0                    
+ADDI $7, $0, 0x4BC9EAB6           
+SUB $1, $1, $1
+LOAD $6, $1, 0x08ADABC6           
+NOP                               
+ADD $3, $7, $0                    
+HALT $0
+#
+D@0x08ADABC6
+0xA9297A40		# 08ADABC6		= -1456899520
+0x640288B2		# 08ADABCA		= 1677887666
+0xADBCD781		# 08ADABCE		= -1380132991
+0x1DD8BD7E		# 08ADABD2		= 500743550
+0xF41BC3AF		# 08ADABD6		= -199507025
+0x18205506		# 08ADABDA		= 404772102
+0xEBB61F9C		# 08ADABDE		= -340385892
+0xEA74212C		# 08ADABE2		= -361488084
+0x8EAA184B		# 08ADABE6		= -1901455285
+0xCE27E5B5		# 08ADABEA		= -836246091

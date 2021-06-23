@@ -1,0 +1,75 @@
+# Test N.677
+#
+L3
+S3
+O3
+N4
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+ADD $7, $5, $7                    
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x20165ADA
+LOAD $6, $5, $0                   
+SUB $3, $3, $3
+STORE $3, $5, 0x20165AD2          
+ADD $1, $0, $6                    
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x20165ACA
+LOAD $7, $5, $7                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $7, 0x20165ADE          
+SUB $3, $3, $3
+LOAD $7, $3, 0x20165AD2           
+ADDI $2, $4, 0xA77C9605           
+SUB $0, $0, $0
+STORE $0, $3, 0x20165AE6          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $2
+LOAD $0, $2, 0x20165AD2           
+ADDI $1, $2, 0x21CEAB25           
+NOP                               
+NOP                               
+ADDI $5, $7, 0x93976BCE           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $7, $5, 0x863572A0           
+NOP                               
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x20165ACA
+STORE $3, $4, $6                  
+SUB $6, $6, $6
+STORE $6, $6, 0x20165ACE          
+SUB $3, $4, $4                    
+SUB $0, $0, $0
+STORE $0, $6, 0x20165ADE          
+NOP                               
+HALT $0
+#
+D@0x20165ACA
+0xA4E7CF26		# 20165ACA		= -1528312026
+0x325C2954		# 20165ACE		= 844900692
+0x85A5651C		# 20165AD2		= -2052758244
+0x7061AD88		# 20165AD6		= 1885449608
+0x59D64709		# 20165ADA		= 1507215113
+0xF40026ED		# 20165ADE		= -201316627
+0x0AF88D85		# 20165AE2		= 184061317
+0x3C31CDF0		# 20165AE6		= 1009896944
+0xED8BB91F		# 20165AEA		= -309610209

@@ -1,0 +1,100 @@
+# Test N.251
+#
+L7
+S3
+O6
+N6
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $1, $6, 0x376ADF94           
+ADD $3, $4, $3                    
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x200A3D6B
+LOAD $4, $6, $0                   
+ADD $1, $6, $4                    
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x200A3D5F
+STORE $3, $3, $5                  
+ADDI $0, $6, 0x2808DE34           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x200A3D57
+STORE $2, $3, $1                  
+SUBI $5, $6, 0xC797CDC9           
+NOP                               
+ADD $3, $2, $6                    
+SUB $5, $5, $5
+LOAD $0, $5, 0x200A3D67           
+SUB $7, $7, $7
+STORE $7, $7, 0x200A3D67          
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x200A3D63
+LOAD $4, $6, $5                   
+SUBI $6, $6, 0x4EABFC7B           
+SUB $0, $5, $7                    
+SUBI $1, $2, 0xB75214AD           
+NOP                               
+SUB $2, $3, $4                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $2, $1, 0x015F1976           
+SUB $7, $3, $7                    
+SUB $6, $5, $5                    
+SUB $4, $4, $4
+LOAD $3, $4, 0x200A3D63           
+ADDI $3, $1, 0xA1312F41           
+SUBI $3, $3, 0x0666426E           
+ADDI $6, $7, 0x07A71CAB           
+SUB $1, $4, $6                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x200A3D63
+LOAD $2, $6, $2                   
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x200A3D6B
+STORE $2, $7, $7                  
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $6, $6, $6
+STORE $6, $1, 0x200A3D63          
+ADD $5, $2, $7                    
+SUBI $7, $2, 0x816200FC           
+ADD $4, $4, $6                    
+SUB $6, $2, $2                    
+ADD $5, $7, $3                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+HALT $0
+#
+D@0x200A3D57
+0x172B6665		# 200A3D57		= 388720229
+0xB528C540		# 200A3D5B		= -1255619264
+0x20D9F754		# 200A3D5F		= 551155540
+0x49DD6C62		# 200A3D63		= 1239247970
+0x75BDD6E8		# 200A3D67		= 1975375592
+0xC0A7FB9E		# 200A3D6B		= -1062732898

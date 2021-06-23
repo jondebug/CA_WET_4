@@ -1,0 +1,101 @@
+# Test N.940
+#
+L1
+S4
+O5
+N6
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $4, $2, 0xB33FE8FB           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $0, $7, 0x1398764C           
+NOP                               
+ADDI $1, $6, 0x97667235           
+SUB $2, $0, $2                    
+SUB $3, $3, $3
+LOAD $0, $3, 0x363136AE           
+SUBI $6, $0, 0x59341B5F           
+NOP                               
+SUB $7, $7, $7
+LOAD $5, $7, 0x363136AA           
+SUBI $4, $5, 0x60BE7555           
+SUBI $1, $2, 0x44AEAAB1           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x363136A6
+LOAD $7, $0, $6                   
+SUB $5, $5, $5
+STORE $5, $3, 0x363136A6          
+ADD $1, $7, $2                    
+SUBI $5, $4, 0xC4EC1EC4           
+ADD $3, $0, $7                    
+NOP                               
+SUB $0, $0, $0
+LOAD $4, $0, 0x363136AE           
+SUB $6, $2, $3                    
+SUB $3, $6, $0                    
+ADD $5, $7, $6                    
+SUB $2, $2, $2
+STORE $2, $5, 0x363136A6          
+ADD $4, $7, $3                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $4, $4, $4
+LOAD $7, $4, 0x363136AA           
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x363136A6
+STORE $0, $0, $4                  
+SUB $1, $1, $1
+LOAD $2, $1, 0x363136A6           
+ADDI $0, $0, 0x20AB8F75           
+NOP                               
+ADDI $7, $5, 0x8ACFF5A7           
+ADD $5, $2, $3                    
+NOP                               
+SUB $2, $2, $2
+STORE $2, $5, 0x363136AE          
+SUBI $1, $6, 0x9B20305C           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+ADDI $3, $6, 0x164F8B28           
+NOP                               
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x363136AA
+STORE $6, $6, $5                  
+SUBI $2, $4, 0xF0CC1FED           
+ADD $4, $7, $5                    
+ADD $2, $2, $2                    
+SUBI $0, $2, 0xF464E96E           
+HALT $0
+#
+D@0x363136A6
+0x73DC7B3F		# 363136A6		= 1943829311
+0x1F50B688		# 363136AA		= 525383304
+0x9F590BC2		# 363136AE		= -1621554238

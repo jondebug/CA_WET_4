@@ -1,0 +1,102 @@
+# Test N.533
+#
+L7
+S5
+O10
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x2D79B2DD
+STORE $7, $6, $5                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+NOP                               
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x2D79B2DD
+STORE $0, $1, $1                  
+SUB $5, $6, $1                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $1, $0, 0xDCC3EFED           
+SUB $0, $0, $0
+STORE $0, $5, 0x2D79B2DD          
+SUB $5, $6, $7                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $4, $5, 0xF7B78333           
+SUB $2, $2, $2
+LOAD $3, $2, 0x2D79B2E1           
+ADDI $0, $5, 0x7869C7B3           
+SUB $2, $2, $0                    
+ADD $7, $5, $0                    
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x2D79B2E9
+STORE $0, $5, $2                  
+ADDI $3, $2, 0x2EC055B0           
+SUBI $7, $7, 0x47F42ABA           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $6, $6, $6
+LOAD $7, $6, 0x2D79B2D9           
+ADD $3, $7, $0                    
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x2D79B2ED
+LOAD $0, $2, $7                   
+SUB $0, $5, $3                    
+NOP                               
+NOP                               
+NOP                               
+SUB $0, $0, $0
+STORE $0, $5, 0x2D79B2E5          
+SUBI $2, $0, 0x2A9A7929           
+ADD $7, $1, $4                    
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $2, $3, $6                    
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x2D79B2ED
+LOAD $2, $2, $3                   
+SUB $1, $6, $7                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $3, $3, $3
+LOAD $6, $3, 0x2D79B2E5           
+SUBI $4, $1, 0x7FAB0706           
+HALT $0
+#
+D@0x2D79B2D5
+0xC2DD0ABC		# 2D79B2D5		= -1025701188
+0x1435D0A9		# 2D79B2D9		= 339071145
+0x91F010A6		# 2D79B2DD		= -1846538074
+0x890998A0		# 2D79B2E1		= -1995859808
+0x71A18BEB		# 2D79B2E5		= 1906412523
+0x6D7F930E		# 2D79B2E9		= 1837077262
+0x18CDCD4C		# 2D79B2ED		= 416140620

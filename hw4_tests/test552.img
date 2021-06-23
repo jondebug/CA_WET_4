@@ -1,0 +1,88 @@
+# Test N.552
+#
+L4
+S5
+O1
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $1, $4, 0x80EE7FE5           
+SUB $5, $1, $5                    
+SUB $5, $5, $5
+LOAD $6, $5, 0x3E5D2E1D           
+SUB $6, $6, $6
+LOAD $5, $6, 0x3E5D2E01           
+SUB $5, $5, $5
+STORE $5, $5, 0x3E5D2DF9          
+ADDI $1, $3, 0x713252CE           
+SUB $2, $2, $2
+LOAD $7, $2, 0x3E5D2E05           
+ADDI $0, $0, 0x0F4C90AB           
+SUBI $1, $2, 0x732345CB           
+NOP                               
+SUB $1, $5, $6                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $4, $6, 0x6A1481B3           
+SUB $6, $6, $6
+LOAD $5, $6, 0x3E5D2DF5           
+ADD $0, $6, $3                    
+ADDI $4, $2, 0x53086F0E           
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x3E5D2E01
+LOAD $0, $1, $6                   
+ADD $2, $0, $3                    
+SUBI $5, $1, 0x0583CCA7           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x3E5D2DFD
+LOAD $6, $3, $0                   
+NOP                               
+SUB $1, $1, $1
+LOAD $7, $1, 0x3E5D2DE9           
+NOP                               
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x3E5D2DF1
+LOAD $5, $6, $3                   
+SUB $3, $3, $1                    
+NOP                               
+ADDI $0, $5, 0xA2CACB1B           
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x3E5D2E1D
+LOAD $6, $4, $5                   
+SUBI $0, $2, 0x24FF2F27           
+HALT $0
+#
+D@0x3E5D2DE5
+0x0F1502C3		# 3E5D2DE5		= 253035203
+0xAB2CE016		# 3E5D2DE9		= -1423122410
+0x0E463049		# 3E5D2DED		= 239480905
+0xDFE8EE8C		# 3E5D2DF1		= -538382708
+0xD708D516		# 3E5D2DF5		= -687287018
+0xDA68F428		# 3E5D2DF9		= -630655960
+0x0038FC52		# 3E5D2DFD		= 3734610
+0x121B7733		# 3E5D2E01		= 303789875
+0x7B7D1386		# 3E5D2E05		= 2071794566
+0x6F7C84B6		# 3E5D2E09		= 1870431414
+0x3B57102D		# 3E5D2E0D		= 995561517
+0x24BCF312		# 3E5D2E11		= 616362770
+0x7344BFF0		# 3E5D2E15		= 1933885424
+0xAD81622A		# 3E5D2E19		= -1384029654
+0xC1C00DED		# 3E5D2E1D		= -1044378131
+0xF167BA1B		# 3E5D2E21		= -244860389
+0xF02E5DD9		# 3E5D2E25		= -265396775
+0xB5EA996D		# 3E5D2E29		= -1242916499
+0x0B10B051		# 3E5D2E2D		= 185643089

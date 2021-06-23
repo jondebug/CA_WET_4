@@ -1,0 +1,62 @@
+# Test N.1132
+#
+L7
+S1
+O5
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADD $1, $7, $7                    
+SUB $0, $7, $4                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x5F8D8D94
+LOAD $1, $5, $2                   
+SUBI $6, $7, 0xBD2FFBEB           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $4, $4
+LOAD $3, $4, 0x5F8D8D94           
+ADDI $6, $3, 0xDC3BE90E           
+ADD $3, $1, $4                    
+ADDI $2, $6, 0xA652DE7F           
+ADD $1, $5, $7                    
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x5F8D8D94
+STORE $7, $1, $1                  
+ADD $3, $4, $3                    
+SUB $1, $1, $1
+STORE $1, $5, 0x5F8D8D94          
+ADDI $0, $2, 0x904BC762           
+ADD $2, $0, $6                    
+NOP                               
+NOP                               
+SUB $2, $7, $2                    
+SUB $4, $6, $1                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $6, $7, 0x56F84A96           
+ADD $6, $7, $5                    
+ADDI $6, $6, 0x6FE1942A           
+NOP                               
+NOP                               
+SUB $2, $2, $2
+STORE $2, $2, 0x5F8D8D94          
+HALT $0
+#
+D@0x5F8D8D94
+0x89DB39C0		# 5F8D8D94		= -1982121536

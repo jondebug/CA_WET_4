@@ -1,0 +1,169 @@
+# Test N.1248
+#
+L1
+S9
+O10
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x1E6B4386
+STORE $0, $5, $4                  
+SUB $5, $6, $6                    
+ADD $0, $4, $1                    
+SUB $7, $7, $7
+STORE $7, $0, 0x1E6B4382          
+SUB $7, $4, $5                    
+NOP                               
+ADD $0, $7, $1                    
+ADD $4, $5, $6                    
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x1E6B4376
+STORE $1, $3, $7                  
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $6, $5                    
+SUB $1, $6, $1                    
+NOP                               
+NOP                               
+SUB $2, $3, $5                    
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x1E6B438E
+LOAD $2, $3, $0                   
+SUB $0, $3, $7                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $5, $4                    
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x1E6B4386
+STORE $1, $4, $2                  
+SUB $6, $6, $6
+STORE $6, $4, 0x1E6B436E          
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x1E6B4376
+STORE $5, $5, $0                  
+ADDI $6, $4, 0xAC90DC24           
+SUBI $1, $6, 0xB159B906           
+SUB $5, $5, $5
+LOAD $1, $5, 0x1E6B437A           
+ADDI $3, $7, 0x4173D1F2           
+NOP                               
+SUBI $3, $7, 0x65B05612           
+NOP                               
+ADD $2, $6, $3                    
+SUBI $1, $6, 0x87B71268           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $3, $5, 0x4F4ACEA2           
+ADDI $1, $5, 0x16A5B4DB           
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x1E6B4376
+LOAD $4, $6, $3                   
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x1E6B438A
+STORE $2, $5, $0                  
+SUBI $1, $4, 0x8F4F8FAB           
+SUB $4, $2, $0                    
+SUB $1, $1, $1
+LOAD $7, $1, 0x1E6B4382           
+NOP                               
+SUBI $5, $1, 0x8375BCD4           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUB $7, $6, $1                    
+SUB $4, $7, $6                    
+ADDI $3, $2, 0x7DB52A00           
+ADD $0, $4, $6                    
+NOP                               
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x1E6B4382
+STORE $6, $6, $5                  
+ADDI $2, $0, 0x569F460A           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $2, $5, $3                    
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x1E6B438E
+STORE $0, $6, $4                  
+NOP                               
+NOP                               
+ADDI $3, $3, 0x807B0310           
+NOP                               
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUBI $1, $4, 0x48A3DF39           
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x1E6B4382
+STORE $7, $6, $5                  
+ADD $3, $0, $7                    
+ADD $2, $2, $7                    
+SUB $5, $5, $5
+STORE $5, $4, 0x1E6B436A          
+SUB $2, $2, $2
+STORE $2, $4, 0x1E6B435E          
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $7, $3, $0                    
+SUB $6, $6, $6
+STORE $6, $2, 0x1E6B435E          
+SUB $6, $6, $6
+STORE $6, $2, 0x1E6B4376          
+ADD $6, $4, $6                    
+ADD $6, $5, $0                    
+ADDI $3, $2, 0x71D75714           
+SUBI $6, $2, 0x4FEE3545           
+ADDI $2, $5, 0xE32705D7           
+ADD $7, $5, $7                    
+HALT $0
+#
+D@0x1E6B435E
+0xADC35F60		# 1E6B435E		= -1379704992
+0x07462E05		# 1E6B4362		= 122039813
+0x1EFBA48B		# 1E6B4366		= 519808139
+0xF22E9952		# 1E6B436A		= -231827118
+0x9E0D4AB6		# 1E6B436E		= -1643296074
+0xBE85AE1C		# 1E6B4372		= -1098535396
+0xDB0045A6		# 1E6B4376		= -620739162
+0x6EAD728E		# 1E6B437A		= 1856860814
+0xE3F3D8D5		# 1E6B437E		= -470558507
+0x8929FEDA		# 1E6B4382		= -1993736486
+0x4BE20FC6		# 1E6B4386		= 1273106374
+0x119B6FBF		# 1E6B438A		= 295399359
+0xC3536BD2		# 1E6B438E		= -1017943086
+0xF822F0A8		# 1E6B4392		= -131927896
+0x46CA36F1		# 1E6B4396		= 1187657457

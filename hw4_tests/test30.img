@@ -1,0 +1,108 @@
+# Test N.30
+#
+L4
+S6
+O4
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $3, $2                    
+SUB $6, $3, $4                    
+SUB $5, $5, $5
+STORE $5, $6, 0x02F46C22          
+SUBI $6, $7, 0x9720E394           
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x02F46C1E
+STORE $3, $4, $5                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $1, $5, 0x8A3D5A52           
+NOP                               
+SUB $3, $2, $4                    
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x02F46C22
+LOAD $0, $7, $6                   
+SUB $7, $5, $4                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $3, $5, $7                    
+NOP                               
+ADD $3, $5, $7                    
+SUBI $5, $5, 0x4F0FC152           
+ADD $1, $0, $1                    
+SUB $4, $4, $4
+STORE $4, $2, 0x02F46C22          
+ADD $2, $2, $3                    
+ADDI $6, $3, 0xA7D49B52           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $4, $5                    
+SUBI $4, $2, 0x80FB4291           
+ADD $1, $2, $2                    
+ADDI $1, $3, 0x5AFBCAB3           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $1, $1
+LOAD $0, $1, 0x02F46C22           
+ADD $2, $1, $0                    
+NOP                               
+SUB $7, $3, $2                    
+SUB $7, $7, $7
+STORE $7, $3, 0x02F46C22          
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $2, $2, $5                    
+SUB $6, $6, $6
+STORE $6, $7, 0x02F46C22          
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x02F46C1E
+STORE $6, $5, $1                  
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x02F46C22
+STORE $7, $5, $6                  
+NOP                               
+ADDI $2, $0, 0x9196B1C9           
+NOP                               
+SUBI $4, $3, 0x8F02F32D           
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x02F46C22
+STORE $2, $3, $0                  
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x02F46C1E
+STORE $3, $5, $2                  
+ADD $6, $0, $0                    
+SUB $1, $1, $1
+LOAD $6, $1, 0x02F46C1E           
+HALT $0
+#
+D@0x02F46C1E
+0x989B8128		# 02F46C1E		= -1734639320
+0x38C1F520		# 02F46C22		= 952235296

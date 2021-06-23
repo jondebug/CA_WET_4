@@ -1,0 +1,112 @@
+# Test N.1597
+#
+L6
+S5
+O8
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $7, $3                    
+ADD $2, $5, $5                    
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x64B24206
+LOAD $4, $0, $3                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $3, $7, $0                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADDI $0, $0, 0x57A85B14           
+ADDI $4, $5, 0xB27757F7           
+SUBI $2, $4, 0x287343A2           
+SUBI $5, $1, 0x0BB6FDA4           
+SUB $3, $3, $3
+STORE $3, $4, 0x64B241FE          
+ADDI $6, $5, 0xB0F37B19           
+SUB $0, $3, $2                    
+SUBI $5, $2, 0x88F352E3           
+ADD $5, $4, $2                    
+NOP                               
+ADDI $0, $1, 0x7463BC0B           
+SUB $0, $0, $5                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $6, $7, $6                    
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x64B24206
+LOAD $7, $7, $0                   
+SUB $7, $5, $5                    
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x64B24206
+STORE $6, $2, $4                  
+SUB $2, $2, $1                    
+SUBI $5, $4, 0xA5573726           
+SUBI $7, $2, 0x50D4F688           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $0, $3, $6                    
+SUBI $5, $2, 0x0277977A           
+ADD $0, $3, $0                    
+SUB $1, $4, $5                    
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x64B241FE
+LOAD $0, $6, $2                   
+SUBI $0, $2, 0xC099D9C3           
+NOP                               
+NOP                               
+ADDI $5, $6, 0x505968C1           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $2, $2, $2
+LOAD $2, $2, 0x64B241FE           
+ADDI $6, $4, 0xD0696E06           
+SUBI $6, $6, 0x110EA335           
+ADD $0, $4, $5                    
+SUBI $6, $7, 0x5F77B321           
+SUBI $2, $7, 0xC566063E           
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x64B241FE
+LOAD $7, $0, $7                   
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+NOP                               
+SUB $7, $2, $7                    
+ADD $1, $2, $7                    
+HALT $0
+#
+D@0x64B241FE
+0x77EEA89D		# 64B241FE		= 2012129437
+0xEC707021		# 64B24202		= -328175583
+0x18D1F45D		# 64B24206		= 416412765

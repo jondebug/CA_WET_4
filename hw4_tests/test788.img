@@ -1,0 +1,89 @@
+# Test N.788
+#
+L5
+S2
+O3
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $5, $1, 0xEFD07732           
+SUB $1, $1, $1
+STORE $1, $1, 0x0D381FEC          
+ADD $5, $3, $3                    
+SUB $2, $2, $2
+STORE $2, $6, 0x0D381FF0          
+SUBI $7, $3, 0x6F04C58A           
+SUBI $1, $4, 0x072C5D4A           
+SUB $7, $7, $7
+LOAD $2, $7, 0x0D381FE4           
+SUB $3, $5, $6                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $4, $2, 0xFE0B7035           
+SUBI $3, $5, 0xDDDAC7A3           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $2, $5, 0xD4FB8B87           
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x0D382004
+STORE $0, $7, $4                  
+ADD $2, $0, $0                    
+ADDI $4, $1, 0x589CFBD8           
+ADDI $7, $7, 0xB58CC27C           
+NOP                               
+SUBI $3, $6, 0x41795BC5           
+SUBI $5, $3, 0x7887A4F9           
+SUBI $2, $1, 0xA8E3BCC1           
+ADD $6, $7, $1                    
+SUB $2, $2, $2
+LOAD $4, $2, 0x0D381FF4           
+SUBI $3, $4, 0x2E7EE3C8           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $5, $5, $5
+LOAD $5, $5, 0x0D38200C           
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x0D381FE0
+LOAD $3, $4, $3                   
+SUB $0, $0, $0
+STORE $0, $4, 0x0D381FF4          
+SUB $4, $4, $4
+STORE $4, $1, 0x0D382000          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $3, $2, $1                    
+HALT $0
+#
+D@0x0D381FDC
+0x031A872A		# 0D381FDC		= 52070186
+0x091A438B		# 0D381FE0		= 152716171
+0x5D6D2608		# 0D381FE4		= 1567434248
+0x01DEA434		# 0D381FE8		= 31368244
+0xE33ABA69		# 0D381FEC		= -482690455
+0x7F8460A5		# 0D381FF0		= 2139381925
+0x96FF52ED		# 0D381FF4		= -1761651987
+0xDF875B65		# 0D381FF8		= -544777371
+0x1CCE0B06		# 0D381FFC		= 483265286
+0x3DDB16EE		# 0D382000		= 1037768430
+0xAA7A0E7E		# 0D382004		= -1434841474
+0x6DB27DEB		# 0D382008		= 1840414187
+0x027BB787		# 0D38200C		= 41662343
+0x7D4DD75F		# 0D382010		= 2102253407

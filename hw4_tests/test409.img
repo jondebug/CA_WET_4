@@ -1,0 +1,66 @@
+# Test N.409
+#
+L5
+S9
+O2
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x7706A6D2
+STORE $6, $0, $4                  
+SUB $1, $1, $1
+STORE $1, $5, 0x7706A6CE          
+SUB $5, $5, $3                    
+SUBI $3, $7, 0x716F05D4           
+SUBI $3, $1, 0x030B3981           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+NOP                               
+ADDI $4, $0, 0x181AB8D1           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x7706A6B6
+STORE $3, $1, $4                  
+SUB $7, $4, $4                    
+ADD $4, $0, $2                    
+SUB $3, $3, $3
+LOAD $6, $3, 0x7706A6C6           
+SUB $4, $4, $4
+STORE $4, $2, 0x7706A6C6          
+SUB $6, $1, $6                    
+SUBI $1, $7, 0xFCAD85EB           
+SUBI $0, $7, 0xB5061EA5           
+ADDI $0, $0, 0x9245E9CB           
+NOP                               
+SUBI $0, $5, 0x992D72EE           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+HALT $0
+#
+D@0x7706A6B2
+0xDCD48E7E		# 7706A6B2		= -590049666
+0xC1E11C70		# 7706A6B6		= -1042211728
+0x47D9874D		# 7706A6BA		= 1205438285
+0x3EE640C1		# 7706A6BE		= 1055277249
+0xC46E8628		# 7706A6C2		= -999389656
+0xD7D70851		# 7706A6C6		= -673773487
+0xB25AF9A7		# 7706A6CA		= -1302660697
+0xE338E2C0		# 7706A6CE		= -482811200
+0xC71A0C95		# 7706A6D2		= -954594155

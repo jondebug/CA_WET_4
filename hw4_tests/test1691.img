@@ -1,0 +1,93 @@
+# Test N.1691
+#
+L3
+S4
+O10
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x2159D8D0
+STORE $3, $4, $1                  
+ADDI $0, $7, 0x922792DC           
+ADDI $5, $6, 0x4D22B3AD           
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x2159D8E0
+LOAD $7, $5, $6                   
+SUBI $5, $3, 0x7BD1D72E           
+NOP                               
+SUB $3, $7, $1                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUBI $6, $0, 0x2F56F2C1           
+SUB $1, $1, $1
+LOAD $5, $1, 0x2159D8D8           
+NOP                               
+NOP                               
+SUBI $5, $4, 0x96808A15           
+SUBI $2, $3, 0x847AA6F9           
+NOP                               
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x2159D8DC
+LOAD $4, $0, $7                   
+SUB $1, $1, $1
+STORE $1, $2, 0x2159D8BC          
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x2159D8CC
+LOAD $2, $5, $3                   
+SUB $0, $5, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $2, $4, 0xA6346DA6           
+SUB $4, $4, $4
+STORE $4, $7, 0x2159D8C4          
+SUB $1, $1, $1
+LOAD $7, $1, 0x2159D8D0           
+SUBI $2, $1, 0x1B7DB975           
+ADDI $2, $6, 0x46B57AA5           
+ADD $0, $0, $3                    
+SUB $3, $6, $3                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x2159D8D0
+STORE $5, $4, $2                  
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $0, $0, 0xD9398BE2           
+SUBI $0, $4, 0x1B4D4633           
+SUBI $5, $2, 0xE92AD555           
+NOP                               
+HALT $0
+#
+D@0x2159D8BC
+0x4289303A		# 2159D8BC		= 1116287034
+0xC7337977		# 2159D8C0		= -952927881
+0xEB29C160		# 2159D8C4		= -349585056
+0x279C1567		# 2159D8C8		= 664540519
+0xF8A9B10A		# 2159D8CC		= -123096822
+0x783C7645		# 2159D8D0		= 2017228357
+0x8600BA1F		# 2159D8D4		= -2046772705
+0x57DDBC42		# 2159D8D8		= 1474149442
+0x251DE8D5		# 2159D8DC		= 622717141
+0xF67CEEFA		# 2159D8E0		= -159584518

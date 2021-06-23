@@ -1,0 +1,114 @@
+# Test N.1099
+#
+L7
+S9
+O8
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x78EE5C97
+LOAD $6, $5, $0                   
+ADD $4, $6, $0                    
+SUBI $2, $7, 0x4FD7003C           
+SUB $0, $0, $0
+LOAD $4, $0, 0x78EE5C87           
+SUB $1, $1, $1
+STORE $1, $6, 0x78EE5C6F          
+SUB $7, $7, $7
+STORE $7, $1, 0x78EE5C9F          
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x78EE5C6B
+LOAD $6, $3, $7                   
+SUBI $5, $7, 0x7841E148           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $7, $1                    
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x78EE5C7B
+STORE $2, $6, $6                  
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x78EE5C87
+STORE $1, $3, $3                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $4, $2, 0xA64A5590           
+ADDI $5, $1, 0x12239E87           
+NOP                               
+NOP                               
+SUB $7, $7, $7
+STORE $7, $5, 0x78EE5C87          
+SUB $3, $3, $3
+LOAD $1, $3, 0x78EE5C9B           
+SUB $5, $5, $5
+LOAD $6, $5, 0x78EE5C93           
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x78EE5C8F
+STORE $2, $2, $5                  
+NOP                               
+SUB $1, $4, $7                    
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x78EE5C7F
+STORE $3, $2, $7                  
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x78EE5C77
+LOAD $1, $3, $2                   
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $5, $7, 0x6DB2C68E           
+ADD $5, $2, $3                    
+SUBI $5, $5, 0x67EF19B4           
+SUB $3, $3, $3
+STORE $3, $0, 0x78EE5C9F          
+ADDI $5, $4, 0xC2B89D43           
+ADDI $6, $5, 0x553B9E15           
+NOP                               
+NOP                               
+SUB $5, $5, $5
+LOAD $4, $5, 0x78EE5C9B           
+NOP                               
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x78EE5C8F
+LOAD $5, $5, $7                   
+HALT $0
+#
+D@0x78EE5C6B
+0xD2911DE7		# 78EE5C6B		= -762241561
+0xCCB970CA		# 78EE5C6F		= -860262198
+0xAEC8CAB6		# 78EE5C73		= -1362572618
+0x959AEB2E		# 78EE5C77		= -1785009362
+0xE3E7E606		# 78EE5C7B		= -471341562
+0x93FBE0F9		# 78EE5C7F		= -1812209415
+0xAC1111EE		# 78EE5C83		= -1408167442
+0xD3EDF9C0		# 78EE5C87		= -739378752
+0xB1128A35		# 78EE5C8B		= -1324185035
+0x79A54622		# 78EE5C8F		= 2040874530
+0x7581E759		# 78EE5C93		= 1971447641
+0x0CADF37A		# 78EE5C97		= 212726650
+0xFBB03BDB		# 78EE5C9B		= -72336421
+0xF11682EE		# 78EE5C9F		= -250182930

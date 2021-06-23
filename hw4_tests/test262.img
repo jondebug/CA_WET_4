@@ -1,0 +1,59 @@
+# Test N.262
+#
+L1
+S6
+O8
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $4, $2                    
+ADDI $3, $4, 0xA93C60C6           
+SUB $4, $4, $4
+LOAD $0, $4, 0x73E7CC53           
+ADD $4, $6, $3                    
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x73E7CC5B
+LOAD $0, $6, $1                   
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $0, $0, 0xDD8AB68E           
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x73E7CC47
+STORE $6, $7, $0                  
+SUB $5, $5, $5
+STORE $5, $7, 0x73E7CC5B          
+ADD $7, $5, $1                    
+SUB $5, $5, $5
+LOAD $3, $5, 0x73E7CC4B           
+ADDI $0, $1, 0x325362A4           
+ADD $6, $2, $2                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $7, $1                    
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x73E7CC5B
+STORE $3, $3, $6                  
+ADDI $2, $2, 0x91C40979           
+HALT $0
+#
+D@0x73E7CC47
+0x96CBA930		# 73E7CC47		= -1765037776
+0xC4D2ECBE		# 73E7CC4B		= -992809794
+0x0D8B2BA8		# 73E7CC4F		= 227224488
+0xC6986101		# 73E7CC53		= -963092223
+0x094FAC4D		# 73E7CC57		= 156216397
+0xB44DB1C1		# 73E7CC5B		= -1269976639
+0x5FE419E8		# 73E7CC5F		= 1608784360

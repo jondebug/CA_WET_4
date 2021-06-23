@@ -1,0 +1,183 @@
+# Test N.1970
+#
+L3
+S10
+O1
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x4D9C30FE
+LOAD $5, $6, $4                   
+ADDI $2, $2, 0xFC0F25AF           
+NOP                               
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x4D9C30F2
+LOAD $2, $0, $6                   
+ADDI $1, $2, 0x0EC0B30D           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x4D9C30CE
+STORE $1, $6, $0                  
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x4D9C30EA
+LOAD $1, $7, $3                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x4D9C30D2
+LOAD $0, $7, $5                   
+NOP                               
+SUBI $3, $7, 0x989500DB           
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x4D9C30C2
+STORE $7, $6, $0                  
+SUB $2, $2, $2
+LOAD $0, $2, 0x4D9C30CA           
+ADDI $5, $6, 0xDD7AD66F           
+ADD $6, $7, $3                    
+SUB $0, $7, $6                    
+SUB $5, $3, $2                    
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x4D9C30D6
+STORE $1, $2, $2                  
+SUBI $1, $1, 0x84D21203           
+ADDI $4, $5, 0xA6B740DA           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $7, $3, 0xB1681D27           
+ADD $5, $0, $3                    
+SUB $0, $0, $0
+LOAD $6, $0, 0x4D9C30EE           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $6, $6, $6
+LOAD $3, $6, 0x4D9C30E2           
+ADD $6, $3, $4                    
+ADDI $0, $7, 0x492072A2           
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x4D9C30F2
+LOAD $5, $2, $4                   
+SUB $0, $6, $0                    
+SUBI $5, $2, 0x90DC079D           
+ADD $1, $7, $2                    
+SUBI $5, $1, 0xB1946D47           
+ADD $5, $3, $7                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $3, $1, 0x403AE831           
+ADDI $5, $4, 0x607D4D06           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x4D9C30CE
+LOAD $4, $5, $0                   
+SUBI $7, $4, 0xCAF72CB3           
+SUBI $3, $4, 0x58CD3B01           
+ADDI $5, $2, 0x1254C8BE           
+SUB $5, $5, $5
+LOAD $1, $5, 0x4D9C30FA           
+NOP                               
+SUB $2, $2, $2
+LOAD $0, $2, 0x4D9C30C6           
+ADD $3, $5, $6                    
+SUBI $3, $3, 0x85063C01           
+SUB $3, $3, $3
+STORE $3, $5, 0x4D9C30FA          
+ADD $7, $6, $0                    
+ADD $6, $4, $0                    
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x4D9C30DA
+LOAD $7, $1, $5                   
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+NOP                               
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x4D9C30E6
+LOAD $1, $6, $1                   
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x4D9C30F2
+STORE $2, $5, $7                  
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x4D9C30CA
+LOAD $1, $4, $1                   
+SUB $6, $1, $6                    
+ADDI $5, $3, 0xD754F17C           
+ADD $0, $5, $0                    
+SUB $5, $3, $1                    
+ADDI $6, $5, 0xA55ADF1A           
+SUB $0, $0, $0
+LOAD $6, $0, 0x4D9C30CA           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x4D9C30F2
+LOAD $0, $5, $1                   
+ADD $2, $5, $3                    
+SUB $0, $0, $0
+STORE $0, $6, 0x4D9C30C6          
+SUBI $1, $0, 0x149DC25F           
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $3, $3, $3
+STORE $3, $3, 0x4D9C30DE          
+ADD $3, $7, $3                    
+SUB $4, $4, $4
+STORE $4, $3, 0x4D9C30CE          
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x4D9C30DA
+LOAD $6, $7, $1                   
+HALT $0
+#
+D@0x4D9C30C2
+0x975E681C		# 4D9C30C2		= -1755420644
+0x9C21DDFF		# 4D9C30C6		= -1675502081
+0x8A10435E		# 4D9C30CA		= -1978645666
+0x71761534		# 4D9C30CE		= 1903564084
+0x4BCCAB54		# 4D9C30D2		= 1271704404
+0x230A317B		# 4D9C30D6		= 587870587
+0x8D651DD6		# 4D9C30DA		= -1922753066
+0xB254B03A		# 4D9C30DE		= -1303072710
+0x65145345		# 4D9C30E2		= 1695830853
+0x5AC030B8		# 4D9C30E6		= 1522544824
+0x22D382A8		# 4D9C30EA		= 584286888
+0x7EF89B7B		# 4D9C30EE		= 2130221947
+0x58D357E2		# 4D9C30F2		= 1490245602
+0x64079994		# 4D9C30F6		= 1678219668
+0xE4D3BF0F		# 4D9C30FA		= -455885041
+0x99DE0096		# 4D9C30FE		= -1713504106

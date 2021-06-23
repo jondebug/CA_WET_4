@@ -1,0 +1,92 @@
+# Test N.1223
+#
+L9
+S6
+O10
+N3
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $4, $5, $4                    
+SUB $3, $1, $0                    
+ADD $5, $3, $5                    
+SUB $6, $1, $1                    
+SUB $6, $6, $6
+LOAD $4, $6, 0x1EA0D479           
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x1EA0D475
+LOAD $7, $2, $6                   
+ADD $2, $4, $0                    
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x1EA0D47D
+STORE $7, $7, $5                  
+ADDI $7, $7, 0x0D02118D           
+SUBI $3, $1, 0x1627E281           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $5, $4, 0x88B9FEA3           
+SUB $4, $3, $2                    
+SUB $2, $4, $4                    
+SUB $4, $4, $4
+LOAD $2, $4, 0x1EA0D481           
+SUBI $4, $6, 0x3E66B290           
+SUB $7, $3, $2                    
+SUB $1, $1, $1
+LOAD $3, $1, 0x1EA0D45D           
+NOP                               
+SUBI $5, $0, 0x347677FD           
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x1EA0D45D
+STORE $6, $2, $2                  
+SUB $6, $6, $6
+STORE $6, $6, 0x1EA0D469          
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $0, $1, 0xB97DAC73           
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x1EA0D46D
+LOAD $1, $0, $5                   
+ADD $6, $4, $3                    
+SUB $2, $2, $2
+STORE $2, $5, 0x1EA0D48D          
+SUB $1, $1, $1
+LOAD $4, $1, 0x1EA0D465           
+SUB $3, $3, $3
+LOAD $5, $3, 0x1EA0D489           
+SUB $3, $0, $7                    
+NOP                               
+SUB $2, $3, $5                    
+SUB $1, $1, $6                    
+SUB $2, $2, $2
+STORE $2, $1, 0x1EA0D465          
+HALT $0
+#
+D@0x1EA0D455
+0x55E980BD		# 1EA0D455		= 1441366205
+0xCD38E070		# 1EA0D459		= -851910544
+0xEE24DF51		# 1EA0D45D		= -299573423
+0x6E15903B		# 1EA0D461		= 1846906939
+0xE03C0A1E		# 1EA0D465		= -532936162
+0x9E01C01E		# 1EA0D469		= -1644052450
+0x5162332B		# 1EA0D46D		= 1365390123
+0xE7F8EB52		# 1EA0D471		= -403117230
+0xEB6D5F6D		# 1EA0D475		= -345153683
+0x4B551B3B		# 1EA0D479		= 1263868731
+0xDE3B9E2D		# 1EA0D47D		= -566518227
+0x6FE05D1B		# 1EA0D481		= 1876974875
+0x2248BD74		# 1EA0D485		= 575192436
+0x79E3A885		# 1EA0D489		= 2044962949
+0x97D57ED1		# 1EA0D48D		= -1747616047

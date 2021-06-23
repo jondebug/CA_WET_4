@@ -1,0 +1,43 @@
+# Test N.188
+#
+L7
+S4
+O2
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $2, $2                    
+NOP                               
+NOP                               
+ADDI $3, $3, 0x94689CEB           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $0, $2, $7                    
+SUBI $6, $0, 0x22CCF1CA           
+NOP                               
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x44C3759D
+STORE $5, $4, $7                  
+SUBI $0, $6, 0x03A3DE6D           
+NOP                               
+ADD $5, $1, $0                    
+SUB $4, $4, $4
+STORE $4, $4, 0x44C3759D          
+SUBI $2, $6, 0xAA61FBE1           
+SUB $2, $2, $2
+LOAD $0, $2, 0x44C3759D           
+ADDI $1, $3, 0x3DA6E5EB           
+SUB $7, $7, $7
+LOAD $4, $7, 0x44C3759D           
+HALT $0
+#
+D@0x44C3759D
+0xDC9F7D92		# 44C3759D		= -593527406

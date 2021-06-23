@@ -1,0 +1,107 @@
+# Test N.1538
+#
+L10
+S7
+O10
+N6
+
+# Thread 0
+T0
+I@0x00000000
+ADD $5, $5, $5                    
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x1DFF6E7C
+LOAD $1, $7, $0                   
+ADDI $5, $6, 0xEE1DB012           
+SUBI $4, $5, 0x1830AF6A           
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x1DFF6E74
+LOAD $3, $0, $3                   
+SUB $1, $1, $6                    
+SUBI $3, $5, 0x773CC906           
+ADD $1, $2, $3                    
+SUB $2, $7, $7                    
+SUB $0, $0, $0
+LOAD $2, $0, 0x1DFF6E74           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $0, $2, 0x89B3BE2A           
+ADD $2, $5, $2                    
+ADDI $1, $0, 0x7B62BE21           
+NOP                               
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x1DFF6E74
+STORE $7, $7, $2                  
+NOP                               
+SUBI $5, $1, 0x107AAB36           
+ADD $1, $1, $4                    
+SUB $4, $4, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $0, $4, 0x2A02F255           
+SUBI $3, $7, 0x5992329F           
+NOP                               
+ADDI $5, $4, 0xEFB30A16           
+SUB $0, $0, $4                    
+SUBI $5, $1, 0x703EFCB6           
+SUB $3, $1, $6                    
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x1DFF6E74
+LOAD $3, $2, $3                   
+SUB $6, $6, $6
+STORE $6, $1, 0x1DFF6E78          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $7, $7, $7
+LOAD $1, $7, 0x1DFF6E7C           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $5, $0                    
+ADDI $4, $7, 0x2AEEE665           
+SUB $6, $4, $0                    
+NOP                               
+NOP                               
+SUB $2, $2, $2
+LOAD $4, $2, 0x1DFF6E7C           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x1DFF6E74
+LOAD $0, $5, $3                   
+SUB $4, $5, $1                    
+ADD $5, $4, $3                    
+SUB $5, $5, $0                    
+ADD $3, $1, $7                    
+SUBI $3, $1, 0xE22EED3B           
+ADDI $0, $0, 0x2427F8CB           
+SUB $2, $2, $2
+STORE $2, $5, 0x1DFF6E78          
+ADDI $0, $2, 0xD3A3B330           
+SUB $3, $4, $4                    
+HALT $0
+#
+D@0x1DFF6E74
+0x830FEA89		# 1DFF6E74		= -2096108919
+0xC1099B8B		# 1DFF6E78		= -1056334965
+0xE6AAE0AB		# 1DFF6E7C		= -425008981

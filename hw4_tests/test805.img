@@ -1,0 +1,70 @@
+# Test N.805
+#
+L5
+S2
+O2
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADD $7, $5, $1                    
+SUB $5, $5, $0                    
+SUB $5, $7, $3                    
+SUBI $7, $1, 0x220B788F           
+SUB $1, $1, $1
+STORE $1, $3, 0x245AE689          
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x245AE681
+LOAD $7, $7, $2                   
+SUB $1, $1, $5                    
+NOP                               
+ADDI $3, $5, 0x618A74C4           
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x245AE681
+LOAD $3, $3, $5                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $6, $3, 0x7A3F5A19           
+NOP                               
+ADD $4, $5, $0                    
+ADD $3, $3, $6                    
+NOP                               
+NOP                               
+ADD $4, $4, $3                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $1, $1
+LOAD $7, $1, 0x245AE685           
+SUB $0, $0, $0
+STORE $0, $6, 0x245AE685          
+ADDI $2, $4, 0x53AF1999           
+SUB $5, $5, $5
+LOAD $3, $5, 0x245AE689           
+SUB $0, $7, $6                    
+NOP                               
+SUBI $7, $6, 0x2C0CEAB7           
+SUBI $5, $7, 0x6F913BF1           
+SUBI $6, $2, 0x429D032F           
+SUB $4, $4, $4
+LOAD $7, $4, 0x245AE685           
+SUB $2, $1, $6                    
+NOP                               
+ADD $6, $0, $3                    
+HALT $0
+#
+D@0x245AE681
+0x00E54B97		# 245AE681		= 15027095
+0x7EBE8045		# 245AE685		= 2126413893
+0x52352343		# 245AE689		= 1379214147
+0x777ABD34		# 245AE68D		= 2004532532
+0x92DAE6BB		# 245AE691		= -1831147845
+0xA60F5FA0		# 245AE695		= -1508941920

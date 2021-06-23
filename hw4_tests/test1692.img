@@ -1,0 +1,70 @@
+# Test N.1692
+#
+L2
+S10
+O5
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $2, $4, 0x17D68288           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $6, $7, 0xF247C016           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $7, $5, 0xC100CBDA           
+SUBI $2, $0, 0x577BB712           
+SUB $7, $5, $0                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $4, $1, 0x4FCDE740           
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x41155D9D
+LOAD $3, $0, $7                   
+SUBI $6, $6, 0x9F8B73E2           
+ADDI $1, $7, 0xDF3B5828           
+SUB $7, $7, $7                    
+SUB $3, $0, $1                    
+SUB $3, $3, $3
+LOAD $0, $3, 0x41155DA1           
+NOP                               
+ADDI $3, $1, 0x8363B84C           
+SUBI $6, $4, 0x3AA2AC33           
+SUB $0, $7, $5                    
+ADDI $6, $6, 0x4235138E           
+SUB $1, $1, $1                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+SUBI $3, $7, 0x52802170           
+SUB $7, $5, $5                    
+SUBI $7, $2, 0x0FD9CC8A           
+HALT $0
+#
+D@0x41155D9D
+0x9ABC1E60		# 41155D9D		= -1698947488
+0x235F68F2		# 41155DA1		= 593455346
+0x568B1C5B		# 41155DA5		= 1451957339
+0xD57081BE		# 41155DA9		= -714047042
+0xD2DACB7D		# 41155DAD		= -757412995
+0xA978BF0F		# 41155DB1		= -1451704561

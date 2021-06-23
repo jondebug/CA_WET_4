@@ -1,0 +1,78 @@
+# Test N.230
+#
+L3
+S8
+O1
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $7, $2                    
+SUB $5, $5, $5
+LOAD $2, $5, 0x0B1EC7DB           
+SUB $5, $5, $5
+STORE $5, $6, 0x0B1EC7D3          
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x0B1EC7C3
+STORE $1, $6, $6                  
+ADDI $5, $3, 0x3475619B           
+ADDI $3, $2, 0xD29856C1           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $0, 0x0B1EC7C3          
+SUB $5, $5, $5
+LOAD $0, $5, 0x0B1EC7D3           
+SUB $2, $2, $2
+LOAD $2, $2, 0x0B1EC7C7           
+NOP                               
+ADDI $7, $5, 0xB49EB0AD           
+NOP                               
+ADDI $2, $1, 0x2964153F           
+NOP                               
+SUB $2, $2, $2
+LOAD $6, $2, 0x0B1EC7DB           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $2
+LOAD $5, $2, 0x0B1EC7CB           
+SUB $0, $5, $6                    
+SUB $0, $7, $3                    
+ADD $0, $6, $1                    
+NOP                               
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x0B1EC7D3
+STORE $6, $4, $0                  
+SUBI $0, $0, 0x80ED0E0C           
+NOP                               
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x0B1EC7D7
+STORE $0, $3, $2                  
+SUB $3, $3, $3
+STORE $3, $4, 0x0B1EC7C7          
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x0B1EC7C3
+LOAD $7, $0, $1                   
+SUBI $5, $5, 0xFA4535A9           
+HALT $0
+#
+D@0x0B1EC7BF
+0x6DB9CDA9		# 0B1EC7BF		= 1840893353
+0xC174EDA5		# 0B1EC7C3		= -1049301595
+0x084A589A		# 0B1EC7C7		= 139090074
+0x5DDEDA59		# 0B1EC7CB		= 1574885977
+0x04533A6E		# 0B1EC7CF		= 72563310
+0x373C5965		# 0B1EC7D3		= 926701925
+0x809BEA7C		# 0B1EC7D7		= -2137265540
+0xEF3856E8		# 0B1EC7DB		= -281520408

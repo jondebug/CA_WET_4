@@ -1,0 +1,63 @@
+# Test N.1520
+#
+L2
+S3
+O1
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x40D1EFE3
+STORE $1, $3, $7                  
+SUB $1, $4, $3                    
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x40D1EFE3
+LOAD $5, $3, $1                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADDI $1, $6, 0xFF672465           
+NOP                               
+NOP                               
+ADDI $7, $6, 0x645555D2           
+ADDI $2, $2, 0x15761E46           
+SUB $5, $5, $5
+LOAD $7, $5, 0x40D1EFE3           
+SUBI $3, $6, 0x53E515C8           
+ADD $4, $4, $0                    
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x40D1EFE3
+STORE $3, $4, $5                  
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x40D1EFE3
+STORE $0, $5, $6                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $3, $3
+LOAD $2, $3, 0x40D1EFE3           
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x40D1EFE3
+LOAD $2, $7, $4                   
+NOP                               
+SUBI $0, $0, 0xBDE05829           
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x40D1EFE3
+STORE $2, $6, $7                  
+HALT $0
+#
+D@0x40D1EFE3
+0xF673CEBA		# 40D1EFE3		= -160182598

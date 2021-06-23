@@ -1,0 +1,44 @@
+# Test N.162
+#
+L4
+S2
+O3
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADD $3, $2, $7                    
+ADD $3, $6, $3                    
+ADD $0, $4, $7                    
+SUB $5, $5, $5
+LOAD $5, $5, 0x1E51FFFF           
+ADD $5, $1, $4                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $6, $4, $7                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $5, $3, 0x75651EA0           
+SUB $0, $1, $4                    
+ADDI $5, $0, 0x65B9777D           
+NOP                               
+ADD $4, $3, $0                    
+ADDI $0, $4, 0xB2781F1B           
+SUB $7, $7, $7
+LOAD $6, $7, 0x1E51FFFF           
+SUBI $7, $6, 0xA86E2283           
+HALT $0
+#
+D@0x1E51FFF7
+0xA1DAE42C		# 1E51FFF7		= -1579490260
+0x48720B10		# 1E51FFFB		= 1215433488
+0xC5314417		# 1E51FFFF		= -986627049
+0x4A48A894		# 1E520003		= 1246275732
+0xC1D0217B		# 1E520007		= -1043324549

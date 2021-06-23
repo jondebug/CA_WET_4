@@ -1,0 +1,33 @@
+# Test N.824
+#
+L2
+S9
+O4
+N1
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x07DFCBD5
+STORE $1, $5, $6                  
+SUB $2, $4, $4                    
+ADD $1, $2, $7                    
+SUBI $3, $2, 0x97F3B302           
+ADDI $1, $0, 0xAA7671E9           
+SUBI $1, $4, 0xDFF40CBD           
+SUBI $6, $2, 0x63762F5A           
+SUBI $5, $2, 0x79346732           
+SUB $2, $2, $2
+LOAD $2, $2, 0x07DFCBD9           
+ADD $7, $2, $4                    
+HALT $0
+#
+D@0x07DFCBD5
+0x7EF28A27		# 07DFCBD5		= 2129824295
+0x77AD7C74		# 07DFCBD9		= 2007858292
+0x328BDB6D		# 07DFCBDD		= 848026477
+0xCD64AFA7		# 07DFCBE1		= -849039449
+0x36DC85C2		# 07DFCBE5		= 920421826

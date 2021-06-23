@@ -1,0 +1,168 @@
+# Test N.1164
+#
+L5
+S4
+O2
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $4, $1, 0xE483DF23           
+ADDI $7, $5, 0xD25DC6D8           
+ADD $2, $7, $2                    
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x4B62A630
+LOAD $0, $2, $4                   
+ADD $2, $4, $5                    
+ADD $6, $2, $1                    
+SUB $7, $6, $4                    
+SUB $1, $1, $1
+LOAD $6, $1, 0x4B62A628           
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x4B62A62C
+LOAD $4, $0, $6                   
+SUB $2, $2, $2
+STORE $2, $1, 0x4B62A638          
+SUBI $2, $0, 0xCA1E4CFD           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $3, $7, 0x25CB7C71           
+ADD $3, $3, $6                    
+ADDI $4, $1, 0xE2DF7869           
+NOP                               
+SUB $4, $4, $4
+STORE $4, $3, 0x4B62A628          
+ADD $0, $4, $4                    
+ADDI $5, $6, 0x6879AD81           
+ADDI $7, $6, 0xD34E30B2           
+SUB $7, $1, $6                    
+ADDI $7, $7, 0x0E1E011D           
+ADDI $0, $3, 0xECDE6FF3           
+SUB $3, $3, $3
+STORE $3, $0, 0x4B62A638          
+ADDI $5, $4, 0x785BE045           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $0, $6, $3                    
+NOP                               
+SUB $3, $6, $3                    
+SUBI $4, $3, 0xECF1F057           
+SUB $1, $6, $5                    
+SUB $3, $1, $1                    
+SUB $6, $5, $1                    
+NOP                               
+NOP                               
+SUB $0, $4, $7                    
+SUBI $0, $1, 0x7C0F9127           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+LOAD $1, $2, 0x4B62A630           
+SUBI $4, $4, 0x9022A5B9           
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x4B62A624
+LOAD $2, $6, $5                   
+SUB $7, $7, $7
+LOAD $3, $7, 0x4B62A630           
+ADD $0, $6, $7                    
+SUB $5, $5, $5
+LOAD $4, $5, 0x4B62A630           
+SUBI $6, $3, 0x7600F8C5           
+SUBI $3, $3, 0x47DFF3D8           
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x4B62A628
+STORE $2, $0, $5                  
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x4B62A638
+LOAD $2, $2, $5                   
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUB $4, $6, $0                    
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x4B62A638
+LOAD $6, $3, $4                   
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x4B62A62C
+STORE $6, $2, $4                  
+SUB $3, $4, $3                    
+ADDI $5, $2, 0x540945B2           
+SUB $3, $7, $6                    
+SUB $6, $5, $5                    
+ADDI $6, $6, 0xDF2BD619           
+ADDI $6, $6, 0x0E45E3E6           
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $3, 0x4B62A628          
+ADD $5, $5, $1                    
+ADDI $0, $0, 0xC95B809C           
+ADDI $4, $3, 0x1733CB1D           
+ADD $4, $5, $6                    
+SUB $1, $6, $6                    
+ADD $4, $4, $7                    
+ADD $2, $0, $0                    
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x4B62A638
+LOAD $1, $4, $7                   
+ADDI $2, $5, 0xE600485C           
+SUB $3, $3, $3
+LOAD $3, $3, 0x4B62A624           
+SUB $5, $1, $2                    
+NOP                               
+SUBI $5, $4, 0x11920003           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $0, $6, $7                    
+SUBI $3, $3, 0xB359774E           
+SUB $1, $1, $1
+STORE $1, $4, 0x4B62A624          
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x4B62A638
+LOAD $7, $0, $2                   
+NOP                               
+ADD $4, $1, $4                    
+SUBI $3, $3, 0x0D3BB134           
+SUB $3, $7, $3                    
+SUBI $0, $3, 0x8F481904           
+SUBI $3, $7, 0xFB7DD4D3           
+NOP                               
+HALT $0
+#
+D@0x4B62A624
+0xAF43625C		# 4B62A624		= -1354538404
+0x3C934229		# 4B62A628		= 1016283689
+0x71AA12E0		# 4B62A62C		= 1906971360
+0x61355ED0		# 4B62A630		= 1630887632
+0x13371B7E		# 4B62A634		= 322378622
+0x930CC851		# 4B62A638		= -1827878831

@@ -1,0 +1,35 @@
+# Test N.427
+#
+L8
+S2
+O4
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x4198E3AA
+STORE $2, $3, $3                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $2, $4                    
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x4198E3AE
+STORE $3, $0, $6                  
+SUBI $7, $1, 0x48B10CF4           
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x4198E3AE
+LOAD $1, $2, $7                   
+ADD $6, $6, $1                    
+HALT $0
+#
+D@0x4198E3AA
+0xB62403C5		# 4198E3AA		= -1239153723
+0xF491E72A		# 4198E3AE		= -191764694

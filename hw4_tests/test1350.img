@@ -1,0 +1,174 @@
+# Test N.1350
+#
+L9
+S6
+O1
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $7, 0x3E52A5C5          
+SUB $3, $3, $3
+LOAD $3, $3, 0x3E52A5D5           
+ADDI $5, $1, 0x45FB50E3           
+ADDI $5, $5, 0x16BAFE4F           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $1, $6                    
+ADDI $1, $5, 0x095DFBC7           
+ADDI $0, $7, 0x4004EA67           
+SUBI $1, $3, 0x5DDFDFAC           
+SUB $4, $3, $3                    
+NOP                               
+ADDI $1, $7, 0xDAED00ED           
+ADD $6, $5, $4                    
+ADDI $6, $6, 0xF553F3B8           
+SUBI $5, $1, 0xBC33DBD1           
+ADDI $4, $2, 0x572B5B4E           
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x3E52A5C9
+LOAD $6, $0, $2                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x3E52A5BD
+LOAD $4, $7, $6                   
+SUB $6, $6, $6
+LOAD $2, $6, 0x3E52A5F5           
+SUB $1, $3, $0                    
+SUBI $5, $1, 0xE292B73C           
+SUB $7, $7, $7
+STORE $7, $3, 0x3E52A5C9          
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x3E52A5D9
+STORE $2, $4, $4                  
+NOP                               
+SUBI $2, $6, 0xE0B9C0D7           
+SUB $7, $4, $4                    
+SUB $4, $2, $2                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $1, $1, $6                    
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x3E52A5E5
+STORE $1, $5, $4                  
+ADD $7, $5, $2                    
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x3E52A5E5
+LOAD $6, $0, $2                   
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x3E52A5ED
+LOAD $7, $7, $1                   
+SUB $6, $4, $7                    
+ADDI $6, $5, 0xB62DA4D0           
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x3E52A5D1
+STORE $0, $3, $1                  
+SUB $3, $3, $3
+LOAD $1, $3, 0x3E52A5F1           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $3, $0                    
+SUB $3, $4, $0                    
+SUB $2, $6, $4                    
+SUBI $2, $6, 0x2FEED21A           
+NOP                               
+SUBI $7, $0, 0xB413D081           
+SUB $1, $1, $1
+STORE $1, $0, 0x3E52A5D9          
+SUB $0, $0, $0
+STORE $0, $4, 0x3E52A5D9          
+SUBI $1, $0, 0xCA92C9A1           
+NOP                               
+SUB $1, $6, $6                    
+ADDI $2, $4, 0x92E702D4           
+SUBI $2, $7, 0xEA0E16E6           
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x3E52A5BD
+LOAD $0, $0, $2                   
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x3E52A5E5
+LOAD $6, $0, $2                   
+ADD $2, $4, $1                    
+SUBI $7, $3, 0xA54C48E3           
+ADDI $2, $2, 0x58FA3A85           
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x3E52A5CD
+LOAD $5, $6, $7                   
+SUBI $4, $7, 0x1D9A98AF           
+ADD $6, $2, $3                    
+ADD $6, $3, $0                    
+SUB $3, $3, $3
+LOAD $6, $3, 0x3E52A5B9           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $6, 0x3E52A5E9          
+SUB $5, $5, $5
+LOAD $5, $5, 0x3E52A5F1           
+ADD $7, $7, $6                    
+ADDI $1, $2, 0x277D4F5B           
+ADD $1, $1, $2                    
+SUBI $7, $6, 0x5952F8AF           
+SUB $3, $3, $3
+LOAD $4, $3, 0x3E52A5C9           
+HALT $0
+#
+D@0x3E52A5AD
+0x324EED75		# 3E52A5AD		= 844033397
+0x60AB19E1		# 3E52A5B1		= 1621826017
+0xF43F3DB4		# 3E52A5B5		= -197182028
+0x81BC12C2		# 3E52A5B9		= -2118380862
+0xF03CA93A		# 3E52A5BD		= -264459974
+0x3AB42F9A		# 3E52A5C1		= 984887194
+0x469249A3		# 3E52A5C5		= 1183992227
+0xE6DC8E3A		# 3E52A5C9		= -421753286
+0x0C8BD315		# 3E52A5CD		= 210490133
+0xCE391365		# 3E52A5D1		= -835120283
+0x9351167A		# 3E52A5D5		= -1823402374
+0x92466053		# 3E52A5D9		= -1840881581
+0x2F199146		# 3E52A5DD		= 790204742
+0x84E656FB		# 3E52A5E1		= -2065279237
+0x64EBB5E2		# 3E52A5E5		= 1693169122
+0x37DAFC7C		# 3E52A5E9		= 937098364
+0x887A889F		# 3E52A5ED		= -2005235553
+0x08BA3DA7		# 3E52A5F1		= 146423207
+0x350050FE		# 3E52A5F5		= 889213182

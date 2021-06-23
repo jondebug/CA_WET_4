@@ -1,0 +1,95 @@
+# Test N.790
+#
+L2
+S5
+O2
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADD $1, $0, $1                    
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x01AAB93B
+LOAD $1, $0, $7                   
+SUBI $6, $4, 0x38580DB5           
+NOP                               
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x01AAB943
+STORE $0, $1, $4                  
+NOP                               
+SUB $4, $4, $4
+LOAD $5, $4, 0x01AAB94B           
+SUB $2, $6, $5                    
+ADD $3, $7, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $6, $7, 0xC573CA9E           
+NOP                               
+ADD $6, $3, $3                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $2, $7, $7                    
+SUBI $2, $2, 0xC38C3F0B           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x01AAB953
+LOAD $5, $5, $1                   
+ADDI $2, $1, 0x46A6002A           
+SUB $7, $7, $7
+STORE $7, $3, 0x01AAB92F          
+NOP                               
+ADDI $4, $5, 0xDAC60EC1           
+SUB $3, $3, $2                    
+NOP                               
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x01AAB93B
+LOAD $3, $5, $2                   
+SUB $0, $0, $0
+LOAD $6, $0, 0x01AAB94B           
+SUB $4, $7, $6                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $4, $6, 0xB68FEDDA           
+SUBI $6, $7, 0x70DD6AB3           
+ADDI $7, $6, 0x14CC5881           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x01AAB937
+STORE $5, $0, $1                  
+ADDI $0, $2, 0x8C48E813           
+NOP                               
+SUB $2, $3, $5                    
+ADD $4, $1, $4                    
+SUB $0, $3, $6                    
+SUBI $2, $3, 0xCA3AB936           
+ADDI $2, $0, 0x77C6DC7C           
+SUB $3, $2, $5                    
+SUB $3, $3, $3
+LOAD $3, $3, 0x01AAB937           
+HALT $0
+#
+D@0x01AAB92F
+0x80D8B6BD		# 01AAB92F		= -2133281091
+0x9276D150		# 01AAB933		= -1837706928
+0x87EE94CD		# 01AAB937		= -2014407475
+0x1D04B7CC		# 01AAB93B		= 486848460
+0x7F04FB97		# 01AAB93F		= 2131032983
+0xEAC472DB		# 01AAB943		= -356224293
+0x0125B067		# 01AAB947		= 19247207
+0xC95C4BD4		# 01AAB94B		= -916698156
+0xA5DB62C3		# 01AAB94F		= -1512348989
+0xD44CCB46		# 01AAB953		= -733164730
+0x114D84AF		# 01AAB957		= 290292911

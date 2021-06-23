@@ -1,0 +1,140 @@
+# Test N.211
+#
+L9
+S3
+O10
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $3, $4                    
+SUB $7, $7, $7
+LOAD $4, $7, 0x2CDC36AD           
+NOP                               
+SUB $0, $0, $3                    
+SUBI $7, $2, 0x844C7228           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $2, $6, 0xDC76D573           
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x2CDC3695
+STORE $6, $6, $0                  
+ADD $5, $6, $6                    
+NOP                               
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x2CDC36AD
+STORE $5, $2, $3                  
+SUB $3, $3, $3
+LOAD $4, $3, 0x2CDC36D1           
+SUB $3, $3, $3
+STORE $3, $7, 0x2CDC36B5          
+SUB $1, $6, $1                    
+ADDI $2, $3, 0x108EA81B           
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x2CDC36BD
+STORE $3, $7, $1                  
+SUBI $2, $0, 0x23172B0C           
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x2CDC3695
+STORE $4, $0, $5                  
+SUB $4, $4, $4
+STORE $4, $7, 0x2CDC369D          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $1, 0x2CDC36D1          
+SUB $5, $5, $5
+LOAD $0, $5, 0x2CDC369D           
+ADD $2, $7, $2                    
+SUB $0, $0, $0
+LOAD $1, $0, 0x2CDC36AD           
+SUB $7, $7, $7
+STORE $7, $0, 0x2CDC3695          
+ADD $3, $1, $1                    
+ADDI $6, $7, 0x33DFE74E           
+NOP                               
+SUB $6, $6, $6
+STORE $6, $5, 0x2CDC36A1          
+ADD $0, $6, $6                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $7, $3, 0xB7DBB62E           
+SUB $5, $5, $5
+STORE $5, $1, 0x2CDC36C5          
+ADD $1, $2, $6                    
+ADD $3, $4, $5                    
+ADDI $2, $6, 0x2D321B3E           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x2CDC3695
+STORE $1, $4, $4                  
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x2CDC3699
+LOAD $1, $1, $0                   
+ADD $2, $7, $3                    
+NOP                               
+ADDI $3, $4, 0xB97ACB15           
+SUB $0, $7, $4                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x2CDC36C1
+LOAD $6, $2, $5                   
+SUB $4, $2, $7                    
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x2CDC36B1
+STORE $3, $5, $1                  
+ADDI $1, $4, 0x988C26C4           
+SUB $1, $1, $1
+STORE $1, $5, 0x2CDC36D1          
+HALT $0
+#
+D@0x2CDC3691
+0x6ED0FFAD		# 2CDC3691		= 1859190701
+0x2089327E		# 2CDC3695		= 545862270
+0x2FF71098		# 2CDC3699		= 804720792
+0xB880C501		# 2CDC369D		= -1199520511
+0xC85482A3		# 2CDC36A1		= -933985629
+0x90247CA3		# 2CDC36A5		= -1876656989
+0xB41F9F89		# 2CDC36A9		= -1272995959
+0xFBAA3C51		# 2CDC36AD		= -72729519
+0xEA144151		# 2CDC36B1		= -367771311
+0x5095DF17		# 2CDC36B5		= 1351999255
+0x19C9AF5E		# 2CDC36B9		= 432648030
+0x2E55CC8A		# 2CDC36BD		= 777374858
+0x93CE2673		# 2CDC36C1		= -1815206285
+0x71A021C8		# 2CDC36C5		= 1906319816
+0x6DD0097E		# 2CDC36C9		= 1842350462
+0x4EEB2CB3		# 2CDC36CD		= 1324035251
+0xC78DDF33		# 2CDC36D1		= -947003597

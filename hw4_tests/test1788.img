@@ -1,0 +1,28 @@
+# Test N.1788
+#
+L4
+S2
+O6
+N1
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+LOAD $6, $2, 0x74260EF1           
+ADDI $4, $3, 0x52AC53D7           
+ADD $6, $2, $3                    
+SUB $0, $0, $0
+STORE $0, $4, 0x74260EED          
+SUBI $2, $2, 0xB635ECDA           
+ADDI $6, $7, 0xB0F8D236           
+NOP                               
+SUB $4, $5, $4                    
+NOP                               
+ADD $2, $7, $5                    
+NOP                               
+HALT $0
+#
+D@0x74260EED
+0xF22805CC		# 74260EED		= -232258100
+0xD67C5844		# 74260EF1		= -696494012

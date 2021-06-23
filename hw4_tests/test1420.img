@@ -1,0 +1,55 @@
+# Test N.1420
+#
+L5
+S5
+O6
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x69B0C200
+STORE $6, $3, $2                  
+SUB $0, $0, $0
+LOAD $3, $0, 0x69B0C208           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $5, $3, 0x9D96AE03           
+SUBI $3, $5, 0xEC95D117           
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x69B0C204
+LOAD $3, $2, $4                   
+NOP                               
+SUB $1, $1, $1
+STORE $1, $5, 0x69B0C204          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADDI $2, $5, 0xEC13BA29           
+ADD $4, $0, $4                    
+ADDI $5, $5, 0xCF157BA9           
+NOP                               
+SUBI $0, $7, 0x33BE653F           
+ADDI $0, $5, 0x9E9C08EA           
+SUB $2, $2, $2
+STORE $2, $4, 0x69B0C208          
+SUB $2, $5, $3                    
+SUB $0, $0, $0
+STORE $0, $2, 0x69B0C200          
+SUB $0, $0, $0
+LOAD $1, $0, 0x69B0C200           
+HALT $0
+#
+D@0x69B0C200
+0x6184D76E		# 69B0C200		= 1636095854
+0x2C2CDEC9		# 69B0C204		= 741138121
+0x3CFFFD83		# 69B0C208		= 1023409539

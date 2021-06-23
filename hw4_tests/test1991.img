@@ -1,0 +1,179 @@
+# Test N.1991
+#
+L5
+S1
+O7
+N8
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $0, $4, 0xC34A5CFC           
+ADDI $2, $0, 0x956DA5E9           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x2F706D48
+LOAD $4, $2, $3                   
+ADD $0, $6, $2                    
+SUB $4, $3, $6                    
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x2F706D5C
+LOAD $7, $2, $7                   
+SUB $3, $1, $7                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x2F706D60
+STORE $1, $5, $3                  
+ADDI $5, $5, 0xBCC73467           
+NOP                               
+NOP                               
+SUBI $1, $0, 0xAC03D797           
+NOP                               
+ADDI $1, $6, 0x8AC2149B           
+SUB $2, $2, $2
+STORE $2, $5, 0x2F706D38          
+SUB $6, $5, $1                    
+SUB $2, $7, $7                    
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x2F706D40
+LOAD $2, $3, $2                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $2, $0, $0                    
+ADDI $1, $3, 0x682C4FCD           
+ADDI $1, $0, 0x970EE836           
+SUB $1, $6, $1                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $5, $7, $0                    
+NOP                               
+SUB $4, $4, $4
+LOAD $7, $4, 0x2F706D58           
+SUB $4, $3, $1                    
+SUB $1, $1, $1
+STORE $1, $1, 0x2F706D58          
+ADD $0, $6, $7                    
+ADDI $1, $0, 0xA933FA92           
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x2F706D3C
+LOAD $4, $4, $5                   
+ADDI $6, $0, 0xFD81974B           
+SUB $3, $1, $1                    
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x2F706D2C
+STORE $3, $4, $0                  
+SUB $5, $3, $7                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x2F706D4C
+LOAD $4, $7, $4                   
+NOP                               
+ADD $6, $2, $1                    
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x2F706D34
+STORE $3, $2, $6                  
+SUB $3, $3, $5                    
+NOP                               
+ADD $7, $1, $3                    
+ADDI $7, $2, 0x7872DA19           
+SUB $7, $7, $7
+LOAD $0, $7, 0x2F706D2C           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $6, $3, $7                    
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x2F706D50
+LOAD $4, $6, $2                   
+ADD $6, $6, $4                    
+ADD $7, $1, $4                    
+SUB $5, $5, $5
+LOAD $3, $5, 0x2F706D5C           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x2F706D44
+LOAD $0, $5, $1                   
+NOP                               
+SUB $5, $5, $5
+LOAD $5, $5, 0x2F706D30           
+NOP                               
+NOP                               
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x2F706D40
+STORE $3, $2, $6                  
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADD $1, $3, $5                    
+SUBI $5, $4, 0x89E1ECF7           
+ADDI $0, $6, 0xB6B10310           
+SUBI $5, $7, 0x5118F628           
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x2F706D58
+LOAD $6, $3, $1                   
+SUB $6, $6, $2                    
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x2F706D2C
+STORE $7, $6, $2                  
+SUBI $6, $0, 0xBD46C32E           
+SUB $6, $1, $4                    
+SUB $3, $3, $3
+LOAD $1, $3, 0x2F706D50           
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+ADDI $3, $5, 0x44B13EB9           
+SUB $0, $0, $0
+STORE $0, $2, 0x2F706D5C          
+ADD $6, $2, $5                    
+ADDI $1, $3, 0x1A5A3C2B           
+SUBI $7, $6, 0xF1A046A5           
+HALT $0
+#
+D@0x2F706D2C
+0x068D70AE		# 2F706D2C		= 109932718
+0xBF2D0813		# 2F706D30		= -1087567853
+0x7CE41726		# 2F706D34		= 2095322918
+0xB0E7FA9D		# 2F706D38		= -1326974307
+0x79AF35E3		# 2F706D3C		= 2041525731
+0xBACEEAD0		# 2F706D40		= -1160844592
+0x488D4A97		# 2F706D44		= 1217219223
+0xF0239753		# 2F706D48		= -266102957
+0x3817F993		# 2F706D4C		= 941095315
+0xF8E38292		# 2F706D50		= -119307630
+0x6137EF03		# 2F706D54		= 1631055619
+0xB016812C		# 2F706D58		= -1340702420
+0x2BF384CE		# 2F706D5C		= 737379534
+0x56A9B48A		# 2F706D60		= 1453962378

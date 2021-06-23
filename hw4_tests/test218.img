@@ -1,0 +1,167 @@
+# Test N.218
+#
+L3
+S8
+O1
+N7
+
+# Thread 0
+T0
+I@0x00000000
+ADD $7, $4, $3                    
+ADDI $3, $1, 0x50FDADE7           
+NOP                               
+SUBI $5, $3, 0xD0012E2D           
+ADD $6, $6, $3                    
+SUB $4, $4, $4
+STORE $4, $0, 0x419FBF7F          
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x419FBF93
+LOAD $3, $7, $0                   
+SUB $7, $7, $7
+LOAD $3, $7, 0x419FBF73           
+ADDI $6, $4, 0xD4D80B76           
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x419FBF7B
+STORE $6, $6, $4                  
+NOP                               
+ADD $0, $0, $3                    
+NOP                               
+SUB $6, $6, $6
+STORE $6, $6, 0x419FBFA7          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $3, $3
+LOAD $2, $3, 0x419FBF97           
+NOP                               
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x419FBF8B
+LOAD $2, $6, $1                   
+SUBI $1, $4, 0xEC6FFD67           
+SUBI $6, $7, 0xAD72A1AC           
+SUB $3, $5, $1                    
+SUB $0, $0, $0
+STORE $0, $6, 0x419FBF8F          
+SUBI $1, $3, 0x6625ABA1           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x419FBF8F
+STORE $6, $2, $3                  
+SUBI $7, $1, 0x1CA98711           
+SUB $0, $0, $0
+STORE $0, $5, 0x419FBF7B          
+NOP                               
+ADD $1, $7, $3                    
+SUBI $3, $3, 0x05D564E5           
+ADD $5, $6, $6                    
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x419FBF6B
+LOAD $6, $7, $5                   
+SUB $0, $0, $0
+LOAD $2, $0, 0x419FBF9F           
+ADD $1, $4, $4                    
+ADD $0, $0, $7                    
+ADDI $4, $5, 0x011F6310           
+SUBI $6, $6, 0x35A58B5C           
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $1                    
+SUBI $3, $4, 0xA1648ABE           
+SUB $7, $1, $2                    
+SUB $7, $7, $7
+STORE $7, $0, 0x419FBF6F          
+SUBI $1, $7, 0xF84F5ACE           
+ADD $7, $7, $6                    
+ADD $0, $6, $4                    
+ADD $2, $5, $1                    
+SUBI $0, $7, 0x5A95EE18           
+ADDI $7, $6, 0x741F3B8F           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $4, $7, 0x7FDC98CF           
+SUB $1, $1, $1
+LOAD $4, $1, 0x419FBF77           
+SUB $5, $5, $5
+LOAD $3, $5, 0x419FBF9B           
+ADD $7, $6, $2                    
+ADDI $6, $7, 0x5924B707           
+ADD $4, $0, $2                    
+SUB $7, $7, $7
+STORE $7, $1, 0x419FBF6F          
+SUBI $2, $7, 0x148EE04D           
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $6, $7, $1                    
+NOP                               
+SUB $7, $7, $7
+LOAD $0, $7, 0x419FBF67           
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x419FBF8F
+LOAD $5, $6, $3                   
+SUB $7, $7, $7
+LOAD $0, $7, 0x419FBFAB           
+NOP                               
+ADDI $7, $6, 0x7E7D6012           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x419FBF7B
+STORE $1, $5, $5                  
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $4, $4, $4
+LOAD $2, $4, 0x419FBF73           
+NOP                               
+ADDI $4, $1, 0x12DA7E55           
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x419FBF67
+LOAD $2, $0, $2                   
+HALT $0
+#
+D@0x419FBF67
+0x193E1859		# 419FBF67		= 423499865
+0x50E0F6B2		# 419FBF6B		= 1356920498
+0x30427435		# 419FBF6F		= 809661493
+0x7C46A254		# 419FBF73		= 2085003860
+0xD113E81C		# 419FBF77		= -787224548
+0xD803E31B		# 419FBF7B		= -670833893
+0xC59ED96F		# 419FBF7F		= -979445393
+0xE4A6C017		# 419FBF83		= -458833897
+0xC1F1FC68		# 419FBF87		= -1041105816
+0x3A7E5C0B		# 419FBF8B		= 981359627
+0x8BFA6A36		# 419FBF8F		= -1946523082
+0x2F642570		# 419FBF93		= 795092336
+0x5E94626D		# 419FBF97		= 1586782829
+0xB6FC5504		# 419FBF9B		= -1224977148
+0x18BB1960		# 419FBF9F		= 414914912
+0x46C2F1D1		# 419FBFA3		= 1187181009
+0xA462165B		# 419FBFA7		= -1537075621
+0x0AC74D90		# 419FBFAB		= 180833680

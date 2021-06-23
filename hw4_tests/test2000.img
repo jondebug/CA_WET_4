@@ -1,0 +1,71 @@
+# Test N.2000
+#
+L5
+S5
+O10
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADD $4, $4, $6                    
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x6375E3D3
+STORE $3, $3, $7                  
+SUB $1, $1, $1
+STORE $1, $3, 0x6375E3D3          
+ADDI $2, $2, 0x4FEAEE25           
+SUBI $0, $6, 0xC18068F5           
+SUB $5, $7, $5                    
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x6375E3CB
+STORE $0, $0, $3                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $6, $6, $6
+STORE $6, $7, 0x6375E3D3          
+SUB $1, $0, $0                    
+SUBI $0, $1, 0xF3CC21F1           
+SUBI $4, $4, 0xABEF1786           
+SUBI $5, $4, 0x77948CB9           
+SUB $5, $5, $5
+LOAD $3, $5, 0x6375E3CF           
+SUBI $6, $0, 0xD6BE01BC           
+ADD $3, $3, $0                    
+ADDI $6, $7, 0xCD9BDCD5           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $3, $3                    
+ADD $5, $0, $0                    
+ADD $7, $7, $0                    
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x6375E3EB
+LOAD $4, $7, $1                   
+SUB $1, $1, $1
+STORE $1, $4, 0x6375E3CB          
+SUBI $7, $6, 0x372F47E6           
+NOP                               
+NOP                               
+HALT $0
+#
+D@0x6375E3C7
+0x58D2D0FB		# 6375E3C7		= 1490211067
+0x557C040A		# 6375E3CB		= 1434190858
+0xD47BAE3D		# 6375E3CF		= -730091971
+0x707077A2		# 6375E3D3		= 1886418850
+0xB925C40C		# 6375E3D7		= -1188707316
+0x042EE1DA		# 6375E3DB		= 70181338
+0xEA339C5D		# 6375E3DF		= -365716387
+0xBD15727B		# 6375E3E3		= -1122667909
+0xD74F3030		# 6375E3E7		= -682676176
+0x24C077FE		# 6375E3EB		= 616593406

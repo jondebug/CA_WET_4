@@ -1,0 +1,40 @@
+# Test N.295
+#
+L8
+S7
+O1
+N2
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $4, $4, $2                    
+SUB $3, $2, $3                    
+NOP                               
+SUB $7, $5, $1                    
+SUB $7, $6, $5                    
+SUB $2, $2, $2
+LOAD $7, $2, 0x2CAF26AF           
+ADD $2, $4, $6                    
+SUBI $7, $0, 0x3D4F2BE2           
+SUBI $4, $1, 0xFDECFB5C           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x2CAF26AB
+STORE $6, $1, $1                  
+HALT $0
+#
+D@0x2CAF2697
+0x588310E0		# 2CAF2697		= 1484984544
+0x44611A90		# 2CAF269B		= 1147214480
+0x3A6A830C		# 2CAF269F		= 980058892
+0xE9EB6DCC		# 2CAF26A3		= -370446900
+0xF010EA0B		# 2CAF26A7		= -267326965
+0x2ACCAE1B		# 2CAF26AB		= 718056987
+0x394A4522		# 2CAF26AF		= 961168674

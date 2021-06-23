@@ -1,0 +1,175 @@
+# Test N.1951
+#
+L7
+S9
+O8
+N8
+
+# Thread 0
+T0
+I@0x00000000
+ADD $2, $4, $7                    
+SUBI $0, $7, 0xBE89296A           
+ADDI $7, $6, 0x274C6057           
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x7382AD78
+STORE $1, $7, $6                  
+ADD $2, $0, $0                    
+ADD $2, $6, $0                    
+SUB $7, $7, $7
+STORE $7, $7, 0x7382AD88          
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x7382ADA4
+LOAD $0, $7, $0                   
+NOP                               
+SUB $5, $5, $5
+STORE $5, $5, 0x7382AD90          
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $5, $0, 0x30C6A786           
+SUB $7, $3, $2                    
+SUB $3, $7, $7                    
+ADD $3, $2, $2                    
+SUB $7, $7, $1                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $2, $6, 0x23F60AA4           
+SUBI $1, $4, 0xBB4A02CF           
+SUB $3, $3, $5                    
+ADD $2, $5, $3                    
+ADD $7, $0, $6                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x7382ADA0
+STORE $3, $3, $2                  
+ADDI $5, $0, 0x13B07CED           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $1, 0x7382AD90          
+NOP                               
+SUB $5, $1, $7                    
+ADD $5, $0, $0                    
+SUB $7, $4, $5                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+SUB $4, $4, $4
+STORE $4, $2, 0x7382ADA4          
+NOP                               
+ADD $7, $0, $6                    
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x7382AD90
+STORE $5, $5, $1                  
+ADDI $3, $1, 0xD5A084C1           
+SUB $1, $1, $0                    
+NOP                               
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x7382AD78
+STORE $4, $5, $0                  
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x7382AD9C
+STORE $3, $7, $2                  
+SUB $0, $4, $5                    
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x7382AD90
+LOAD $3, $1, $4                   
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $2, $2, $2
+LOAD $5, $2, 0x7382AD80           
+ADD $5, $0, $5                    
+ADD $4, $7, $6                    
+SUB $2, $3, $2                    
+NOP                               
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x7382AD98
+LOAD $3, $6, $7                   
+SUBI $3, $1, 0x0281A106           
+SUBI $3, $1, 0x60031258           
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x7382AD9C
+LOAD $6, $1, $2                   
+NOP                               
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x7382ADB4
+STORE $0, $7, $4                  
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x7382AD78
+STORE $0, $3, $6                  
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $5, $5, $5
+LOAD $7, $5, 0x7382AD98           
+ADD $5, $0, $3                    
+ADD $7, $4, $6                    
+SUBI $0, $6, 0x55800544           
+SUB $2, $2, $2
+STORE $2, $1, 0x7382ADA0          
+ADD $0, $1, $0                    
+ADDI $2, $0, 0xC520CA0B           
+SUB $6, $6, $6
+STORE $6, $7, 0x7382AD78          
+SUBI $3, $0, 0x8AC21B99           
+ADDI $5, $0, 0x4A779A34           
+ADD $6, $1, $5                    
+SUBI $4, $4, 0xACFD9900           
+ADDI $0, $1, 0xF361FA19           
+SUB $6, $3, $3                    
+HALT $0
+#
+D@0x7382AD74
+0xAB11EB0B		# 7382AD74		= -1424889077
+0x8852F75A		# 7382AD78		= -2007828646
+0xD2FA3865		# 7382AD7C		= -755353499
+0xE7C421FD		# 7382AD80		= -406576643
+0xCF4A3AD2		# 7382AD84		= -817218862
+0xA0BF5C6C		# 7382AD88		= -1598071700
+0xACA5528A		# 7382AD8C		= -1398451574
+0x4797588B		# 7382AD90		= 1201100939
+0xE051AA22		# 7382AD94		= -531518942
+0xBBB1DA06		# 7382AD98		= -1145972218
+0x6C99868E		# 7382AD9C		= 1822000782
+0x8C3C1BA5		# 7382ADA0		= -1942217819
+0x1474364B		# 7382ADA4		= 343160395
+0x70EFF94D		# 7382ADA8		= 1894775117
+0x865BF4AD		# 7382ADAC		= -2040793939
+0x13DB9EA7		# 7382ADB0		= 333160103
+0x7D51F3A8		# 7382ADB4		= 2102522792
+0xEF1F8684		# 7382ADB8		= -283146620

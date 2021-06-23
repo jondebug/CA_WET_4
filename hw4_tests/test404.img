@@ -1,0 +1,42 @@
+# Test N.404
+#
+L9
+S9
+O7
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x50AFE26A
+STORE $7, $4, $1                  
+SUBI $7, $1, 0xC188EFC9           
+ADD $1, $7, $7                    
+SUBI $2, $3, 0x7B1D0424           
+SUBI $4, $5, 0x631DE85D           
+ADD $0, $7, $0                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $0, $3, 0x5810EE8D           
+SUB $4, $4, $4
+LOAD $7, $4, 0x50AFE272           
+SUB $2, $2, $2
+STORE $2, $5, 0x50AFE272          
+NOP                               
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x50AFE276
+LOAD $6, $4, $1                   
+SUB $6, $2, $4                    
+HALT $0
+#
+D@0x50AFE26A
+0xE81E5856		# 50AFE26A		= -400664490
+0x087C7277		# 50AFE26E		= 142373495
+0x0DB6207C		# 50AFE272		= 230039676
+0x3B99D32F		# 50AFE276		= 999936815

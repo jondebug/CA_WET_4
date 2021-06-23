@@ -1,0 +1,70 @@
+# Test N.256
+#
+L8
+S5
+O6
+N4
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+NOP                               
+ADDI $0, $5, 0xD3871C16           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $6, $5, $7                    
+SUB $0, $0, $0
+LOAD $2, $0, 0x2C9698DF           
+SUB $7, $7, $7
+STORE $7, $5, 0x2C9698D3          
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x2C9698E3
+LOAD $2, $5, $0                   
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $3, $3                    
+SUB $2, $2, $2
+STORE $2, $3, 0x2C9698CF          
+NOP                               
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x2C9698D3
+STORE $3, $2, $0                  
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x2C9698DF
+STORE $4, $4, $0                  
+SUB $6, $7, $2                    
+ADD $0, $4, $7                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $3, $4                    
+SUB $5, $5, $5
+LOAD $7, $5, 0x2C9698E3           
+ADDI $2, $3, 0x1F631CE7           
+SUBI $6, $4, 0x943AAE53           
+NOP                               
+ADDI $6, $2, 0x4EC81307           
+ADDI $6, $0, 0x4F852300           
+NOP                               
+HALT $0
+#
+D@0x2C9698CF
+0x7237489E		# 2C9698CF		= 1916225694
+0x4243FFCE		# 2C9698D3		= 1111752654
+0xB986DE76		# 2C9698D7		= -1182343562
+0x0187BE48		# 2C9698DB		= 25673288
+0x5E0BDFF0		# 2C9698DF		= 1577836528
+0x83A24D42		# 2C9698E3		= -2086515390

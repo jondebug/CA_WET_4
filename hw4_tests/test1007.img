@@ -1,0 +1,31 @@
+# Test N.1007
+#
+L6
+S5
+O9
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x5EBDA626
+LOAD $2, $4, $2                   
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+LOAD $5, $5, 0x5EBDA626           
+SUB $7, $7, $7
+LOAD $0, $7, 0x5EBDA62A           
+ADD $1, $0, $3                    
+NOP                               
+HALT $0
+#
+D@0x5EBDA626
+0x647350AB		# 5EBDA626		= 1685278891
+0x1B494601		# 5EBDA62A		= 457786881

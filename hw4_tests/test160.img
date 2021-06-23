@@ -1,0 +1,106 @@
+# Test N.160
+#
+L3
+S1
+O5
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $0, $5, $5                    
+SUB $3, $3, $3
+STORE $3, $4, 0x006D0838          
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x006D083C
+STORE $1, $4, $5                  
+ADD $5, $0, $0                    
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x006D083C
+LOAD $3, $0, $1                   
+ADDI $7, $6, 0x32EDA410           
+ADD $3, $1, $0                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $4, $2                    
+SUB $7, $4, $3                    
+SUBI $1, $2, 0xC6972DDB           
+ADD $5, $2, $0                    
+ADD $0, $4, $6                    
+SUB $3, $3, $3
+LOAD $3, $3, 0x006D0840           
+NOP                               
+ADDI $5, $3, 0x7F0BA445           
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x006D0840
+STORE $0, $1, $1                  
+NOP                               
+ADD $7, $5, $3                    
+SUB $0, $0, $2                    
+SUB $1, $0, $1                    
+ADD $0, $1, $6                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x006D0838
+STORE $7, $1, $6                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x006D0840
+LOAD $5, $4, $7                   
+NOP                               
+ADD $2, $4, $0                    
+ADD $2, $4, $4                    
+ADDI $3, $2, 0xCE927158           
+SUBI $0, $0, 0xCDE9D15E           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $3, $0                    
+ADDI $4, $0, 0x41F3D094           
+SUB $3, $3, $3
+LOAD $4, $3, 0x006D0838           
+SUBI $6, $5, 0x5D5B5136           
+ADDI $2, $5, 0x0A420E00           
+NOP                               
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x006D083C
+LOAD $4, $1, $5                   
+SUB $7, $4, $3                    
+ADD $7, $0, $0                    
+SUBI $5, $7, 0x013ED5F1           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x006D083C
+LOAD $7, $3, $7                   
+ADD $3, $5, $5                    
+SUB $4, $4, $4
+STORE $4, $3, 0x006D0840          
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x006D0840
+STORE $7, $4, $4                  
+HALT $0
+#
+D@0x006D0838
+0xB5157BB9		# 006D0838		= -1256883271
+0xED156291		# 006D083C		= -317365615
+0x7933C86C		# 006D0840		= 2033436780

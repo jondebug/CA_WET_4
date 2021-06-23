@@ -1,0 +1,36 @@
+# Test N.1968
+#
+L2
+S6
+O7
+N2
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $5, $7                    
+ADD $5, $7, $5                    
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x778CEEDB
+LOAD $7, $7, $6                   
+SUBI $4, $3, 0x3C710875           
+SUB $2, $2, $2
+LOAD $5, $2, 0x778CEED7           
+NOP                               
+SUB $5, $5, $5
+LOAD $5, $5, 0x778CEED3           
+SUB $6, $5, $5                    
+ADD $0, $5, $1                    
+HALT $0
+#
+D@0x778CEECF
+0x3C8A32D3		# 778CEECF		= 1015689939
+0x35EE578E		# 778CEED3		= 904812430
+0x2B958065		# 778CEED7		= 731218021
+0xBCE02F30		# 778CEEDB		= -1126158544

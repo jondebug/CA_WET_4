@@ -1,0 +1,39 @@
+# Test N.998
+#
+L5
+S10
+O1
+N2
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $2, 0x77DED421          
+SUB $2, $2, $2
+LOAD $6, $2, 0x77DED425           
+SUBI $0, $2, 0xD25663EF           
+ADD $0, $6, $7                    
+NOP                               
+SUB $3, $3, $3
+STORE $3, $1, 0x77DED41D          
+NOP                               
+NOP                               
+NOP                               
+SUB $1, $1, $1
+LOAD $6, $1, 0x77DED421           
+HALT $0
+#
+D@0x77DED415
+0xE73B6336		# 77DED415		= -415538378
+0x3473DE4C		# 77DED419		= 880008780
+0x7D2B7C32		# 77DED41D		= 2100001842
+0x46FC7D39		# 77DED421		= 1190952249
+0x16504982		# 77DED425		= 374360450
+0xCC0AC05C		# 77DED429		= -871710628
+0x9CA5AE5A		# 77DED42D		= -1666863526

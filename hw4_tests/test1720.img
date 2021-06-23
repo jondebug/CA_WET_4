@@ -1,0 +1,62 @@
+# Test N.1720
+#
+L8
+S1
+O10
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x75BAC409
+LOAD $5, $6, $4                   
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $2, $0, 0x1E7F179A           
+SUB $3, $2, $6                    
+SUB $3, $3, $3
+LOAD $0, $3, 0x75BAC425           
+ADD $3, $3, $5                    
+NOP                               
+ADDI $0, $5, 0xC4A87A62           
+SUB $1, $1, $1
+LOAD $7, $1, 0x75BAC421           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $4, $3, $5                    
+ADDI $1, $5, 0x548FDE6F           
+SUBI $5, $5, 0x62A9C850           
+ADDI $1, $4, 0x1179BA5B           
+ADDI $4, $6, 0x3BDAB7F0           
+ADDI $3, $0, 0x71EC10D9           
+NOP                               
+ADDI $3, $3, 0xEDB54DE3           
+ADDI $5, $1, 0x6E320A75           
+SUB $5, $5, $5
+STORE $5, $2, 0x75BAC405          
+ADD $0, $6, $2                    
+NOP                               
+SUBI $0, $5, 0x18AE4CBF           
+HALT $0
+#
+D@0x75BAC405
+0xF162ED21		# 75BAC405		= -245175007
+0x776210F1		# 75BAC409		= 2002915569
+0x3C0F37CE		# 75BAC40D		= 1007630286
+0x4A23741F		# 75BAC411		= 1243837471
+0x23DEDB41		# 75BAC415		= 601807681
+0xF5764DAE		# 75BAC419		= -176796242
+0x0982A0FF		# 75BAC41D		= 159555839
+0x013A36DC		# 75BAC421		= 20592348
+0xDB987741		# 75BAC425		= -610764991
+0xF364E2AC		# 75BAC429		= -211492180
+0x58CD0F09		# 75BAC42D		= 1489833737

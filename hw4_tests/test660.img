@@ -1,0 +1,174 @@
+# Test N.660
+#
+L2
+S4
+O5
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x4FF00732
+LOAD $0, $2, $5                   
+SUBI $3, $7, 0xC4D4BA00           
+SUB $0, $0, $0
+STORE $0, $0, 0x4FF00736          
+SUBI $6, $3, 0x0CEC07FF           
+SUB $5, $5, $5
+STORE $5, $3, 0x4FF0071A          
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x4FF0071E
+LOAD $1, $2, $5                   
+SUBI $1, $2, 0x4DD92B27           
+SUB $3, $3, $3
+STORE $3, $2, 0x4FF00712          
+SUB $5, $0, $3                    
+SUB $6, $6, $6
+LOAD $2, $6, 0x4FF00736           
+ADD $3, $0, $1                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $6, $6, $4                    
+SUB $2, $1, $6                    
+SUBI $6, $4, 0xA068F6F0           
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x4FF00732
+STORE $2, $3, $4                  
+SUB $3, $3, $3
+STORE $3, $0, 0x4FF0071E          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $3, $0, $3                    
+SUB $2, $2, $1                    
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x4FF0070E
+STORE $4, $6, $6                  
+SUBI $2, $3, 0x22469F19           
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x4FF0071A
+STORE $3, $4, $2                  
+SUBI $1, $3, 0xAB606BF9           
+SUB $0, $0, $0
+LOAD $3, $0, 0x4FF0074E           
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x4FF00726
+STORE $1, $1, $2                  
+ADD $4, $7, $1                    
+ADD $2, $2, $1                    
+SUB $1, $1, $1
+LOAD $0, $1, 0x4FF0074A           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x4FF00746
+LOAD $5, $4, $2                   
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x4FF00746
+LOAD $1, $1, $4                   
+NOP                               
+SUB $4, $4, $4
+LOAD $3, $4, 0x4FF0074E           
+SUB $0, $6, $1                    
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x4FF00716
+STORE $1, $1, $6                  
+SUB $0, $0, $0
+STORE $0, $0, 0x4FF00742          
+NOP                               
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x4FF0074A
+LOAD $6, $4, $0                   
+NOP                               
+SUB $6, $1, $3                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $2, $1, 0x6BD59775           
+NOP                               
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x4FF0072E
+STORE $4, $6, $0                  
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x4FF0072E
+LOAD $3, $1, $6                   
+SUB $2, $2, $6                    
+SUB $6, $6, $7                    
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x4FF00716
+LOAD $0, $3, $5                   
+ADDI $5, $1, 0x73881FEA           
+ADDI $5, $6, 0x048267AB           
+ADDI $7, $7, 0x093DE0C7           
+NOP                               
+ADD $6, $7, $7                    
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUBI $2, $2, 0x0758D6B7           
+SUBI $0, $2, 0x60E8C886           
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x4FF00736
+LOAD $2, $2, $5                   
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADDI $2, $6, 0x805425E6           
+SUBI $7, $0, 0xEEB9F726           
+ADDI $5, $5, 0x9C2E31AF           
+SUB $6, $6, $6
+STORE $6, $6, 0x4FF00746          
+HALT $0
+#
+D@0x4FF0070A
+0x7D2990F2		# 4FF0070A		= 2099876082
+0x6CAE64D2		# 4FF0070E		= 1823368402
+0x95980CCB		# 4FF00712		= -1785197365
+0x665B8A67		# 4FF00716		= 1717275239
+0x1BC19249		# 4FF0071A		= 465670729
+0xA9ECFA19		# 4FF0071E		= -1444087271
+0x8543A349		# 4FF00722		= -2059164855
+0xECF9F4D0		# 4FF00726		= -319163184
+0x2083BE28		# 4FF0072A		= 545504808
+0x9FBB04E1		# 4FF0072E		= -1615133471
+0x6AEE29D7		# 4FF00732		= 1793993175
+0xC49D6029		# 4FF00736		= -996319191
+0x4930B733		# 4FF0073A		= 1227929395
+0x01DDA66D		# 4FF0073E		= 31303277
+0x35B1773F		# 4FF00742		= 900822847
+0x2FDB5A60		# 4FF00746		= 802904672
+0x12EE62BF		# 4FF0074A		= 317612735
+0xD4EF6A71		# 4FF0074E		= -722507151
+0x81728AE4		# 4FF00752		= -2123199772

@@ -1,0 +1,102 @@
+# Test N.1137
+#
+L9
+S7
+O5
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $5, $5, 0x19C34311           
+ADDI $2, $2, 0xBE6C7CDA           
+SUBI $3, $7, 0xB04001AF           
+SUB $7, $7, $7
+STORE $7, $0, 0x703FDEA1          
+NOP                               
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x703FDEA5
+STORE $1, $3, $6                  
+SUB $0, $0, $0
+LOAD $3, $0, 0x703FDEA1           
+ADD $6, $0, $3                    
+SUB $3, $1, $7                    
+NOP                               
+SUB $2, $7, $7                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+LOAD $2, $2, 0x703FDEA5           
+ADD $5, $5, $6                    
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x703FDEA9
+STORE $2, $0, $0                  
+SUB $2, $0, $6                    
+SUB $7, $4, $6                    
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x703FDEA1
+LOAD $5, $4, $5                   
+ADD $0, $4, $7                    
+ADDI $5, $1, 0x7D0E1013           
+SUB $5, $5, $5
+STORE $5, $0, 0x703FDEA9          
+SUB $1, $1, $1
+LOAD $1, $1, 0x703FDEA9           
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x703FDEA9
+LOAD $5, $5, $6                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x703FDEA5
+STORE $5, $3, $3                  
+SUB $7, $3, $6                    
+SUB $4, $3, $7                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $2, $7, 0x5692EE28           
+SUB $5, $7, $4                    
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x703FDEA9
+STORE $2, $5, $3                  
+SUBI $2, $5, 0x3E8CB8BF           
+SUBI $3, $4, 0xD5F85EDE           
+NOP                               
+ADDI $3, $4, 0x74CAD73F           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x703FDEA5
+STORE $5, $2, $1                  
+SUB $4, $6, $6                    
+SUB $7, $7, $7
+STORE $7, $5, 0x703FDEA9          
+SUBI $6, $4, 0x3B781D69           
+ADDI $3, $4, 0xF2CC1CF6           
+SUB $1, $1, $1
+LOAD $1, $1, 0x703FDEA5           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+HALT $0
+#
+D@0x703FDEA1
+0xBA0A5BF6		# 703FDEA1		= -1173726218
+0xC602AC31		# 703FDEA5		= -972903375
+0x0BBB06A3		# 703FDEA9		= 196806307

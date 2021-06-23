@@ -1,0 +1,71 @@
+# Test N.1227
+#
+L5
+S3
+O6
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $4, $5, 0xCE1AA5D3           
+SUB $3, $0, $3                    
+ADDI $6, $7, 0xDF20F7C8           
+NOP                               
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x2E924457
+STORE $7, $2, $3                  
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x2E92445B
+STORE $4, $5, $1                  
+SUB $5, $5, $1                    
+ADDI $0, $5, 0xEEFFF68A           
+SUBI $4, $7, 0xDCD43A58           
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x2E92445B
+LOAD $1, $7, $2                   
+SUB $3, $3, $3
+STORE $3, $3, 0x2E924457          
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x2E92445B
+STORE $6, $1, $5                  
+SUB $7, $7, $7
+LOAD $1, $7, 0x2E924457           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x2E92445B
+STORE $4, $1, $5                  
+ADD $3, $2, $6                    
+SUB $1, $0, $3                    
+ADD $7, $0, $0                    
+SUBI $2, $2, 0x197C9C03           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $6, $7                    
+NOP                               
+ADD $4, $7, $5                    
+SUB $1, $7, $5                    
+SUB $5, $5, $5
+STORE $5, $7, 0x2E92445B          
+SUB $0, $2, $2                    
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x2E92445B
+STORE $5, $0, $3                  
+HALT $0
+#
+D@0x2E924457
+0x3E9FA740		# 2E924457		= 1050650432
+0x6A4145ED		# 2E92445B		= 1782662637

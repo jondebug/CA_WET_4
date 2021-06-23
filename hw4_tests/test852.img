@@ -1,0 +1,183 @@
+# Test N.852
+#
+L2
+S9
+O1
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $7, $5                    
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x50D20D7A
+LOAD $3, $5, $2                   
+SUB $6, $5, $0                    
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x50D20D7E
+LOAD $3, $6, $7                   
+SUB $6, $6, $6
+LOAD $0, $6, 0x50D20DAA           
+ADD $5, $4, $7                    
+SUB $3, $3, $3
+STORE $3, $6, 0x50D20D82          
+SUB $2, $2, $2
+LOAD $2, $2, 0x50D20DAE           
+SUBI $4, $5, 0xF110CEAB           
+ADD $7, $6, $6                    
+SUBI $5, $0, 0x7BE74C56           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $0, $1                    
+SUB $6, $6, $6
+LOAD $7, $6, 0x50D20D92           
+ADD $7, $1, $7                    
+NOP                               
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x50D20D82
+LOAD $5, $2, $3                   
+ADD $5, $2, $7                    
+ADDI $1, $5, 0x8B470816           
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x50D20DA2
+STORE $7, $4, $2                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $0, 0x50D20D96          
+ADD $1, $5, $7                    
+SUB $0, $1, $2                    
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x50D20D8A
+STORE $5, $6, $4                  
+SUBI $2, $5, 0xB0E95710           
+ADD $7, $3, $1                    
+NOP                               
+SUB $3, $3, $2                    
+SUB $0, $0, $0
+STORE $0, $1, 0x50D20D9A          
+NOP                               
+SUB $4, $4, $4
+LOAD $0, $4, 0x50D20DAE           
+NOP                               
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x50D20D96
+STORE $7, $0, $0                  
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x50D20D82
+STORE $3, $3, $5                  
+SUB $5, $2, $1                    
+ADDI $5, $7, 0xA256B401           
+SUBI $7, $4, 0xA7BD96AA           
+ADDI $5, $1, 0x3A891BE0           
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x50D20D8A
+STORE $2, $1, $4                  
+ADDI $3, $5, 0x0CC11F67           
+ADDI $5, $7, 0x0E27B261           
+SUBI $3, $3, 0x3185BD34           
+ADDI $1, $4, 0x129BD3C8           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUBI $2, $5, 0x85050087           
+NOP                               
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x50D20DA2
+STORE $0, $7, $7                  
+SUB $7, $2, $1                    
+SUB $0, $0, $0
+LOAD $4, $0, 0x50D20DAE           
+NOP                               
+NOP                               
+NOP                               
+ADDI $4, $5, 0x83C6761E           
+NOP                               
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x50D20DA6
+STORE $3, $2, $0                  
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUBI $7, $6, 0xDF3AFAEE           
+SUBI $6, $0, 0xB0DA7AC3           
+SUB $6, $6, $6
+LOAD $6, $6, 0x50D20D7A           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADDI $3, $2, 0x25285B05           
+SUB $7, $4, $6                    
+ADDI $3, $4, 0xC9D7253C           
+SUBI $0, $3, 0xB7433902           
+ADDI $1, $3, 0xDD993DB1           
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUBI $1, $1, 0xE7BDC42C           
+SUB $5, $5, $5
+STORE $5, $5, 0x50D20DA2          
+SUBI $5, $7, 0xF6032633           
+ADDI $2, $4, 0x274A0D37           
+SUBI $0, $1, 0x99A9D7C4           
+SUB $7, $7, $7
+LOAD $3, $7, 0x50D20DAE           
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x50D20DAA
+LOAD $4, $0, $6                   
+SUB $5, $3, $6                    
+ADD $7, $3, $1                    
+SUBI $2, $4, 0x3EBFED30           
+NOP                               
+ADDI $7, $0, 0x88EDBD92           
+HALT $0
+#
+D@0x50D20D7A
+0x0AE2135C		# 50D20D7A		= 182588252
+0x5D72BE1E		# 50D20D7E		= 1567800862
+0x32EC5104		# 50D20D82		= 854348036
+0xF432DA42		# 50D20D86		= -197993918
+0x535B1B9D		# 50D20D8A		= 1398479773
+0x3C2F62C1		# 50D20D8E		= 1009738433
+0x0E9C5FD4		# 50D20D92		= 245129172
+0x1434AFEC		# 50D20D96		= 338997228
+0x40E8D360		# 50D20D9A		= 1089000288
+0x50402047		# 50D20D9E		= 1346379847
+0x69F402F1		# 50D20DA2		= 1777599217
+0x986F22BD		# 50D20DA6		= -1737547075
+0x331706E1		# 50D20DAA		= 857147105
+0x9053E9F0		# 50D20DAE		= -1873548816
+0x475FE6CB		# 50D20DB2		= 1197467339
+0x1A05751A		# 50D20DB6		= 436565274

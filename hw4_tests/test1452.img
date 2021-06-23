@@ -1,0 +1,101 @@
+# Test N.1452
+#
+L3
+S6
+O6
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+LOAD $5, $2, 0x1F413CB3           
+ADDI $6, $3, 0x7E07E7BD           
+SUB $7, $0, $0                    
+SUB $1, $1, $1
+LOAD $2, $1, 0x1F413CBB           
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x1F413CA7
+STORE $7, $6, $5                  
+SUB $5, $5, $5
+LOAD $6, $5, 0x1F413CC3           
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x1F413CB3
+LOAD $5, $0, $4                   
+NOP                               
+NOP                               
+SUBI $6, $2, 0x44A755CC           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $2, 0x1F413CC7          
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x1F413CA7
+STORE $2, $6, $3                  
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x1F413CA3
+LOAD $5, $1, $0                   
+ADD $6, $6, $3                    
+NOP                               
+ADD $4, $5, $6                    
+ADDI $4, $6, 0x6303B19D           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $3, $7                    
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x1F413CAB
+LOAD $1, $7, $3                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $7, $7, $7
+LOAD $2, $7, 0x1F413CBB           
+ADDI $1, $1, 0x8CC9C6D5           
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x1F413CBF
+LOAD $2, $6, $2                   
+SUB $6, $6, $6
+LOAD $0, $6, 0x1F413CAF           
+NOP                               
+SUB $5, $5, $5
+STORE $5, $4, 0x1F413CBF          
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x1F413CA7
+STORE $3, $1, $1                  
+ADDI $6, $2, 0x69D6F0ED           
+ADD $4, $0, $0                    
+SUB $6, $6, $6
+STORE $6, $4, 0x1F413CC3          
+ADD $1, $1, $1                    
+SUBI $5, $3, 0x7600F8E4           
+SUBI $2, $1, 0x3930BDE3           
+HALT $0
+#
+D@0x1F413C9B
+0xBD59E8AB		# 1F413C9B		= -1118181205
+0x7C60B5AC		# 1F413C9F		= 2086712748
+0xFCDD6030		# 1F413CA3		= -52600784
+0x4033EB8C		# 1F413CA7		= 1077144460
+0x19881EA5		# 1F413CAB		= 428351141
+0xB876B088		# 1F413CAF		= -1200181112
+0x3D84A595		# 1F413CB3		= 1032103317
+0x91833A0C		# 1F413CB7		= -1853670900
+0xF66A9D65		# 1F413CBB		= -160785051
+0xB54FB23F		# 1F413CBF		= -1253068225
+0xAEECB29F		# 1F413CC3		= -1360219489
+0x4DED7593		# 1F413CC7		= 1307407763

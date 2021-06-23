@@ -1,0 +1,184 @@
+# Test N.394
+#
+L9
+S1
+O8
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $7, $7                    
+NOP                               
+SUB $5, $5, $5
+LOAD $0, $5, 0x27AAE2FC           
+SUB $1, $1, $1
+STORE $1, $0, 0x27AAE328          
+ADDI $4, $3, 0x0F21E2F8           
+ADD $3, $5, $2                    
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x27AAE330
+STORE $2, $5, $1                  
+SUB $4, $5, $4                    
+SUB $2, $2, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADD $2, $1, $6                    
+SUBI $3, $3, 0xDC930192           
+SUB $4, $4, $4
+LOAD $4, $4, 0x27AAE2F4           
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x27AAE314
+LOAD $3, $5, $6                   
+SUB $7, $6, $4                    
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x27AAE330
+LOAD $2, $7, $6                   
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x27AAE308
+STORE $5, $4, $2                  
+SUB $4, $4, $4
+LOAD $5, $4, 0x27AAE304           
+SUBI $7, $5, 0xEF7EDFD2           
+SUBI $7, $2, 0x7F1BAD6A           
+SUBI $5, $6, 0xFBBB7377           
+ADD $4, $0, $4                    
+ADD $1, $3, $2                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+LOAD $7, $7, 0x27AAE2F8           
+NOP                               
+NOP                               
+SUB $1, $1, $1
+STORE $1, $4, 0x27AAE330          
+ADDI $7, $4, 0x56122956           
+SUB $6, $6, $6
+STORE $6, $3, 0x27AAE324          
+ADDI $5, $0, 0x611D4CD7           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x27AAE320
+LOAD $3, $2, $3                   
+NOP                               
+SUBI $5, $5, 0x52235F9E           
+SUB $1, $7, $4                    
+ADDI $4, $1, 0x50BCACC5           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $1, $3, 0x9A9596CF           
+SUB $2, $2, $2
+STORE $2, $4, 0x27AAE31C          
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x27AAE304
+LOAD $7, $3, $2                   
+NOP                               
+ADDI $3, $6, 0xCE66D81A           
+ADD $7, $0, $1                    
+ADDI $4, $0, 0x4712C5A1           
+ADDI $7, $7, 0x8EE835F5           
+SUB $6, $6, $6
+STORE $6, $0, 0x27AAE304          
+ADD $2, $2, $3                    
+SUBI $0, $2, 0xFC803E20           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $3, $2, $3                    
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x27AAE318
+LOAD $1, $3, $1                   
+SUB $2, $2, $2
+STORE $2, $6, 0x27AAE310          
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x27AAE2F4
+LOAD $3, $2, $7                   
+NOP                               
+SUB $2, $3, $3                    
+NOP                               
+SUBI $7, $7, 0x4B041BCC           
+NOP                               
+SUB $7, $7, $7
+LOAD $4, $7, 0x27AAE314           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $2, $0, $6                    
+ADDI $4, $6, 0xA7865451           
+SUB $2, $2, $2
+STORE $2, $1, 0x27AAE330          
+SUB $4, $4, $4
+STORE $4, $5, 0x27AAE300          
+SUB $4, $4, $4
+LOAD $6, $4, 0x27AAE2F8           
+NOP                               
+ADDI $3, $7, 0x95AFBEF4           
+NOP                               
+SUBI $4, $6, 0x7F7454F5           
+SUB $1, $1, $2                    
+SUBI $1, $7, 0x1261BF3A           
+SUB $6, $6, $6
+LOAD $2, $6, 0x27AAE31C           
+SUB $2, $2, $2
+STORE $2, $1, 0x27AAE324          
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $5, $3, $4                    
+SUBI $3, $4, 0xD8CAFCC2           
+SUB $0, $0, $0
+STORE $0, $7, 0x27AAE330          
+ADD $5, $2, $3                    
+SUB $7, $1, $7                    
+SUBI $2, $5, 0xB54C34C8           
+ADDI $7, $0, 0x109F2BA7           
+SUB $1, $0, $6                    
+ADDI $3, $0, 0x51485F3A           
+NOP                               
+SUB $4, $4, $4
+LOAD $3, $4, 0x27AAE2F4           
+SUBI $0, $5, 0xB1A7913C           
+NOP                               
+SUBI $0, $4, 0x5F297FB1           
+HALT $0
+#
+D@0x27AAE2F4
+0x1841FBA3		# 27AAE2F4		= 406977443
+0x6FA51983		# 27AAE2F8		= 1873090947
+0xEB26BDEC		# 27AAE2FC		= -349782548
+0x2B4AD34C		# 27AAE300		= 726324044
+0x967A43FC		# 27AAE304		= -1770372100
+0x4903D279		# 27AAE308		= 1224987257
+0x0D21E350		# 27AAE30C		= 220324688
+0x62138BA5		# 27AAE310		= 1645448101
+0xE5FEE4A8		# 27AAE314		= -436280152
+0xD668823C		# 27AAE318		= -697793988
+0x913A4015		# 27AAE31C		= -1858453483
+0xE7C01A85		# 27AAE320		= -406840699
+0x4FEF4189		# 27AAE324		= 1341079945
+0x9BFA6F89		# 27AAE328		= -1678086263
+0x5F8B2E69		# 27AAE32C		= 1602956905
+0xBBEEE028		# 27AAE330		= -1141972952

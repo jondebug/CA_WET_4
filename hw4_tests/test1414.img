@@ -1,0 +1,109 @@
+# Test N.1414
+#
+L7
+S7
+O3
+N5
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+NOP                               
+ADDI $5, $0, 0xD657CA36           
+SUBI $4, $6, 0x316DB8FC           
+ADD $1, $0, $6                    
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x5F43DB51
+LOAD $0, $7, $5                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $0, $4, 0x6F3AF5D5           
+SUB $2, $2, $2
+STORE $2, $1, 0x5F43DB31          
+ADDI $1, $2, 0x90E32B93           
+SUB $2, $1, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x5F43DB2D
+STORE $1, $2, $4                  
+ADDI $7, $3, 0xF4C0BCF8           
+ADDI $3, $1, 0x501846DA           
+ADDI $7, $3, 0x248EEA25           
+ADDI $5, $5, 0x77AA8887           
+ADDI $6, $7, 0xAC615B66           
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x5F43DB19
+LOAD $4, $0, $5                   
+SUB $6, $6, $6
+STORE $6, $2, 0x5F43DB39          
+ADDI $4, $5, 0x140E85B0           
+SUB $1, $1, $1
+STORE $1, $5, 0x5F43DB4D          
+SUB $3, $1, $4                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $1, $6, $7                    
+SUBI $5, $0, 0xE39A8A5B           
+SUBI $7, $5, 0xCD09BDF3           
+SUBI $0, $4, 0xA3D3C969           
+NOP                               
+ADDI $4, $5, 0xF51CF5A8           
+SUB $3, $5, $7                    
+SUB $3, $1, $4                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $3, $3, $3
+LOAD $5, $3, 0x5F43DB39           
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x5F43DB25
+LOAD $3, $3, $2                   
+SUB $2, $2, $2
+STORE $2, $4, 0x5F43DB31          
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x5F43DB55
+STORE $4, $2, $1                  
+ADDI $1, $4, 0x46EB8543           
+SUB $7, $7, $7
+LOAD $6, $7, 0x5F43DB49           
+SUBI $4, $3, 0x336A7CAA           
+ADDI $4, $4, 0x57005B7E           
+HALT $0
+#
+D@0x5F43DB11
+0x23F718A1		# 5F43DB11		= 603396257
+0x65A3E25D		# 5F43DB15		= 1705239133
+0x6A7C4C29		# 5F43DB19		= 1786530857
+0x02D19E3E		# 5F43DB1D		= 47291966
+0x91C7F910		# 5F43DB21		= -1849165552
+0xE80EBAFC		# 5F43DB25		= -401687812
+0x35A4FCCB		# 5F43DB29		= 900005067
+0xDCA03643		# 5F43DB2D		= -593480125
+0x54A352BA		# 5F43DB31		= 1419989690
+0x77A03955		# 5F43DB35		= 2006989141
+0xE1EFA84A		# 5F43DB39		= -504387510
+0x53FC4DBB		# 5F43DB3D		= 1409043899
+0x97983AAC		# 5F43DB41		= -1751631188
+0x3CC35E3D		# 5F43DB45		= 1019436605
+0x78A9F174		# 5F43DB49		= 2024403316
+0x9C3694C6		# 5F43DB4D		= -1674144570
+0x3516E859		# 5F43DB51		= 890693721
+0xA7F32A0B		# 5F43DB55		= -1477236213

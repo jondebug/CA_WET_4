@@ -1,0 +1,105 @@
+# Test N.406
+#
+L6
+S8
+O6
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $4, $3, 0x60D494BD           
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x05797AE3
+LOAD $5, $0, $5                   
+SUB $6, $4, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+LOAD $7, $1, 0x05797ADB           
+NOP                               
+SUB $7, $7, $7
+LOAD $0, $7, 0x05797AD7           
+SUB $0, $0, $0
+LOAD $2, $0, 0x05797AEF           
+ADDI $3, $6, 0xF6E2CDB4           
+NOP                               
+ADDI $6, $5, 0x2048E850           
+SUBI $3, $1, 0xB205342C           
+NOP                               
+ADDI $7, $0, 0x579A8AB3           
+SUB $1, $1, $1
+LOAD $3, $1, 0x05797AEF           
+SUBI $1, $7, 0xD9AB48A2           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $3, $7                    
+ADDI $1, $6, 0xD9DB2C30           
+SUB $7, $5, $0                    
+SUBI $5, $5, 0xA332B284           
+NOP                               
+SUB $2, $2, $2
+LOAD $3, $2, 0x05797AFB           
+SUB $7, $0, $2                    
+ADD $0, $1, $7                    
+SUB $5, $7, $1                    
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x05797AE7
+STORE $7, $1, $6                  
+NOP                               
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x05797AFB
+LOAD $1, $7, $3                   
+ADD $7, $7, $0                    
+SUB $3, $3, $3
+STORE $3, $1, 0x05797AF3          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $4, $6, $1                    
+SUB $1, $0, $2                    
+SUB $5, $5, $5
+LOAD $4, $5, 0x05797AEB           
+SUB $7, $7, $7
+STORE $7, $3, 0x05797AF3          
+NOP                               
+ADD $5, $2, $0                    
+SUB $6, $6, $6
+LOAD $1, $6, 0x05797AEF           
+SUBI $2, $5, 0xD1765D95           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x05797AEF
+LOAD $2, $6, $7                   
+SUB $6, $5, $1                    
+NOP                               
+HALT $0
+#
+D@0x05797AD7
+0x9133B28B		# 05797AD7		= -1858882933
+0xEA14AF86		# 05797ADB		= -367743098
+0xF3B99728		# 05797ADF		= -205940952
+0xE95EC736		# 05797AE3		= -379664586
+0x5121F4B1		# 05797AE7		= 1361179825
+0x6F7A0483		# 05797AEB		= 1870267523
+0xF001653F		# 05797AEF		= -268344001
+0x07885768		# 05797AF3		= 126375784
+0xB004D913		# 05797AF7		= -1341859565
+0xEBB063CE		# 05797AFB		= -340761650
+0x12D4DA25		# 05797AFF		= 315939365

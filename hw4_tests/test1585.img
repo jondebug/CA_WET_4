@@ -1,0 +1,83 @@
+# Test N.1585
+#
+L4
+S7
+O10
+N5
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x6EE59D72
+STORE $3, $6, $4                  
+SUB $0, $6, $5                    
+ADDI $6, $5, 0x228BE9E9           
+SUBI $5, $0, 0x2B8C3924           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x6EE59D86
+LOAD $2, $1, $4                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x6EE59D6E
+LOAD $4, $6, $1                   
+ADDI $6, $1, 0x8EF22529           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $5, $1, $6                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $4, $2, 0xCB5FA84D           
+ADDI $3, $6, 0x93432B18           
+ADDI $6, $2, 0x4FE78E18           
+SUB $4, $4, $4
+LOAD $2, $4, 0x6EE59D96           
+SUB $6, $6, $2                    
+SUB $6, $4, $6                    
+ADDI $4, $1, 0xB029DFC8           
+SUB $4, $4, $4
+STORE $4, $7, 0x6EE59DA2          
+SUB $1, $1, $1
+STORE $1, $3, 0x6EE59D86          
+ADDI $6, $0, 0x861D7D48           
+HALT $0
+#
+D@0x6EE59D6E
+0x244197C4		# 6EE59D6E		= 608278468
+0xE46BC1B3		# 6EE59D72		= -462700109
+0x934F41A6		# 6EE59D76		= -1823522394
+0x72A5D725		# 6EE59D7A		= 1923471141
+0xB22ECE43		# 6EE59D7E		= -1305555389
+0xB4236CEB		# 6EE59D82		= -1272746773
+0xA0B1D990		# 6EE59D86		= -1598957168
+0xEDB54733		# 6EE59D8A		= -306886861
+0x2E64CABF		# 6EE59D8E		= 778357439
+0x874D3D4F		# 6EE59D92		= -2024981169
+0x5CAC86C4		# 6EE59D96		= 1554810564
+0x5734B584		# 6EE59D9A		= 1463072132
+0xEEF558CD		# 6EE59D9E		= -285910835
+0xE2CE5FD5		# 6EE59DA2		= -489791531
+0x363D7136		# 6EE59DA6		= 909996342
+0xDB6639E3		# 6EE59DAA		= -614057501
+0x4BB41353		# 6EE59DAE		= 1270092627
+0x3F14AFE5		# 6EE59DB2		= 1058320357

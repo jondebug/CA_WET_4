@@ -1,0 +1,21 @@
+# Test N.679
+#
+L6
+S1
+O9
+N1
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $0, $6, 0x73DE0F72           
+ADD $0, $3, $5                    
+SUB $2, $7, $3                    
+SUB $1, $1, $1
+STORE $1, $5, 0x3EB0728F          
+ADD $1, $1, $2                    
+SUBI $2, $1, 0x26C2F59B           
+HALT $0
+#
+D@0x3EB0728F
+0xD767B79B		# 3EB0728F		= -681068645

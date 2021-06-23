@@ -1,0 +1,50 @@
+# Test N.4
+#
+L9
+S5
+O2
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $0, $1, 0x7A5A0FE8           
+SUB $3, $6, $7                    
+SUBI $5, $4, 0xA8C2031C           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $3, $3
+LOAD $5, $3, 0x4AFE67BC           
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x4AFE67C0
+STORE $7, $2, $4                  
+SUB $4, $6, $4                    
+SUBI $0, $4, 0x17B220CB           
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x4AFE67B8
+LOAD $4, $6, $4                   
+SUBI $2, $1, 0x435EFB9A           
+ADDI $3, $5, 0x921E643C           
+SUBI $7, $4, 0x2790474B           
+SUB $6, $6, $6
+STORE $6, $5, 0x4AFE67C0          
+SUB $7, $7, $7
+STORE $7, $0, 0x4AFE67B8          
+SUBI $7, $3, 0x361A76EE           
+NOP                               
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x4AFE67B8
+LOAD $2, $4, $5                   
+NOP                               
+HALT $0
+#
+D@0x4AFE67B8
+0x98B44EC8		# 4AFE67B8		= -1733013816
+0xEAAA08A5		# 4AFE67BC		= -357955419
+0x792FB03F		# 4AFE67C0		= 2033168447

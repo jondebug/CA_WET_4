@@ -1,0 +1,126 @@
+# Test N.838
+#
+L4
+S7
+O6
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x32B8A072
+STORE $2, $3, $5                  
+ADDI $0, $4, 0xB7EEDFAD           
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x32B8A07A
+STORE $5, $2, $2                  
+SUB $6, $3, $1                    
+ADD $2, $0, $2                    
+ADDI $1, $3, 0x9214D5B2           
+NOP                               
+SUB $3, $2, $4                    
+SUB $6, $6, $6
+STORE $6, $0, 0x32B8A06A          
+SUBI $5, $4, 0xB4C8E857           
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x32B8A06E
+STORE $5, $2, $7                  
+SUBI $6, $5, 0x3804E8B2           
+ADDI $7, $4, 0x2BC99AD8           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $5, $6                    
+ADDI $0, $3, 0x3F36A9FB           
+SUB $7, $7, $7
+LOAD $1, $7, 0x32B8A07E           
+SUB $4, $4, $4
+STORE $4, $5, 0x32B8A07E          
+SUB $4, $4, $4
+LOAD $4, $4, 0x32B8A076           
+SUB $3, $3, $3
+LOAD $5, $3, 0x32B8A096           
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x32B8A072
+STORE $4, $4, $5                  
+SUBI $2, $7, 0xABCE21F8           
+NOP                               
+ADD $0, $6, $1                    
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x32B8A096
+LOAD $0, $1, $7                   
+SUB $3, $3, $3
+LOAD $1, $3, 0x32B8A07A           
+SUB $0, $0, $0
+STORE $0, $5, 0x32B8A08A          
+SUB $1, $4, $7                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x32B8A09A
+STORE $2, $6, $4                  
+SUBI $6, $0, 0x40560762           
+ADD $1, $1, $5                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+ADD $1, $7, $4                    
+SUB $6, $0, $4                    
+ADD $0, $7, $0                    
+ADDI $5, $1, 0x852C8060           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $3, $3, $3
+LOAD $6, $3, 0x32B8A072           
+ADDI $6, $6, 0x3D4FE1AE           
+SUBI $3, $7, 0x8D946675           
+SUB $6, $6, $6
+STORE $6, $6, 0x32B8A072          
+SUBI $4, $0, 0x2A840C66           
+SUB $1, $1, $1
+STORE $1, $3, 0x32B8A09A          
+SUB $4, $4, $4
+LOAD $2, $4, 0x32B8A08E           
+SUB $7, $6, $6                    
+SUBI $5, $5, 0x46B7BFF8           
+NOP                               
+ADDI $4, $6, 0xD2F615BF           
+HALT $0
+#
+D@0x32B8A06A
+0xE1691D3C		# 32B8A06A		= -513204932
+0x14B65D6D		# 32B8A06E		= 347495789
+0xC09FD735		# 32B8A072		= -1063266507
+0x88119B84		# 32B8A076		= -2012111996
+0xCA7FB023		# 32B8A07A		= -897601501
+0xE168407E		# 32B8A07E		= -513261442
+0x967F2930		# 32B8A082		= -1770051280
+0x5BCF0B15		# 32B8A086		= 1540295445
+0x102D7071		# 32B8A08A		= 271413361
+0x807EEC96		# 32B8A08E		= -2139165546
+0x4567A98E		# 32B8A092		= 1164421518
+0xBF78528D		# 32B8A096		= -1082633587
+0xBCB4D664		# 32B8A09A		= -1128999324

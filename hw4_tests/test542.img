@@ -1,0 +1,108 @@
+# Test N.542
+#
+L8
+S10
+O1
+N8
+
+# Thread 0
+T0
+I@0x00000000
+ADD $2, $2, $2                    
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x453C2526
+LOAD $1, $1, $4                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $1, $4, 0x850954DD           
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x453C252E
+LOAD $5, $4, $1                   
+SUB $0, $0, $0                    
+ADDI $5, $7, 0xD0322C05           
+NOP                               
+SUBI $7, $7, 0xEEF29ACF           
+NOP                               
+SUB $7, $2, $3                    
+ADDI $3, $4, 0xF8B22871           
+SUB $0, $0, $0
+LOAD $2, $0, 0x453C2526           
+SUB $1, $3, $0                    
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x453C252E
+STORE $3, $1, $1                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $7, $7, $7
+STORE $7, $4, 0x453C251E          
+ADD $7, $5, $1                    
+SUB $0, $0, $0
+LOAD $4, $0, 0x453C251E           
+SUB $0, $7, $0                    
+ADD $3, $5, $3                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $5, $1                    
+SUBI $6, $7, 0x5FCD9CF4           
+SUBI $0, $6, 0x55C434F7           
+ADD $7, $4, $7                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+NOP                               
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x453C2526
+STORE $7, $6, $3                  
+NOP                               
+SUB $3, $3, $3
+LOAD $5, $3, 0x453C252A           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x453C2522
+STORE $1, $4, $5                  
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $2, $2, $2
+LOAD $1, $2, 0x453C251E           
+ADD $3, $0, $7                    
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+NOP                               
+SUB $6, $1, $2                    
+ADDI $2, $5, 0x49968AC6           
+HALT $0
+#
+D@0x453C251E
+0xB76202A0		# 453C251E		= -1218313568
+0x1FB4DD0C		# 453C2522		= 531946764
+0xD2C4690A		# 453C2526		= -758879990
+0x8B84A4A1		# 453C252A		= -1954241375
+0x48541E8D		# 453C252E		= 1213472397

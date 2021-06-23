@@ -1,0 +1,66 @@
+# Test N.1731
+#
+L6
+S4
+O7
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADD $6, $5, $6                    
+SUB $6, $2, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $4, $1                    
+ADDI $6, $5, 0x56C4EC4B           
+NOP                               
+SUB $5, $5, $2                    
+ADD $3, $3, $0                    
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x17A4E73D
+STORE $4, $1, $7                  
+SUB $3, $2, $4                    
+SUBI $7, $0, 0x47D3652F           
+NOP                               
+ADD $6, $7, $7                    
+NOP                               
+SUBI $0, $1, 0x965F412A           
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x17A4E735
+LOAD $3, $6, $3                   
+SUB $1, $1, $1
+LOAD $1, $1, 0x17A4E73D           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x17A4E731
+LOAD $3, $0, $1                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $2, $4                    
+SUB $4, $5, $0                    
+SUB $3, $3, $3
+STORE $3, $7, 0x17A4E739          
+NOP                               
+HALT $0
+#
+D@0x17A4E731
+0x63B08B84		# 17A4E731		= 1672514436
+0x17CA0BFD		# 17A4E735		= 399117309
+0xEACF3054		# 17A4E739		= -355520428
+0x84D6F1EA		# 17A4E73D		= -2066288150
+0xAA83FB85		# 17A4E741		= -1434190971
+0x91B1C8D8		# 17A4E745		= -1850619688

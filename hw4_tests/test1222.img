@@ -1,0 +1,105 @@
+# Test N.1222
+#
+L3
+S3
+O6
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+LOAD $4, $2, 0x7B4A3621           
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x7B4A3621
+STORE $2, $5, $0                  
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $6, $0, $4                    
+ADD $6, $0, $4                    
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x7B4A3625
+LOAD $1, $1, $7                   
+ADDI $1, $6, 0xDBD041CB           
+NOP                               
+SUB $1, $1, $1
+LOAD $4, $1, 0x7B4A3625           
+ADDI $0, $5, 0xC39D1597           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $6, $3, $0                    
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x7B4A3625
+LOAD $3, $1, $5                   
+ADDI $4, $1, 0xA04ED051           
+SUB $7, $7, $7
+STORE $7, $2, 0x7B4A3621          
+ADDI $3, $5, 0x4A9BEBD4           
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x7B4A3621
+LOAD $3, $2, $7                   
+SUBI $5, $5, 0xECF6DA06           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+NOP                               
+NOP                               
+NOP                               
+SUB $1, $1, $1
+STORE $1, $2, 0x7B4A3621          
+ADD $0, $1, $6                    
+SUBI $4, $0, 0xF9E0B0A3           
+ADDI $5, $3, 0xC69F29F8           
+SUB $4, $4, $4
+LOAD $4, $4, 0x7B4A3621           
+ADDI $3, $7, 0xBA4A5810           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $3, $0, $0                    
+NOP                               
+SUBI $6, $3, 0x806B81AA           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x7B4A3621
+STORE $6, $0, $1                  
+SUB $4, $4, $4
+LOAD $3, $4, 0x7B4A3625           
+SUBI $1, $4, 0xA75B26BD           
+SUB $2, $2, $2
+LOAD $3, $2, 0x7B4A3625           
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+NOP                               
+SUBI $7, $4, 0x34BBC6B6           
+SUB $5, $2, $6                    
+SUB $1, $1, $1
+STORE $1, $1, 0x7B4A3621          
+SUB $2, $2, $2
+STORE $2, $4, 0x7B4A3625          
+HALT $0
+#
+D@0x7B4A3621
+0x35D88627		# 7B4A3621		= 903382567
+0xB2DF8EC5		# 7B4A3625		= -1293971771

@@ -1,0 +1,80 @@
+# Test N.187
+#
+L5
+S8
+O9
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $2, 0x5BDE0ED3          
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x5BDE0EFB
+STORE $6, $4, $0                  
+SUB $1, $1, $1
+STORE $1, $1, 0x5BDE0EF3          
+SUB $4, $6, $0                    
+ADDI $2, $4, 0xEE595BA9           
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x5BDE0ECF
+LOAD $1, $4, $3                   
+SUB $7, $2, $6                    
+ADD $0, $4, $6                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $0, $1, 0x1DD2D978           
+NOP                               
+ADDI $4, $1, 0x88CE6E31           
+ADDI $4, $2, 0x4E9A1804           
+SUBI $4, $4, 0xEC03BE44           
+SUB $6, $6, $6
+LOAD $5, $6, 0x5BDE0EF7           
+NOP                               
+SUBI $0, $7, 0x83BDB667           
+NOP                               
+ADD $3, $0, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $5, $0, 0x94108960           
+SUBI $0, $3, 0x71748944           
+NOP                               
+ADDI $0, $3, 0x22D2D27E           
+NOP                               
+NOP                               
+NOP                               
+NOP                               
+ADD $3, $3, $0                    
+SUB $0, $0, $0
+STORE $0, $5, 0x5BDE0EE7          
+SUB $6, $6, $6
+LOAD $4, $6, 0x5BDE0EDB           
+ADD $0, $0, $1                    
+ADDI $2, $1, 0xF73B31CA           
+SUB $0, $0, $0
+LOAD $7, $0, 0x5BDE0EDB           
+HALT $0
+#
+D@0x5BDE0ECF
+0xE70EB7A2		# 5BDE0ECF		= -418465886
+0xCE7BC779		# 5BDE0ED3		= -830748807
+0x5F442E0E		# 5BDE0ED7		= 1598303758
+0x260DCC17		# 5BDE0EDB		= 638438423
+0x7EA74F54		# 5BDE0EDF		= 2124894036
+0xA4812C3F		# 5BDE0EE3		= -1535038401
+0x2AF3D6D8		# 5BDE0EE7		= 720623320
+0x88ED0B70		# 5BDE0EEB		= -1997730960
+0x99C7AE06		# 5BDE0EEF		= -1714967034
+0x15ED953A		# 5BDE0EF3		= 367891770
+0xC0A92231		# 5BDE0EF7		= -1062657487
+0xB7B6E8CD		# 5BDE0EFB		= -1212749619
+0xD5555C04		# 5BDE0EFF		= -715826172

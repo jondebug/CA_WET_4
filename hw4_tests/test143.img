@@ -1,0 +1,107 @@
+# Test N.143
+#
+L10
+S2
+O6
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADD $0, $2, $2                    
+ADDI $6, $3, 0x589A4018           
+NOP                               
+SUB $6, $6, $6
+STORE $6, $6, 0x7B67F28C          
+ADD $3, $3, $6                    
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x7B67F27C
+STORE $6, $2, $1                  
+SUB $7, $2, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $1, $5, 0xFB1D78EE           
+SUBI $5, $0, 0x35DC6A35           
+SUBI $3, $3, 0x8F177FE5           
+SUB $4, $4, $4
+LOAD $3, $4, 0x7B67F28C           
+SUB $1, $3, $2                    
+SUBI $7, $0, 0xA2C42AB9           
+NOP                               
+ADDI $2, $3, 0x1014D93F           
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x7B67F260
+STORE $2, $5, $4                  
+SUBI $5, $2, 0xBD303DE0           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $3, $3
+LOAD $2, $3, 0x7B67F278           
+ADDI $6, $7, 0x07EFAD8D           
+SUB $2, $2, $2
+LOAD $5, $2, 0x7B67F280           
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x7B67F278
+STORE $3, $0, $2                  
+SUB $4, $4, $4
+LOAD $1, $4, 0x7B67F27C           
+SUBI $2, $7, 0xF564EF13           
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x7B67F25C
+STORE $2, $0, $1                  
+NOP                               
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x7B67F260
+STORE $1, $0, $4                  
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $6, $0, $3                    
+SUB $5, $1, $6                    
+ADD $7, $7, $7                    
+SUB $5, $7, $3                    
+SUB $6, $6, $6
+LOAD $2, $6, 0x7B67F26C           
+NOP                               
+SUBI $0, $3, 0xE7E4DCCD           
+ADDI $3, $2, 0x75627BEE           
+ADDI $2, $3, 0x48909AFB           
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x7B67F27C
+STORE $1, $4, $7                  
+SUB $1, $1, $1
+STORE $1, $3, 0x7B67F264          
+SUB $3, $3, $3
+LOAD $6, $3, 0x7B67F278           
+ADD $4, $5, $2                    
+HALT $0
+#
+D@0x7B67F25C
+0x26716F37		# 7B67F25C		= 644968247
+0x31655F37		# 7B67F260		= 828727095
+0x41277A31		# 7B67F264		= 1093106225
+0x4CB29DD9		# 7B67F268		= 1286774233
+0x4EF4739D		# 7B67F26C		= 1324643229
+0xDCB5A212		# 7B67F270		= -592076270
+0xA3826D7C		# 7B67F274		= -1551733380
+0xF4AEAF99		# 7B67F278		= -189878375
+0x0003929B		# 7B67F27C		= 234139
+0xBE0CE03C		# 7B67F280		= -1106452420
+0x7846A55D		# 7B67F284		= 2017895773
+0x48D0E518		# 7B67F288		= 1221649688
+0xB8B5CB00		# 7B67F28C		= -1196045568

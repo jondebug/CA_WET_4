@@ -1,0 +1,110 @@
+# Test N.1683
+#
+L6
+S4
+O9
+N6
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $6, $6, 0x83CCAF3E           
+SUB $1, $0, $4                    
+ADDI $2, $7, 0xEA565EC3           
+SUB $7, $7, $0                    
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x404F60EB
+LOAD $0, $4, $0                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+LOAD $3, $5, 0x404F60EF           
+SUBI $2, $7, 0x49978E9B           
+SUB $2, $2, $2
+LOAD $5, $2, 0x404F60EF           
+SUB $6, $6, $6
+LOAD $7, $6, 0x404F60DF           
+SUB $6, $4, $4                    
+SUB $3, $2, $2                    
+SUB $7, $1, $6                    
+NOP                               
+SUB $3, $6, $6                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x404F60E3
+STORE $7, $4, $5                  
+SUB $1, $1, $3                    
+SUB $7, $7, $7
+STORE $7, $1, 0x404F60F3          
+ADD $7, $4, $3                    
+NOP                               
+SUBI $3, $4, 0x1B87845A           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x404F60EF
+LOAD $6, $2, $3                   
+SUBI $2, $7, 0xCE3A778E           
+ADD $6, $7, $1                    
+ADDI $2, $5, 0xBADD0546           
+ADD $4, $1, $1                    
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x404F60DF
+STORE $1, $3, $7                  
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x404F60F3
+STORE $5, $3, $2                  
+ADD $3, $2, $3                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $7, $7, $2                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $3, $1, $5                    
+SUB $5, $5, $5
+STORE $5, $6, 0x404F60E3          
+NOP                               
+ADD $7, $7, $7                    
+SUB $0, $6, $6                    
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x404F60E7
+LOAD $3, $4, $7                   
+SUB $1, $0, $4                    
+ADDI $1, $7, 0x3E19B11F           
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x404F60DB
+LOAD $1, $6, $7                   
+SUB $7, $0, $0                    
+HALT $0
+#
+D@0x404F60DB
+0x30C33D8B		# 404F60DB		= 818101643
+0x42CBC3FA		# 404F60DF		= 1120650234
+0x1379D999		# 404F60E3		= 326752665
+0xE6A7144B		# 404F60E7		= -425257909
+0x485E0F1E		# 404F60EB		= 1214123806
+0x856C710C		# 404F60EF		= -2056490740
+0xDF32DA8D		# 404F60F3		= -550315379

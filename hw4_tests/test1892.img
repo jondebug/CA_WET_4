@@ -1,0 +1,115 @@
+# Test N.1892
+#
+L4
+S7
+O5
+N5
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $4, $4, $4
+LOAD $4, $4, 0x042A549F           
+SUBI $7, $2, 0x9825DEC5           
+NOP                               
+NOP                               
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x042A5497
+LOAD $2, $4, $2                   
+ADDI $3, $5, 0x3284F9C7           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $0, $2, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $5, $1, 0x3B741F12           
+NOP                               
+ADD $4, $5, $3                    
+ADDI $5, $3, 0x835CF8A6           
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x042A54AF
+STORE $1, $5, $3                  
+NOP                               
+SUBI $6, $7, 0xA38D7904           
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x042A54A3
+LOAD $3, $2, $0                   
+SUB $6, $6, $6
+STORE $6, $6, 0x042A5497          
+SUBI $1, $1, 0x94B3E351           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x042A5497
+STORE $0, $7, $2                  
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x042A548F
+STORE $6, $6, $5                  
+NOP                               
+NOP                               
+SUB $2, $2, $2
+LOAD $5, $2, 0x042A54A7           
+ADDI $7, $2, 0x169C73C4           
+SUBI $4, $0, 0x8EA06D29           
+SUBI $2, $3, 0x56D3CE9D           
+SUBI $5, $6, 0xC855C5DE           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $1, $2, 0x6DB641E9           
+SUB $0, $0, $0
+STORE $0, $5, 0x042A54AF          
+ADDI $5, $5, 0xB3745977           
+NOP                               
+ADDI $6, $0, 0x1F4D9636           
+SUB $4, $4, $4
+LOAD $0, $4, 0x042A54B3           
+SUB $4, $4, $4
+LOAD $7, $4, 0x042A548B           
+SUBI $5, $5, 0x8418D690           
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x042A54AB
+STORE $0, $4, $1                  
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x042A548B
+LOAD $5, $6, $1                   
+SUB $1, $7, $1                    
+SUB $7, $7, $7
+LOAD $1, $7, 0x042A5497           
+ADDI $4, $1, 0x3545142E           
+SUB $5, $5, $0                    
+HALT $0
+#
+D@0x042A548B
+0x901130BF		# 042A548B		= -1877921601
+0x52BA9ABB		# 042A548F		= 1387961019
+0x7BF9CC4E		# 042A5493		= 2079968334
+0xA4AF9B7E		# 042A5497		= -1531995266
+0x0788447C		# 042A549B		= 126370940
+0x3A3ED46D		# 042A549F		= 977196141
+0x02AF803C		# 042A54A3		= 45056060
+0x62AEA1BF		# 042A54A7		= 1655611839
+0x31CEEA4F		# 042A54AB		= 835643983
+0xD3D84FD8		# 042A54AF		= -740798504
+0xC7F02512		# 042A54B3		= -940563182

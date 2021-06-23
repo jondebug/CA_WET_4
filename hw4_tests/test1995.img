@@ -1,0 +1,91 @@
+# Test N.1995
+#
+L8
+S5
+O6
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $4, $6, 0x88127D99           
+SUBI $1, $5, 0xFCBDA466           
+ADDI $5, $0, 0x255E161F           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $0, $0, 0x53D2AF14           
+SUB $7, $7, $7
+LOAD $3, $7, 0x0AEFF220           
+ADD $4, $3, $4                    
+ADD $4, $4, $7                    
+SUBI $5, $3, 0x64FD52E1           
+SUB $5, $5, $4                    
+SUBI $5, $1, 0x46EF20DC           
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x0AEFF22C
+STORE $4, $6, $6                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $0, $6, $0                    
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x0AEFF21C
+LOAD $2, $5, $3                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $7, $6                    
+ADD $5, $2, $0                    
+SUBI $7, $3, 0x1E03D7FA           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $4, $2, 0xAEAF6387           
+NOP                               
+SUB $5, $4, $3                    
+NOP                               
+NOP                               
+ADD $4, $7, $5                    
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x0AEFF23C
+LOAD $5, $6, $7                   
+SUB $5, $5, $5
+LOAD $3, $5, 0x0AEFF230           
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x0AEFF22C
+STORE $1, $6, $6                  
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x0AEFF220
+STORE $7, $3, $0                  
+SUB $5, $5, $5
+LOAD $2, $5, 0x0AEFF230           
+SUB $2, $7, $0                    
+SUB $3, $7, $1                    
+HALT $0
+#
+D@0x0AEFF21C
+0x3B6CF1BD		# 0AEFF21C		= 996995517
+0xE0003AFC		# 0AEFF220		= -536855812
+0x56584607		# 0AEFF224		= 1448625671
+0xD059F227		# 0AEFF228		= -799411673
+0x755A7356		# 0AEFF22C		= 1968862038
+0x3DC2726A		# 0AEFF230		= 1036153450
+0x1CCDBD61		# 0AEFF234		= 483245409
+0x52FBC9D8		# 0AEFF238		= 1392232920
+0x3B838225		# 0AEFF23C		= 998474277
+0x3BBA90C7		# 0AEFF240		= 1002082503
+0x4B08AF11		# 0AEFF244		= 1258860305

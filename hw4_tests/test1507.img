@@ -1,0 +1,57 @@
+# Test N.1507
+#
+L2
+S8
+O5
+N5
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $3, $6, 0x18F06791           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x1A34F005
+LOAD $6, $2, $1                   
+ADD $0, $6, $0                    
+ADD $5, $0, $2                    
+SUBI $2, $5, 0x27C38D71           
+SUB $0, $0, $0
+LOAD $5, $0, 0x1A34F005           
+ADDI $4, $5, 0xE1805A07           
+SUB $0, $0, $0
+STORE $0, $2, 0x1A34F005          
+ADDI $2, $4, 0xFBC7B6AF           
+SUBI $0, $0, 0x866D8FEF           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $1, $4, 0xEB27E118           
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x1A34F005
+LOAD $0, $7, $4                   
+SUB $5, $5, $5
+STORE $5, $4, 0x1A34F005          
+ADD $6, $6, $5                    
+HALT $0
+#
+D@0x1A34F005
+0x24F405F7		# 1A34F005		= 619972087

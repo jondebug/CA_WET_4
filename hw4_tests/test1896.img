@@ -1,0 +1,29 @@
+# Test N.1896
+#
+L4
+S4
+O4
+N1
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $5                    
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x0107EEDD
+STORE $1, $2, $5                  
+SUB $1, $2, $6                    
+SUB $6, $4, $4                    
+SUBI $2, $0, 0xAA5408D8           
+SUB $7, $7, $7
+STORE $7, $5, 0x0107EEDD          
+SUB $6, $6, $6
+STORE $6, $6, 0x0107EEE1          
+SUBI $7, $2, 0xADA0FECB           
+HALT $0
+#
+D@0x0107EEDD
+0x1AA45145		# 0107EEDD		= 446976325
+0x3452181E		# 0107EEE1		= 877795358
+0x8C1B0224		# 0107EEE5		= -1944387036

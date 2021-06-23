@@ -1,0 +1,39 @@
+# Test N.1929
+#
+L7
+S6
+O5
+N1
+
+# Thread 0
+T0
+I@0x00000000
+ADD $5, $2, $4                    
+ADD $7, $3, $7                    
+SUB $6, $5, $7                    
+SUBI $2, $5, 0x40F2F7F8           
+ADD $7, $7, $4                    
+SUBI $2, $2, 0x8C795054           
+SUB $6, $6, $4                    
+ADD $6, $4, $1                    
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x6BDAC0D5
+STORE $1, $2, $4                  
+SUB $2, $2, $2
+LOAD $7, $2, 0x6BDAC0B9           
+SUB $6, $6, $6
+STORE $6, $3, 0x6BDAC0B9          
+ADD $4, $0, $2                    
+HALT $0
+#
+D@0x6BDAC0B9
+0x168A3B97		# 6BDAC0B9		= 378157975
+0x7D453D8A		# 6BDAC0BD		= 2101689738
+0xA5A818A4		# 6BDAC0C1		= -1515710300
+0xB97A4C64		# 6BDAC0C5		= -1183167388
+0xDB157A5E		# 6BDAC0C9		= -619349410
+0x8ADA3F80		# 6BDAC0CD		= -1965408384
+0xD251E742		# 6BDAC0D1		= -766384318
+0xB9E1C0B2		# 6BDAC0D5		= -1176387406
+0xEC8963C9		# 6BDAC0D9		= -326540343

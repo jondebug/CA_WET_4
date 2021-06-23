@@ -1,0 +1,96 @@
+# Test N.523
+#
+L10
+S9
+O10
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $0, $6, 0x47FCB69A           
+SUB $4, $2, $1                    
+ADDI $6, $0, 0xF5AD4F92           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x138A19EE
+LOAD $1, $5, $1                   
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x138A19EE
+STORE $1, $3, $6                  
+SUB $6, $3, $3                    
+NOP                               
+SUB $1, $4, $6                    
+ADDI $5, $0, 0x9BC4F71A           
+SUBI $6, $4, 0x97EA79C6           
+SUB $6, $6, $6
+LOAD $4, $6, 0x138A19DA           
+ADDI $3, $5, 0xAADAB114           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $7, $7, 0x57C64E1B           
+ADD $5, $6, $3                    
+SUB $6, $6, $6
+STORE $6, $3, 0x138A19FA          
+ADDI $6, $4, 0xDAB77E41           
+ADD $7, $2, $4                    
+ADDI $5, $0, 0xD8D43A5B           
+NOP                               
+SUBI $0, $7, 0x73E312F4           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $7                    
+NOP                               
+SUB $5, $3, $0                    
+ADD $3, $2, $0                    
+SUB $5, $5, $5
+STORE $5, $0, 0x138A19DE          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $3, $2, $5                    
+ADDI $3, $3, 0xE75B4BE3           
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x138A19EA
+LOAD $3, $1, $2                   
+ADD $6, $1, $6                    
+SUB $5, $5, $5
+STORE $5, $5, 0x138A19F2          
+NOP                               
+SUB $2, $0, $1                    
+ADD $3, $1, $7                    
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x138A1A02
+STORE $2, $3, $5                  
+SUB $2, $5, $2                    
+ADDI $0, $2, 0x2322224A           
+HALT $0
+#
+D@0x138A19DA
+0xE4BE0023		# 138A19DA		= -457310173
+0x8FE69AC4		# 138A19DE		= -1880712508
+0xF1BC89E0		# 138A19E2		= -239302176
+0xC4DCF378		# 138A19E6		= -992152712
+0xF034F261		# 138A19EA		= -264965535
+0xCA8B83F1		# 138A19EE		= -896826383
+0xEBF9F3AD		# 138A19F2		= -335940691
+0xDD577F7E		# 138A19F6		= -581468290
+0x7C319961		# 138A19FA		= 2083625313
+0x322A0E0C		# 138A19FE		= 841616908
+0xC664F172		# 138A1A02		= -966463118
+0xF4D7B41B		# 138A1A06		= -187190245
+0x9A53E0FB		# 138A1A0A		= -1705778949

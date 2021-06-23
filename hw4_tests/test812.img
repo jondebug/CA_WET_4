@@ -1,0 +1,108 @@
+# Test N.812
+#
+L8
+S9
+O6
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $2, $5, 0x8738FFDF           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $5, $3, $7                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x05EDF9BC
+LOAD $7, $0, $7                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $6, $1                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $4, $7, $6                    
+SUB $4, $4, $4
+LOAD $5, $4, 0x05EDF9B8           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x05EDF9D8
+STORE $2, $1, $3                  
+NOP                               
+SUB $2, $2, $2
+LOAD $3, $2, 0x05EDF9E8           
+SUBI $7, $4, 0x3E062E44           
+ADD $4, $1, $0                    
+SUB $5, $5, $5
+STORE $5, $3, 0x05EDF9D8          
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADDI $6, $7, 0x43C074FB           
+ADDI $6, $7, 0xB594D304           
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x05EDF9F0
+LOAD $5, $4, $6                   
+SUB $3, $3, $3
+STORE $3, $0, 0x05EDF9C0          
+SUB $6, $6, $6
+STORE $6, $0, 0x05EDF9F4          
+SUB $6, $1, $0                    
+SUB $1, $1, $1
+STORE $1, $4, 0x05EDF9D0          
+SUB $3, $4, $5                    
+ADDI $6, $7, 0xD4D3723B           
+NOP                               
+SUBI $7, $1, 0x81EE227A           
+ADDI $4, $5, 0x01353E1E           
+NOP                               
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $6, $1, $3                    
+HALT $0
+#
+D@0x05EDF9B8
+0xF4298471		# 05EDF9B8		= -198605711
+0xCF11F8A5		# 05EDF9BC		= -820905819
+0xCDE3BD30		# 05EDF9C0		= -840712912
+0x61329DCC		# 05EDF9C4		= 1630707148
+0x40F9097A		# 05EDF9C8		= 1090062714
+0xD3248EAB		# 05EDF9CC		= -752578901
+0x213513CF		# 05EDF9D0		= 557126607
+0x83214A26		# 05EDF9D4		= -2094970330
+0x9B7D77FD		# 05EDF9D8		= -1686276099
+0xA333BE8A		# 05EDF9DC		= -1556889974
+0x93430DC5		# 05EDF9E0		= -1824322107
+0x50D45774		# 05EDF9E4		= 1356093300
+0xD57399BD		# 05EDF9E8		= -713844291
+0x09751CDB		# 05EDF9EC		= 158670043
+0x4E5D6303		# 05EDF9F0		= 1314743043
+0x08DBA0DC		# 05EDF9F4		= 148611292
+0x9EB0D957		# 05EDF9F8		= -1632577193
+0xF068D752		# 05EDF9FC		= -261564590
+0x589369C3		# 05EDFA00		= 1486055875

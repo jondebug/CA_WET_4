@@ -1,0 +1,101 @@
+# Test N.1167
+#
+L2
+S7
+O4
+N7
+
+# Thread 0
+T0
+I@0x00000000
+ADD $3, $7, $0                    
+SUB $1, $1, $1
+LOAD $7, $1, 0x63060CF8           
+SUB $4, $4, $4
+STORE $4, $3, 0x63060CFC          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $4, $5, 0x27BC46BD           
+ADD $4, $1, $7                    
+SUBI $7, $6, 0x465444D2           
+SUB $4, $4, $4
+STORE $4, $1, 0x63060CF8          
+ADD $2, $3, $6                    
+SUB $3, $3, $3
+LOAD $5, $3, 0x63060CF8           
+SUB $2, $2, $2
+LOAD $4, $2, 0x63060CF8           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x63060CFC
+LOAD $6, $0, $7                   
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+NOP                               
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x63060CFC
+STORE $4, $4, $1                  
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $5, $7, $2                    
+NOP                               
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x63060CF8
+LOAD $7, $6, $4                   
+SUB $2, $2, $2
+LOAD $5, $2, 0x63060CF8           
+SUB $1, $1, $1
+STORE $1, $2, 0x63060CF8          
+SUB $0, $1, $1                    
+SUBI $7, $4, 0x693366C5           
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x63060CFC
+STORE $7, $3, $6                  
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+NOP                               
+SUBI $6, $3, 0x3C15122F           
+SUB $1, $7, $1                    
+SUB $4, $4, $2                    
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x63060CF8
+STORE $0, $4, $6                  
+SUBI $0, $2, 0xD50953DE           
+ADD $5, $7, $6                    
+ADDI $2, $7, 0xB592C7E8           
+SUBI $1, $7, 0xE92FA96F           
+HALT $0
+#
+D@0x63060CF8
+0x6F792508		# 63060CF8		= 1870210312
+0xFEDE891D		# 63060CFC		= -18970339

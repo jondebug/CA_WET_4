@@ -1,0 +1,110 @@
+# Test N.540
+#
+L8
+S2
+O4
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $3, $3
+STORE $3, $2, 0x49CD919A          
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x49CD916E
+STORE $1, $6, $3                  
+ADDI $5, $0, 0xE7C2C850           
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x49CD9172
+STORE $6, $7, $5                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $7, $0, 0x5BC3103F           
+ADD $7, $3, $6                    
+SUBI $5, $6, 0xCB6A211C           
+ADDI $1, $4, 0x4E54AD68           
+NOP                               
+SUB $2, $2, $2
+STORE $2, $6, 0x49CD919A          
+ADD $4, $6, $3                    
+SUB $4, $2, $3                    
+ADD $5, $5, $0                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $7, 0x49CD9176          
+ADD $7, $6, $4                    
+ADD $3, $4, $3                    
+SUBI $3, $1, 0xA43ACBE2           
+SUB $1, $1, $1
+LOAD $2, $1, 0x49CD919E           
+SUB $1, $1, $1
+LOAD $2, $1, 0x49CD919E           
+ADDI $4, $3, 0x2B9A4F5A           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $0, $3, 0x2C0A953C           
+NOP                               
+SUBI $7, $3, 0x82D6C58F           
+ADD $6, $3, $0                    
+SUBI $4, $1, 0xDC30661A           
+ADDI $1, $0, 0x77A40A57           
+NOP                               
+SUBI $4, $1, 0x4B79D306           
+SUB $5, $5, $5
+STORE $5, $1, 0x49CD91AA          
+SUBI $2, $0, 0x31E62DDB           
+SUB $1, $0, $2                    
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x49CD918E
+LOAD $0, $3, $4                   
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $2, $5, $4                    
+NOP                               
+SUB $6, $6, $7                    
+ADDI $4, $3, 0xD53FE93E           
+SUB $7, $2, $1                    
+ADDI $5, $6, 0xB4F0195C           
+SUBI $5, $5, 0x52F55A2D           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+HALT $0
+#
+D@0x49CD916A
+0x37F57BD4		# 49CD916A		= 938834900
+0x8E5C9B44		# 49CD916E		= -1906533564
+0xC3669DFA		# 49CD9172		= -1016685062
+0x02E5F18B		# 49CD9176		= 48624011
+0xB41047B1		# 49CD917A		= -1274001487
+0x0B4EE9B0		# 49CD917E		= 189721008
+0xAAF89264		# 49CD9182		= -1426550172
+0xB9C811D1		# 49CD9186		= -1178070575
+0xB62749F9		# 49CD918A		= -1238939143
+0x691C9327		# 49CD918E		= 1763480359
+0x7800FD09		# 49CD9192		= 2013330697
+0xD1760369		# 49CD9196		= -780795031
+0xB4009ADF		# 49CD919A		= -1275028769
+0x7B3EE0C6		# 49CD919E		= 2067718342
+0xC4CA9B12		# 49CD91A2		= -993354990
+0x1894709B		# 49CD91A6		= 412381339
+0xC16D17D7		# 49CD91AA		= -1049815081
+0x45FAE599		# 49CD91AE		= 1174070681

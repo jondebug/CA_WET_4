@@ -1,0 +1,115 @@
+# Test N.1521
+#
+L1
+S2
+O4
+N7
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $4, $3, 0xABBCA618           
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x09BBA506
+STORE $4, $6, $0                  
+SUBI $6, $3, 0xB1D16891           
+SUB $6, $6, $6
+STORE $6, $3, 0x09BBA4EE          
+SUB $2, $2, $6                    
+NOP                               
+SUB $5, $5, $5
+LOAD $5, $5, 0x09BBA52A           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $5, $5
+LOAD $4, $5, 0x09BBA536           
+SUBI $6, $0, 0x112317BB           
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x09BBA536
+LOAD $4, $1, $4                   
+ADDI $0, $4, 0x362070F4           
+SUB $0, $0, $0
+LOAD $1, $0, 0x09BBA522           
+ADDI $5, $5, 0xDBD4B40E           
+ADDI $3, $0, 0xD4A43F2B           
+ADD $1, $7, $4                    
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x09BBA51E
+LOAD $4, $0, $7                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $6, $4, $5                    
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x09BBA51A
+STORE $5, $1, $2                  
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x09BBA4F6
+STORE $7, $0, $2                  
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x09BBA526
+LOAD $6, $0, $3                   
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x09BBA4FA
+STORE $2, $6, $5                  
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUBI $5, $5, 0x22F3FA37           
+ADD $7, $1, $1                    
+SUB $0, $0, $0
+STORE $0, $2, 0x09BBA512          
+HALT $0
+#
+D@0x09BBA4EE
+0x7D91DCB7		# 09BBA4EE		= 2106711223
+0x8C5B5627		# 09BBA4F2		= -1940171225
+0x5C11DE85		# 09BBA4F6		= 1544674949
+0x8E1550C3		# 09BBA4FA		= -1911205693
+0x662EE077		# 09BBA4FE		= 1714348151
+0x8B143471		# 09BBA502		= -1961610127
+0x77387225		# 09BBA506		= 2000187941
+0x1354FD6E		# 09BBA50A		= 324337006
+0x7D9D29DF		# 09BBA50E		= 2107451871
+0x79072967		# 09BBA512		= 2030512487
+0xC40C86B2		# 09BBA516		= -1005812046
+0x9BBB5959		# 09BBA51A		= -1682220711
+0x3E57DF5B		# 09BBA51E		= 1045946203
+0x7285F4B7		# 09BBA522		= 1921381559
+0x51B21096		# 09BBA526		= 1370624150
+0x9EFBBD38		# 09BBA52A		= -1627669192
+0x34179238		# 09BBA52E		= 873959992
+0xD5242459		# 09BBA532		= -719051687
+0xE8DFB336		# 09BBA536		= -387992778

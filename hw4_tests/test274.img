@@ -1,0 +1,106 @@
+# Test N.274
+#
+L3
+S4
+O1
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $5                    
+ADDI $5, $4, 0xECD76433           
+SUB $4, $1, $7                    
+SUBI $5, $5, 0x322E9982           
+SUBI $7, $1, 0xA9CB2B60           
+SUBI $2, $6, 0x70861568           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $6, $0                    
+SUB $6, $6, $6
+LOAD $3, $6, 0x1D9C6F32           
+SUBI $7, $5, 0x10D07C83           
+SUB $4, $4, $4
+LOAD $5, $4, 0x1D9C6F3E           
+SUB $4, $3, $2                    
+ADD $4, $0, $4                    
+ADDI $4, $2, 0x5C977EDC           
+SUBI $3, $1, 0x5F6EE5AC           
+SUBI $4, $4, 0xCA0E7D8F           
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x1D9C6F3A
+LOAD $6, $3, $6                   
+ADD $0, $6, $2                    
+SUB $0, $6, $5                    
+NOP                               
+ADDI $7, $2, 0x31B31347           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $0, $4, 0x832B7756           
+NOP                               
+SUB $0, $0, $0
+LOAD $6, $0, 0x1D9C6F42           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $6, $4, 0x41138EE5           
+ADD $2, $2, $4                    
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x1D9C6F36
+LOAD $4, $1, $3                   
+ADDI $5, $5, 0x167AB71A           
+SUBI $1, $4, 0x5E059440           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $2, $2
+LOAD $6, $2, 0x1D9C6F2E           
+ADDI $7, $4, 0xE2024A18           
+SUBI $3, $1, 0xD053743B           
+SUB $4, $4, $4
+STORE $4, $0, 0x1D9C6F3A          
+ADD $4, $2, $1                    
+SUB $3, $2, $5                    
+SUB $1, $1, $0                    
+ADD $3, $4, $0                    
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x1D9C6F3A
+LOAD $2, $6, $5                   
+NOP                               
+ADDI $3, $7, 0xDC227418           
+NOP                               
+ADD $3, $2, $6                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $1, 0x1D9C6F36          
+HALT $0
+#
+D@0x1D9C6F1E
+0xFF24EBC7		# 1D9C6F1E		= -14357561
+0xC91F486F		# 1D9C6F22		= -920696721
+0x28A75935		# 1D9C6F26		= 682055989
+0x6416C919		# 1D9C6F2A		= 1679214873
+0x1F2A0A95		# 1D9C6F2E		= 522848917
+0x36FC6EAC		# 1D9C6F32		= 922513068
+0x68AB7576		# 1D9C6F36		= 1756067190
+0x107A14E7		# 1D9C6F3A		= 276436199
+0xFDDBBA2D		# 1D9C6F3E		= -35931603
+0x681AB65F		# 1D9C6F42		= 1746581087
+0xC06798FB		# 1D9C6F46		= -1066952453

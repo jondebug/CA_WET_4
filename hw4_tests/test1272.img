@@ -1,0 +1,52 @@
+# Test N.1272
+#
+L4
+S6
+O9
+N3
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $5, $5, 0x48A11714           
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x1DEFBA13
+STORE $2, $0, $7                  
+SUB $0, $3, $1                    
+ADDI $3, $2, 0x1F64FFAB           
+SUB $3, $2, $3                    
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x1DEFBA13
+STORE $0, $7, $1                  
+ADD $3, $6, $4                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $0, $1, $1                    
+NOP                               
+SUB $3, $1, $3                    
+NOP                               
+SUB $6, $6, $6
+STORE $6, $6, 0x1DEFBA13          
+SUBI $0, $2, 0x33921035           
+SUB $6, $0, $1                    
+ADDI $5, $4, 0xB7FA7CA5           
+SUB $0, $0, $0
+LOAD $0, $0, 0x1DEFBA13           
+HALT $0
+#
+D@0x1DEFBA0B
+0xDA53C42C		# 1DEFBA0B		= -632044500
+0x35F20467		# 1DEFBA0F		= 905053287
+0xCA2A2288		# 1DEFBA13		= -903208312
+0x492910C7		# 1DEFBA17		= 1227428039

@@ -1,0 +1,96 @@
+# Test N.65
+#
+L9
+S3
+O9
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x58FFD387
+STORE $5, $0, $4                  
+NOP                               
+ADDI $2, $3, 0xC2018486           
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x58FFD373
+LOAD $4, $6, $4                   
+NOP                               
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x58FFD34B
+STORE $4, $7, $5                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $5, $1, 0xDAEF3AC5           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADD $0, $4, $7                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $6, $4, 0x8592A151           
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x58FFD367
+STORE $3, $5, $0                  
+ADDI $1, $0, 0x222A8552           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $3, $7, 0x4F0EAC49           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x58FFD37F
+LOAD $6, $1, $5                   
+NOP                               
+ADDI $4, $4, 0x55113FB8           
+SUB $1, $1, $1
+LOAD $3, $1, 0x58FFD367           
+SUBI $2, $7, 0x68845647           
+NOP                               
+SUB $2, $2, $2
+LOAD $7, $2, 0x58FFD387           
+ADDI $5, $5, 0xAA49866D           
+ADDI $0, $6, 0x224A23D2           
+SUB $7, $7, $2                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $7, $5, $1                    
+HALT $0
+#
+D@0x58FFD347
+0x24AE4604		# 58FFD347		= 615400964
+0x25D96816		# 58FFD34B		= 635004950
+0x8333B4DF		# 58FFD34F		= -2093763361
+0xB3284149		# 58FFD353		= -1289207479
+0xC8315536		# 58FFD357		= -936291018
+0xDF1F6EA7		# 58FFD35B		= -551588185
+0x6DA9607C		# 58FFD35F		= 1839816828
+0xB4C3D5F1		# 58FFD363		= -1262234127
+0x02E4D59E		# 58FFD367		= 48551326
+0x995DD9BE		# 58FFD36B		= -1721902658
+0x1E977AD9		# 58FFD36F		= 513243865
+0xA3DC895B		# 58FFD373		= -1545828005
+0xED6C3876		# 58FFD377		= -311674762
+0x92196602		# 58FFD37B		= -1843829246
+0x9F78CCC8		# 58FFD37F		= -1619473208
+0x199999E1		# 58FFD383		= 429496801
+0x63BB2A93		# 58FFD387		= 1673210515

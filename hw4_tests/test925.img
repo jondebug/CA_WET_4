@@ -1,0 +1,184 @@
+# Test N.925
+#
+L4
+S1
+O1
+N8
+
+# Thread 0
+T0
+I@0x00000000
+ADD $0, $7, $0                    
+ADD $6, $6, $2                    
+SUB $5, $5, $5
+STORE $5, $5, 0x63C56E10          
+SUB $5, $5, $5
+LOAD $5, $5, 0x63C56E00           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $5, 0x63C56DF4          
+NOP                               
+ADD $5, $0, $7                    
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x63C56DE8
+STORE $4, $6, $0                  
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x63C56DF8
+STORE $6, $6, $2                  
+ADDI $3, $1, 0x650483CC           
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x63C56E00
+LOAD $7, $3, $1                   
+SUBI $5, $6, 0x44035CF6           
+ADD $0, $4, $4                    
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x63C56DFC
+LOAD $1, $3, $2                   
+ADDI $1, $1, 0x091658B4           
+ADD $2, $0, $2                    
+SUBI $2, $3, 0x22DE9B80           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x63C56DDC
+STORE $2, $6, $6                  
+SUB $1, $1, $1
+STORE $1, $6, 0x63C56E0C          
+SUB $7, $7, $7
+STORE $7, $5, 0x63C56E18          
+SUB $4, $4, $4
+LOAD $5, $4, 0x63C56DE4           
+SUBI $3, $0, 0xCDB44273           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x63C56DE4
+LOAD $3, $5, $1                   
+SUBI $5, $0, 0xAE9007B7           
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x63C56DF8
+STORE $7, $4, $3                  
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x63C56DE8
+STORE $2, $3, $0                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUBI $1, $2, 0x6A4EAE68           
+ADDI $5, $1, 0x3DF7325C           
+ADD $1, $4, $1                    
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x63C56E18
+STORE $5, $4, $6                  
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $5, $7, 0x523AFA8A           
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x63C56DF0
+STORE $0, $1, $6                  
+ADD $5, $1, $5                    
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x63C56DF8
+LOAD $7, $6, $2                   
+SUB $4, $4, $4
+STORE $4, $6, 0x63C56E10          
+ADD $1, $5, $0                    
+ADD $0, $7, $2                    
+NOP                               
+SUB $1, $0, $7                    
+ADDI $3, $1, 0xA94681FF           
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $3, $7, $5                    
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x63C56DF8
+LOAD $1, $0, $6                   
+ADDI $7, $4, 0xDB3BA892           
+ADDI $4, $2, 0x0628ED8C           
+SUB $4, $4, $4
+LOAD $7, $4, 0x63C56DEC           
+NOP                               
+ADD $5, $7, $3                    
+ADD $5, $7, $1                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x63C56DE8
+STORE $6, $0, $4                  
+SUB $4, $4, $4
+STORE $4, $6, 0x63C56E10          
+ADD $7, $0, $4                    
+SUB $4, $5, $6                    
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+NOP                               
+ADDI $5, $0, 0x6BB881A1           
+ADDI $3, $7, 0xA0CE40DB           
+SUB $1, $3, $4                    
+SUB $2, $2, $2
+LOAD $1, $2, 0x63C56E04           
+ADD $0, $2, $0                    
+SUBI $4, $3, 0x6D663CEF           
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x63C56DD0
+STORE $2, $5, $4                  
+ADDI $6, $0, 0x42C57239           
+SUBI $3, $3, 0xEEC206CF           
+SUBI $6, $0, 0x7FB47572           
+HALT $0
+#
+D@0x63C56DD0
+0x252AFA7E		# 63C56DD0		= 623573630
+0xF081F381		# 63C56DD4		= -259918975
+0xE060444B		# 63C56DD8		= -530561973
+0xEEDE83C6		# 63C56DDC		= -287407162
+0xEEE303FA		# 63C56DE0		= -287112198
+0xE930343A		# 63C56DE4		= -382716870
+0x7ACB3DD0		# 63C56DE8		= 2060139984
+0xF7023C39		# 63C56DEC		= -150848455
+0x7C4D77C0		# 63C56DF0		= 2085451712
+0x5A0289F0		# 63C56DF4		= 1510115824
+0xF71EA37F		# 63C56DF8		= -148987009
+0x5DCA2FE6		# 63C56DFC		= 1573531622
+0x23D3111E		# 63C56E00		= 601035038
+0xD239B63B		# 63C56E04		= -767969733
+0xABAE8CFB		# 63C56E08		= -1414624005
+0x2E659802		# 63C56E0C		= 778409986
+0x924E3882		# 63C56E10		= -1840367486
+0x0983645A		# 63C56E14		= 159605850
+0xDD17A627		# 63C56E18		= -585652697

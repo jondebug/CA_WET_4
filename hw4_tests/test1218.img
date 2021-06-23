@@ -1,0 +1,81 @@
+# Test N.1218
+#
+L4
+S3
+O2
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $7, 0x49D02FF8          
+NOP                               
+SUB $2, $2, $2
+STORE $2, $4, 0x49D02FF0          
+NOP                               
+ADDI $1, $7, 0xC215D6E0           
+NOP                               
+SUBI $5, $7, 0x0480430B           
+SUBI $1, $1, 0x0C0A7833           
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x49D02FD4
+LOAD $1, $0, $3                   
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+NOP                               
+SUBI $0, $6, 0xE889C84A           
+SUB $5, $5, $5
+STORE $5, $3, 0x49D02FF8          
+ADDI $1, $0, 0x0FE613A9           
+NOP                               
+ADDI $2, $6, 0xEEB77F0D           
+SUBI $5, $3, 0x18B1C156           
+SUBI $4, $3, 0x80A020D1           
+ADD $1, $0, $0                    
+ADD $7, $5, $4                    
+SUB $6, $1, $6                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $1, $7, $0                    
+SUB $6, $0, $5                    
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x49D03000
+STORE $1, $7, $6                  
+ADDI $3, $3, 0xC2B887A5           
+ADD $1, $3, $0                    
+ADD $7, $2, $3                    
+SUBI $6, $1, 0x7EA5F972           
+ADDI $6, $3, 0xE09D698B           
+ADDI $4, $4, 0xD0E62D0D           
+NOP                               
+ADDI $6, $1, 0x03C0D68A           
+ADDI $1, $5, 0x4B74FAD8           
+ADD $4, $7, $6                    
+SUBI $2, $5, 0x33AEC490           
+HALT $0
+#
+D@0x49D02FD4
+0x7FD15A13		# 49D02FD4		= 2144426515
+0x34483520		# 49D02FD8		= 877147424
+0xEE4E4CE8		# 49D02FDC		= -296858392
+0x8DC95959		# 49D02FE0		= -1916184231
+0x8A67565E		# 49D02FE4		= -1972939170
+0x70531C72		# 49D02FE8		= 1884494962
+0xB60CD4B8		# 49D02FEC		= -1240673096
+0x948F184B		# 49D02FF0		= -1802561461
+0xCB7C946A		# 49D02FF4		= -881027990
+0x5C79A4B5		# 49D02FF8		= 1551475893
+0x91D40AFD		# 49D02FFC		= -1848374531
+0x8FFCEEEF		# 49D03000		= -1879249169
+0x7577FEE0		# 49D03004		= 1970798304

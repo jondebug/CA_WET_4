@@ -1,0 +1,184 @@
+# Test N.36
+#
+L3
+S4
+O6
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x7543BBC6
+STORE $2, $0, $4                  
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x7543BBD2
+LOAD $3, $7, $1                   
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x7543BBCE
+STORE $2, $0, $6                  
+ADD $7, $2, $0                    
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x7543BBBE
+STORE $2, $2, $1                  
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x7543BBBA
+STORE $7, $2, $6                  
+ADD $6, $3, $3                    
+SUB $6, $5, $1                    
+SUB $6, $6, $6
+STORE $6, $6, 0x7543BBD6          
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $3, $1                    
+NOP                               
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x7543BBD6
+LOAD $0, $1, $7                   
+NOP                               
+ADDI $1, $1, 0x9E62164A           
+SUB $7, $2, $2                    
+SUBI $2, $4, 0xB2D18989           
+ADDI $3, $2, 0x44B2A812           
+SUBI $5, $1, 0x4B779DA8           
+SUB $3, $2, $3                    
+SUBI $3, $1, 0xA595B878           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x7543BBD6
+LOAD $2, $3, $0                   
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x7543BBD2
+LOAD $7, $2, $6                   
+SUB $6, $6, $6
+STORE $6, $1, 0x7543BBC6          
+SUB $7, $2, $1                    
+SUB $3, $3, $3
+STORE $3, $0, 0x7543BBBE          
+ADDI $1, $2, 0xA2A2051D           
+SUB $6, $6, $6
+LOAD $4, $6, 0x7543BBBE           
+NOP                               
+SUB $7, $7, $7
+STORE $7, $4, 0x7543BBD2          
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $6, $5, 0x3D924EAB           
+SUB $7, $7, $7
+STORE $7, $7, 0x7543BBBE          
+SUB $6, $5, $4                    
+SUB $4, $4, $4
+LOAD $3, $4, 0x7543BBCA           
+SUBI $1, $1, 0x9A2B4971           
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x7543BBBE
+LOAD $0, $6, $3                   
+ADDI $4, $1, 0xFA4AB855           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $6, 0x7543BBD2          
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x7543BBD2
+LOAD $6, $3, $7                   
+SUB $5, $2, $5                    
+SUB $3, $3, $3
+LOAD $7, $3, 0x7543BBD2           
+SUBI $0, $1, 0xF514E410           
+NOP                               
+ADDI $2, $4, 0x3B1BF8DC           
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x7543BBC6
+LOAD $4, $0, $7                   
+ADD $2, $4, $0                    
+ADD $0, $7, $6                    
+SUB $6, $4, $5                    
+SUB $3, $3, $3
+LOAD $4, $3, 0x7543BBD6           
+SUBI $7, $2, 0x3C1A4DD2           
+ADDI $2, $7, 0x181CDCFB           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $5, $4, $5                    
+SUB $4, $4, $4
+STORE $4, $6, 0x7543BBBA          
+SUB $0, $0, $0
+LOAD $6, $0, 0x7543BBCE           
+ADDI $4, $5, 0x19E8D51F           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x7543BBBA
+LOAD $5, $0, $7                   
+SUB $7, $1, $2                    
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x7543BBBA
+LOAD $7, $4, $1                   
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+NOP                               
+ADDI $7, $3, 0xEBD87BC3           
+SUB $5, $7, $6                    
+SUBI $1, $7, 0xD30F8ACA           
+SUB $3, $3, $3
+LOAD $7, $3, 0x7543BBCE           
+NOP                               
+SUBI $7, $6, 0xBA1E941F           
+ADD $3, $4, $6                    
+SUBI $4, $3, 0xD404CACE           
+SUBI $2, $0, 0x16866623           
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x7543BBBE
+STORE $2, $2, $7                  
+SUB $1, $0, $5                    
+NOP                               
+HALT $0
+#
+D@0x7543BBBA
+0x55C98773		# 7543BBBA		= 1439270771
+0x3DEB30CB		# 7543BBBE		= 1038823627
+0xDE7B6E19		# 7543BBC2		= -562336231
+0xA53AA92B		# 7543BBC6		= -1522882261
+0xFFC5F777		# 7543BBCA		= -3803273
+0x306A8599		# 7543BBCE		= 812287385
+0x4B295CA6		# 7543BBD2		= 1261001894
+0xA8AC406B		# 7543BBD6		= -1465106325

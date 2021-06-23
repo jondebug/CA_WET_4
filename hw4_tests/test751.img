@@ -1,0 +1,95 @@
+# Test N.751
+#
+L4
+S8
+O7
+N6
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $0, $0, $0
+LOAD $7, $0, 0x2C7E9821           
+NOP                               
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x2C7E9821
+STORE $6, $7, $1                  
+ADD $5, $7, $2                    
+SUB $4, $4, $4
+STORE $4, $1, 0x2C7E9825          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $0, $7, 0x878A57A5           
+SUB $0, $0, $0
+STORE $0, $2, 0x2C7E982D          
+SUB $6, $3, $6                    
+SUB $1, $4, $7                    
+NOP                               
+SUBI $4, $5, 0xE5BDCD8E           
+SUB $6, $6, $6
+LOAD $1, $6, 0x2C7E9825           
+SUB $6, $5, $1                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $6, $0                    
+SUB $0, $0, $0
+LOAD $0, $0, 0x2C7E9825           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $3, $3, $5                    
+SUB $4, $3, $7                    
+NOP                               
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x2C7E9825
+LOAD $2, $1, $0                   
+ADDI $3, $0, 0xFA2ED95F           
+SUB $2, $2, $2
+LOAD $0, $2, 0x2C7E982D           
+ADD $7, $4, $0                    
+ADDI $5, $0, 0x2D260CA6           
+ADD $0, $6, $0                    
+SUBI $5, $6, 0x16AC779E           
+SUB $5, $3, $0                    
+ADDI $5, $5, 0x526E85FE           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $2, $2, $3                    
+NOP                               
+SUBI $6, $5, 0x5018DDCB           
+ADD $3, $1, $2                    
+ADDI $5, $4, 0xCDBAB17F           
+NOP                               
+SUB $7, $7, $7
+LOAD $4, $7, 0x2C7E982D           
+NOP                               
+NOP                               
+ADD $1, $4, $2                    
+SUBI $1, $5, 0x142D4CAF           
+SUBI $4, $4, 0x3B193EF4           
+HALT $0
+#
+D@0x2C7E9821
+0xD90121C1		# 2C7E9821		= -654237247
+0x20EB9BB0		# 2C7E9825		= 552311728
+0x2F643F27		# 2C7E9829		= 795098919
+0xF3D948F6		# 2C7E982D		= -203863818

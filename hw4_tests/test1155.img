@@ -1,0 +1,170 @@
+# Test N.1155
+#
+L8
+S7
+O4
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x250AD440
+STORE $1, $3, $4                  
+SUB $1, $7, $5                    
+SUB $7, $1, $5                    
+SUB $6, $6, $6
+STORE $6, $5, 0x250AD430          
+NOP                               
+SUBI $5, $3, 0x59DFFF8B           
+ADD $6, $6, $4                    
+ADD $0, $6, $2                    
+ADD $5, $6, $0                    
+SUB $4, $7, $4                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $3, $3
+STORE $3, $1, 0x250AD460          
+NOP                               
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x250AD460
+LOAD $0, $2, $4                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $7, $7, $7
+STORE $7, $1, 0x250AD42C          
+SUB $3, $0, $5                    
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x250AD43C
+STORE $5, $5, $4                  
+SUB $7, $7, $7
+STORE $7, $6, 0x250AD454          
+SUBI $5, $4, 0xBE2E80D6           
+ADDI $7, $0, 0x6CCCD19C           
+ADDI $3, $7, 0xD2798129           
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x250AD434
+LOAD $1, $1, $7                   
+SUB $0, $0, $0
+STORE $0, $2, 0x250AD454          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $1, $0, 0xBCD5DFCD           
+ADD $1, $0, $6                    
+SUBI $2, $3, 0x3D4BAFBE           
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x250AD448
+STORE $6, $6, $3                  
+ADDI $1, $4, 0xBA6FFAD4           
+ADD $4, $7, $5                    
+SUB $1, $4, $4                    
+ADDI $1, $7, 0x7B757B06           
+SUB $1, $6, $6                    
+SUBI $0, $7, 0xDDDAC454           
+SUB $4, $4, $4
+LOAD $7, $4, 0x250AD428           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $4, $2                    
+ADD $2, $3, $1                    
+SUB $5, $6, $5                    
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x250AD458
+LOAD $6, $3, $0                   
+SUB $5, $0, $0                    
+ADDI $2, $3, 0x564BA5EA           
+SUBI $4, $0, 0x3FD2EF6F           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $0, $3, $2                    
+SUB $4, $4, $4
+STORE $4, $4, 0x250AD44C          
+ADD $7, $0, $1                    
+ADDI $0, $6, 0x8999201C           
+NOP                               
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x250AD44C
+LOAD $7, $1, $3                   
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $7, $0, $2                    
+SUB $3, $2, $0                    
+ADD $4, $5, $1                    
+SUBI $2, $2, 0x046CC0B9           
+SUB $7, $4, $7                    
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x250AD430
+STORE $6, $1, $7                  
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x250AD460
+STORE $1, $1, $0                  
+SUB $6, $5, $2                    
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $7, 0x250AD428          
+NOP                               
+SUBI $0, $6, 0x0C51577A           
+NOP                               
+SUBI $4, $1, 0x23B266DF           
+ADD $4, $0, $6                    
+ADD $1, $3, $2                    
+SUB $4, $4, $4
+STORE $4, $5, 0x250AD440          
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x250AD458
+LOAD $7, $4, $5                   
+SUBI $3, $0, 0xBE76836C           
+SUBI $1, $3, 0x0B71EC32           
+HALT $0
+#
+D@0x250AD420
+0xEC9BCE8B		# 250AD420		= -325333365
+0xAEF82425		# 250AD424		= -1359469531
+0x534B6114		# 250AD428		= 1397448980
+0x76E3E827		# 250AD42C		= 1994647591
+0x0B8582D8		# 250AD430		= 193299160
+0x633D7E20		# 250AD434		= 1664974368
+0x66C79177		# 250AD438		= 1724354935
+0xEFE0A3EE		# 250AD43C		= -270490642
+0x2B2DC339		# 250AD440		= 724419385
+0x2A164855		# 250AD444		= 706103381
+0x7039FEB8		# 250AD448		= 1882848952
+0x44E031EC		# 250AD44C		= 1155543532
+0x70C6F3F0		# 250AD450		= 1892086768
+0xAF2DAEE3		# 250AD454		= -1355960605
+0xE3FF843B		# 250AD458		= -469793733
+0x98B57B82		# 250AD45C		= -1732936830
+0x2F48E904		# 250AD460		= 793307396

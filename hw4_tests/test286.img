@@ -1,0 +1,49 @@
+# Test N.286
+#
+L10
+S10
+O7
+N4
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $3, $0, 0x360E52C0           
+NOP                               
+NOP                               
+SUB $0, $0, $0
+LOAD $4, $0, 0x65BFCC1E           
+SUBI $4, $5, 0x3198E379           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x65BFCC16
+LOAD $1, $0, $3                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $0, $6, 0xAEBBF587           
+ADD $3, $2, $7                    
+SUB $4, $1, $4                    
+SUB $7, $7, $7
+LOAD $7, $7, 0x65BFCC1A           
+NOP                               
+HALT $0
+#
+D@0x65BFCC12
+0x8D8FB8E2		# 65BFCC12		= -1919960862
+0x996DCC99		# 65BFCC16		= -1720857447
+0x61668B28		# 65BFCC1A		= 1634110248
+0x8D6F471B		# 65BFCC1E		= -1922087141
+0x20898B41		# 65BFCC22		= 545884993

@@ -1,0 +1,137 @@
+# Test N.1944
+#
+L10
+S1
+O2
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $7, $1, 0x4893E725           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $1, $4                    
+ADD $4, $4, $4                    
+SUB $7, $2, $0                    
+ADD $5, $4, $3                    
+NOP                               
+SUB $0, $4, $5                    
+SUB $7, $5, $3                    
+NOP                               
+ADD $5, $7, $5                    
+SUB $2, $3, $7                    
+ADD $3, $3, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x52BA414B
+LOAD $1, $7, $5                   
+SUB $1, $3, $7                    
+NOP                               
+ADDI $3, $5, 0x8A3454A3           
+SUBI $2, $3, 0xB9A33FD8           
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x52BA413B
+LOAD $3, $0, $5                   
+SUB $5, $5, $7                    
+SUBI $6, $3, 0x46CE7A90           
+SUBI $6, $5, 0xB51133C1           
+ADD $0, $4, $1                    
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $1, $1, $1
+LOAD $1, $1, 0x52BA414F           
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x52BA4147
+LOAD $2, $5, $3                   
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x52BA4143
+LOAD $2, $0, $2                   
+SUB $0, $0, $0
+STORE $0, $6, 0x52BA4143          
+SUB $4, $4, $4
+STORE $4, $4, 0x52BA414F          
+SUBI $7, $4, 0x108BA754           
+ADD $0, $1, $3                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $0, $6, $6                    
+SUB $2, $2, $2
+LOAD $1, $2, 0x52BA415B           
+SUB $1, $1, $1
+LOAD $6, $1, 0x52BA4157           
+SUBI $1, $5, 0x6B5C7BDD           
+NOP                               
+SUB $4, $6, $3                    
+SUB $5, $5, $5
+LOAD $2, $5, 0x52BA414F           
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x52BA4147
+LOAD $7, $4, $0                   
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x52BA414B
+STORE $2, $0, $0                  
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x52BA4157
+STORE $2, $4, $5                  
+SUB $7, $5, $0                    
+SUBI $0, $4, 0x7903FC91           
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x52BA414F
+LOAD $0, $0, $5                   
+SUB $0, $0, $0
+LOAD $4, $0, 0x52BA4153           
+SUB $1, $1, $1
+STORE $1, $4, 0x52BA4153          
+SUB $0, $0, $0
+STORE $0, $2, 0x52BA4157          
+NOP                               
+SUB $5, $4, $7                    
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x52BA4137
+LOAD $3, $5, $3                   
+SUB $3, $3, $3
+STORE $3, $5, 0x52BA4143          
+HALT $0
+#
+D@0x52BA4137
+0x58B9C303		# 52BA4137		= 1488569091
+0x0B119384		# 52BA413B		= 185701252
+0x721BFCEC		# 52BA413F		= 1914436844
+0x2BA2FB6C		# 52BA4143		= 732101484
+0xFA55DBF0		# 52BA4147		= -95036432
+0x786F7D02		# 52BA414B		= 2020572418
+0xC18D1D8A		# 52BA414F		= -1047716470
+0x497123B1		# 52BA4153		= 1232151473
+0xCCA2095D		# 52BA4157		= -861796003
+0x1159CE7D		# 52BA415B		= 291098237

@@ -1,0 +1,46 @@
+# Test N.901
+#
+L7
+S6
+O6
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $5, $3, 0x53132592           
+ADD $6, $7, $2                    
+ADDI $5, $2, 0xFD71855D           
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x478C0FA8
+STORE $0, $0, $1                  
+SUB $2, $2, $2
+STORE $2, $1, 0x478C0FA4          
+NOP                               
+ADD $7, $6, $4                    
+SUBI $4, $5, 0x0862923E           
+ADD $2, $7, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x478C0FA4
+LOAD $2, $0, $2                   
+NOP                               
+SUB $7, $6, $2                    
+NOP                               
+ADDI $4, $0, 0x6EB80EC7           
+ADDI $3, $1, 0xDFB1ACC6           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x478C0FA8
+STORE $6, $0, $1                  
+HALT $0
+#
+D@0x478C0FA4
+0x427246DB		# 478C0FA4		= 1114785499
+0x8D0100F0		# 478C0FA8		= -1929314064

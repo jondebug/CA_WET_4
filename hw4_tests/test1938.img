@@ -1,0 +1,85 @@
+# Test N.1938
+#
+L3
+S1
+O4
+N3
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $0, $1, 0xCA73ECEB           
+SUB $6, $5, $1                    
+SUBI $3, $0, 0x4E3CE33E           
+ADD $4, $2, $0                    
+NOP                               
+SUB $3, $5, $7                    
+SUB $7, $7, $7
+LOAD $4, $7, 0x15D0C09D           
+ADD $5, $3, $5                    
+ADDI $4, $3, 0xCCC0D0CC           
+ADD $6, $0, $4                    
+SUB $5, $5, $5
+STORE $5, $4, 0x15D0C0A9          
+SUBI $1, $5, 0x6AC44E5A           
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x15D0C0B1
+STORE $1, $5, $4                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $3, $6, 0x9F484664           
+NOP                               
+NOP                               
+SUB $4, $6, $3                    
+NOP                               
+SUB $0, $0, $0
+LOAD $4, $0, 0x15D0C0A5           
+ADD $5, $6, $1                    
+SUBI $3, $7, 0xC1335202           
+SUB $4, $7, $5                    
+ADDI $6, $7, 0x7E71B6C3           
+SUB $4, $3, $5                    
+SUB $2, $7, $5                    
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x15D0C0A5
+LOAD $6, $3, $6                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $1, $0, 0x1248D9E9           
+SUB $1, $1, $1
+LOAD $3, $1, 0x15D0C0B1           
+SUB $7, $0, $7                    
+ADD $0, $2, $5                    
+NOP                               
+SUB $7, $3, $3                    
+ADD $6, $0, $2                    
+SUB $6, $6, $6
+LOAD $6, $6, 0x15D0C0A1           
+SUB $5, $0, $6                    
+SUB $3, $3, $3
+LOAD $7, $3, 0x15D0C0A1           
+SUB $3, $0, $0                    
+SUBI $6, $2, 0x3E0F640A           
+NOP                               
+HALT $0
+#
+D@0x15D0C08D
+0xEE9D9419		# 15D0C08D		= -291662823
+0xB7221A6A		# 15D0C091		= -1222501782
+0xA6DB168D		# 15D0C095		= -1495591283
+0xA5118E4D		# 15D0C099		= -1525576115
+0x29458BC6		# 15D0C09D		= 692423622
+0x5D28C6FA		# 15D0C0A1		= 1562953466
+0xF3A3BA1F		# 15D0C0A5		= -207373793
+0xF8BC35D7		# 15D0C0A9		= -121883177
+0x5D2662D5		# 15D0C0AD		= 1562796757
+0x21C5A755		# 15D0C0B1		= 566601557

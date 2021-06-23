@@ -1,0 +1,182 @@
+# Test N.1006
+#
+L4
+S7
+O4
+N8
+
+# Thread 0
+T0
+I@0x00000000
+ADD $6, $0, $6                    
+ADD $2, $5, $7                    
+ADD $2, $6, $6                    
+ADD $2, $5, $5                    
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x2696DE2B
+LOAD $7, $7, $4                   
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x2696DDFF
+LOAD $0, $7, $6                   
+ADD $7, $4, $1                    
+ADDI $4, $1, 0x521AE579           
+SUBI $7, $6, 0x2F7A50C6           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $6, 0x2696DDEF          
+SUB $6, $6, $6
+STORE $6, $0, 0x2696DE1B          
+ADDI $0, $0, 0x0C27E977           
+SUBI $4, $7, 0xE8D7D440           
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x2696DE27
+STORE $5, $2, $0                  
+NOP                               
+ADDI $1, $2, 0xCBB880B3           
+SUBI $0, $0, 0x575500C3           
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x2696DE0B
+LOAD $4, $6, $3                   
+ADD $1, $7, $7                    
+NOP                               
+SUB $0, $0, $0
+LOAD $1, $0, 0x2696DE07           
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x2696DDFB
+LOAD $0, $5, $7                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $1, $6                    
+SUB $7, $4, $2                    
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x2696DE27
+LOAD $1, $5, $6                   
+SUBI $5, $7, 0x26AD6E51           
+SUB $2, $2, $2
+LOAD $5, $2, 0x2696DDFB           
+ADD $6, $4, $7                    
+ADD $0, $3, $7                    
+SUBI $6, $5, 0x28E33672           
+SUB $4, $4, $4
+LOAD $1, $4, 0x2696DE0B           
+ADDI $6, $4, 0x6543733D           
+ADDI $4, $2, 0x26171833           
+ADD $5, $5, $1                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $2, $7, $0                    
+ADDI $5, $1, 0xED8999F3           
+SUBI $4, $1, 0xCE40471C           
+SUBI $5, $5, 0x8E6AEFF0           
+SUB $3, $1, $0                    
+ADD $6, $7, $2                    
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x2696DE1B
+LOAD $0, $6, $0                   
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x2696DDE7
+STORE $6, $1, $1                  
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x2696DE13
+STORE $7, $3, $3                  
+SUB $7, $3, $7                    
+ADDI $6, $6, 0x972DDDFA           
+SUB $5, $7, $1                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x2696DDE7
+STORE $7, $5, $3                  
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x2696DE1B
+LOAD $1, $4, $5                   
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADDI $3, $3, 0xE39D725B           
+SUB $2, $2, $7                    
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x2696DE27
+STORE $4, $6, $3                  
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x2696DE2B
+STORE $2, $4, $0                  
+NOP                               
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x2696DDF3
+STORE $1, $6, $2                  
+SUBI $1, $2, 0x81193421           
+ADD $3, $5, $0                    
+ADD $2, $6, $0                    
+ADDI $1, $3, 0x7F5BC388           
+SUB $2, $2, $0                    
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x2696DDE7
+LOAD $5, $6, $5                   
+ADDI $0, $7, 0x1F32C3A0           
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x2696DE07
+STORE $2, $4, $0                  
+HALT $0
+#
+D@0x2696DDE3
+0x5733E609		# 2696DDE3		= 1463019017
+0x26D41164		# 2696DDE7		= 651432292
+0x189CA8DF		# 2696DDEB		= 412920031
+0xDE3DF3A6		# 2696DDEF		= -566365274
+0x4CCFF77D		# 2696DDF3		= 1288697725
+0x9747BC52		# 2696DDF7		= -1756906414
+0x1DF3CCEA		# 2696DDFB		= 502516970
+0x4BEE81DE		# 2696DDFF		= 1273922014
+0x0B804764		# 2696DE03		= 192956260
+0x128F6CEF		# 2696DE07		= 311389423
+0xDFF21556		# 2696DE0B		= -537782954
+0x32AA7E85		# 2696DE0F		= 850034309
+0xD8A31562		# 2696DE13		= -660400798
+0xD82B20DC		# 2696DE17		= -668262180
+0x9213AF12		# 2696DE1B		= -1844203758
+0x35083502		# 2696DE1F		= 889730306
+0xB1C97E2C		# 2696DE23		= -1312195028
+0xB39E712A		# 2696DE27		= -1281461974
+0x5F615B03		# 2696DE2B		= 1600215811

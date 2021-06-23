@@ -1,0 +1,90 @@
+# Test N.154
+#
+L3
+S9
+O4
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $5, $4, $4                    
+NOP                               
+SUBI $4, $1, 0x4A160FE4           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $0, $2, 0xF414EB19           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x6C7EFC7F
+STORE $1, $3, $0                  
+SUBI $2, $6, 0x5AE1F464           
+ADD $5, $4, $7                    
+NOP                               
+SUBI $5, $2, 0x11AB111A           
+SUBI $6, $6, 0x401E7709           
+ADDI $1, $3, 0x864B8900           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $3, $3, 0x3E259B7D           
+SUB $2, $2, $2
+LOAD $4, $2, 0x6C7EFC67           
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x6C7EFC6F
+STORE $3, $4, $6                  
+SUB $2, $2, $2
+LOAD $7, $2, 0x6C7EFC83           
+ADD $0, $7, $2                    
+ADD $1, $3, $5                    
+NOP                               
+NOP                               
+SUB $3, $1, $4                    
+ADDI $1, $7, 0xD3FBD369           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $1, $3, $7                    
+ADD $4, $3, $5                    
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x6C7EFC5F
+STORE $3, $5, $2                  
+ADDI $1, $1, 0x38D823B5           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $1, $7                    
+SUB $3, $3, $3
+STORE $3, $3, 0x6C7EFC5B          
+SUB $6, $1, $6                    
+ADDI $1, $1, 0x86D8FD5C           
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x6C7EFC5F
+STORE $0, $0, $7                  
+ADDI $5, $0, 0x3FC8A876           
+HALT $0
+#
+D@0x6C7EFC5B
+0xF948C857		# 6C7EFC5B		= -112670633
+0xD6F08032		# 6C7EFC5F		= -688881614
+0x5EC10907		# 6C7EFC63		= 1589709063
+0x8877A405		# 6C7EFC67		= -2005425147
+0xB8F62BED		# 6C7EFC6B		= -1191826451
+0xE5941E72		# 6C7EFC6F		= -443277710
+0x9E1E4071		# 6C7EFC73		= -1642184591
+0xAD702448		# 6C7EFC77		= -1385159608
+0x5E5CE806		# 6C7EFC7B		= 1583147014
+0xEFB97CC4		# 6C7EFC7F		= -273056572
+0xCDA2C798		# 6C7EFC83		= -844970088

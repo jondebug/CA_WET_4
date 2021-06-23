@@ -1,0 +1,81 @@
+# Test N.1618
+#
+L6
+S8
+O2
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6
+LOAD $3, $6, 0x44DD0783           
+NOP                               
+SUB $3, $3, $3
+STORE $3, $1, 0x44DD076B          
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x44DD076F
+STORE $5, $7, $6                  
+SUB $5, $5, $5
+STORE $5, $4, 0x44DD076F          
+SUB $4, $4, $4
+LOAD $7, $4, 0x44DD076F           
+SUBI $1, $7, 0xFBF7EDE6           
+SUB $0, $1, $2                    
+ADD $0, $0, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $1, $4, $2                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $6, $1, 0x0403CBBD           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUBI $2, $4, 0x6784646A           
+ADDI $2, $3, 0x3CDD7A3F           
+ADDI $5, $6, 0xA7227BCA           
+SUB $0, $0, $0
+LOAD $2, $0, 0x44DD0783           
+SUB $3, $3, $3
+STORE $3, $5, 0x44DD076B          
+SUB $6, $6, $6
+LOAD $0, $6, 0x44DD0783           
+SUB $1, $4, $6                    
+SUB $4, $3, $7                    
+SUB $5, $5, $5
+LOAD $2, $5, 0x44DD0783           
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x44DD0777
+LOAD $6, $3, $0                   
+HALT $0
+#
+D@0x44DD076B
+0x745B3FD3		# 44DD076B		= 1952137171
+0x6E5CB108		# 44DD076F		= 1851568392
+0x9812B408		# 44DD0773		= -1743604728
+0x9ADA0C56		# 44DD0777		= -1696986026
+0x8A1D047A		# 44DD077B		= -1977809798
+0x18E4894E		# 44DD077F		= 417630542
+0x4F5504A6		# 44DD0783		= 1330971814

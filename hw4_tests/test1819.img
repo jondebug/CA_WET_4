@@ -1,0 +1,108 @@
+# Test N.1819
+#
+L3
+S10
+O6
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x2E8C345A
+STORE $4, $3, $1                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $2, $3                    
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x2E8C3456
+STORE $1, $7, $5                  
+SUB $0, $6, $2                    
+SUB $7, $7, $4                    
+ADDI $2, $5, 0xB7D5A802           
+ADDI $0, $6, 0x5AA42533           
+ADDI $4, $6, 0x7455E4D7           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x2E8C3452
+LOAD $2, $1, $5                   
+NOP                               
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x2E8C345E
+STORE $1, $7, $5                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $5, $6                    
+SUB $0, $0, $0
+STORE $0, $7, 0x2E8C3456          
+SUB $3, $3, $3
+LOAD $5, $3, 0x2E8C3456           
+SUB $6, $6, $6
+LOAD $7, $6, 0x2E8C3452           
+SUB $0, $5, $0                    
+ADD $2, $0, $5                    
+ADDI $2, $4, 0x338B2A96           
+SUBI $7, $6, 0x0C536FBA           
+SUB $0, $0, $0
+STORE $0, $7, 0x2E8C3456          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x2E8C3456
+STORE $2, $4, $1                  
+SUBI $3, $5, 0xFF178D7A           
+ADD $2, $5, $1                    
+ADDI $7, $1, 0xDD2C5CB1           
+SUB $2, $0, $6                    
+SUBI $4, $0, 0x8A37C541           
+NOP                               
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x2E8C3452
+LOAD $3, $7, $0                   
+ADD $4, $7, $1                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $7, $3, 0xD198B3A9           
+SUB $1, $1, $1
+STORE $1, $6, 0x2E8C345A          
+SUB $6, $6, $6
+LOAD $2, $6, 0x2E8C3456           
+ADD $4, $0, $4                    
+NOP                               
+ADDI $4, $6, 0xD48A90F8           
+SUB $7, $7, $7
+STORE $7, $6, 0x2E8C344E          
+SUB $1, $1, $1
+STORE $1, $6, 0x2E8C345A          
+SUB $4, $4, $4
+STORE $4, $6, 0x2E8C344E          
+NOP                               
+SUB $0, $2, $6                    
+NOP                               
+ADDI $6, $0, 0x91ADB433           
+HALT $0
+#
+D@0x2E8C344E
+0xB5E214D9		# 2E8C344E		= -1243474727
+0x072CD860		# 2E8C3452		= 120379488
+0xB8C15101		# 2E8C3456		= -1195290367
+0xD6BD263C		# 2E8C345A		= -692246980
+0x62398598		# 2E8C345E		= 1647936920

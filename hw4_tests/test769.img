@@ -1,0 +1,66 @@
+# Test N.769
+#
+L4
+S7
+O8
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $5, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $0, $5, $3                    
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x1FFCDD32
+LOAD $3, $6, $2                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $4, 0x1FFCDD3A          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+ADD $1, $5, $7                    
+NOP                               
+SUB $0, $0, $0
+STORE $0, $6, 0x1FFCDD42          
+ADDI $7, $5, 0x74F5A90C           
+ADD $6, $3, $7                    
+SUB $3, $4, $4                    
+SUB $5, $5, $5
+STORE $5, $7, 0x1FFCDD1E          
+ADD $0, $3, $3                    
+NOP                               
+SUB $4, $0, $5                    
+SUBI $0, $2, 0x7A720A40           
+ADD $0, $7, $5                    
+HALT $0
+#
+D@0x1FFCDD0E
+0xA1A50471		# 1FFCDD0E		= -1583020943
+0xA0305064		# 1FFCDD12		= -1607446428
+0xEAAA9BFF		# 1FFCDD16		= -357917697
+0x120D6341		# 1FFCDD1A		= 302867265
+0xD31B835C		# 1FFCDD1E		= -753171620
+0x6B1C29A1		# 1FFCDD22		= 1797007777
+0xC76460BF		# 1FFCDD26		= -949722945
+0xCD0AF8E8		# 1FFCDD2A		= -854918936
+0x29842D39		# 1FFCDD2E		= 696528185
+0x4C0341CE		# 1FFCDD32		= 1275281870
+0x9CF69143		# 1FFCDD36		= -1661562557
+0xA7762296		# 1FFCDD3A		= -1485430122
+0x70BF08A8		# 1FFCDD3E		= 1891567784
+0xF383F57B		# 1FFCDD42		= -209455749
+0x5D65D3B9		# 1FFCDD46		= 1566954425

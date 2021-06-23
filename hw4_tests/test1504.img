@@ -1,0 +1,59 @@
+# Test N.1504
+#
+L10
+S1
+O9
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $1, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x69FCBF14
+LOAD $1, $6, $3                   
+SUBI $4, $5, 0xC91A4D89           
+SUB $0, $0, $0
+STORE $0, $2, 0x69FCBF14          
+ADDI $5, $4, 0x9DA1A819           
+ADD $3, $7, $5                    
+ADDI $6, $3, 0xA9343310           
+SUBI $5, $3, 0xA1A2EF3C           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x69FCBF14
+STORE $5, $4, $2                  
+ADDI $6, $4, 0x9224AC8C           
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x69FCBF14
+LOAD $5, $0, $5                   
+SUB $4, $7, $6                    
+SUB $4, $2, $1                    
+SUB $6, $6, $6
+STORE $6, $7, 0x69FCBF14          
+SUB $0, $0, $0
+STORE $0, $4, 0x69FCBF10          
+ADD $1, $0, $3                    
+ADD $5, $5, $6                    
+ADDI $6, $6, 0xA2E1E6F4           
+SUB $3, $7, $3                    
+NOP                               
+ADDI $0, $1, 0x1495C465           
+ADDI $7, $3, 0x938F0AE8           
+HALT $0
+#
+D@0x69FCBF10
+0xCBBE5935		# 69FCBF10		= -876717771
+0xE36B73DE		# 69FCBF14		= -479497250

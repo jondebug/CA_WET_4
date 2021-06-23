@@ -1,0 +1,44 @@
+# Test N.1872
+#
+L2
+S8
+O10
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADD $7, $6, $1                    
+ADD $6, $0, $2                    
+SUB $0, $0, $6                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $7, $4, 0x2A5666D5           
+SUB $3, $5, $7                    
+NOP                               
+NOP                               
+SUB $5, $5, $5
+LOAD $2, $5, 0x5EBE8EDC           
+SUB $7, $0, $3                    
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x5EBE8EDC
+LOAD $2, $2, $1                   
+NOP                               
+HALT $0
+#
+D@0x5EBE8EDC
+0xD1DF23B2		# 5EBE8EDC		= -773905486
+0x50DC683B		# 5EBE8EE0		= 1356621883
+0xAF4B27EE		# 5EBE8EE4		= -1354029074
+0xEBD5E62B		# 5EBE8EE8		= -338303445
+0xB2D9F0FD		# 5EBE8EEC		= -1294339843
+0xD8D37C4B		# 5EBE8EF0		= -657228725
+0x1AD34417		# 5EBE8EF4		= 450053143
+0x525C81A1		# 5EBE8EF8		= 1381794209
+0xFC17276A		# 5EBE8EFC		= -65591446
+0x733A767C		# 5EBE8F00		= 1933211260
+0x989165F9		# 5EBE8F04		= -1735301639

@@ -1,0 +1,60 @@
+# Test N.1361
+#
+L10
+S9
+O7
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $5, $2, 0x3D68E287           
+SUB $6, $6, $6
+STORE $6, $3, 0x49BB4803          
+NOP                               
+ADD $4, $1, $2                    
+SUBI $1, $1, 0xB18E2F03           
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x49BB47EF
+STORE $3, $2, $4                  
+SUB $6, $1, $2                    
+SUB $0, $0, $0
+LOAD $1, $0, 0x49BB47FF           
+ADD $7, $2, $4                    
+SUB $0, $7, $0                    
+ADD $2, $0, $5                    
+NOP                               
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x49BB47FF
+STORE $0, $5, $6                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $1, 0x49BB47F7          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADDI $2, $3, 0xD00AC51F           
+ADD $5, $2, $2                    
+NOP                               
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x49BB47F7
+STORE $0, $0, $6                  
+HALT $0
+#
+D@0x49BB47EF
+0xE6431A29		# 49BB47EF		= -431810007
+0x5E3CF594		# 49BB47F3		= 1581053332
+0x854DBA5F		# 49BB47F7		= -2058503585
+0x628ECD82		# 49BB47FB		= 1653525890
+0x2C0E229F		# 49BB47FF		= 739123871
+0xC34B4BEE		# 49BB4803		= -1018475538

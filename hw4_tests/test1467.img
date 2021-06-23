@@ -1,0 +1,51 @@
+# Test N.1467
+#
+L1
+S3
+O3
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $6, $3, 0x3892BCAE           
+ADDI $5, $2, 0x994480F2           
+SUB $1, $1, $1
+STORE $1, $4, 0x5E304210          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $6, $3                    
+SUB $7, $7, $7
+LOAD $7, $7, 0x5E304214           
+SUBI $7, $3, 0x813E76B8           
+SUBI $6, $1, 0xC793301D           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+LOAD $3, $7, 0x5E304210           
+SUBI $7, $6, 0xF75D7AC6           
+SUBI $7, $4, 0xF290A4F8           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $2, $2, 0x1F3BBF3D           
+ADDI $4, $2, 0x6800A6B9           
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x5E304210
+STORE $6, $5, $3                  
+SUB $1, $0, $7                    
+ADDI $4, $3, 0x7BBFD73A           
+HALT $0
+#
+D@0x5E304210
+0x3D1E5D50		# 5E304210		= 1025400144
+0xB73E66BF		# 5E304214		= -1220647233

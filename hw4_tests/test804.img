@@ -1,0 +1,98 @@
+# Test N.804
+#
+L6
+S6
+O9
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $7, $1                    
+ADD $0, $5, $4                    
+SUB $1, $1, $1
+LOAD $4, $1, 0x345E61B2           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+LOAD $7, $2, 0x345E61B2           
+SUBI $7, $6, 0x5F0FD7D4           
+SUB $2, $1, $5                    
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x345E61B2
+STORE $3, $4, $5                  
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x345E61B6
+LOAD $6, $5, $6                   
+SUB $5, $5, $5
+STORE $5, $4, 0x345E61B2          
+SUB $1, $1, $1
+STORE $1, $7, 0x345E61B6          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $6, $2, 0xA9EF6ACA           
+NOP                               
+ADDI $3, $0, 0x4B32F369           
+SUB $2, $2, $2
+LOAD $4, $2, 0x345E61AA           
+NOP                               
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x345E61B6
+LOAD $4, $6, $4                   
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x345E61B2
+LOAD $6, $0, $1                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $4, $0, 0x90B3EFC6           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $0, 0x345E61B6          
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x345E61B6
+LOAD $7, $6, $7                   
+SUBI $1, $7, 0x343ECE5B           
+ADD $4, $4, $0                    
+SUBI $7, $6, 0xDE809A9C           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x345E61AE
+STORE $5, $7, $1                  
+SUB $0, $0, $2                    
+NOP                               
+SUB $3, $2, $5                    
+SUB $1, $1, $1
+LOAD $3, $1, 0x345E61B2           
+SUB $5, $2, $2                    
+SUBI $3, $0, 0x6A588B86           
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x345E61AA
+LOAD $0, $0, $3                   
+HALT $0
+#
+D@0x345E61AA
+0xF298D25B		# 345E61AA		= -224865701
+0x70664961		# 345E61AE		= 1885751649
+0x2AB4071E		# 345E61B2		= 716441374
+0x2FD783CF		# 345E61B6		= 802653135

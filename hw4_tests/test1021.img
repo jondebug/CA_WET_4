@@ -1,0 +1,86 @@
+# Test N.1021
+#
+L8
+S10
+O9
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x51A60A52
+LOAD $4, $6, $3                   
+SUB $1, $6, $1                    
+SUBI $6, $2, 0x46F32C13           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $0, $3, 0x59D7E4ED           
+SUBI $3, $0, 0x08AD954E           
+ADDI $5, $6, 0x1768E24D           
+NOP                               
+ADD $2, $7, $1                    
+ADDI $0, $3, 0xF6CB21AA           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x51A60A52
+STORE $7, $1, $0                  
+SUB $6, $1, $7                    
+ADDI $1, $1, 0xD8CD92B2           
+SUB $5, $5, $5
+STORE $5, $7, 0x51A60A4E          
+ADD $4, $4, $6                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $5, $7, 0x3579CD8D           
+SUB $7, $7, $7
+STORE $7, $0, 0x51A60A5E          
+SUB $7, $7, $7
+STORE $7, $3, 0x51A60A4A          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $3, $5, 0x85EEF3A2           
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x51A60A4A
+LOAD $0, $1, $3                   
+ADDI $0, $5, 0x355E664F           
+SUB $4, $4, $4
+STORE $4, $7, 0x51A60A5E          
+SUBI $6, $1, 0x12A3FBD9           
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $4, $5, $7                    
+SUB $1, $7, $6                    
+SUB $1, $5, $5                    
+SUB $0, $7, $7                    
+HALT $0
+#
+D@0x51A60A42
+0xB1BFEA94		# 51A60A42		= -1312822636
+0xC0DD6E63		# 51A60A46		= -1059230109
+0x9A3144CF		# 51A60A4A		= -1708047153
+0xD51885CC		# 51A60A4E		= -719813172
+0x3F5B55DC		# 51A60A52		= 1062950364
+0x397330E8		# 51A60A56		= 963850472
+0x9892EF7C		# 51A60A5A		= -1735200900
+0x7683C5EA		# 51A60A5E		= 1988347370

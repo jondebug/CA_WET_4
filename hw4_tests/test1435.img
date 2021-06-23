@@ -1,0 +1,67 @@
+# Test N.1435
+#
+L9
+S6
+O5
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $5, 0x4CD9E625          
+SUB $1, $1, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $3, $5, 0xAB4AFD4E           
+SUBI $7, $0, 0xA154E93D           
+SUBI $4, $7, 0x5B4410FA           
+NOP                               
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $0, 0x4CD9E61D          
+SUB $1, $0, $2                    
+SUBI $3, $7, 0xE20EA2E9           
+SUB $4, $4, $4
+STORE $4, $3, 0x4CD9E621          
+ADD $0, $5, $5                    
+SUB $7, $7, $7
+STORE $7, $0, 0x4CD9E619          
+SUB $2, $2, $2
+STORE $2, $6, 0x4CD9E629          
+ADDI $3, $6, 0x84142FE3           
+SUB $2, $2, $2
+STORE $2, $3, 0x4CD9E619          
+SUB $5, $5, $5                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $4, $5, 0x5B208FD5           
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x4CD9E629
+STORE $7, $1, $6                  
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x4CD9E621
+STORE $1, $0, $4                  
+HALT $0
+#
+D@0x4CD9E615
+0x19E19BB7		# 4CD9E615		= 434215863
+0xF18C3753		# 4CD9E619		= -242469037
+0xABFB30F4		# 4CD9E61D		= -1409601292
+0x3EC00E07		# 4CD9E621		= 1052773895
+0x4CA1B6C6		# 4CD9E625		= 1285666502
+0x88A2301A		# 4CD9E629		= -2002636774

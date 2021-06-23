@@ -1,0 +1,41 @@
+# Test N.100
+#
+L10
+S7
+O8
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADD $6, $5, $2                    
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x1430B6BF
+STORE $3, $1, $4                  
+SUB $6, $3, $7                    
+ADD $3, $6, $1                    
+ADDI $6, $3, 0x0C87026B           
+SUB $3, $7, $1                    
+SUBI $3, $6, 0x95BB6F99           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $3, $2, $0                    
+ADDI $6, $0, 0x8F7ACA77           
+SUB $6, $6, $6
+LOAD $5, $6, 0x1430B6BF           
+ADDI $7, $4, 0x1B4C90D5           
+SUB $1, $5, $5                    
+SUB $2, $2, $2
+STORE $2, $0, 0x1430B6BF          
+SUB $6, $3, $2                    
+SUB $7, $7, $7
+STORE $7, $6, 0x1430B6BF          
+NOP                               
+HALT $0
+#
+D@0x1430B6BF
+0x0339123D		# 1430B6BF		= 54071869

@@ -1,0 +1,81 @@
+# Test N.1025
+#
+L9
+S7
+O7
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $6, $4, $4                    
+SUB $3, $3, $7                    
+SUBI $6, $2, 0x6090A7ED           
+SUB $1, $1, $1
+LOAD $5, $1, 0x4B2BAA33           
+SUB $7, $7, $7
+LOAD $7, $7, 0x4B2BAA33           
+SUB $3, $3, $3
+STORE $3, $2, 0x4B2BAA33          
+SUB $6, $6, $6
+LOAD $0, $6, 0x4B2BAA33           
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x4B2BAA33
+STORE $1, $5, $4                  
+ADD $1, $2, $0                    
+SUB $2, $2, $2
+LOAD $1, $2, 0x4B2BAA33           
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x4B2BAA33
+STORE $3, $2, $5                  
+SUBI $4, $6, 0x0CCFF8D7           
+SUB $0, $0, $0
+STORE $0, $0, 0x4B2BAA33          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $7, $5, $3                    
+SUB $6, $6, $0                    
+ADDI $6, $4, 0x54F7D32C           
+ADD $0, $1, $7                    
+SUB $0, $0, $0
+STORE $0, $5, 0x4B2BAA2F          
+SUBI $0, $5, 0x356D069E           
+NOP                               
+ADD $0, $5, $3                    
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x4B2BAA2F
+STORE $2, $3, $5                  
+ADDI $5, $1, 0xCB952A43           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $4, $7, 0x47560FAF           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $0, $0, 0x6567B328           
+SUB $7, $7, $7
+STORE $7, $4, 0x4B2BAA2F          
+ADD $3, $5, $0                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $6, $5, 0x07C1DAAB           
+ADDI $3, $1, 0x5A8306AC           
+HALT $0
+#
+D@0x4B2BAA2F
+0x4EC3D138		# 4B2BAA2F		= 1321455928
+0x69F0945F		# 4B2BAA33		= 1777374303

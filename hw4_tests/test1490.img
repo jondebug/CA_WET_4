@@ -1,0 +1,139 @@
+# Test N.1490
+#
+L1
+S10
+O6
+N7
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $0, $3, $0                    
+SUB $2, $7, $2                    
+SUBI $4, $1, 0x46961648           
+ADD $7, $4, $5                    
+NOP                               
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x001DBA3A
+STORE $5, $6, $3                  
+ADD $3, $1, $0                    
+NOP                               
+SUB $2, $6, $2                    
+SUBI $5, $2, 0x1D702C70           
+ADD $4, $3, $6                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADD $1, $7, $7                    
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x001DBA5A
+LOAD $0, $2, $5                   
+ADDI $3, $3, 0xBFF9A11F           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x001DBA26
+LOAD $3, $3, $7                   
+SUB $7, $5, $6                    
+SUBI $2, $1, 0x7495F2CC           
+SUB $5, $3, $3                    
+SUBI $7, $7, 0x0A49B7C8           
+SUB $3, $3, $3
+LOAD $4, $3, 0x001DBA3A           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $0, $0, $0
+STORE $0, $0, 0x001DBA62          
+SUB $6, $6, $6
+LOAD $4, $6, 0x001DBA22           
+SUB $0, $0, $0
+LOAD $5, $0, 0x001DBA22           
+SUB $0, $0, $0
+STORE $0, $6, 0x001DBA36          
+SUBI $4, $3, 0xB8B66009           
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x001DBA52
+LOAD $7, $7, $0                   
+SUBI $0, $6, 0xD70F9674           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $0, $4, 0xB2E58E28           
+ADD $7, $4, $1                    
+SUB $0, $0, $0
+STORE $0, $7, 0x001DBA1A          
+SUB $2, $4, $4                    
+SUB $7, $7, $7
+STORE $7, $4, 0x001DBA26          
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $2, 0x001DBA62          
+SUB $4, $5, $6                    
+ADD $6, $3, $3                    
+SUBI $7, $1, 0xF13C90F4           
+ADD $4, $0, $4                    
+ADD $1, $2, $5                    
+SUB $0, $7, $5                    
+SUBI $3, $2, 0x4D5CE486           
+NOP                               
+SUB $2, $2, $2
+STORE $2, $7, 0x001DBA56          
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x001DBA5E
+STORE $7, $0, $3                  
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x001DBA36
+LOAD $0, $0, $7                   
+SUBI $2, $1, 0x2B6794E0           
+NOP                               
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADD $2, $0, $6                    
+HALT $0
+#
+D@0x001DBA1A
+0xD2BF8377		# 001DBA1A		= -759200905
+0x0D5750B6		# 001DBA1E		= 223826102
+0x497F2F6A		# 001DBA22		= 1233071978
+0xA9278FB6		# 001DBA26		= -1457025098
+0x9E98C1B5		# 001DBA2A		= -1634156107
+0x21D4FDAA		# 001DBA2E		= 567606698
+0x3B211BCB		# 001DBA32		= 992025547
+0xF98E77D4		# 001DBA36		= -108103724
+0x4A3132A2		# 001DBA3A		= 1244738210
+0xF8E71403		# 001DBA3E		= -119073789
+0x18475484		# 001DBA42		= 407327876
+0x5FD08951		# 001DBA46		= 1607502161
+0x9F9950E5		# 001DBA4A		= -1617342235
+0x363E0602		# 001DBA4E		= 910034434
+0x4072A840		# 001DBA52		= 1081256000
+0xB239F632		# 001DBA56		= -1304824270
+0x74737556		# 001DBA5A		= 1953723734
+0xF9ADE003		# 001DBA5E		= -106045437
+0x7C1582AD		# 001DBA62		= 2081784493

@@ -1,0 +1,106 @@
+# Test N.1519
+#
+L9
+S9
+O10
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x2CDB3433
+STORE $2, $6, $5                  
+NOP                               
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x2CDB343B
+LOAD $7, $5, $1                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $1, $3, 0x34080348           
+SUB $3, $3, $2                    
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x2CDB342F
+LOAD $7, $4, $7                   
+SUB $4, $4, $4
+LOAD $6, $4, 0x2CDB3437           
+SUBI $3, $7, 0x62E35192           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $4, $4
+LOAD $3, $4, 0x2CDB3433           
+ADD $5, $1, $6                    
+SUBI $1, $3, 0x14FDF6A0           
+ADDI $3, $6, 0x6816CCD3           
+NOP                               
+SUB $4, $6, $7                    
+SUBI $5, $0, 0xDE803F9E           
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x2CDB3433
+LOAD $0, $0, $7                   
+SUBI $5, $3, 0x7E6CA7B8           
+ADD $1, $1, $4                    
+SUB $5, $5, $5
+LOAD $0, $5, 0x2CDB3427           
+SUB $0, $7, $2                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+NOP                               
+SUB $3, $4, $2                    
+SUBI $7, $7, 0xC2416FD8           
+SUBI $1, $2, 0x635493A3           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+ADDI $7, $0, 0x2C68565D           
+ADD $3, $1, $7                    
+SUB $7, $7, $7
+LOAD $5, $7, 0x2CDB343F           
+NOP                               
+NOP                               
+ADDI $5, $0, 0x9C25CFB2           
+SUBI $7, $6, 0x668FCC24           
+SUBI $3, $4, 0x8BF773F7           
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x2CDB3427
+LOAD $6, $2, $1                   
+SUB $0, $0, $0
+LOAD $3, $0, 0x2CDB3427           
+SUBI $4, $3, 0x8FF14871           
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x2CDB342F
+STORE $2, $0, $7                  
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+HALT $0
+#
+D@0x2CDB3427
+0xFD9AB282		# 2CDB3427		= -40193406
+0xAB0ABE00		# 2CDB342B		= -1425359360
+0x57EE3C2E		# 2CDB342F		= 1475230766
+0xE31936C4		# 2CDB3433		= -484886844
+0x28E35DD1		# 2CDB3437		= 685989329
+0xCC2104ED		# 2CDB343B		= -870251283
+0xAE9166B5		# 2CDB343F		= -1366202699

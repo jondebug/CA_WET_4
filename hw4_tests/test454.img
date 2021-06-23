@@ -1,0 +1,34 @@
+# Test N.454
+#
+L1
+S7
+O5
+N1
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x6E4BF209
+STORE $4, $2, $3                  
+ADDI $0, $5, 0xD11D8E74           
+NOP                               
+SUBI $6, $1, 0xF22E84E8           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x6E4BF1F5
+STORE $2, $2, $3                  
+ADD $0, $4, $6                    
+NOP                               
+HALT $0
+#
+D@0x6E4BF1F1
+0xDA887AAC		# 6E4BF1F1		= -628589908
+0x1C445E38		# 6E4BF1F5		= 474242616
+0x573918FE		# 6E4BF1F9		= 1463359742
+0x757010FF		# 6E4BF1FD		= 1970278655
+0xACFB0E8A		# 6E4BF201		= -1392832886
+0x3090F02D		# 6E4BF205		= 814805037
+0x2BF58E73		# 6E4BF209		= 737513075
+0x65177FB1		# 6E4BF20D		= 1696038833

@@ -1,0 +1,72 @@
+# Test N.1681
+#
+L1
+S2
+O9
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $3, $5                    
+NOP                               
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x417E9DD2
+LOAD $6, $7, $3                   
+SUBI $1, $7, 0xEB2AB064           
+NOP                               
+SUBI $1, $5, 0x9B3FBEBB           
+ADD $1, $5, $1                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $7, $4, $5                    
+SUB $1, $1, $1
+LOAD $1, $1, 0x417E9DD6           
+ADD $6, $0, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $1, $5, $1                    
+SUB $1, $1, $1
+STORE $1, $5, 0x417E9DD6          
+ADDI $2, $2, 0x532390B7           
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x417E9DDA
+STORE $7, $7, $5                  
+SUBI $0, $7, 0x45D1ED02           
+NOP                               
+NOP                               
+SUB $5, $5, $5
+STORE $5, $0, 0x417E9DCE          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $2, $6                    
+NOP                               
+ADD $2, $3, $2                    
+ADD $7, $4, $5                    
+ADD $6, $5, $1                    
+ADD $6, $0, $2                    
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x417E9DD6
+LOAD $5, $1, $2                   
+SUB $1, $1, $1
+LOAD $5, $1, 0x417E9DD2           
+NOP                               
+HALT $0
+#
+D@0x417E9DCE
+0xEE4A0778		# 417E9DCE		= -297138312
+0x796C32AA		# 417E9DD2		= 2037133994
+0x1C5A6918		# 417E9DD6		= 475687192
+0x26C831CE		# 417E9DDA		= 650654158

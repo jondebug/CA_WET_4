@@ -1,0 +1,115 @@
+# Test N.1821
+#
+L10
+S8
+O3
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $5, $3, 0x171F67B0           
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x5CA8F18E
+STORE $7, $1, $4                  
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x5CA8F186
+LOAD $3, $0, $2                   
+SUB $6, $0, $4                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $5, $5, $5
+LOAD $6, $5, 0x5CA8F17E           
+ADDI $7, $5, 0x60D9AE9A           
+SUBI $7, $1, 0x8051308D           
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x5CA8F17A
+STORE $7, $0, $1                  
+SUB $4, $7, $3                    
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x5CA8F172
+STORE $4, $5, $5                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $0, $1                    
+ADD $7, $4, $5                    
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x5CA8F16E
+STORE $0, $5, $3                  
+NOP                               
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x5CA8F18E
+LOAD $6, $4, $7                   
+SUB $1, $5, $2                    
+SUB $7, $7, $7
+STORE $7, $1, 0x5CA8F16E          
+ADD $6, $0, $7                    
+SUBI $2, $6, 0x3AF7DC8B           
+SUB $3, $0, $2                    
+ADD $6, $1, $7                    
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x5CA8F17A
+LOAD $6, $2, $7                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $1, $3, $2                    
+SUB $1, $1, $1
+STORE $1, $5, 0x5CA8F192          
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x5CA8F182
+STORE $2, $3, $5                  
+NOP                               
+ADDI $3, $7, 0xE4BEEAC2           
+SUBI $7, $3, 0x86F778B9           
+ADDI $7, $4, 0x97972924           
+SUBI $6, $5, 0xE0FAA367           
+NOP                               
+SUBI $2, $5, 0xD6230125           
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x5CA8F172
+STORE $7, $1, $3                  
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUBI $3, $4, 0x289744D3           
+SUB $0, $0, $0
+STORE $0, $6, 0x5CA8F186          
+NOP                               
+NOP                               
+SUBI $6, $3, 0x42DF8081           
+SUB $0, $4, $7                    
+HALT $0
+#
+D@0x5CA8F16E
+0x5E72E59D		# 5CA8F16E		= 1584588189
+0x91DE76D9		# 5CA8F172		= -1847691559
+0x5790D9F0		# 5CA8F176		= 1469110768
+0x23F35741		# 5CA8F17A		= 603150145
+0xABE4C345		# 5CA8F17E		= -1411071163
+0xAFE618A7		# 5CA8F182		= -1343874905
+0x89EEFD51		# 5CA8F186		= -1980826287
+0xFDFEB2EC		# 5CA8F18A		= -33639700
+0x24B5F6EB		# 5CA8F18E		= 615905003
+0x592D9DB8		# 5CA8F192		= 1496161720

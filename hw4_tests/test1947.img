@@ -1,0 +1,73 @@
+# Test N.1947
+#
+L8
+S2
+O7
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADD $0, $5, $3                    
+NOP                               
+SUBI $3, $0, 0xEB47F658           
+SUB $6, $1, $7                    
+SUB $3, $3, $3
+LOAD $4, $3, 0x5043FDCF           
+NOP                               
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x5043FDEF
+LOAD $0, $2, $0                   
+SUB $4, $4, $4
+LOAD $0, $4, 0x5043FDE7           
+SUB $3, $3, $3
+LOAD $3, $3, 0x5043FDCB           
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x5043FDE3
+STORE $4, $3, $6                  
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $0, $0, $5                    
+SUB $3, $3, $3                    
+ADDI $2, $4, 0x4EC8931F           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $5, $1                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $4, 0x5043FDEB          
+SUB $2, $2, $2
+STORE $2, $7, 0x5043FDC7          
+NOP                               
+SUBI $2, $6, 0x78145239           
+SUB $4, $4, $4
+STORE $4, $1, 0x5043FDBF          
+HALT $0
+#
+D@0x5043FDBF
+0x7836EBC9		# 5043FDBF		= 2016865225
+0x46C2FD62		# 5043FDC3		= 1187183970
+0xF581713A		# 5043FDC7		= -176066246
+0x31C5352A		# 5043FDCB		= 835007786
+0x04D5F195		# 5043FDCF		= 81129877
+0x92F70489		# 5043FDD3		= -1829305207
+0xA98D4E85		# 5043FDD7		= -1450357115
+0xB7FEFE53		# 5043FDDB		= -1208025517
+0x30E8235C		# 5043FDDF		= 820519772
+0xF8708B6C		# 5043FDE3		= -126842004
+0xEAF56416		# 5043FDE7		= -353016810
+0x669ED9F5		# 5043FDEB		= 1721686517
+0xDC9755C2		# 5043FDEF		= -594061886

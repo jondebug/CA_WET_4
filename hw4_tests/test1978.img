@@ -1,0 +1,89 @@
+# Test N.1978
+#
+L10
+S8
+O10
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x2D0C5CC8
+STORE $1, $7, $3                  
+SUB $1, $1, $1
+STORE $1, $2, 0x2D0C5CB8          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $3, $3, 0xC53D1A09           
+NOP                               
+NOP                               
+ADDI $5, $4, 0xF32ABAD1           
+NOP                               
+NOP                               
+ADD $3, $7, $7                    
+SUB $1, $1, $1
+STORE $1, $1, 0x2D0C5CB4          
+SUBI $3, $7, 0xB704479E           
+NOP                               
+SUB $3, $3, $3
+LOAD $6, $3, 0x2D0C5CD0           
+SUB $5, $5, $4                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $5, $4                    
+SUBI $0, $3, 0x70E706B6           
+ADDI $7, $4, 0xA6623F97           
+ADDI $4, $4, 0xAC837061           
+ADDI $1, $4, 0xBDE6B308           
+ADDI $2, $4, 0x08D5AB90           
+ADD $6, $1, $4                    
+ADD $6, $4, $7                    
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x2D0C5CC0
+LOAD $1, $2, $5                   
+SUB $0, $0, $0
+STORE $0, $6, 0x2D0C5CB0          
+NOP                               
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x2D0C5CC4
+STORE $2, $1, $3                  
+NOP                               
+SUB $0, $0, $0
+LOAD $5, $0, 0x2D0C5CC4           
+SUB $1, $1, $1
+STORE $1, $5, 0x2D0C5CB0          
+ADD $2, $3, $2                    
+NOP                               
+SUB $6, $2, $7                    
+SUB $7, $7, $7
+LOAD $1, $7, 0x2D0C5CB8           
+NOP                               
+SUBI $4, $3, 0xD5D6535D           
+HALT $0
+#
+D@0x2D0C5CB0
+0x4821560E		# 2D0C5CB0		= 1210144270
+0x41F12480		# 2D0C5CB4		= 1106322560
+0x38EF4B22		# 2D0C5CB8		= 955206434
+0xA2B3D685		# 2D0C5CBC		= -1565272443
+0x2E367630		# 2D0C5CC0		= 775321136
+0x004A8C2E		# 2D0C5CC4		= 4885550
+0x8ED53521		# 2D0C5CC8		= -1898629855
+0xCDD975FF		# 2D0C5CCC		= -841386497
+0x28B06B09		# 2D0C5CD0		= 682650377

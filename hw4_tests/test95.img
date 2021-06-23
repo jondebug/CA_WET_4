@@ -1,0 +1,53 @@
+# Test N.95
+#
+L7
+S7
+O2
+N3
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $2, $2, $2
+STORE $2, $0, 0x65EACD8E          
+ADD $3, $3, $0                    
+NOP                               
+SUBI $0, $6, 0x19452F09           
+SUB $5, $5, $5
+STORE $5, $7, 0x65EACD7E          
+SUBI $2, $2, 0xB9CE86D9           
+SUBI $2, $6, 0xC80B91AD           
+ADDI $3, $3, 0x76F4D3CB           
+SUBI $7, $2, 0xA03A0BA8           
+SUB $3, $0, $4                    
+ADD $0, $3, $4                    
+SUB $0, $1, $0                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $2, $6, 0x4E22629D           
+SUB $6, $1, $0                    
+SUB $7, $5, $5                    
+SUB $0, $0, $0                    
+HALT $0
+#
+D@0x65EACD7E
+0x3639B78E		# 65EACD7E		= 909752206
+0xB7C15EAB		# 65EACD82		= -1212064085
+0xACF39719		# 65EACD86		= -1393322215
+0x9B4856EA		# 65EACD8A		= -1689757974
+0x39A4C643		# 65EACD8E		= 967099971
+0x5C835053		# 65EACD92		= 1552109651
+0x927E6D28		# 65EACD96		= -1837208280
+0x921EDA2B		# 65EACD9A		= -1843471829
+0x08DE2578		# 65EACD9E		= 148776312
+0x0DA97AEC		# 65EACDA2		= 229210860
+0x25FFC03E		# 65EACDA6		= 637517886

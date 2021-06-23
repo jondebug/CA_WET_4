@@ -1,0 +1,33 @@
+# Test N.978
+#
+L10
+S5
+O4
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADD $4, $2, $7                    
+ADDI $6, $7, 0xAFC6F8AE           
+ADD $1, $0, $2                    
+SUBI $0, $6, 0xA4F0F894           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $5, $7, $1                    
+NOP                               
+SUBI $6, $6, 0x6DE51EB8           
+NOP                               
+ADD $2, $4, $4                    
+SUB $3, $2, $4                    
+SUBI $5, $0, 0xF7312F1C           
+HALT $0
+#
+D@0x38C5CC9E
+0xDA53044A		# 38C5CC9E		= -632093622
+0xBE6DB001		# 38C5CCA2		= -1100107775
+0xC8CC7F26		# 38C5CCA6		= -926122202
+0x64B32A49		# 38C5CCAA		= 1689463369

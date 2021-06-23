@@ -1,0 +1,98 @@
+# Test N.618
+#
+L5
+S3
+O2
+N5
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $0, $1, $3                    
+ADD $0, $4, $5                    
+ADDI $5, $5, 0xE6122ECC           
+NOP                               
+SUB $0, $0, $0
+STORE $0, $2, 0x2C2B91F2          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $7, $4, 0xC575A4F9           
+SUB $1, $1, $1
+LOAD $4, $1, 0x2C2B91F6           
+SUBI $2, $4, 0x4ABBA2AA           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $5, $2, $3                    
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x2C2B91F2
+STORE $1, $7, $4                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x2C2B91F6
+LOAD $1, $1, $6                   
+ADD $2, $0, $5                    
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x2C2B91F6
+STORE $7, $7, $1                  
+NOP                               
+SUB $1, $3, $0                    
+SUB $5, $4, $7                    
+SUB $5, $4, $1                    
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x2C2B91F2
+LOAD $7, $0, $2                   
+ADDI $3, $4, 0xB4B1F7C6           
+SUB $7, $4, $2                    
+SUBI $1, $7, 0xCC87A13C           
+SUB $4, $4, $4
+STORE $4, $4, 0x2C2B91F6          
+SUBI $0, $3, 0xF6D38366           
+ADDI $4, $3, 0xC5718E28           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $1, $2, 0xBAB9D0B4           
+ADD $1, $1, $7                    
+NOP                               
+SUBI $1, $4, 0x5CAC2BCB           
+SUB $6, $6, $6
+STORE $6, $4, 0x2C2B91F6          
+SUB $3, $1, $4                    
+SUBI $3, $7, 0xFBE775AF           
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x2C2B91F2
+STORE $0, $5, $4                  
+SUB $6, $6, $6
+STORE $6, $7, 0x2C2B91F6          
+SUB $7, $7, $7
+STORE $7, $3, 0x2C2B91F6          
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x2C2B91F6
+STORE $0, $7, $6                  
+SUBI $2, $3, 0xA903C891           
+SUB $3, $3, $3
+STORE $3, $5, 0x2C2B91F6          
+HALT $0
+#
+D@0x2C2B91F2
+0x44701426		# 2C2B91F2		= 1148195878
+0xC88D08C0		# 2C2B91F6		= -930281280

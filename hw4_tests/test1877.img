@@ -1,0 +1,86 @@
+# Test N.1877
+#
+L7
+S7
+O10
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $3, $6, 0xEAF6A0BC           
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x5F4CD6F7
+LOAD $5, $3, $4                   
+SUB $0, $0, $0
+STORE $0, $4, 0x5F4CD6F7          
+SUBI $2, $3, 0x6FB8FFAE           
+ADD $2, $3, $6                    
+ADDI $4, $2, 0x3EB466B6           
+SUB $4, $4, $4
+STORE $4, $6, 0x5F4CD6FF          
+ADDI $7, $2, 0xA63FEE52           
+ADD $7, $6, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $0, $5, $7                    
+SUBI $4, $4, 0xBF1EB697           
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x5F4CD6FF
+STORE $5, $0, $2                  
+SUB $3, $4, $7                    
+SUB $0, $1, $7                    
+ADDI $0, $5, 0x414B7BC0           
+SUB $7, $7, $7
+LOAD $5, $7, 0x5F4CD717           
+ADDI $7, $6, 0x62857BEC           
+SUB $7, $6, $2                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $1, $0                    
+ADDI $3, $3, 0xD2DB57BB           
+ADD $4, $3, $2                    
+SUB $2, $2, $2
+LOAD $6, $2, 0x5F4CD6F7           
+SUBI $0, $6, 0x3F4B06CC           
+ADD $2, $2, $3                    
+ADDI $5, $4, 0x06FA77C1           
+ADDI $6, $1, 0x8A56D3F9           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $0, $3, 0xAFC62BF6           
+ADD $2, $4, $3                    
+ADDI $7, $3, 0x7FEB31AD           
+SUB $4, $4, $4                    
+ADDI $0, $2, 0x7F46E800           
+SUB $1, $1, $1
+STORE $1, $5, 0x5F4CD6F7          
+NOP                               
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x5F4CD717
+LOAD $3, $0, $5                   
+ADDI $2, $3, 0x67BBD2A1           
+HALT $0
+#
+D@0x5F4CD6F7
+0x03C86C93		# 5F4CD6F7		= 63466643
+0x1F1A6454		# 5F4CD6FB		= 521823316
+0x972E1A01		# 5F4CD6FF		= -1758586367
+0x90D44115		# 5F4CD703		= -1865137899
+0x3E5C568F		# 5F4CD707		= 1046238863
+0x907F5A94		# 5F4CD70B		= -1870701932
+0x941C59A9		# 5F4CD70F		= -1810081367
+0x382AE173		# 5F4CD713		= 942334323
+0x8EFBE709		# 5F4CD717		= -1896093943

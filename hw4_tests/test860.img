@@ -1,0 +1,113 @@
+# Test N.860
+#
+L6
+S7
+O6
+N6
+
+# Thread 0
+T0
+I@0x00000000
+ADD $3, $1, $1                    
+NOP                               
+ADD $5, $4, $5                    
+ADD $5, $5, $7                    
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x667D43D6
+STORE $1, $3, $7                  
+NOP                               
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x667D4402
+STORE $4, $4, $0                  
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x667D43E2
+STORE $3, $4, $5                  
+SUB $1, $1, $1
+STORE $1, $6, 0x667D43DE          
+ADD $7, $3, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $3, $4                    
+SUB $0, $2, $6                    
+SUB $4, $4, $4
+STORE $4, $6, 0x667D43CE          
+ADD $2, $7, $5                    
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x667D43F2
+STORE $7, $0, $6                  
+SUBI $7, $4, 0x559F0C4D           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $0, $2, 0x17002BEE           
+ADD $7, $3, $5                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $7, $4, 0x6407CF4F           
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x667D43E6
+STORE $6, $2, $2                  
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+NOP                               
+SUB $4, $4, $4
+STORE $4, $3, 0x667D43D6          
+SUBI $3, $6, 0x57B46003           
+ADD $6, $2, $7                    
+NOP                               
+NOP                               
+SUB $4, $4, $4
+STORE $4, $0, 0x667D43EA          
+SUB $2, $2, $2
+STORE $2, $6, 0x667D43EE          
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x667D43DA
+STORE $0, $2, $7                  
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x667D43CE
+STORE $6, $7, $0                  
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADDI $7, $4, 0x975F9922           
+NOP                               
+HALT $0
+#
+D@0x667D43CE
+0x2A4DC987		# 667D43CE		= 709740935
+0xBFF8AFEC		# 667D43D2		= -1074221076
+0xB85331B7		# 667D43D6		= -1202507337
+0x5EBF3BD4		# 667D43DA		= 1589590996
+0x9D1E39BA		# 667D43DE		= -1658963526
+0xC65B35F8		# 667D43E2		= -967100936
+0xEB5A294D		# 667D43E6		= -346412723
+0x3D04EEA5		# 667D43EA		= 1023733413
+0x1AE1994D		# 667D43EE		= 450992461
+0x9D9F94B6		# 667D43F2		= -1650486090
+0xEB4D9E94		# 667D43F6		= -347234668
+0x099AC2BB		# 667D43FA		= 161137339
+0xBCB9452E		# 667D43FE		= -1128708818
+0xCD4C62A4		# 667D4402		= -850632028
+0x4D32A319		# 667D4406		= 1295164185
+0x3748ACE9		# 667D440A		= 927509737

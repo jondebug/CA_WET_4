@@ -1,0 +1,112 @@
+# Test N.25
+#
+L2
+S1
+O6
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $4, $3, 0x1D20542A           
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x17032A6A
+STORE $6, $4, $4                  
+ADD $0, $4, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUBI $5, $6, 0xB42CCDF9           
+SUB $0, $4, $6                    
+SUB $7, $7, $7
+STORE $7, $3, 0x17032A66          
+SUB $3, $6, $0                    
+ADDI $1, $3, 0xF9AA1684           
+NOP                               
+SUB $5, $5, $5
+STORE $5, $1, 0x17032A66          
+SUB $0, $0, $0
+LOAD $6, $0, 0x17032A66           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+LOAD $6, $7, 0x17032A5E           
+SUBI $6, $2, 0x1EE97628           
+ADDI $3, $1, 0x59440DA8           
+SUB $5, $5, $5
+STORE $5, $3, 0x17032A66          
+SUBI $1, $2, 0x2C4C03ED           
+ADD $2, $0, $5                    
+NOP                               
+ADDI $7, $0, 0x13165803           
+SUB $4, $4, $4
+LOAD $5, $4, 0x17032A6E           
+SUB $2, $2, $2
+LOAD $0, $2, 0x17032A6A           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $1, $4, 0x8D88FFA6           
+SUBI $4, $4, 0x6B190A6C           
+ADDI $7, $6, 0xDAF96C97           
+SUB $3, $3, $3
+LOAD $2, $3, 0x17032A72           
+ADDI $3, $5, 0x66225A40           
+SUB $3, $3, $3
+LOAD $4, $3, 0x17032A5A           
+SUBI $3, $5, 0x551BBB2D           
+SUB $4, $4, $4
+LOAD $5, $4, 0x17032A5E           
+SUB $0, $0, $0
+LOAD $1, $0, 0x17032A66           
+NOP                               
+ADDI $7, $6, 0x7F5CCF36           
+ADDI $3, $3, 0x0FE62981           
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x17032A72
+STORE $3, $0, $5                  
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADDI $6, $1, 0xE1A26A20           
+NOP                               
+SUB $5, $1, $4                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+NOP                               
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $5, $2, $5                    
+HALT $0
+#
+D@0x17032A5A
+0x93EEDEEE		# 17032A5A		= -1813061906
+0x0956A06F		# 17032A5E		= 156672111
+0xC7E8ED77		# 17032A62		= -941036169
+0x535A09EB		# 17032A66		= 1398409707
+0x970500B6		# 17032A6A		= -1761279818
+0xCBF9C9BC		# 17032A6E		= -872822340
+0x398ABCE6		# 17032A72		= 965393638

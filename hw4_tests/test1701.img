@@ -1,0 +1,123 @@
+# Test N.1701
+#
+L7
+S2
+O3
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $0, $5, 0x9656D045           
+SUB $3, $2, $7                    
+SUBI $0, $2, 0x2B69C34B           
+ADDI $0, $1, 0xDA8AEBBC           
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x50FE0022
+STORE $1, $3, $2                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $5, 0x50FE000E          
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x50FDFFEE
+STORE $3, $6, $0                  
+NOP                               
+SUBI $3, $3, 0x20982C18           
+ADDI $5, $0, 0xB2728144           
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x50FE0016
+LOAD $4, $2, $7                   
+ADDI $3, $5, 0x9700F376           
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x50FDFFEE
+STORE $4, $1, $6                  
+SUBI $7, $0, 0xF5ECDCF5           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $4, $6, 0xC768BED6           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x50FDFFEE
+LOAD $2, $4, $3                   
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x50FE000E
+STORE $2, $2, $3                  
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x50FDFFF6
+STORE $3, $5, $6                  
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $7, $2, $0                    
+ADDI $5, $5, 0xD5B63799           
+SUBI $4, $4, 0xD7108817           
+SUB $4, $4, $4
+LOAD $3, $4, 0x50FE0016           
+SUB $1, $1, $1
+STORE $1, $0, 0x50FE000A          
+SUB $4, $2, $4                    
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $5, $3, $3                    
+NOP                               
+ADD $6, $6, $1                    
+NOP                               
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x50FE001E
+LOAD $0, $0, $2                   
+ADD $7, $7, $1                    
+ADDI $2, $1, 0x3CC77BF0           
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x50FE001E
+STORE $4, $1, $3                  
+NOP                               
+SUBI $1, $3, 0x4EDD3CBA           
+SUB $3, $3, $3
+LOAD $0, $3, 0x50FDFFFE           
+ADDI $5, $0, 0x22EBE5EB           
+ADDI $1, $0, 0x74286E2D           
+HALT $0
+#
+D@0x50FDFFEA
+0xE9B2EF01		# 50FDFFEA		= -374149375
+0x84978C1C		# 50FDFFEE		= -2070442980
+0x32745DE2		# 50FDFFF2		= 846487010
+0x25A2EB96		# 50FDFFF6		= 631434134
+0x535454BC		# 50FDFFFA		= 1398035644
+0x1B560745		# 50FDFFFE		= 458622789
+0x0EAC4B25		# 50FE0002		= 246172453
+0x2675FE51		# 50FE0006		= 645267025
+0x788E7D4D		# 50FE000A		= 2022604109
+0x8016F23F		# 50FE000E		= -2145979841
+0x9C3B2FCE		# 50FE0012		= -1673842738
+0xA22C32D4		# 50FE0016		= -1574161708
+0x9ACC7EA8		# 50FE001A		= -1697874264
+0x9B4D2564		# 50FE001E		= -1689442972
+0x67F80C57		# 50FE0022		= 1744309335

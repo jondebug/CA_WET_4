@@ -1,0 +1,43 @@
+# Test N.1580
+#
+L2
+S9
+O4
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $7, 0x73D2A6DF          
+SUB $3, $3, $3
+STORE $3, $0, 0x73D2A6DF          
+NOP                               
+ADDI $4, $2, 0x24FAFA1D           
+SUB $1, $5, $2                    
+ADD $1, $7, $4                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $3, $2, $6                    
+NOP                               
+SUBI $4, $4, 0x3F6E3C26           
+ADDI $4, $2, 0xCC13C021           
+NOP                               
+ADD $4, $4, $7                    
+ADDI $3, $5, 0x8CE180CC           
+SUBI $1, $0, 0x638CC5DC           
+NOP                               
+ADD $6, $2, $7                    
+HALT $0
+#
+D@0x73D2A6D3
+0x835BBEEF		# 73D2A6D3		= -2091139345
+0x82B8F563		# 73D2A6D7		= -2101807773
+0xB4203004		# 73D2A6DB		= -1272958972
+0xCC790FD0		# 73D2A6DF		= -864481328
+0x90F4F8E8		# 73D2A6E3		= -1862993688
+0xC4A0F94D		# 73D2A6E7		= -996083379
+0x3EDA211B		# 73D2A6EB		= 1054482715

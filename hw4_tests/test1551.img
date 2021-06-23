@@ -1,0 +1,29 @@
+# Test N.1551
+#
+L4
+S1
+O3
+N1
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $7, 0x0ED6C210          
+SUBI $7, $5, 0x731F562A           
+ADDI $4, $4, 0x9BF55E2B           
+ADD $3, $5, $4                    
+SUBI $3, $0, 0xBB258875           
+SUB $3, $3, $3
+STORE $3, $4, 0x0ED6C21C          
+ADDI $5, $1, 0x8F5759CE           
+NOP                               
+SUB $7, $3, $7                    
+HALT $0
+#
+D@0x0ED6C210
+0x3D324780		# 0ED6C210		= 1026705280
+0xE839AE9F		# 0ED6C214		= -398872929
+0x71DAFB86		# 0ED6C218		= 1910176646
+0x67AD05A3		# 0ED6C21C		= 1739392419
+0x56DAB07F		# 0ED6C220		= 1457172607

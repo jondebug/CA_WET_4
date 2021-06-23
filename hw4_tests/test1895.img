@@ -1,0 +1,63 @@
+# Test N.1895
+#
+L7
+S4
+O1
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x2C27FCB3
+STORE $1, $5, $5                  
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x2C27FCB3
+STORE $3, $2, $7                  
+SUB $6, $6, $6
+LOAD $0, $6, 0x2C27FCAF           
+SUB $7, $4, $3                    
+SUB $0, $0, $0
+STORE $0, $3, 0x2C27FCAB          
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x2C27FCBB
+LOAD $4, $4, $6                   
+NOP                               
+ADD $2, $6, $1                    
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x2C27FCB7
+STORE $2, $0, $4                  
+ADD $5, $1, $0                    
+SUB $1, $1, $1
+STORE $1, $7, 0x2C27FCAB          
+SUBI $5, $4, 0x06ADF949           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+LOAD $6, $5, 0x2C27FCAB           
+ADDI $5, $2, 0xEFEC63AB           
+ADDI $0, $7, 0xE46C3331           
+ADDI $0, $7, 0xA690D942           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $1, $4, 0x3F3D57F7           
+HALT $0
+#
+D@0x2C27FCA7
+0x874A1ECD		# 2C27FCA7		= -2025185587
+0x1F570BC8		# 2C27FCAB		= 525798344
+0xCE5D73FF		# 2C27FCAF		= -832736257
+0x65DB2911		# 2C27FCB3		= 1708861713
+0xBA182A58		# 2C27FCB7		= -1172821416
+0xE94B01FB		# 2C27FCBB		= -380960261
+0xC463957A		# 2C27FCBF		= -1000106630

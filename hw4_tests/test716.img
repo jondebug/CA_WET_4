@@ -1,0 +1,89 @@
+# Test N.716
+#
+L7
+S9
+O9
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $2, $3, 0xBC71F7EE           
+SUB $1, $1, $1
+STORE $1, $4, 0x098BADA6          
+ADD $0, $1, $4                    
+SUBI $6, $4, 0x5EA1E85C           
+NOP                               
+SUB $7, $7, $7
+LOAD $7, $7, 0x098BADAE           
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x098BADB6
+LOAD $1, $4, $1                   
+SUB $5, $5, $1                    
+ADD $3, $6, $2                    
+ADDI $3, $3, 0xAE12E340           
+ADDI $4, $0, 0xD954797E           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUBI $1, $3, 0xDF59B293           
+ADDI $4, $3, 0xD19516D4           
+SUBI $6, $2, 0x9D256926           
+SUBI $2, $4, 0x3DCF99E3           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x098BAD9A
+LOAD $1, $5, $1                   
+SUB $4, $4, $4
+STORE $4, $2, 0x098BADAE          
+SUB $4, $4, $1                    
+SUB $2, $2, $2
+STORE $2, $1, 0x098BADB6          
+SUB $5, $0, $6                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $2, $7                    
+NOP                               
+ADD $5, $7, $1                    
+SUB $0, $0, $0
+LOAD $5, $0, 0x098BAD96           
+ADD $3, $0, $0                    
+SUB $3, $3, $3
+LOAD $5, $3, 0x098BAD9A           
+ADD $2, $4, $5                    
+ADD $4, $4, $3                    
+SUB $4, $4, $4
+LOAD $3, $4, 0x098BADA2           
+SUB $7, $6, $7                    
+SUBI $4, $0, 0x41EEBF53           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x098BADB2
+LOAD $7, $6, $0                   
+SUB $2, $2, $2
+LOAD $0, $2, 0x098BADB6           
+HALT $0
+#
+D@0x098BAD96
+0x7E0B67CF		# 098BAD96		= 2114676687
+0x434BE03C		# 098BAD9A		= 1129046076
+0x38675CB9		# 098BAD9E		= 946298041
+0x5ABB6EF0		# 098BADA2		= 1522233072
+0xAD59F67A		# 098BADA6		= -1386613126
+0x5BD88C70		# 098BADAA		= 1540918384
+0x110ABEDB		# 098BADAE		= 285916891
+0x59482E29		# 098BADB2		= 1497902633
+0x63FA923C		# 098BADB6		= 1677365820
+0xF31B7136		# 098BADBA		= -216305354

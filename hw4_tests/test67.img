@@ -1,0 +1,98 @@
+# Test N.67
+#
+L9
+S4
+O7
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x5E8AB8F9
+STORE $0, $3, $4                  
+NOP                               
+ADDI $6, $5, 0x075CBC3B           
+SUBI $7, $5, 0xBE65BC1D           
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x5E8AB8F1
+STORE $0, $5, $6                  
+ADD $3, $5, $5                    
+SUBI $6, $5, 0x57DB026D           
+SUB $2, $4, $0                    
+SUB $7, $7, $7
+LOAD $0, $7, 0x5E8AB905           
+NOP                               
+SUBI $5, $7, 0x4E52D064           
+SUB $0, $0, $1                    
+SUB $5, $3, $0                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x5E8AB901
+LOAD $5, $7, $0                   
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x5E8AB905
+STORE $0, $1, $1                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $2, $7, 0xBF20CC37           
+ADDI $6, $7, 0x90E41EBF           
+SUB $0, $0, $7                    
+SUB $0, $5, $0                    
+SUBI $7, $7, 0xD384931F           
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x5E8AB8F9
+LOAD $4, $4, $7                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $3, $3, 0x540894A7           
+SUB $2, $2, $2
+LOAD $6, $2, 0x5E8AB901           
+ADDI $1, $3, 0x1D441C09           
+ADDI $2, $4, 0x088271BD           
+SUB $2, $2, $2
+LOAD $6, $2, 0x5E8AB8FD           
+SUB $4, $4, $4
+LOAD $7, $4, 0x5E8AB8FD           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x5E8AB8FD
+STORE $5, $7, $1                  
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $2, $2
+LOAD $7, $2, 0x5E8AB8F9           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $6, $4, $0                    
+SUB $2, $2, $3                    
+HALT $0
+#
+D@0x5E8AB8F1
+0x8A65E9F7		# 5E8AB8F1		= -1973032457
+0x58C60DCF		# 5E8AB8F5		= 1489374671
+0xDC1757B5		# 5E8AB8F9		= -602449995
+0x0C0BCF61		# 5E8AB8FD		= 202100577
+0xEA435351		# 5E8AB901		= -364686511
+0x2608B761		# 5E8AB905		= 638105441

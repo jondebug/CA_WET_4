@@ -1,0 +1,95 @@
+# Test N.500
+#
+L3
+S5
+O9
+N3
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x4A4A7822
+STORE $5, $6, $1                  
+SUBI $5, $3, 0x1DBA07AF           
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x4A4A7806
+LOAD $6, $0, $7                   
+SUBI $5, $5, 0xAE8851D7           
+SUBI $5, $0, 0xA5E753FA           
+ADD $2, $5, $2                    
+NOP                               
+NOP                               
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x4A4A7806
+STORE $3, $5, $7                  
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x4A4A77F2
+STORE $2, $4, $5                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $1, $2                    
+NOP                               
+ADD $2, $4, $3                    
+ADD $3, $5, $7                    
+NOP                               
+SUBI $6, $0, 0x0913AD81           
+SUB $2, $5, $2                    
+ADD $3, $3, $2                    
+ADDI $7, $0, 0x35A243FC           
+SUB $7, $4, $4                    
+SUBI $0, $5, 0x1AD0FDB1           
+SUBI $7, $2, 0xC62B575E           
+ADDI $4, $3, 0x0F893B7B           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $5                    
+SUBI $5, $5, 0x001EBEB4           
+SUBI $4, $3, 0xF65A815B           
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x4A4A77F2
+STORE $2, $1, $0                  
+SUB $1, $1, $1
+STORE $1, $5, 0x4A4A77FE          
+NOP                               
+NOP                               
+ADD $7, $6, $7                    
+SUBI $5, $7, 0x751946FE           
+SUBI $6, $7, 0xC8ABA867           
+ADDI $2, $7, 0x87EE8BDC           
+NOP                               
+SUB $6, $6, $7                    
+SUB $7, $7, $7
+STORE $7, $2, 0x4A4A781A          
+HALT $0
+#
+D@0x4A4A77E6
+0x060BDEDF		# 4A4A77E6		= 101441247
+0xC507ADA1		# 4A4A77EA		= -989352543
+0x0D18B370		# 4A4A77EE		= 219722608
+0x6BA254D7		# 4A4A77F2		= 1805800663
+0x24E96BB1		# 4A4A77F6		= 619277233
+0xD22AC99E		# 4A4A77FA		= -768947810
+0x397D2665		# 4A4A77FE		= 964503141
+0xA21041FC		# 4A4A7802		= -1575992836
+0xDD39BB9A		# 4A4A7806		= -583418982
+0x316BA374		# 4A4A780A		= 829137780
+0xE5F9A63C		# 4A4A780E		= -436623812
+0x63107D12		# 4A4A7812		= 1662024978
+0x90C6FC8D		# 4A4A7816		= -1866007411
+0xB6FD0A2B		# 4A4A781A		= -1224930773
+0x58664B50		# 4A4A781E		= 1483098960
+0xB6EF39B7		# 4A4A7822		= -1225836105
+0x53269547		# 4A4A7826		= 1395037511

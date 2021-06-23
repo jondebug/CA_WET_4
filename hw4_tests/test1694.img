@@ -1,0 +1,99 @@
+# Test N.1694
+#
+L3
+S5
+O9
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $1, $4, $6                    
+SUB $2, $0, $4                    
+ADDI $1, $1, 0xFF4D746D           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x3FA6F810
+LOAD $4, $6, $3                   
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x3FA6F80C
+STORE $7, $3, $2                  
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x3FA6F830
+LOAD $1, $7, $1                   
+ADDI $7, $6, 0xE27AC324           
+SUBI $0, $3, 0x4131AA3A           
+SUB $6, $4, $3                    
+SUBI $6, $5, 0x5BADD0A2           
+SUB $7, $7, $7
+STORE $7, $0, 0x3FA6F838          
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x3FA6F834
+LOAD $5, $5, $0                   
+SUB $0, $0, $0
+LOAD $6, $0, 0x3FA6F810           
+SUB $1, $1, $1
+STORE $1, $1, 0x3FA6F810          
+SUB $5, $4, $0                    
+SUB $4, $4, $4
+STORE $4, $6, 0x3FA6F814          
+ADD $3, $7, $7                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $5, $4, 0x9AAFA348           
+SUB $3, $3, $3
+STORE $3, $6, 0x3FA6F828          
+SUB $0, $0, $0
+STORE $0, $6, 0x3FA6F818          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $3, $4, 0x843CE0F7           
+ADDI $4, $6, 0x30115666           
+SUBI $2, $2, 0x45495936           
+NOP                               
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x3FA6F81C
+LOAD $0, $4, $7                   
+SUB $2, $3, $7                    
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x3FA6F828
+STORE $0, $6, $4                  
+ADD $0, $2, $7                    
+ADDI $7, $0, 0x108C6EFB           
+HALT $0
+#
+D@0x3FA6F80C
+0xBD03D4C2		# 3FA6F80C		= -1123822398
+0x42B6EAD6		# 3FA6F810		= 1119283926
+0x303A488F		# 3FA6F814		= 809126031
+0x65AFE02E		# 3FA6F818		= 1706025006
+0xD6ED6D81		# 3FA6F81C		= -689083007
+0x660D13FD		# 3FA6F820		= 1712133117
+0x8275A7FD		# 3FA6F824		= -2106218499
+0x4DF4F0F2		# 3FA6F828		= 1307898098
+0x919DCCBD		# 3FA6F82C		= -1851929411
+0x6DD16E66		# 3FA6F830		= 1842441830
+0x4C5BCE39		# 3FA6F834		= 1281084985
+0xFCF9906C		# 3FA6F838		= -50753428

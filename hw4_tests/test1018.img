@@ -1,0 +1,109 @@
+# Test N.1018
+#
+L1
+S2
+O3
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $4, $6, 0x7853944D           
+SUB $2, $0, $0                    
+SUB $7, $7, $7
+STORE $7, $1, 0x6DB5723E          
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x6DB5724A
+STORE $0, $7, $5                  
+ADDI $3, $2, 0xEEA41687           
+SUB $4, $4, $4
+STORE $4, $1, 0x6DB57212          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $1, $6, 0x827BA21E           
+SUBI $3, $0, 0x416EB049           
+NOP                               
+SUB $4, $4, $4
+STORE $4, $7, 0x6DB5720E          
+ADD $1, $6, $2                    
+SUB $7, $7, $7
+LOAD $0, $7, 0x6DB57242           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x6DB5723A
+STORE $1, $7, $4                  
+ADD $5, $0, $2                    
+NOP                               
+ADDI $5, $5, 0x4836E0B2           
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x6DB5720E
+STORE $2, $5, $1                  
+SUBI $6, $6, 0x59DBEF70           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x6DB5723A
+STORE $6, $7, $1                  
+ADD $5, $5, $3                    
+SUBI $5, $6, 0x6239812D           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $0, $0
+LOAD $1, $0, 0x6DB5721A           
+SUB $1, $1, $1
+STORE $1, $2, 0x6DB57252          
+SUB $3, $3, $3
+LOAD $5, $3, 0x6DB5723A           
+SUB $7, $0, $3                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+NOP                               
+SUBI $3, $4, 0x36AF2BF9           
+SUB $5, $5, $6                    
+ADDI $5, $0, 0xAF438200           
+SUBI $0, $0, 0xA9EF0BEF           
+SUB $2, $3, $0                    
+NOP                               
+ADD $0, $4, $1                    
+NOP                               
+ADDI $0, $6, 0x3FE5E1B1           
+ADDI $3, $0, 0xC4671E30           
+HALT $0
+#
+D@0x6DB5720E
+0x75A0F00F		# 6DB5720E		= 1973481487
+0xDB4A4792		# 6DB57212		= -615889006
+0x6C17C912		# 6DB57216		= 1813498130
+0xAAE7356B		# 6DB5721A		= -1427688085
+0xC96DE37A		# 6DB5721E		= -915545222
+0x65D8AB12		# 6DB57222		= 1708698386
+0xA1C68914		# 6DB57226		= -1580824300
+0x06EF554E		# 6DB5722A		= 116348238
+0xC7C557FF		# 6DB5722E		= -943368193
+0xEAACF4CE		# 6DB57232		= -357763890
+0x46A80385		# 6DB57236		= 1185416069
+0xD3FB6560		# 6DB5723A		= -738499232
+0xBDDB8C19		# 6DB5723E		= -1109685223
+0xDC184B56		# 6DB57242		= -602387626
+0xEFBFB51E		# 6DB57246		= -272648930
+0x89979ADD		# 6DB5724A		= -1986553123
+0x89703F1C		# 6DB5724E		= -1989132516
+0xE97D6E2A		# 6DB57252		= -377655766
+0xB7359E06		# 6DB57256		= -1221222906

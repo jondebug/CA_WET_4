@@ -1,0 +1,111 @@
+# Test N.1530
+#
+L8
+S9
+O10
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $4, $5                    
+SUBI $2, $7, 0x17693E2D           
+ADD $7, $0, $0                    
+NOP                               
+ADD $0, $1, $0                    
+SUBI $5, $2, 0x938DAF6D           
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x1CF9DE2A
+LOAD $0, $3, $6                   
+SUB $0, $0, $0
+LOAD $4, $0, 0x1CF9DE2A           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $5, $6, 0x498B674A           
+ADDI $5, $3, 0x8ADB2034           
+ADDI $7, $7, 0x6982F049           
+SUBI $5, $1, 0x11DD6B6A           
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x1CF9DE2A
+LOAD $5, $2, $5                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $4, 0x1CF9DE2A          
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x1CF9DE26
+STORE $0, $5, $5                  
+ADD $4, $4, $7                    
+ADD $3, $5, $1                    
+SUB $4, $4, $4
+STORE $4, $7, 0x1CF9DE2A          
+NOP                               
+SUB $5, $2, $2                    
+NOP                               
+ADD $1, $2, $5                    
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x1CF9DE22
+LOAD $1, $7, $0                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $4, $4
+LOAD $2, $4, 0x1CF9DE2A           
+ADD $4, $7, $1                    
+ADDI $5, $7, 0xC513F051           
+SUBI $0, $7, 0xF050E238           
+SUB $2, $2, $2
+STORE $2, $4, 0x1CF9DE26          
+NOP                               
+SUB $2, $2, $2
+STORE $2, $2, 0x1CF9DE22          
+NOP                               
+SUBI $1, $7, 0xCB6C023E           
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x1CF9DE26
+LOAD $3, $3, $2                   
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $2, 0x1CF9DE22          
+ADDI $7, $0, 0x068DE847           
+SUB $4, $4, $4
+LOAD $4, $4, 0x1CF9DE22           
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x1CF9DE22
+STORE $4, $7, $7                  
+ADDI $0, $5, 0x6E4160DC           
+NOP                               
+ADDI $0, $6, 0xE75CBC89           
+SUBI $1, $2, 0x11E155AB           
+NOP                               
+ADD $7, $3, $7                    
+SUB $3, $3, $3
+LOAD $1, $3, 0x1CF9DE2A           
+SUB $6, $6, $6
+LOAD $6, $6, 0x1CF9DE22           
+ADDI $4, $4, 0x852E170C           
+HALT $0
+#
+D@0x1CF9DE22
+0x8FFC1CDE		# 1CF9DE22		= -1879302946
+0x83F0C655		# 1CF9DE26		= -2081372587
+0xA09FFCE0		# 1CF9DE2A		= -1600127776

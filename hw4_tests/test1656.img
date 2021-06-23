@@ -1,0 +1,101 @@
+# Test N.1656
+#
+L10
+S3
+O9
+N5
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x52FFE52B
+STORE $6, $5, $2                  
+ADD $2, $5, $3                    
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x52FFE51F
+LOAD $7, $1, $4                   
+ADD $3, $1, $1                    
+NOP                               
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x52FFE52F
+LOAD $5, $5, $7                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $2, $5, 0x54C4E4C8           
+ADDI $2, $4, 0xABA3CB6F           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $3, 0x52FFE52B          
+SUBI $0, $5, 0xDBEC1B7F           
+ADDI $2, $2, 0x0DECB57D           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $5, $3, 0xC1802AB1           
+NOP                               
+ADD $2, $2, $7                    
+SUB $2, $0, $4                    
+SUB $6, $6, $6
+LOAD $3, $6, 0x52FFE527           
+SUB $7, $7, $7
+LOAD $6, $7, 0x52FFE53B           
+NOP                               
+ADD $2, $0, $4                    
+SUB $5, $5, $5
+STORE $5, $6, 0x52FFE51F          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $0, 0x52FFE517          
+SUB $3, $6, $2                    
+SUBI $4, $5, 0x86385AFB           
+SUBI $7, $7, 0x3EE7E975           
+ADD $7, $3, $3                    
+SUB $0, $0, $0
+LOAD $7, $0, 0x52FFE513           
+SUB $4, $4, $4
+STORE $4, $1, 0x52FFE537          
+SUB $0, $4, $3                    
+ADDI $2, $4, 0x9C60A6EE           
+SUB $1, $1, $1
+STORE $1, $3, 0x52FFE52B          
+SUBI $5, $6, 0x6BE118D4           
+SUB $2, $2, $2
+LOAD $4, $2, 0x52FFE50F           
+HALT $0
+#
+D@0x52FFE4FB
+0xC18A6879		# 52FFE4FB		= -1047893895
+0x40F69994		# 52FFE4FF		= 1089902996
+0x0440DBF3		# 52FFE503		= 71359475
+0xE9778615		# 52FFE507		= -378042859
+0x000BFCCF		# 52FFE50B		= 785615
+0xE5102FFA		# 52FFE50F		= -451923974
+0xBD5C36B7		# 52FFE513		= -1118030153
+0x7C72AE65		# 52FFE517		= 2087890533
+0xEA90F69B		# 52FFE51B		= -359598437
+0x1A721167		# 52FFE51F		= 443683175
+0x4DB675E5		# 52FFE523		= 1303803365
+0xF7182E32		# 52FFE527		= -149410254
+0xA912231C		# 52FFE52B		= -1458429156
+0xD90F4697		# 52FFE52F		= -653310313
+0x7C678719		# 52FFE533		= 2087159577
+0x55CDAABD		# 52FFE537		= 1439541949
+0x0589D92A		# 52FFE53B		= 92920106

@@ -1,0 +1,97 @@
+# Test N.1371
+#
+L3
+S5
+O8
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADD $1, $2, $6                    
+SUB $2, $2, $2
+STORE $2, $1, 0x42FA73E7          
+SUB $5, $5, $5
+STORE $5, $4, 0x42FA73DF          
+ADDI $6, $3, 0x9538D142           
+NOP                               
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x42FA7413
+LOAD $3, $7, $6                   
+SUB $4, $5, $2                    
+SUB $1, $7, $7                    
+SUB $4, $4, $4
+LOAD $4, $4, 0x42FA73E7           
+NOP                               
+ADD $1, $7, $2                    
+SUBI $3, $7, 0xB07855D8           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $5, $0, 0x4DD38798           
+ADD $0, $3, $3                    
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x42FA73F7
+STORE $3, $0, $6                  
+SUB $7, $7, $7
+LOAD $6, $7, 0x42FA73FF           
+ADDI $6, $0, 0xD3A27135           
+ADD $2, $5, $4                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $5, $2, $0                    
+NOP                               
+SUB $2, $6, $7                    
+ADDI $0, $6, 0xAC1AE151           
+ADDI $4, $0, 0x884C8F73           
+SUB $5, $5, $5
+STORE $5, $4, 0x42FA740F          
+SUBI $3, $3, 0x76511C6B           
+ADD $6, $7, $3                    
+ADDI $4, $7, 0x78146320           
+NOP                               
+SUB $3, $3, $3
+STORE $3, $6, 0x42FA73FB          
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $7, $1, 0xF311C813           
+NOP                               
+SUB $4, $4, $4
+STORE $4, $4, 0x42FA740B          
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x42FA7417
+STORE $1, $0, $0                  
+ADD $6, $1, $2                    
+NOP                               
+HALT $0
+#
+D@0x42FA73DB
+0xBAB6C708		# 42FA73DB		= -1162426616
+0x8AF09DF5		# 42FA73DF		= -1963942411
+0xBFEEF26B		# 42FA73E3		= -1074859413
+0x8CBE34DE		# 42FA73E7		= -1933691682
+0x641A2D04		# 42FA73EB		= 1679437060
+0x4D7A70A2		# 42FA73EF		= 1299869858
+0x96B7BD68		# 42FA73F3		= -1766343320
+0x127ABD45		# 42FA73F7		= 310033733
+0x627BC80C		# 42FA73FB		= 1652279308
+0x6D72C1C6		# 42FA73FF		= 1836237254
+0xAFC2C765		# 42FA7403		= -1346189467
+0xDD2C8CC0		# 42FA7407		= -584282944
+0xE48E107F		# 42FA740B		= -460451713
+0x4EEC305D		# 42FA740F		= 1324101725
+0xD861D6C6		# 42FA7413		= -664676666
+0x93247A54		# 42FA7417		= -1826325932

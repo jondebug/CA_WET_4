@@ -1,0 +1,96 @@
+# Test N.1905
+#
+L10
+S6
+O7
+N5
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $4, $7, 0xD0A924D8           
+SUBI $2, $7, 0x7D3575AE           
+SUBI $4, $3, 0x6FB45CAB           
+ADDI $6, $1, 0x6015103F           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $2, $0                    
+SUB $6, $0, $6                    
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x52B3B3AD
+LOAD $3, $6, $1                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $2, $4, 0x6E9CC337           
+SUB $0, $4, $0                    
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x52B3B3CD
+LOAD $2, $5, $1                   
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x52B3B3B9
+LOAD $7, $5, $0                   
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x52B3B395
+LOAD $1, $2, $1                   
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x52B3B3B1
+STORE $4, $0, $6                  
+SUB $1, $4, $0                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $6, $1, 0xAC6A93BC           
+ADDI $6, $0, 0xBEAFDDA7           
+ADD $4, $7, $1                    
+SUBI $0, $2, 0xF70AF284           
+ADDI $4, $4, 0x7D75A3ED           
+SUB $4, $4, $4
+STORE $4, $5, 0x52B3B3C9          
+SUB $5, $5, $5
+LOAD $7, $5, 0x52B3B3C1           
+NOP                               
+ADD $7, $4, $0                    
+ADD $3, $5, $0                    
+SUBI $1, $6, 0xAB8D68D2           
+SUB $2, $2, $2
+STORE $2, $3, 0x52B3B395          
+NOP                               
+HALT $0
+#
+D@0x52B3B395
+0x72FD3025		# 52B3B395		= 1929195557
+0x153DDA23		# 52B3B399		= 356375075
+0x49EAA414		# 52B3B39D		= 1240114196
+0x23AC5FA6		# 52B3B3A1		= 598499238
+0x64C1B057		# 52B3B3A5		= 1690415191
+0x19C19E64		# 52B3B3A9		= 432119396
+0x748D8997		# 52B3B3AD		= 1955432855
+0x5FA651F2		# 52B3B3B1		= 1604735474
+0x1477D9D4		# 52B3B3B5		= 343398868
+0x45ABF9FD		# 52B3B3B9		= 1168898557
+0x3E0F794B		# 52B3B3BD		= 1041201483
+0x30BE555A		# 52B3B3C1		= 817780058
+0x591ADA37		# 52B3B3C5		= 1494932023
+0x1B75E202		# 52B3B3C9		= 460710402
+0x2E19A5EB		# 52B3B3CD		= 773432811
+0xC5BD1278		# 52B3B3D1		= -977464712

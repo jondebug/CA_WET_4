@@ -1,0 +1,99 @@
+# Test N.1432
+#
+L1
+S2
+O10
+N4
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+ADDI $3, $3, 0x7D22626D           
+ADDI $1, $5, 0xABAC49BA           
+SUBI $7, $2, 0x7E9B1D18           
+NOP                               
+SUB $1, $2, $6                    
+SUBI $6, $6, 0x3FC750BE           
+SUB $4, $4, $4
+LOAD $5, $4, 0x0D24E5B6           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $4, $6                    
+ADD $0, $7, $1                    
+SUB $2, $2, $2
+STORE $2, $5, 0x0D24E5A6          
+SUBI $7, $0, 0x6E16328D           
+SUB $3, $3, $3
+STORE $3, $1, 0x0D24E5BE          
+SUB $7, $7, $7
+LOAD $7, $7, 0x0D24E5DA           
+SUB $1, $3, $2                    
+NOP                               
+ADD $6, $3, $7                    
+ADD $2, $5, $4                    
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x0D24E5CA
+LOAD $1, $4, $2                   
+ADDI $4, $3, 0xEB0C7187           
+NOP                               
+SUBI $4, $6, 0x7C091A02           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $7, $0, 0x74402772           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $4, 0x0D24E596          
+NOP                               
+ADDI $3, $3, 0x72F755B7           
+SUBI $1, $4, 0x7886C757           
+ADDI $4, $3, 0x5BAA82B7           
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x0D24E5C6
+STORE $5, $7, $3                  
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x0D24E5B6
+STORE $1, $4, $3                  
+NOP                               
+SUB $1, $7, $1                    
+NOP                               
+SUB $0, $0, $0
+STORE $0, $2, 0x0D24E5DA          
+SUB $0, $0, $0
+STORE $0, $6, 0x0D24E5A6          
+ADDI $4, $6, 0xA0128F3B           
+HALT $0
+#
+D@0x0D24E596
+0xDC13B028		# 0D24E596		= -602689496
+0x3F45A368		# 0D24E59A		= 1061528424
+0x69F90484		# 0D24E59E		= 1777927300
+0x72986E67		# 0D24E5A2		= 1922592359
+0x9D727029		# 0D24E5A6		= -1653444567
+0x79AA826E		# 0D24E5AA		= 2041217646
+0x0634FF2C		# 0D24E5AE		= 104136492
+0x62B05F27		# 0D24E5B2		= 1655725863
+0x02D6C0FE		# 0D24E5B6		= 47628542
+0xB3C52604		# 0D24E5BA		= -1278925308
+0xFCC27E32		# 0D24E5BE		= -54362574
+0x92319ADD		# 0D24E5C2		= -1842242851
+0xF4B10E42		# 0D24E5C6		= -189723070
+0x793BEF85		# 0D24E5CA		= 2033971077
+0x15A5938C		# 0D24E5CE		= 363172748
+0x20CD2949		# 0D24E5D2		= 550316361
+0x29D9CC5E		# 0D24E5D6		= 702139486
+0x5214035C		# 0D24E5DA		= 1377043292
+0xA75C3C37		# 0D24E5DE		= -1487127497

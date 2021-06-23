@@ -1,0 +1,54 @@
+# Test N.1653
+#
+L5
+S4
+O1
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x03FC4E80
+LOAD $7, $5, $6                   
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x03FC4E84
+STORE $3, $2, $0                  
+SUB $0, $3, $6                    
+SUB $2, $2, $2
+LOAD $1, $2, 0x03FC4E88           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $3, $5                    
+SUB $4, $4, $0                    
+SUB $0, $3, $4                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $5, $0, 0x22BF662F           
+SUBI $5, $0, 0x2B387FCC           
+SUB $6, $1, $5                    
+SUBI $3, $6, 0x81BC95D7           
+SUBI $6, $5, 0xA09F9F02           
+SUBI $0, $5, 0xA895A267           
+ADDI $1, $5, 0x36464993           
+SUB $6, $6, $6
+LOAD $0, $6, 0x03FC4E80           
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x03FC4E84
+STORE $3, $3, $6                  
+HALT $0
+#
+D@0x03FC4E80
+0x6F936B68		# 03FC4E80		= 1871932264
+0xE766FE7B		# 03FC4E84		= -412680581
+0x1A6275D4		# 03FC4E88		= 442660308
+0x3B21CD50		# 03FC4E8C		= 992070992

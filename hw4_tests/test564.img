@@ -1,0 +1,44 @@
+# Test N.564
+#
+L5
+S3
+O10
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $0, $6, 0x7E19BBF1           
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x06797DD9
+STORE $6, $3, $0                  
+ADD $1, $7, $0                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $3, $3, 0x3DB0D92C           
+ADDI $0, $1, 0x553F6A4F           
+SUBI $3, $4, 0x071161E5           
+ADD $4, $5, $7                    
+ADD $7, $5, $5                    
+ADD $6, $2, $3                    
+SUB $3, $3, $3
+LOAD $4, $3, 0x06797DD9           
+ADD $2, $2, $5                    
+SUB $1, $1, $1
+STORE $1, $4, 0x06797DDD          
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x06797DD9
+LOAD $7, $2, $6                   
+ADD $1, $7, $4                    
+NOP                               
+ADDI $1, $6, 0x098AA807           
+HALT $0
+#
+D@0x06797DD9
+0x294962F9		# 06797DD9		= 692675321
+0x5A1A0208		# 06797DDD		= 1511653896

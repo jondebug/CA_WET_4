@@ -1,0 +1,40 @@
+# Test N.1881
+#
+L10
+S7
+O7
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $1, 0x62755BF4          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $1, $0                    
+ADDI $7, $1, 0xA57C1CE4           
+SUBI $6, $7, 0x268FDE8E           
+ADD $3, $4, $0                    
+SUB $5, $2, $7                    
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x62755BF4
+STORE $6, $7, $7                  
+ADDI $1, $2, 0xA589F10E           
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x62755BF4
+LOAD $7, $7, $1                   
+SUB $6, $6, $5                    
+SUB $5, $5, $5
+LOAD $5, $5, 0x62755BF0           
+ADDI $5, $5, 0xD39D236A           
+HALT $0
+#
+D@0x62755BF0
+0x46D9F1B6		# 62755BF0		= 1188688310
+0x0A504A8C		# 62755BF4		= 173034124

@@ -1,0 +1,28 @@
+# Test N.580
+#
+L9
+S8
+O5
+N2
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $3, $4, 0x32CA61AA           
+ADD $4, $3, $2                    
+SUB $3, $3, $3
+STORE $3, $3, 0x5D103B2F          
+SUBI $3, $4, 0x3C25D049           
+SUB $6, $6, $6
+STORE $6, $4, 0x5D103B2F          
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+D@0x5D103B2F
+0x68C7000D		# 5D103B2F		= 1757872141

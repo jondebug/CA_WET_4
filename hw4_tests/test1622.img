@@ -1,0 +1,91 @@
+# Test N.1622
+#
+L4
+S3
+O9
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x51BB7CE5
+LOAD $1, $4, $7                   
+NOP                               
+ADDI $3, $2, 0x5B380FE2           
+SUB $7, $1, $7                    
+SUBI $5, $0, 0x9B8303D5           
+SUB $7, $7, $4                    
+ADDI $7, $2, 0x2E6C4354           
+SUBI $3, $0, 0xCA4C8F82           
+NOP                               
+SUBI $4, $5, 0x3BC032A1           
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x51BB7CE1
+STORE $2, $2, $0                  
+ADD $3, $3, $0                    
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x51BB7CE1
+STORE $3, $6, $2                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $0, $2, $1                    
+SUB $3, $5, $2                    
+NOP                               
+ADDI $6, $1, 0x4E52450E           
+SUB $3, $3, $3
+LOAD $1, $3, 0x51BB7CE9           
+NOP                               
+SUB $4, $4, $4
+LOAD $3, $4, 0x51BB7CE1           
+ADD $0, $5, $5                    
+NOP                               
+SUBI $5, $1, 0xC6173B66           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $5, $4, $6                    
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x51BB7CE1
+STORE $7, $6, $4                  
+ADD $1, $2, $5                    
+SUBI $7, $2, 0xF68F6548           
+NOP                               
+ADD $7, $6, $5                    
+ADDI $7, $4, 0x7F5DD373           
+SUB $6, $6, $6
+LOAD $7, $6, 0x51BB7CE9           
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x51BB7CE5
+STORE $6, $6, $2                  
+ADDI $0, $0, 0xA6F05CCD           
+NOP                               
+ADD $5, $0, $1                    
+ADDI $1, $4, 0x4B461284           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $7, $7, $7
+LOAD $6, $7, 0x51BB7CE5           
+SUB $1, $1, $1
+STORE $1, $3, 0x51BB7CE9          
+HALT $0
+#
+D@0x51BB7CE1
+0xB9429516		# 51BB7CE1		= -1186818794
+0xA8825783		# 51BB7CE5		= -1467852925
+0x3EBE0927		# 51BB7CE9		= 1052641575

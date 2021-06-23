@@ -1,0 +1,67 @@
+# Test N.290
+#
+L3
+S4
+O1
+N4
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x79F02A99
+STORE $4, $6, $7                  
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x79F02A9D
+LOAD $2, $4, $6                   
+ADDI $4, $4, 0xE42BE521           
+ADD $1, $6, $2                    
+SUB $4, $4, $4
+LOAD $4, $4, 0x79F02A89           
+ADD $2, $0, $5                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $6
+STORE $6, $3, 0x79F02A8D          
+SUB $3, $3, $3
+LOAD $0, $3, 0x79F02A8D           
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x79F02A95
+LOAD $5, $5, $6                   
+NOP                               
+SUB $5, $5, $5
+LOAD $2, $5, 0x79F02A89           
+ADD $1, $1, $7                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $2, $0, $0                    
+NOP                               
+SUBI $2, $0, 0x6351CB44           
+SUB $5, $5, $5
+LOAD $4, $5, 0x79F02A9D           
+SUB $3, $3, $3
+LOAD $6, $3, 0x79F02A91           
+HALT $0
+#
+D@0x79F02A89
+0xC2CAF561		# 79F02A89		= -1026886303
+0x604850B3		# 79F02A8D		= 1615351987
+0xB217FA2C		# 79F02A91		= -1307051476
+0xDDB4D39E		# 79F02A95		= -575351906
+0x01CB2691		# 79F02A99		= 30090897
+0xBFC9E602		# 79F02A9D		= -1077287422

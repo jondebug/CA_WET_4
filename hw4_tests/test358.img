@@ -1,0 +1,52 @@
+# Test N.358
+#
+L8
+S6
+O3
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+LOAD $2, $4, 0x3F66721B           
+SUBI $2, $7, 0x9F037B15           
+SUBI $2, $4, 0x61DC4DA0           
+SUB $5, $2, $3                    
+SUB $4, $4, $0                    
+ADDI $0, $1, 0x4F432B2D           
+ADD $5, $3, $2                    
+SUB $1, $7, $7                    
+ADDI $1, $7, 0x64A3C407           
+SUBI $6, $0, 0x59730C6C           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $7, $7, 0x89D4E69F           
+NOP                               
+SUB $4, $4, $4
+LOAD $5, $4, 0x3F66721B           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x3F667227
+LOAD $5, $1, $0                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $0, $1, 0x37E39C93           
+SUBI $7, $5, 0x613D6ECA           
+SUB $0, $3, $3                    
+ADDI $5, $6, 0x415C9FD5           
+ADDI $4, $1, 0x72EDAECF           
+ADD $0, $0, $0                    
+HALT $0
+#
+D@0x3F66721B
+0x39DAD0B4		# 3F66721B		= 970641588
+0x614D3739		# 3F66721F		= 1632450361
+0x9D0C6F53		# 3F667223		= -1660129453
+0xDE6E80A3		# 3F667227		= -563183453

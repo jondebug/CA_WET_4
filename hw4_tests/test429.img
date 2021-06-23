@@ -1,0 +1,112 @@
+# Test N.429
+#
+L9
+S9
+O5
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $2, 0x7B8F0CB7          
+SUB $2, $7, $4                    
+NOP                               
+NOP                               
+SUBI $3, $5, 0x7A1184D6           
+NOP                               
+SUB $1, $1, $1
+STORE $1, $7, 0x7B8F0CA3          
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x7B8F0CDB
+LOAD $4, $4, $5                   
+ADD $7, $3, $1                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $2, $1, 0xC975ADD1           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x7B8F0CB7
+STORE $1, $2, $5                  
+ADDI $5, $6, 0x0149A665           
+SUB $1, $1, $1
+LOAD $1, $1, 0x7B8F0CDB           
+NOP                               
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x7B8F0CC7
+STORE $0, $7, $7                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $4, 0x7B8F0CCF          
+SUB $0, $5, $0                    
+SUB $5, $7, $2                    
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x7B8F0CB7
+STORE $1, $6, $5                  
+SUB $5, $5, $5
+STORE $5, $1, 0x7B8F0CBB          
+SUBI $6, $2, 0x32FCFDDE           
+ADD $6, $6, $3                    
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x7B8F0CAF
+LOAD $0, $2, $1                   
+ADD $4, $4, $0                    
+SUBI $7, $0, 0x47C84649           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $4, $0, 0x4393C1AA           
+SUBI $4, $6, 0x7BB3D18A           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x7B8F0CBF
+LOAD $0, $1, $6                   
+SUBI $2, $1, 0xB07FD147           
+ADDI $0, $3, 0x056CF338           
+ADD $1, $5, $6                    
+SUB $7, $7, $7
+LOAD $6, $7, 0x7B8F0CCF           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $7, $3, $4                    
+SUB $2, $2, $2
+STORE $2, $2, 0x7B8F0CBB          
+HALT $0
+#
+D@0x7B8F0CA3
+0xD15061FF		# 7B8F0CA3		= -783261185
+0x740E86A6		# 7B8F0CA7		= 1947109030
+0xB9C40205		# 7B8F0CAB		= -1178336763
+0x293A24C3		# 7B8F0CAF		= 691676355
+0xB71CEC19		# 7B8F0CB3		= -1222841319
+0xFDE8D740		# 7B8F0CB7		= -35072192
+0x59C0238C		# 7B8F0CBB		= 1505764236
+0x6D72F58E		# 7B8F0CBF		= 1836250510
+0xEB5773BA		# 7B8F0CC3		= -346590278
+0x7E4AD7BF		# 7B8F0CC7		= 2118834111
+0xEC84DD1F		# 7B8F0CCB		= -326836961
+0x3661FF52		# 7B8F0CCF		= 912392018
+0xAE592A12		# 7B8F0CD3		= -1369888238
+0x736CBDA0		# 7B8F0CD7		= 1936506272
+0xD1B0C7F3		# 7B8F0CDB		= -776943629

@@ -1,0 +1,107 @@
+# Test N.1102
+#
+L5
+S2
+O9
+N6
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $6, $2, 0xCC45DB02           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $5, $5                    
+SUBI $7, $2, 0xDF07124B           
+SUB $1, $1, $1
+LOAD $5, $1, 0x2AB1F76C           
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x2AB1F74C
+LOAD $4, $1, $4                   
+NOP                               
+SUBI $7, $0, 0xAE087A6E           
+SUBI $5, $4, 0xADF41328           
+ADDI $2, $3, 0x0338D019           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x2AB1F75C
+STORE $1, $2, $5                  
+NOP                               
+SUB $1, $1, $2                    
+SUBI $0, $4, 0xC551E379           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $3, $3
+LOAD $7, $3, 0x2AB1F758           
+ADD $0, $2, $5                    
+ADDI $7, $4, 0x0F338E66           
+SUB $6, $2, $6                    
+SUB $6, $6, $6
+STORE $6, $2, 0x2AB1F764          
+ADD $4, $1, $7                    
+NOP                               
+SUB $7, $7, $7
+LOAD $2, $7, 0x2AB1F768           
+NOP                               
+SUBI $2, $3, 0xCF752164           
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $4, $6, 0x15CF308B           
+NOP                               
+SUB $5, $5, $6                    
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $4, $5, $7                    
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x2AB1F75C
+STORE $3, $7, $6                  
+ADD $7, $3, $3                    
+ADD $7, $5, $4                    
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x2AB1F76C
+LOAD $0, $6, $2                   
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x2AB1F750
+LOAD $6, $7, $6                   
+SUBI $0, $6, 0x5B3AED1B           
+SUB $6, $6, $6
+LOAD $7, $6, 0x2AB1F760           
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x2AB1F76C
+STORE $4, $5, $2                  
+HALT $0
+#
+D@0x2AB1F74C
+0x3F961872		# 2AB1F74C		= 1066801266
+0xA245456C		# 2AB1F750		= -1572518548
+0xDA6C02F2		# 2AB1F754		= -630455566
+0xB8297831		# 2AB1F758		= -1205241807
+0x3B696FDB		# 2AB1F75C		= 996765659
+0x309C8B1C		# 2AB1F760		= 815565596
+0xFDB4D23B		# 2AB1F764		= -38481349
+0x9E198974		# 2AB1F768		= -1642493580
+0x3083B0A9		# 2AB1F76C		= 813936809

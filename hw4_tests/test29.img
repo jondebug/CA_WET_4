@@ -1,0 +1,105 @@
+# Test N.29
+#
+L3
+S5
+O2
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x19EB218F
+LOAD $4, $2, $4                   
+SUBI $7, $1, 0xD9281569           
+ADD $5, $5, $2                    
+SUBI $0, $2, 0xFF56FA2B           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x19EB218B
+LOAD $7, $2, $7                   
+SUB $4, $4, $4
+STORE $4, $2, 0x19EB2173          
+ADD $7, $4, $7                    
+SUB $5, $4, $4                    
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x19EB217F
+STORE $0, $6, $1                  
+SUBI $6, $7, 0xCE057197           
+ADDI $5, $3, 0x2D074588           
+ADDI $0, $7, 0xB30731B7           
+SUB $3, $7, $3                    
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x19EB217B
+LOAD $6, $6, $2                   
+ADD $6, $1, $2                    
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x19EB2173
+STORE $1, $5, $7                  
+SUBI $7, $4, 0xBECE4BBB           
+SUB $1, $1, $1
+LOAD $5, $1, 0x19EB218F           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $6, $0, $5                    
+ADD $7, $5, $3                    
+ADDI $5, $4, 0xA4E1D1DD           
+SUBI $0, $4, 0x380AE406           
+ADDI $6, $5, 0x9FD9705D           
+NOP                               
+NOP                               
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x19EB216F
+LOAD $4, $0, $4                   
+SUB $0, $7, $2                    
+SUB $7, $6, $2                    
+ADDI $4, $0, 0x6D241DE4           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $6, $6, 0x0A7245A4           
+SUB $7, $0, $2                    
+SUB $5, $6, $0                    
+ADD $2, $1, $5                    
+NOP                               
+ADDI $3, $0, 0x6E880823           
+ADD $7, $1, $6                    
+SUB $0, $0, $0
+LOAD $0, $0, 0x19EB218B           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUBI $0, $5, 0xCC37F5DC           
+SUB $3, $3, $3
+LOAD $7, $3, 0x19EB2177           
+ADD $0, $1, $3                    
+HALT $0
+#
+D@0x19EB216F
+0x36349CB9		# 19EB216F		= 909417657
+0xECED7D5C		# 19EB2173		= -319980196
+0x0369D3DA		# 19EB2177		= 57267162
+0x163299CC		# 19EB217B		= 372414924
+0x63500024		# 19EB217F		= 1666187300
+0x7298D0CA		# 19EB2183		= 1922617546
+0x50CF6C75		# 19EB2187		= 1355770997
+0x050C4046		# 19EB218B		= 84688966
+0xF60A9E07		# 19EB218F		= -167076345

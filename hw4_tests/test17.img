@@ -1,0 +1,77 @@
+# Test N.17
+#
+L4
+S2
+O1
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x3A143DDD
+STORE $2, $5, $0                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $3, $6, 0xC9382134           
+NOP                               
+NOP                               
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x3A143DC1
+LOAD $2, $2, $3                   
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x3A143DE1
+STORE $0, $1, $5                  
+SUB $7, $1, $4                    
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x3A143DE9
+LOAD $7, $3, $6                   
+SUB $6, $6, $6
+STORE $6, $0, 0x3A143DFD          
+SUB $4, $4, $4
+STORE $4, $7, 0x3A143DC5          
+SUB $4, $4, $4
+LOAD $1, $4, 0x3A143DC9           
+SUB $1, $1, $1
+STORE $1, $2, 0x3A143DC1          
+SUB $6, $6, $6
+LOAD $7, $6, 0x3A143DCD           
+ADD $3, $2, $4                    
+SUB $1, $1, $1
+STORE $1, $3, 0x3A143DDD          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x3A143DD9
+LOAD $6, $1, $5                   
+ADD $5, $6, $5                    
+HALT $0
+#
+D@0x3A143DC1
+0xB1E4F4E4		# 3A143DC1		= -1310395164
+0x9D73AD99		# 3A143DC5		= -1653363303
+0xE5FAEFF6		# 3A143DC9		= -436539402
+0x0BEAB8DC		# 3A143DCD		= 199932124
+0xB5145AC1		# 3A143DD1		= -1256957247
+0x20AB1A71		# 3A143DD5		= 548084337
+0xDCD44DC1		# 3A143DD9		= -590066239
+0x3DAD6DF5		# 3A143DDD		= 1034776053
+0x4428A46E		# 3A143DE1		= 1143514222
+0xBA976D38		# 3A143DE5		= -1164481224
+0x903CF5D3		# 3A143DE9		= -1875053101
+0x596573B5		# 3A143DED		= 1499820981
+0xCF33E262		# 3A143DF1		= -818683294
+0xF6FA97E1		# 3A143DF5		= -151349279
+0x1607F4F2		# 3A143DF9		= 369620210
+0x1A0BE723		# 3A143DFD		= 436987683

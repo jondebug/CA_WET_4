@@ -1,0 +1,176 @@
+# Test N.90
+#
+L5
+S10
+O9
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $1, $1, 0xAEA2F2D7           
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x0D70AC11
+LOAD $5, $5, $0                   
+NOP                               
+ADD $0, $1, $5                    
+ADDI $6, $6, 0x5D39CE2E           
+SUB $4, $2, $3                    
+ADD $3, $6, $6                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $7, $2, 0x30B9CF7F           
+SUB $6, $6, $6
+STORE $6, $2, 0x0D70AC21          
+ADDI $6, $6, 0x18DF3962           
+ADDI $4, $3, 0x3A7C52F3           
+SUB $7, $2, $3                    
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x0D70ABED
+STORE $3, $2, $1                  
+SUB $6, $6, $6
+LOAD $3, $6, 0x0D70ABED           
+SUB $2, $1, $6                    
+SUB $4, $3, $0                    
+SUBI $7, $7, 0x98471BAB           
+NOP                               
+ADD $7, $0, $0                    
+ADD $4, $4, $7                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $4, $4, 0xA9906CD9           
+ADD $0, $4, $5                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x0D70AC01
+STORE $7, $7, $6                  
+SUB $3, $3, $3
+STORE $3, $4, 0x0D70ABF1          
+ADDI $0, $3, 0x5152AEB9           
+SUB $4, $5, $5                    
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x0D70ABF9
+STORE $6, $0, $4                  
+ADDI $0, $2, 0x004E7877           
+SUBI $3, $2, 0xEFCFFD30           
+ADDI $5, $2, 0x02C28760           
+ADD $3, $1, $7                    
+NOP                               
+ADD $0, $2, $6                    
+NOP                               
+SUBI $6, $4, 0x5425AAEB           
+ADDI $3, $1, 0xD9422796           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $5, $4, $7                    
+SUBI $7, $1, 0xAA12FA33           
+ADDI $3, $6, 0xC14718E1           
+SUB $0, $0, $0
+LOAD $2, $0, 0x0D70AC01           
+SUB $3, $3, $3
+STORE $3, $5, 0x0D70ABF5          
+SUB $0, $5, $3                    
+SUB $5, $2, $7                    
+SUB $1, $0, $4                    
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x0D70ABE9
+STORE $2, $0, $7                  
+SUBI $6, $5, 0x5CA167B0           
+SUB $3, $3, $3
+STORE $3, $0, 0x0D70ABF1          
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x0D70ABFD
+LOAD $6, $6, $5                   
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x0D70AC15
+STORE $1, $3, $6                  
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x0D70AC0D
+STORE $7, $5, $6                  
+NOP                               
+ADD $4, $4, $1                    
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x0D70ABF5
+LOAD $2, $2, $3                   
+NOP                               
+SUB $2, $2, $2
+STORE $2, $7, 0x0D70AC1D          
+ADDI $1, $0, 0xC27D8404           
+NOP                               
+SUBI $0, $0, 0x20F84B5E           
+SUB $6, $0, $2                    
+ADD $4, $6, $1                    
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x0D70ABFD
+LOAD $4, $7, $6                   
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADD $7, $2, $1                    
+NOP                               
+NOP                               
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x0D70ABF1
+STORE $3, $3, $2                  
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $1, $4, $3                    
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x0D70AC15
+STORE $2, $7, $1                  
+SUB $4, $0, $3                    
+HALT $0
+#
+D@0x0D70ABE5
+0x27B430EA		# 0D70ABE5		= 666120426
+0xBBE4EA60		# 0D70ABE9		= -1142625696
+0x67F70BFF		# 0D70ABED		= 1744243711
+0x996B0240		# 0D70ABF1		= -1721040320
+0xFDEA792F		# 0D70ABF5		= -34965201
+0x8DB40699		# 0D70ABF9		= -1917581671
+0x27DA75CB		# 0D70ABFD		= 668628427
+0x2E8F1152		# 0D70AC01		= 781128018
+0x71BDF190		# 0D70AC05		= 1908273552
+0x5F118FCA		# 0D70AC09		= 1594986442
+0x72D3494F		# 0D70AC0D		= 1926449487
+0x5D6F4B69		# 0D70AC11		= 1567574889
+0xBAE88353		# 0D70AC15		= -1159167149
+0xF06E9FA0		# 0D70AC19		= -261185632
+0x68F067A7		# 0D70AC1D		= 1760585639
+0x3BB6E5FA		# 0D70AC21		= 1001842170

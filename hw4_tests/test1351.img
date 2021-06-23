@@ -1,0 +1,35 @@
+# Test N.1351
+#
+L7
+S10
+O5
+N1
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $0, $2, 0x402F86EB           
+ADDI $3, $7, 0xE4CC7EE8           
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x7469A063
+LOAD $0, $2, $1                   
+ADD $7, $2, $0                    
+NOP                               
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x7469A063
+LOAD $7, $3, $6                   
+SUB $2, $2, $2
+STORE $2, $6, 0x7469A063          
+NOP                               
+NOP                               
+ADDI $3, $0, 0x889E2747           
+ADD $3, $1, $4                    
+ADDI $3, $3, 0xC03567AE           
+SUB $1, $1, $1
+LOAD $1, $1, 0x7469A063           
+HALT $0
+#
+D@0x7469A063
+0x78AA22E6		# 7469A063		= 2024415974

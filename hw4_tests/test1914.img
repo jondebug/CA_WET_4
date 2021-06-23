@@ -1,0 +1,56 @@
+# Test N.1914
+#
+L2
+S9
+O8
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $6, $4, 0xE46B3BE9           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x43FB4A1B
+STORE $3, $5, $7                  
+ADDI $3, $1, 0x90394019           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $5, $6                    
+SUB $2, $2, $2
+LOAD $1, $2, 0x43FB4A1B           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $2, $1, $5                    
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x43FB4A1B
+STORE $3, $4, $6                  
+ADD $1, $4, $6                    
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x43FB4A23
+LOAD $5, $1, $7                   
+SUBI $4, $1, 0x545D2967           
+ADD $3, $7, $5                    
+ADD $1, $4, $2                    
+SUB $2, $2, $2
+LOAD $5, $2, 0x43FB4A1F           
+SUBI $5, $6, 0x42BAEF11           
+SUBI $6, $7, 0xE8224CBC           
+SUB $7, $7, $7
+LOAD $0, $7, 0x43FB4A27           
+HALT $0
+#
+D@0x43FB4A1B
+0x4B9C0ADC		# 43FB4A1B		= 1268517596
+0xF30AA4B2		# 43FB4A1F		= -217406286
+0x6D654310		# 43FB4A23		= 1835352848
+0x7AB90132		# 43FB4A27		= 2058944818
+0x6B46C3B5		# 43FB4A2B		= 1799799733

@@ -1,0 +1,43 @@
+# Test N.969
+#
+L6
+S6
+O9
+N1
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $2, $4, 0x07DAAFAB           
+SUBI $1, $5, 0x6AE84947           
+SUB $4, $5, $2                    
+ADDI $1, $2, 0xAC6CCA74           
+SUB $6, $6, $6
+STORE $6, $6, 0x5B1FCA1E          
+SUB $1, $1, $1
+STORE $1, $5, 0x5B1FCA0E          
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x5B1FCA06
+STORE $0, $5, $1                  
+SUB $6, $6, $6
+STORE $6, $4, 0x5B1FCA1A          
+SUB $4, $4, $4
+STORE $4, $1, 0x5B1FCA12          
+NOP                               
+NOP                               
+SUBI $3, $6, 0x02210DE7           
+HALT $0
+#
+D@0x5B1FCA02
+0x57DE92B6		# 5B1FCA02		= 1474204342
+0x910A0958		# 5B1FCA06		= -1861613224
+0x607768C6		# 5B1FCA0A		= 1618438342
+0x4D8C1009		# 5B1FCA0E		= 1301024777
+0x187551C3		# 5B1FCA12		= 410341827
+0x3F1E0F42		# 5B1FCA16		= 1058934594
+0xE1C02EA9		# 5B1FCA1A		= -507498839
+0x56764E6E		# 5B1FCA1E		= 1450593902
+0x0398EDB2		# 5B1FCA22		= 60353970
+0x177FB86B		# 5B1FCA26		= 394246251
+0x7A29EA74		# 5B1FCA2A		= 2049567348

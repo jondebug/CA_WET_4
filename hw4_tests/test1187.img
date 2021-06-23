@@ -1,0 +1,99 @@
+# Test N.1187
+#
+L10
+S7
+O3
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $1, $2, 0x5F114FE3           
+NOP                               
+ADD $7, $7, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $5, $0, 0x74A2FB18           
+ADDI $3, $3, 0x9D400755           
+SUB $6, $6, $6
+LOAD $2, $6, 0x30DE9D3E           
+NOP                               
+SUBI $4, $3, 0x7F933C98           
+SUB $5, $5, $5
+STORE $5, $7, 0x30DE9D3E          
+SUB $1, $1, $1
+STORE $1, $4, 0x30DE9D3A          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $4, $6, 0xD7A22B4A           
+ADD $5, $7, $3                    
+SUBI $2, $4, 0xEA5D273A           
+NOP                               
+SUBI $6, $7, 0xB849E337           
+SUBI $1, $1, 0x60510566           
+SUB $4, $4, $4
+LOAD $4, $4, 0x30DE9D3A           
+NOP                               
+ADD $6, $3, $4                    
+ADD $7, $3, $4                    
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $3, $3
+STORE $3, $0, 0x30DE9D3A          
+SUBI $1, $1, 0xA98A7072           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $6, $6, $6
+STORE $6, $6, 0x30DE9D3A          
+SUB $1, $1, $1
+LOAD $5, $1, 0x30DE9D3A           
+SUB $0, $2, $2                    
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $4, $2, $1                    
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x30DE9D3A
+STORE $7, $1, $2                  
+SUB $7, $7, $7
+LOAD $1, $7, 0x30DE9D3A           
+SUB $1, $1, $1
+STORE $1, $4, 0x30DE9D3A          
+ADD $7, $4, $0                    
+SUB $6, $6, $6
+LOAD $0, $6, 0x30DE9D3E           
+SUB $5, $5, $5
+LOAD $0, $5, 0x30DE9D3A           
+ADDI $2, $3, 0xAA10C828           
+SUB $3, $6, $2                    
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x30DE9D3E
+STORE $6, $6, $5                  
+ADDI $2, $3, 0x495CE4C5           
+SUBI $7, $0, 0xCDA9C440           
+SUB $0, $0, $0
+STORE $0, $0, 0x30DE9D3A          
+HALT $0
+#
+D@0x30DE9D3A
+0xC4481816		# 30DE9D3A		= -1001908202
+0x33A58D2A		# 30DE9D3E		= 866487594

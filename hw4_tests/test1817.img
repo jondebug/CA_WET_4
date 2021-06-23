@@ -1,0 +1,70 @@
+# Test N.1817
+#
+L10
+S6
+O8
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $3, $2, 0xA7AA7755           
+SUBI $3, $3, 0xF863CA89           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADD $6, $7, $3                    
+ADDI $7, $1, 0x8DD1D493           
+ADDI $3, $1, 0x516131AF           
+ADDI $2, $3, 0xAC8C12DE           
+SUB $5, $6, $3                    
+ADD $0, $7, $5                    
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x053EDCD1
+LOAD $3, $2, $6                   
+SUB $0, $1, $2                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $7, 0x053EDCA5          
+ADDI $4, $3, 0x6C206813           
+SUB $5, $5, $5
+LOAD $4, $5, 0x053EDCC5           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x053EDCB9
+LOAD $7, $2, $3                   
+SUB $3, $3, $3
+STORE $3, $3, 0x053EDCA5          
+SUBI $7, $2, 0xB457CC67           
+SUBI $5, $0, 0x73D8A5F9           
+SUB $2, $1, $7                    
+SUB $5, $1, $3                    
+NOP                               
+NOP                               
+SUB $0, $0, $0
+LOAD $6, $0, 0x053EDCB9           
+NOP                               
+HALT $0
+#
+D@0x053EDCA5
+0x7AAE65A2		# 053EDCA5		= 2058249634
+0x4128B5CC		# 053EDCA9		= 1093187020
+0x69A08ED8		# 053EDCAD		= 1772130008
+0x3BE8AE85		# 053EDCB1		= 1005104773
+0x47A435C5		# 053EDCB5		= 1201944005
+0xF7B0DEEE		# 053EDCB9		= -139403538
+0x4D4A48DD		# 053EDCBD		= 1296713949
+0x421B3143		# 053EDCC1		= 1109078339
+0x5E98676A		# 053EDCC5		= 1587046250
+0x67925CDD		# 053EDCC9		= 1737645277
+0xC70D9E04		# 053EDCCD		= -955408892
+0x029CAF61		# 053EDCD1		= 43822945
+0x150A06B7		# 053EDCD5		= 352978615

@@ -1,0 +1,113 @@
+# Test N.858
+#
+L5
+S6
+O9
+N6
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+ADDI $2, $3, 0x5C587D1D           
+ADDI $7, $6, 0x0165D207           
+ADD $7, $1, $1                    
+ADDI $4, $7, 0x22C651BB           
+ADD $6, $1, $7                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $6, $1, $4                    
+SUB $3, $1, $6                    
+SUB $1, $1, $1
+STORE $1, $3, 0x00B89E05          
+SUB $7, $7, $7
+LOAD $0, $7, 0x00B89DF9           
+NOP                               
+SUB $2, $0, $1                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADDI $5, $7, 0xB566BB22           
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x00B89E11
+LOAD $7, $5, $2                   
+SUBI $2, $1, 0xFDE7DBFD           
+SUB $5, $2, $2                    
+ADDI $5, $0, 0xB39DB4E4           
+NOP                               
+ADD $0, $3, $7                    
+SUB $3, $6, $3                    
+SUB $2, $2, $2
+LOAD $4, $2, 0x00B89E19           
+NOP                               
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x00B89DFD
+STORE $4, $7, $6                  
+SUBI $4, $4, 0xD796FE75           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $1, $3, 0x32D7F8AE           
+ADDI $1, $7, 0x7114C775           
+ADD $3, $2, $2                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUB $6, $3, $3                    
+SUB $4, $4, $4
+LOAD $4, $4, 0x00B89DE9           
+SUB $7, $7, $7
+STORE $7, $7, 0x00B89DFD          
+SUB $7, $7, $7
+STORE $7, $2, 0x00B89DF5          
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $5, $5, $3                    
+ADD $1, $6, $7                    
+NOP                               
+ADDI $4, $0, 0x408114B1           
+SUBI $4, $6, 0x34937889           
+NOP                               
+NOP                               
+SUB $2, $2, $2
+LOAD $7, $2, 0x00B89E05           
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x00B89DF1
+STORE $5, $6, $7                  
+NOP                               
+HALT $0
+#
+D@0x00B89DE1
+0xE4C9AC11		# 00B89DE1		= -456545263
+0xB411704F		# 00B89DE5		= -1273925553
+0x2D13D064		# 00B89DE9		= 756273252
+0x9F39B02B		# 00B89DED		= -1623609301
+0x69079185		# 00B89DF1		= 1762103685
+0xBBABD58C		# 00B89DF5		= -1146366580
+0x86F80CE7		# 00B89DF9		= -2030564121
+0x84B86101		# 00B89DFD		= -2068291327
+0xB5CB7135		# 00B89E01		= -1244958411
+0x59836717		# 00B89E05		= 1501783831
+0x46EB3B56		# 00B89E09		= 1189821270
+0x216F4EA4		# 00B89E0D		= 560942756
+0xBC558890		# 00B89E11		= -1135245168
+0xE8EBCE78		# 00B89E15		= -387199368
+0x30868F5A		# 00B89E19		= 814124890
+0xDDE196C0		# 00B89E1D		= -572418368

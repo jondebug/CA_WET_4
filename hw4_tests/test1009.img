@@ -1,0 +1,114 @@
+# Test N.1009
+#
+L10
+S5
+O4
+N7
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $5, $1, $7                    
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x68BE642D
+LOAD $7, $1, $7                   
+NOP                               
+ADD $3, $0, $1                    
+ADDI $5, $0, 0x33205B10           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $2
+LOAD $2, $2, 0x68BE6439           
+SUB $3, $3, $3
+STORE $3, $7, 0x68BE6439          
+ADDI $4, $0, 0xAA0DEDCC           
+SUB $7, $5, $4                    
+ADD $6, $2, $2                    
+SUB $4, $4, $4
+STORE $4, $4, 0x68BE6439          
+SUB $5, $5, $5
+LOAD $4, $5, 0x68BE6435           
+SUB $4, $1, $5                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $5, $7, $3                    
+ADDI $2, $2, 0xB077CC62           
+SUBI $3, $1, 0xE3BCD502           
+SUB $6, $7, $1                    
+SUB $4, $4, $4
+LOAD $3, $4, 0x68BE642D           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x68BE6431
+LOAD $4, $3, $6                   
+SUBI $2, $2, 0x6DB66195           
+NOP                               
+NOP                               
+SUB $0, $0, $0
+STORE $0, $6, 0x68BE642D          
+SUB $2, $2, $2
+STORE $2, $2, 0x68BE642D          
+NOP                               
+SUBI $6, $7, 0xFA0119CD           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADDI $1, $2, 0x39BA51C7           
+SUB $7, $7, $7
+STORE $7, $0, 0x68BE6431          
+SUBI $1, $4, 0x2858845B           
+ADDI $1, $7, 0xB3338B68           
+NOP                               
+NOP                               
+NOP                               
+SUB $5, $4, $1                    
+SUB $3, $7, $2                    
+NOP                               
+ADDI $0, $0, 0xF1DC8606           
+SUB $3, $2, $3                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADD $7, $1, $3                    
+SUB $5, $5, $5
+STORE $5, $2, 0x68BE6431          
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x68BE6439
+LOAD $0, $4, $7                   
+ADD $4, $3, $2                    
+ADD $7, $7, $4                    
+NOP                               
+ADDI $0, $7, 0x6C0B980C           
+ADD $4, $3, $6                    
+ADDI $2, $1, 0x59C8ECFB           
+HALT $0
+#
+D@0x68BE642D
+0xD94418EB		# 68BE642D		= -649848597
+0x1ABA49CF		# 68BE6431		= 448416207
+0xBD71D75F		# 68BE6435		= -1116612769
+0x5ADBB3D5		# 68BE6439		= 1524347861
+0x307B4BFD		# 68BE643D		= 813386749

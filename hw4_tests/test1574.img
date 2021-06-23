@@ -1,0 +1,121 @@
+# Test N.1574
+#
+L2
+S6
+O9
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x2C21BD6C
+STORE $6, $5, $5                  
+ADD $0, $6, $6                    
+SUB $7, $5, $0                    
+SUB $2, $2, $2                    
+SUB $6, $6, $6
+LOAD $7, $6, 0x2C21BD58           
+SUBI $1, $1, 0x00E01F8E           
+SUBI $7, $4, 0xBD95B285           
+ADD $7, $2, $7                    
+ADDI $4, $6, 0xD4AB6446           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $6, $6, $6
+STORE $6, $2, 0x2C21BD5C          
+SUB $1, $1, $1
+LOAD $6, $1, 0x2C21BD60           
+SUBI $4, $3, 0x35B0D7FE           
+ADDI $2, $6, 0xF13F9B80           
+ADD $7, $7, $1                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x2C21BD58
+STORE $6, $5, $4                  
+ADD $3, $1, $3                    
+NOP                               
+ADDI $4, $1, 0xD5F97ED8           
+ADD $0, $6, $2                    
+SUB $6, $6, $6
+LOAD $1, $6, 0x2C21BD70           
+ADD $1, $1, $7                    
+NOP                               
+ADDI $4, $0, 0xE8A86601           
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x2C21BD58
+LOAD $2, $1, $7                   
+SUB $6, $6, $6
+LOAD $3, $6, 0x2C21BD50           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $3, $3
+STORE $3, $3, 0x2C21BD64          
+SUB $4, $6, $2                    
+NOP                               
+SUB $4, $7, $7                    
+NOP                               
+SUB $1, $3, $5                    
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x2C21BD54
+LOAD $1, $7, $6                   
+SUB $2, $2, $2
+LOAD $6, $2, 0x2C21BD60           
+SUBI $3, $6, 0x12CFDCD9           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $3, $3, 0x85F3F249           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUBI $2, $2, 0x691DE999           
+ADD $7, $7, $7                    
+SUBI $5, $5, 0xC5ACE080           
+SUB $0, $0, $0
+STORE $0, $7, 0x2C21BD70          
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADD $1, $1, $5                    
+ADD $0, $7, $7                    
+ADDI $5, $0, 0x606233DA           
+NOP                               
+SUB $7, $3, $2                    
+ADD $2, $3, $5                    
+SUB $1, $7, $0                    
+NOP                               
+ADDI $3, $0, 0xEFF5E28D           
+ADDI $6, $1, 0xE2D14248           
+HALT $0
+#
+D@0x2C21BD50
+0x78BE403A		# 2C21BD50		= 2025734202
+0x79622958		# 2C21BD54		= 2036476248
+0x718A39D1		# 2C21BD58		= 1904884177
+0x67B8C3F5		# 2C21BD5C		= 1740162037
+0x7E25E202		# 2C21BD60		= 2116411906
+0x7F6BBD49		# 2C21BD64		= 2137767241
+0xB46A7791		# 2C21BD68		= -1268090991
+0x66A9F130		# 2C21BD6C		= 1722413360
+0x6406425C		# 2C21BD70		= 1678131804

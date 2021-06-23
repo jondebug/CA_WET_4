@@ -1,0 +1,60 @@
+# Test N.943
+#
+L5
+S7
+O10
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADD $2, $5, $4                    
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x5C8CBDD1
+STORE $2, $1, $7                  
+ADD $3, $5, $6                    
+ADDI $0, $3, 0x9EE49514           
+NOP                               
+ADD $1, $4, $5                    
+SUB $6, $6, $6
+STORE $6, $5, 0x5C8CBDA9          
+ADD $6, $7, $7                    
+ADD $5, $4, $4                    
+ADDI $1, $7, 0x2A09B54F           
+SUB $7, $0, $6                    
+NOP                               
+SUB $2, $6, $7                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADDI $4, $2, 0x08D3EEF8           
+ADDI $4, $5, 0xFA4F953B           
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x5C8CBD9D
+STORE $3, $7, $6                  
+HALT $0
+#
+D@0x5C8CBD91
+0x1C19358E		# 5C8CBD91		= 471414158
+0xF9A46A9D		# 5C8CBD95		= -106665315
+0x2E0B6C82		# 5C8CBD99		= 772500610
+0x789D650E		# 5C8CBD9D		= 2023580942
+0x22940342		# 5C8CBDA1		= 580125506
+0x7BB80F94		# 5C8CBDA5		= 2075660180
+0xD83E787F		# 5C8CBDA9		= -666994561
+0xB62F1625		# 5C8CBDAD		= -1238428123
+0xA1FD178E		# 5C8CBDB1		= -1577248882
+0x0489BFB2		# 5C8CBDB5		= 76136370
+0xEE49CF93		# 5C8CBDB9		= -297152621
+0x20E4F58A		# 5C8CBDBD		= 551875978
+0xDD4CA360		# 5C8CBDC1		= -582180000
+0xAA860A1B		# 5C8CBDC5		= -1434056165
+0xFF8BF4A7		# 5C8CBDC9		= -7605081
+0x5F946172		# 5C8CBDCD		= 1603559794
+0x80DB95BC		# 5C8CBDD1		= -2133092932
+0x5BDDA9CF		# 5C8CBDD5		= 1541253583

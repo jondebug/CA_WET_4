@@ -1,0 +1,62 @@
+# Test N.1727
+#
+L2
+S6
+O1
+N4
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $5, $4, $0                    
+SUBI $0, $6, 0x39D85AE6           
+ADDI $3, $6, 0x720D339F           
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x1D950960
+LOAD $3, $2, $7                   
+NOP                               
+ADD $2, $5, $1                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADDI $4, $2, 0xB109B1D3           
+ADDI $0, $4, 0xF1A1C5E1           
+ADDI $5, $4, 0xEF287887           
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x1D95095C
+LOAD $2, $0, $6                   
+SUB $4, $4, $4
+STORE $4, $1, 0x1D950960          
+ADD $4, $6, $2                    
+NOP                               
+SUB $7, $7, $7
+LOAD $2, $7, 0x1D950958           
+SUBI $6, $5, 0x3B717C57           
+SUB $7, $7, $7
+LOAD $1, $7, 0x1D950958           
+SUBI $7, $2, 0x24ADED95           
+SUBI $7, $7, 0x6EBB30F3           
+ADD $0, $3, $6                    
+ADDI $0, $4, 0x2A63BF8C           
+HALT $0
+#
+D@0x1D950958
+0x7DA8734C		# 1D950958		= 2108191564
+0x3AD188DC		# 1D95095C		= 986810588
+0x99166ACC		# 1D950960		= -1726584116

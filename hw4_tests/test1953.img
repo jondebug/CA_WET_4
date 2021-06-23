@@ -1,0 +1,117 @@
+# Test N.1953
+#
+L9
+S1
+O8
+N7
+
+# Thread 0
+T0
+I@0x00000000
+ADD $3, $2, $2                    
+SUBI $5, $4, 0xFE21A0C9           
+ADDI $4, $1, 0x05F5CC3F           
+SUBI $2, $4, 0x2F03724D           
+ADDI $0, $1, 0xACEBA678           
+ADD $0, $1, $6                    
+ADD $5, $4, $5                    
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x47106DDD
+STORE $5, $7, $3                  
+SUB $2, $2, $2
+STORE $2, $5, 0x47106DD1          
+SUB $5, $0, $1                    
+ADD $0, $4, $6                    
+ADD $3, $3, $6                    
+NOP                               
+SUBI $2, $3, 0xEBB0B492           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $0, 0x47106DD5          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUBI $2, $2, 0x3E37F157           
+NOP                               
+SUB $1, $1, $1
+LOAD $2, $1, 0x47106DDD           
+SUBI $2, $2, 0x9C6F3809           
+ADD $4, $1, $4                    
+SUBI $3, $1, 0x383B3B90           
+SUB $3, $3, $3
+LOAD $3, $3, 0x47106DD9           
+ADDI $0, $4, 0x775D7B87           
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x47106DD1
+LOAD $3, $6, $0                   
+ADD $0, $6, $3                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $0, 0x47106DE1          
+ADDI $3, $4, 0x8C3ED75A           
+ADDI $4, $6, 0xCDD63446           
+ADDI $1, $3, 0xC31B8025           
+ADD $4, $3, $2                    
+SUBI $2, $3, 0x32A74120           
+ADD $3, $2, $7                    
+SUB $5, $5, $5
+STORE $5, $2, 0x47106DD1          
+NOP                               
+SUB $7, $0, $7                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADD $3, $6, $7                    
+NOP                               
+SUB $3, $0, $4                    
+SUB $0, $0, $0
+STORE $0, $2, 0x47106DD1          
+ADD $2, $3, $0                    
+NOP                               
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x47106DE5
+STORE $1, $2, $6                  
+ADDI $5, $2, 0xD6FB3F75           
+SUBI $0, $0, 0xB4936614           
+ADD $2, $3, $4                    
+SUB $5, $6, $6                    
+SUBI $3, $0, 0xA7357692           
+NOP                               
+SUB $2, $2, $2
+STORE $2, $6, 0x47106DD5          
+HALT $0
+#
+D@0x47106DD1
+0x7B2D42FA		# 47106DD1		= 2066563834
+0x482E784B		# 47106DD5		= 1211005003
+0x279C9D75		# 47106DD9		= 664575349
+0x9AEFDF06		# 47106DDD		= -1695555834
+0xDD619690		# 47106DE1		= -580807024
+0xE16960B5		# 47106DE5		= -513187659

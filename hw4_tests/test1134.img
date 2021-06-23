@@ -1,0 +1,41 @@
+# Test N.1134
+#
+L1
+S2
+O3
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $0, $0                    
+SUB $6, $6, $6
+STORE $6, $6, 0x540FB0FA          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $7, $6, 0xCDB186CF           
+SUBI $2, $7, 0xDFB6DCFB           
+SUB $1, $1, $1
+LOAD $3, $1, 0x540FB0FA           
+NOP                               
+ADD $4, $0, $1                    
+SUBI $6, $3, 0xB5949B86           
+NOP                               
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x540FB0FA
+LOAD $4, $3, $4                   
+SUB $7, $7, $7
+LOAD $3, $7, 0x540FB0F6           
+HALT $0
+#
+D@0x540FB0EE
+0xE92690D2		# 540FB0EE		= -383348526
+0x13E62F29		# 540FB0F2		= 333852457
+0xEC1028AB		# 540FB0F6		= -334485333
+0x9D06BFF2		# 540FB0FA		= -1660502030
+0x90F7CE0B		# 540FB0FE		= -1862808053
+0x21757DF1		# 540FB102		= 561348081

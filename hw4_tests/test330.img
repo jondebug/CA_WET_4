@@ -1,0 +1,77 @@
+# Test N.330
+#
+L3
+S6
+O4
+N3
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x6B1CE629
+LOAD $5, $5, $3                   
+SUBI $6, $5, 0x816B6E65           
+SUB $5, $5, $5
+LOAD $5, $5, 0x6B1CE629           
+ADDI $5, $5, 0x75CCA60F           
+SUB $7, $7, $7
+STORE $7, $2, 0x6B1CE62D          
+SUBI $3, $4, 0xF2FD6876           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $3, $3, 0xC744B792           
+SUB $2, $2, $1                    
+NOP                               
+SUB $5, $5, $5
+LOAD $3, $5, 0x6B1CE601           
+SUB $6, $1, $3                    
+ADD $6, $1, $7                    
+SUBI $3, $0, 0x8E6E05ED           
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x6B1CE60D
+LOAD $4, $6, $3                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $2, $0, $5                    
+SUB $5, $2, $0                    
+ADDI $6, $7, 0x95EF7271           
+ADDI $0, $2, 0xD88886B5           
+SUB $4, $4, $4
+STORE $4, $1, 0x6B1CE611          
+ADDI $1, $2, 0x6FC8C137           
+SUB $6, $6, $6
+LOAD $0, $6, 0x6B1CE601           
+ADDI $5, $5, 0x01A9FEA6           
+ADD $4, $4, $0                    
+NOP                               
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x6B1CE601
+LOAD $5, $1, $7                   
+ADD $7, $0, $6                    
+HALT $0
+#
+D@0x6B1CE601
+0x5D9C8863		# 6B1CE601		= 1570539619
+0x2B90846C		# 6B1CE605		= 730891372
+0xCF846D6E		# 6B1CE609		= -813404818
+0x8535D03D		# 6B1CE60D		= -2060070851
+0xAD96520E		# 6B1CE611		= -1382657522
+0x7DCEFA3A		# 6B1CE615		= 2110716474
+0xCE8767E2		# 6B1CE619		= -829986846
+0x84D46C86		# 6B1CE61D		= -2066453370
+0x4133A683		# 6B1CE621		= 1093904003
+0xAA104E20		# 6B1CE625		= -1441772000
+0x3DA945DF		# 6B1CE629		= 1034503647
+0x7DA267CE		# 6B1CE62D		= 2107795406

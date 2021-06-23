@@ -1,0 +1,104 @@
+# Test N.971
+#
+L2
+S1
+O9
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $0, $0
+LOAD $5, $0, 0x6030D4B9           
+ADDI $1, $1, 0x465C4049           
+SUB $7, $6, $1                    
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x6030D4C5
+STORE $0, $2, $6                  
+ADDI $3, $7, 0x0F9C0430           
+SUBI $3, $6, 0x512367C3           
+NOP                               
+ADD $2, $5, $1                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $1, $7, $2                    
+SUB $1, $1, $0                    
+NOP                               
+SUB $5, $3, $4                    
+ADDI $1, $0, 0x29E8D0C0           
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x6030D4C9
+STORE $2, $5, $1                  
+ADDI $7, $2, 0xD544A5E7           
+ADDI $4, $0, 0x86A82EDD           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $5, $4, $3                    
+ADDI $0, $7, 0x8956095D           
+SUBI $4, $1, 0xE47483E8           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $0, $2, $4                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x6030D4CD
+LOAD $0, $2, $3                   
+SUB $3, $4, $5                    
+NOP                               
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $0, $6, $6                    
+ADD $4, $3, $2                    
+NOP                               
+ADD $6, $0, $3                    
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x6030D4B9
+STORE $0, $3, $6                  
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x6030D4C1
+LOAD $3, $2, $1                   
+SUB $2, $2, $7                    
+SUB $4, $4, $4
+STORE $4, $5, 0x6030D4C1          
+NOP                               
+ADDI $1, $6, 0x69FBF9BF           
+ADDI $1, $4, 0x7A77CFEB           
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x6030D4C9
+LOAD $4, $1, $2                   
+HALT $0
+#
+D@0x6030D4B9
+0xAF75C673		# 6030D4B9		= -1351235981
+0xC81C7686		# 6030D4BD		= -937658746
+0xCCEB97EA		# 6030D4C1		= -856975382
+0xE7B02FB9		# 6030D4C5		= -407883847
+0x719704F4		# 6030D4C9		= 1905722612
+0x4CBB33BA		# 6030D4CD		= 1287336890

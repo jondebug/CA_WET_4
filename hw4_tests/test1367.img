@@ -1,0 +1,91 @@
+# Test N.1367
+#
+L2
+S3
+O9
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+LOAD $0, $2, 0x6A07ED97           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x6A07ED8F
+LOAD $4, $1, $0                   
+ADDI $5, $4, 0xDE83CDCD           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x6A07EDAF
+LOAD $7, $1, $0                   
+SUB $6, $6, $6
+LOAD $4, $6, 0x6A07EDBB           
+SUB $6, $6, $6
+STORE $6, $0, 0x6A07ED97          
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x6A07EDAF
+STORE $6, $0, $3                  
+ADDI $5, $1, 0x97CEE661           
+NOP                               
+NOP                               
+ADDI $5, $2, 0x45B85433           
+SUB $0, $6, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $2, $7, $1                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $2, $6, 0xC53BD774           
+ADD $7, $6, $3                    
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x6A07EDAF
+LOAD $1, $4, $7                   
+SUB $1, $1, $1
+STORE $1, $0, 0x6A07EDA3          
+SUB $0, $7, $1                    
+SUB $7, $4, $7                    
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x6A07EDB7
+LOAD $3, $2, $4                   
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x6A07ED93
+LOAD $2, $4, $6                   
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x6A07EDCF
+LOAD $7, $6, $0                   
+NOP                               
+SUB $6, $2, $5                    
+ADD $7, $6, $2                    
+HALT $0
+#
+D@0x6A07ED8F
+0xB19625C8		# 6A07ED8F		= -1315559992
+0x7409B258		# 6A07ED93		= 1946792536
+0x92BD9C6A		# 6A07ED97		= -1833067414
+0x16E4F790		# 6A07ED9B		= 384104336
+0x1F2B2661		# 6A07ED9F		= 522921569
+0x3AF05242		# 6A07EDA3		= 988828226
+0x8B8FDC20		# 6A07EDA7		= -1953506272
+0x6B365048		# 6A07EDAB		= 1798721608
+0xAB8CFD2F		# 6A07EDAF		= -1416823505
+0xDD5036DB		# 6A07EDB3		= -581945637
+0xE74C7B93		# 6A07EDB7		= -414418029
+0x01C1978F		# 6A07EDBB		= 29464463
+0x004D2803		# 6A07EDBF		= 5056515
+0xBD2DAABD		# 6A07EDC3		= -1121080643
+0xB269A84E		# 6A07EDC7		= -1301698482
+0xA86D12DE		# 6A07EDCB		= -1469246754
+0x678B13FD		# 6A07EDCF		= 1737167869
+0x4BA8A50B		# 6A07EDD3		= 1269343499

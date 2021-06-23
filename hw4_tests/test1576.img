@@ -1,0 +1,63 @@
+# Test N.1576
+#
+L4
+S10
+O8
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $2, 0x252885DE          
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x252885DE
+LOAD $0, $0, $1                   
+NOP                               
+ADDI $0, $7, 0xD813786F           
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x252885DE
+LOAD $1, $2, $0                   
+SUB $0, $0, $0
+STORE $0, $3, 0x252885DE          
+SUB $1, $5, $6                    
+SUB $2, $0, $0                    
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x252885DE
+LOAD $6, $1, $0                   
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x252885DE
+LOAD $4, $3, $1                   
+SUB $5, $6, $0                    
+ADDI $0, $5, 0xF91E6324           
+SUB $7, $2, $4                    
+NOP                               
+SUBI $1, $6, 0x57871BF6           
+ADD $3, $7, $7                    
+ADD $2, $3, $2                    
+SUB $6, $6, $6
+STORE $6, $6, 0x252885DE          
+SUB $4, $3, $7                    
+SUBI $2, $2, 0xFA0C04DF           
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x252885DE
+STORE $2, $6, $5                  
+SUB $3, $3, $3
+STORE $3, $2, 0x252885DE          
+HALT $0
+#
+D@0x252885DE
+0xE1FBAD57		# 252885DE		= -503599785

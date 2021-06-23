@@ -1,0 +1,124 @@
+# Test N.848
+#
+L4
+S6
+O8
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x79340F26
+LOAD $1, $5, $6                   
+ADDI $0, $6, 0x2FE7D4D3           
+SUBI $5, $0, 0x89AF2A43           
+SUB $0, $3, $0                    
+SUB $2, $2, $0                    
+SUB $6, $4, $5                    
+SUB $4, $4, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $0, $3, 0xA14DA19B           
+SUBI $3, $0, 0xA88291B2           
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x79340F22
+STORE $0, $5, $1                  
+SUB $0, $0, $0
+STORE $0, $5, 0x79340F26          
+SUBI $2, $6, 0xE0C04987           
+SUB $1, $1, $1
+STORE $1, $1, 0x79340F26          
+SUBI $4, $0, 0x44C1BF64           
+SUBI $5, $1, 0x3D7243E3           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x79340F22
+STORE $3, $4, $4                  
+ADDI $2, $3, 0x2C06F89F           
+SUB $4, $6, $0                    
+SUB $2, $2, $2
+LOAD $3, $2, 0x79340F22           
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x79340F1E
+STORE $3, $5, $2                  
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x79340F1E
+STORE $5, $3, $2                  
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x79340F1E
+STORE $6, $5, $7                  
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $2, $3                    
+SUBI $0, $7, 0xE0756944           
+ADD $5, $4, $0                    
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x79340F22
+LOAD $6, $1, $4                   
+SUB $6, $6, $6
+STORE $6, $0, 0x79340F26          
+SUB $1, $1, $4                    
+NOP                               
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x79340F26
+LOAD $3, $6, $3                   
+ADD $0, $6, $1                    
+ADD $3, $4, $2                    
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x79340F26
+LOAD $0, $0, $5                   
+SUB $2, $7, $6                    
+SUB $6, $2, $7                    
+NOP                               
+SUB $3, $3, $3
+LOAD $2, $3, 0x79340F1E           
+SUB $3, $3, $3
+STORE $3, $7, 0x79340F26          
+ADD $3, $2, $4                    
+SUBI $4, $4, 0x7E917043           
+NOP                               
+ADD $2, $5, $1                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $7, $1, $4                    
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x79340F26
+STORE $4, $0, $1                  
+SUB $7, $6, $2                    
+HALT $0
+#
+D@0x79340F1E
+0x98552C50		# 79340F1E		= -1739248560
+0xF6DF2E9C		# 79340F22		= -153145700
+0xB4736915		# 79340F26		= -1267504875

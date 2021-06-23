@@ -1,0 +1,78 @@
+# Test N.1525
+#
+L7
+S6
+O7
+N2
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $7, $7, $7
+LOAD $6, $7, 0x02EF359E           
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x02EF35AA
+LOAD $6, $2, $5                   
+SUBI $2, $0, 0xC1DF6550           
+SUBI $6, $2, 0xEE9C9CB1           
+ADDI $5, $4, 0xC5A60E53           
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x02EF35BE
+STORE $4, $1, $1                  
+NOP                               
+ADD $6, $1, $0                    
+SUB $1, $1, $1
+STORE $1, $6, 0x02EF35AE          
+ADD $2, $2, $6                    
+SUB $6, $6, $6
+LOAD $5, $6, 0x02EF35C2           
+NOP                               
+SUB $2, $2, $2
+STORE $2, $2, 0x02EF3592          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $5, $4, 0x936687D6           
+NOP                               
+ADDI $3, $2, 0xD59D425E           
+ADD $7, $0, $1                    
+ADD $2, $6, $4                    
+SUBI $2, $4, 0xC42A9AA6           
+ADDI $0, $3, 0xFC83C244           
+SUB $7, $7, $7
+STORE $7, $5, 0x02EF35AE          
+NOP                               
+SUB $7, $5, $2                    
+NOP                               
+ADDI $1, $2, 0x1BCD3FC4           
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x02EF35C6
+STORE $4, $4, $7                  
+HALT $0
+#
+D@0x02EF358A
+0x30C412CF		# 02EF358A		= 818156239
+0xAD8AC5BB		# 02EF358E		= -1383414341
+0x1E502A49		# 02EF3592		= 508570185
+0x5A9B8994		# 02EF3596		= 1520142740
+0x55A007E3		# 02EF359A		= 1436551139
+0x5EE6077F		# 02EF359E		= 1592133503
+0x053D55DC		# 02EF35A2		= 87905756
+0x1255E09B		# 02EF35A6		= 307617947
+0xB5302F2A		# 02EF35AA		= -1255133398
+0x510916DD		# 02EF35AE		= 1359550173
+0x7FF881AA		# 02EF35B2		= 2146992554
+0xD19A8810		# 02EF35B6		= -778401776
+0x0F0ADBE7		# 02EF35BA		= 252369895
+0x67AEFDF3		# 02EF35BE		= 1739521523
+0x2C47485D		# 02EF35C2		= 742869085
+0xF1E90B15		# 02EF35C6		= -236385515
+0xFD0D027B		# 02EF35CA		= -49479045
+0xFAD7A965		# 02EF35CE		= -86529691
+0x3745A326		# 02EF35D2		= 927310630

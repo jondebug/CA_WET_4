@@ -1,0 +1,149 @@
+# Test N.1697
+#
+L6
+S2
+O3
+N8
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $2, $2                    
+SUBI $4, $7, 0xC39F350D           
+SUBI $4, $3, 0x0D74CBD9           
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x0AF68C94
+LOAD $3, $5, $0                   
+SUB $5, $5, $5
+LOAD $7, $5, 0x0AF68C90           
+SUB $4, $5, $6                    
+SUB $7, $5, $4                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x0AF68C98
+LOAD $4, $2, $5                   
+SUB $6, $6, $6
+LOAD $2, $6, 0x0AF68C9C           
+ADDI $2, $7, 0x4C5D911A           
+SUB $7, $7, $7
+STORE $7, $3, 0x0AF68C98          
+SUBI $0, $1, 0xEC9E0659           
+SUB $2, $2, $2                    
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x0AF68C8C
+STORE $6, $7, $7                  
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x0AF68C8C
+STORE $3, $5, $0                  
+SUB $1, $1, $1
+LOAD $3, $1, 0x0AF68C98           
+SUB $6, $6, $6
+STORE $6, $0, 0x0AF68C90          
+SUB $1, $1, $1
+STORE $1, $7, 0x0AF68C90          
+SUB $2, $2, $2
+STORE $2, $6, 0x0AF68C8C          
+ADDI $0, $1, 0xFA9769F2           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $7, $7, $7
+LOAD $3, $7, 0x0AF68CA0           
+SUB $5, $3, $0                    
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x0AF68C90
+STORE $5, $2, $2                  
+SUB $2, $4, $3                    
+NOP                               
+SUB $1, $3, $0                    
+ADD $0, $0, $0                    
+SUBI $2, $6, 0xFDB23C56           
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x0AF68CA0
+STORE $4, $6, $1                  
+SUB $5, $0, $0                    
+SUB $3, $7, $6                    
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $6, $2, $5                    
+SUBI $6, $2, 0xB27FFE3F           
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x0AF68C94
+STORE $1, $0, $3                  
+ADD $5, $5, $2                    
+NOP                               
+SUB $6, $7, $3                    
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x0AF68C94
+STORE $2, $0, $5                  
+NOP                               
+ADDI $6, $1, 0x81C6F96B           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADD $4, $3, $0                    
+SUBI $2, $4, 0x461EBB6B           
+SUB $0, $0, $0
+STORE $0, $1, 0x0AF68C94          
+ADD $6, $3, $1                    
+ADDI $2, $0, 0xE193256B           
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x0AF68C98
+LOAD $4, $0, $5                   
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x0AF68C98
+STORE $7, $4, $4                  
+SUB $2, $2, $2
+STORE $2, $6, 0x0AF68C90          
+NOP                               
+ADD $4, $0, $6                    
+SUB $2, $2, $5                    
+ADD $5, $7, $3                    
+ADD $0, $7, $1                    
+HALT $0
+#
+D@0x0AF68C8C
+0x286C085D		# 0AF68C8C		= 678168669
+0x8D0B69C9		# 0AF68C90		= -1928631863
+0xE3ABFD4F		# 0AF68C94		= -475267761
+0x0516F954		# 0AF68C98		= 85391700
+0x9616CAAF		# 0AF68C9C		= -1776891217
+0x07CC8DB5		# 0AF68CA0		= 130846133

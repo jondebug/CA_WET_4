@@ -1,0 +1,34 @@
+# Test N.1510
+#
+L6
+S1
+O7
+N2
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $4, $1, 0x1D3C4C1D           
+SUB $5, $6, $0                    
+ADD $6, $6, $5                    
+SUB $3, $3, $3
+STORE $3, $3, 0x5D08BA60          
+SUBI $1, $7, 0x012A2D16           
+SUBI $4, $0, 0xF36EC071           
+ADD $0, $5, $0                    
+ADDI $6, $5, 0x2374FFA9           
+SUB $0, $2, $1                    
+ADDI $7, $7, 0xCA20C9FC           
+SUBI $7, $6, 0x14E920A0           
+HALT $0
+#
+D@0x5D08BA60
+0xB3A083A5		# 5D08BA60		= -1281326171
+0x0EB0ADD3		# 5D08BA64		= 246459859

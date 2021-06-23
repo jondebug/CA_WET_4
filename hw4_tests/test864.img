@@ -1,0 +1,67 @@
+# Test N.864
+#
+L6
+S9
+O5
+N5
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x64729C3B
+LOAD $6, $6, $5                   
+SUB $4, $7, $1                    
+NOP                               
+SUB $2, $7, $4                    
+SUB $5, $5, $5
+LOAD $1, $5, 0x64729C37           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $2, $3, 0xBEEF09C6           
+SUB $6, $4, $6                    
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x64729C43
+LOAD $1, $4, $0                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $4, $6, $7                    
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x64729C3B
+LOAD $1, $0, $2                   
+NOP                               
+SUB $1, $1, $1
+STORE $1, $6, 0x64729C3F          
+SUBI $6, $5, 0x9B32E73C           
+SUB $1, $7, $4                    
+SUB $4, $4, $4
+LOAD $3, $4, 0x64729C3F           
+SUB $4, $4, $4
+LOAD $6, $4, 0x64729C3B           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+HALT $0
+#
+D@0x64729C37
+0xE4C74EFC		# 64729C37		= -456700164
+0xBEDF32A7		# 64729C3B		= -1092668761
+0x327382F7		# 64729C3F		= 846430967
+0x094D7C29		# 64729C43		= 156073001

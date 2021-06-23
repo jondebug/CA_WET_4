@@ -1,0 +1,34 @@
+# Test N.1851
+#
+L3
+S3
+O6
+N1
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x1B8C0EB5
+LOAD $5, $5, $1                   
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x1B8C0EAD
+LOAD $0, $3, $0                   
+ADDI $0, $1, 0x28056067           
+SUBI $3, $2, 0xA15556CE           
+SUB $6, $0, $7                    
+NOP                               
+SUB $7, $7, $7
+LOAD $3, $7, 0x1B8C0EB1           
+SUB $4, $4, $4
+LOAD $0, $4, 0x1B8C0EB9           
+HALT $0
+#
+D@0x1B8C0EAD
+0x8DF16D88		# 1B8C0EAD		= -1913557624
+0x54FA51AD		# 1B8C0EB1		= 1425691053
+0xB618E56C		# 1B8C0EB5		= -1239882388
+0x7421A022		# 1B8C0EB9		= 1948360738
+0x4ADB4D6C		# 1B8C0EBD		= 1255886188

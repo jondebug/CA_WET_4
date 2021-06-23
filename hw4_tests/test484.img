@@ -1,0 +1,28 @@
+# Test N.484
+#
+L2
+S9
+O6
+N1
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $2, $7, 0xB10AAA4C           
+SUBI $0, $6, 0xF53CB01A           
+NOP                               
+NOP                               
+SUB $6, $6, $6
+STORE $6, $6, 0x45BA6DF1          
+SUB $6, $6, $6
+LOAD $6, $6, 0x45BA6DE9           
+HALT $0
+#
+D@0x45BA6DDD
+0x2E52D5F6		# 45BA6DDD		= 777180662
+0xD1B16808		# 45BA6DE1		= -776902648
+0xA833D2B9		# 45BA6DE5		= -1472998727
+0x6F06AF3F		# 45BA6DE9		= 1862709055
+0xB7D837F4		# 45BA6DED		= -1210566668
+0x7D622FB2		# 45BA6DF1		= 2103586738

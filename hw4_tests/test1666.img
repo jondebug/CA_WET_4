@@ -1,0 +1,90 @@
+# Test N.1666
+#
+L8
+S2
+O1
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $7, $5, 0x97B5C22F           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x46AAE542
+LOAD $4, $2, $1                   
+SUBI $4, $1, 0x4EEB0DAB           
+NOP                               
+NOP                               
+SUB $1, $1, $1
+LOAD $2, $1, 0x46AAE526           
+SUB $2, $1, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $1, $4, $2                    
+NOP                               
+NOP                               
+ADDI $3, $3, 0xDA77E36B           
+NOP                               
+ADD $3, $6, $6                    
+ADD $0, $4, $4                    
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x46AAE53A
+STORE $5, $6, $0                  
+SUB $3, $3, $3
+STORE $3, $1, 0x46AAE52E          
+SUB $2, $2, $2
+STORE $2, $1, 0x46AAE522          
+SUB $5, $5, $6                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $7, $5, $6                    
+ADDI $0, $1, 0xE564BE1A           
+ADDI $3, $0, 0x0DC0EE8F           
+ADD $2, $4, $0                    
+SUB $5, $0, $7                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $2, $1, 0x03CBE85A           
+ADD $4, $0, $7                    
+ADDI $5, $1, 0xEE2A040E           
+ADD $2, $7, $4                    
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x46AAE526
+LOAD $0, $7, $4                   
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $3, $3, $3
+LOAD $2, $3, 0x46AAE542           
+NOP                               
+HALT $0
+#
+D@0x46AAE522
+0x24A0E772		# 46AAE522		= 614524786
+0x471EC3A1		# 46AAE526		= 1193198497
+0x18BAADD5		# 46AAE52A		= 414887381
+0x589628BF		# 46AAE52E		= 1486235839
+0x7C284BB7		# 46AAE532		= 2083015607
+0x06158EB4		# 46AAE536		= 102076084
+0x3910CE3B		# 46AAE53A		= 957402683
+0x591A7D01		# 46AAE53E		= 1494908161
+0x12616BBD		# 46AAE542		= 308374461

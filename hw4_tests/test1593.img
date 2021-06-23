@@ -1,0 +1,102 @@
+# Test N.1593
+#
+L8
+S10
+O4
+N5
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $1, $1, $1
+STORE $1, $2, 0x57B7F28F          
+SUB $3, $4, $7                    
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x57B7F28B
+STORE $2, $5, $7                  
+SUB $6, $6, $6
+LOAD $2, $6, 0x57B7F27F           
+SUB $2, $7, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+LOAD $3, $7, 0x57B7F28B           
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x57B7F29B
+STORE $4, $0, $3                  
+ADDI $7, $5, 0x1620811C           
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x57B7F28B
+LOAD $6, $3, $6                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x57B7F2AB
+LOAD $4, $7, $4                   
+NOP                               
+SUB $3, $7, $2                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+ADD $1, $5, $0                    
+ADD $6, $7, $5                    
+NOP                               
+ADDI $2, $0, 0x4EABA06F           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUB $3, $4, $1                    
+SUB $5, $5, $5
+STORE $5, $3, 0x57B7F283          
+SUBI $7, $7, 0xBFD54E36           
+ADDI $1, $1, 0x1E644E83           
+ADD $7, $5, $3                    
+SUB $6, $6, $6
+STORE $6, $1, 0x57B7F29F          
+SUB $2, $2, $2
+STORE $2, $0, 0x57B7F2AF          
+SUB $6, $5, $0                    
+SUB $3, $3, $3
+STORE $3, $2, 0x57B7F2AB          
+NOP                               
+SUBI $1, $6, 0xB5D5338D           
+ADDI $5, $6, 0xECD09594           
+ADDI $7, $0, 0x8CB5DB7C           
+HALT $0
+#
+D@0x57B7F273
+0x3E9BA8A4		# 57B7F273		= 1050388644
+0xCAC3C23F		# 57B7F277		= -893140417
+0xB64CDB2F		# 57B7F27B		= -1236477137
+0xFAFD0235		# 57B7F27F		= -84082123
+0xC2997173		# 57B7F283		= -1030131341
+0xF88DDF8C		# 57B7F287		= -124919924
+0x78CD55E8		# 57B7F28B		= 2026722792
+0x36EF04E5		# 57B7F28F		= 921634021
+0xFCFE2825		# 57B7F293		= -50452443
+0x9A610899		# 57B7F297		= -1704916839
+0xB59897D7		# 57B7F29B		= -1248290857
+0xF5CD5ECC		# 57B7F29F		= -171090228
+0x32FD6A01		# 57B7F2A3		= 855468545
+0x7172D2B7		# 57B7F2A7		= 1903350455
+0x2C17F136		# 57B7F2AB		= 739766582
+0xBA515F28		# 57B7F2AF		= -1169072344
+0x404C7BE8		# 57B7F2B3		= 1078754280
+0x68332455		# 57B7F2B7		= 1748182101

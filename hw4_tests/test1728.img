@@ -1,0 +1,51 @@
+# Test N.1728
+#
+L6
+S9
+O2
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $5, $1, 0x22EE9B29           
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x2C75AC3C
+LOAD $0, $2, $0                   
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x2C75AC3C
+STORE $3, $1, $0                  
+SUB $5, $2, $1                    
+ADD $7, $1, $4                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADDI $6, $5, 0x6EF135D7           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $2, $7, 0xDF133336           
+SUB $7, $7, $0                    
+SUB $0, $2, $0                    
+ADDI $3, $6, 0x495DBD24           
+ADDI $5, $1, 0x832CB737           
+SUB $0, $0, $0
+LOAD $5, $0, 0x2C75AC3C           
+SUB $3, $2, $4                    
+ADDI $3, $5, 0xEF665CDF           
+SUB $3, $4, $1                    
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x2C75AC3C
+STORE $2, $1, $4                  
+HALT $0
+#
+D@0x2C75AC3C
+0x00B3E627		# 2C75AC3C		= 11789863

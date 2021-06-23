@@ -1,0 +1,60 @@
+# Test N.1818
+#
+L9
+S9
+O6
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $2, $3                    
+SUB $4, $4, $4
+STORE $4, $3, 0x4B9A3C35          
+SUB $0, $0, $0
+STORE $0, $5, 0x4B9A3C21          
+ADDI $5, $4, 0x141D24D1           
+SUB $4, $3, $0                    
+SUBI $7, $7, 0x89FE145D           
+SUB $5, $5, $5
+STORE $5, $2, 0x4B9A3C25          
+ADDI $4, $3, 0x9187701B           
+ADD $1, $6, $0                    
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x4B9A3C25
+STORE $3, $6, $2                  
+ADDI $0, $2, 0x076F0274           
+ADD $0, $2, $1                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $3, $4, $7                    
+ADDI $2, $5, 0x96777964           
+NOP                               
+SUBI $5, $5, 0xCAD30BEE           
+SUB $1, $1, $1
+LOAD $2, $1, 0x4B9A3C31           
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x4B9A3C1D
+STORE $5, $3, $4                  
+NOP                               
+SUB $4, $4, $4
+LOAD $7, $4, 0x4B9A3C1D           
+ADDI $4, $6, 0x0605CC85           
+ADD $1, $7, $0                    
+HALT $0
+#
+D@0x4B9A3C15
+0xAF904D0E		# 4B9A3C15		= -1349497586
+0xF344DA17		# 4B9A3C19		= -213591529
+0xFD7DCCCF		# 4B9A3C1D		= -42087217
+0xE1EC02A3		# 4B9A3C21		= -504626525
+0xF913EF09		# 4B9A3C25		= -116134135
+0x8371857D		# 4B9A3C29		= -2089712259
+0xB6F1CE44		# 4B9A3C2D		= -1225667004
+0x0ECDC386		# 4B9A3C31		= 248365958
+0x13CCB3CE		# 4B9A3C35		= 332182478

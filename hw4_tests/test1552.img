@@ -1,0 +1,106 @@
+# Test N.1552
+#
+L6
+S7
+O7
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $2, $5, $7                    
+SUB $1, $2, $6                    
+SUB $5, $2, $4                    
+SUBI $2, $6, 0x874EB2BE           
+SUB $4, $4, $4
+STORE $4, $5, 0x36EC5653          
+SUB $0, $4, $0                    
+NOP                               
+SUBI $1, $7, 0x233791BF           
+NOP                               
+SUBI $7, $2, 0xC3030994           
+SUB $1, $1, $1
+LOAD $1, $1, 0x36EC564B           
+ADDI $5, $4, 0x1D358F19           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $0, $7, 0x49F0CCA3           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x36EC5653
+LOAD $3, $1, $5                   
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x36EC564B
+LOAD $2, $6, $1                   
+SUB $7, $7, $7
+STORE $7, $3, 0x36EC565B          
+SUBI $1, $3, 0xCB65F42F           
+SUBI $6, $3, 0x2A702712           
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x36EC564B
+LOAD $7, $1, $7                   
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x36EC564F
+STORE $6, $3, $4                  
+SUB $6, $6, $7                    
+SUB $1, $1, $1
+STORE $1, $5, 0x36EC5653          
+ADDI $2, $3, 0x178FC65F           
+ADD $4, $3, $0                    
+NOP                               
+SUB $6, $6, $6
+LOAD $6, $6, 0x36EC5653           
+NOP                               
+SUB $0, $5, $6                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x36EC5653
+STORE $3, $1, $7                  
+ADD $4, $4, $2                    
+NOP                               
+ADD $5, $0, $6                    
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x36EC565B
+STORE $1, $2, $0                  
+SUB $3, $1, $3                    
+ADD $4, $5, $4                    
+SUB $6, $7, $7                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+ADD $2, $4, $2                    
+ADDI $4, $3, 0xCBD882B9           
+SUB $4, $4, $4
+LOAD $5, $4, 0x36EC564F           
+ADD $3, $1, $2                    
+HALT $0
+#
+D@0x36EC5647
+0x6E3883F4		# 36EC5647		= 1849197556
+0xD3CB2BE4		# 36EC564B		= -741659676
+0xFAC64A8E		# 36EC564F		= -87668082
+0x89A670F4		# 36EC5653		= -1985580812
+0x7BEBC2FF		# 36EC5657		= 2079048447
+0xB92DFD0C		# 36EC565B		= -1188168436

@@ -1,0 +1,77 @@
+# Test N.575
+#
+L3
+S9
+O3
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $4, $1, $3                    
+NOP                               
+SUB $1, $5, $2                    
+SUB $4, $2, $1                    
+SUBI $1, $6, 0xCE337578           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $6, $4, $5                    
+SUB $3, $2, $6                    
+NOP                               
+NOP                               
+ADD $2, $2, $6                    
+ADDI $2, $2, 0x05A04DC5           
+ADDI $3, $0, 0xC6952F6C           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $4, $1, 0xF48744B3           
+ADD $4, $3, $3                    
+SUBI $6, $3, 0x3968B2D5           
+ADD $6, $4, $7                    
+NOP                               
+ADD $0, $3, $5                    
+ADDI $5, $5, 0x10AF2AC8           
+NOP                               
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x05761E01
+STORE $1, $1, $4                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+ADD $0, $7, $2                    
+ADDI $1, $0, 0x4B82FE2E           
+ADD $5, $0, $4                    
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x05761E01
+STORE $6, $3, $7                  
+NOP                               
+SUB $6, $6, $6
+LOAD $4, $6, 0x05761E01           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $5, 0x05761E01          
+ADD $7, $3, $2                    
+SUB $3, $4, $2                    
+NOP                               
+SUB $0, $5, $4                    
+NOP                               
+HALT $0
+#
+D@0x05761E01
+0xB66A9ADB		# 05761E01		= -1234527525

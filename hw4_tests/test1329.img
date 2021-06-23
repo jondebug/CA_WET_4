@@ -1,0 +1,178 @@
+# Test N.1329
+#
+L9
+S7
+O8
+N8
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $2, $4, 0xBD167B8B           
+SUB $0, $0, $0
+LOAD $6, $0, 0x6C1393BC           
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x6C1393C4
+LOAD $1, $5, $0                   
+SUBI $4, $4, 0xFC27779F           
+ADDI $3, $1, 0x2C6C1413           
+ADD $7, $6, $5                    
+SUB $3, $5, $7                    
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x6C1393CC
+STORE $2, $3, $3                  
+SUB $3, $0, $6                    
+SUB $5, $5, $5
+LOAD $2, $5, 0x6C1393D0           
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x6C1393CC
+LOAD $1, $1, $6                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+LOAD $3, $7, 0x6C1393D0           
+SUBI $2, $5, 0xA84CB245           
+SUBI $0, $2, 0x496785E1           
+SUB $1, $1, $1
+LOAD $3, $1, 0x6C1393B8           
+ADD $5, $3, $5                    
+SUBI $3, $2, 0xD563E0C2           
+ADDI $1, $2, 0xE7D15672           
+SUBI $0, $3, 0x6A042727           
+ADDI $1, $2, 0xF0E384C0           
+ADDI $4, $6, 0x1EE4054B           
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x6C1393BC
+LOAD $5, $0, $5                   
+ADD $7, $3, $0                    
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x6C1393BC
+STORE $4, $2, $3                  
+ADD $1, $1, $4                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x6C1393D4
+STORE $3, $2, $5                  
+NOP                               
+ADDI $5, $4, 0xEA83969F           
+SUB $0, $0, $3                    
+NOP                               
+SUB $4, $4, $4
+STORE $4, $5, 0x6C1393D4          
+SUB $2, $5, $2                    
+SUB $5, $1, $4                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $5, $6, 0x7AE4EFE1           
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x6C1393C8
+STORE $5, $6, $0                  
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x6C1393CC
+STORE $1, $4, $5                  
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $3, $4, 0x51A7F674           
+SUB $4, $6, $5                    
+SUBI $7, $6, 0xD579FC91           
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x6C1393C8
+STORE $4, $4, $6                  
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x6C1393C4
+LOAD $6, $3, $2                   
+ADDI $3, $6, 0x1E35E98E           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x6C1393B8
+LOAD $0, $5, $2                   
+SUB $1, $1, $1
+LOAD $7, $1, 0x6C1393D4           
+ADD $7, $5, $5                    
+NOP                               
+ADDI $0, $6, 0xF4287F4D           
+ADDI $0, $2, 0x2EF43FAD           
+ADDI $1, $7, 0x3875A833           
+SUB $0, $7, $6                    
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x6C1393C0
+LOAD $4, $1, $4                   
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x6C1393CC
+LOAD $1, $3, $6                   
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $6, $6, $6
+LOAD $1, $6, 0x6C1393D4           
+SUB $1, $1, $1
+LOAD $7, $1, 0x6C1393C4           
+NOP                               
+ADD $1, $7, $5                    
+NOP                               
+ADDI $5, $0, 0xA0616D75           
+ADD $1, $6, $5                    
+SUB $0, $2, $6                    
+SUBI $2, $6, 0x1CD18B22           
+SUB $1, $1, $1
+STORE $1, $7, 0x6C1393D0          
+ADDI $6, $4, 0x44774401           
+SUB $1, $6, $7                    
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x6C1393C4
+LOAD $1, $5, $0                   
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+ADDI $5, $1, 0xC1ED0ED1           
+ADDI $1, $1, 0x66C526BB           
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x6C1393CC
+LOAD $7, $2, $5                   
+HALT $0
+#
+D@0x6C1393B8
+0xFC0D6BC6		# 6C1393B8		= -66229306
+0x7EBBCA1B		# 6C1393BC		= 2126236187
+0xA188ABFC		# 6C1393C0		= -1584878596
+0xAF455CEE		# 6C1393C4		= -1354408722
+0x9450F5EB		# 6C1393C8		= -1806633493
+0xCAF8E198		# 6C1393CC		= -889658984
+0x0DD0E8E1		# 6C1393D0		= 231794913
+0x569E891E		# 6C1393D4		= 1453230366

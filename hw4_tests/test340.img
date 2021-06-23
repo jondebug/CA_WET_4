@@ -1,0 +1,43 @@
+# Test N.340
+#
+L9
+S6
+O9
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADD $6, $2, $7                    
+NOP                               
+SUB $3, $3, $3
+LOAD $7, $3, 0x7E99DAFD           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $0, $1, 0x68D7A9BA           
+NOP                               
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x7E99DAE5
+STORE $0, $2, $6                  
+SUB $7, $7, $7
+LOAD $2, $7, 0x7E99DAE5           
+SUB $7, $7, $7
+STORE $7, $7, 0x7E99DAFD          
+SUBI $3, $4, 0xA5DCA158           
+HALT $0
+#
+D@0x7E99DADD
+0x010D5E0F		# 7E99DADD		= 17653263
+0x55367C19		# 7E99DAE1		= 1429634073
+0x9734B674		# 7E99DAE5		= -1758153100
+0x9FE8F85C		# 7E99DAE9		= -1612122020
+0x19138D93		# 7E99DAED		= 420711827
+0xE52BE7A4		# 7E99DAF1		= -450107484
+0x6F28EF55		# 7E99DAF5		= 1864953685
+0x12ACCDE6		# 7E99DAF9		= 313314790
+0x0CB15B51		# 7E99DAFD		= 212949841

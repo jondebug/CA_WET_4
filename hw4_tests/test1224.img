@@ -1,0 +1,51 @@
+# Test N.1224
+#
+L6
+S2
+O4
+N2
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+NOP                               
+ADDI $2, $6, 0xB751BB2B           
+SUB $3, $3, $3
+LOAD $3, $3, 0x2F97FBE1           
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x2F97FBE5
+STORE $0, $0, $2                  
+SUB $7, $7, $7
+LOAD $5, $7, 0x2F97FBD9           
+SUB $5, $5, $3                    
+ADDI $7, $6, 0x46AD2BA4           
+ADD $4, $0, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $2, $4, 0x74AC5DEF           
+SUBI $2, $6, 0xCACE3270           
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x2F97FBD5
+LOAD $0, $7, $6                   
+SUB $3, $3, $3
+LOAD $0, $3, 0x2F97FBDD           
+NOP                               
+ADDI $0, $5, 0x4D6A79D4           
+ADD $1, $7, $7                    
+SUB $4, $4, $4
+STORE $4, $7, 0x2F97FBD5          
+ADD $1, $1, $6                    
+HALT $0
+#
+D@0x2F97FBD5
+0xE5028657		# 2F97FBD5		= -452819369
+0xD4A8E987		# 2F97FBD9		= -727127673
+0xAAF62BF3		# 2F97FBDD		= -1426707469
+0x9ECF84FE		# 2F97FBE1		= -1630567170
+0x3E542C77		# 2F97FBE5		= 1045703799

@@ -1,0 +1,109 @@
+# Test N.1830
+#
+L5
+S2
+O9
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $4, $1                    
+ADD $3, $3, $0                    
+ADDI $1, $5, 0x23DE5DB4           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x0F6503D0
+LOAD $0, $1, $7                   
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x0F6503D8
+LOAD $7, $1, $0                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $5, $5, $5
+LOAD $5, $5, 0x0F6503D0           
+ADD $4, $3, $0                    
+ADD $2, $3, $5                    
+ADD $5, $1, $7                    
+NOP                               
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x0F6503DC
+STORE $5, $2, $2                  
+NOP                               
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x0F6503D0
+LOAD $7, $6, $0                   
+ADDI $0, $0, 0x7B39F20A           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $5, $1, $4                    
+SUB $2, $3, $7                    
+ADDI $5, $5, 0x8407D546           
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x0F6503D8
+STORE $2, $2, $4                  
+ADD $2, $7, $1                    
+SUB $2, $2, $2
+LOAD $4, $2, 0x0F6503DC           
+NOP                               
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x0F6503DC
+STORE $7, $6, $0                  
+SUB $7, $7, $7
+LOAD $4, $7, 0x0F6503D8           
+SUBI $3, $1, 0x196F8503           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUB $2, $2, $2
+STORE $2, $3, 0x0F6503D4          
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x0F6503D0
+LOAD $0, $0, $6                   
+SUB $7, $2, $6                    
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x0F6503D8
+STORE $1, $3, $5                  
+SUB $4, $2, $3                    
+ADD $0, $7, $0                    
+SUBI $5, $7, 0x26E88041           
+ADD $5, $4, $4                    
+SUB $6, $0, $2                    
+SUB $7, $2, $4                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+ADD $1, $3, $0                    
+HALT $0
+#
+D@0x0F6503D0
+0x40BAF909		# 0F6503D0		= 1085995273
+0x100E5D4C		# 0F6503D4		= 269376844
+0x1FF4DB32		# 0F6503D8		= 536140594
+0xF90805B7		# 0F6503DC		= -116914761
+0xE761A8CE		# 0F6503E0		= -413030194

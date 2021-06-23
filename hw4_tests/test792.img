@@ -1,0 +1,74 @@
+# Test N.792
+#
+L5
+S4
+O8
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x167BA562
+LOAD $0, $3, $6                   
+SUB $6, $2, $5                    
+SUB $3, $1, $4                    
+NOP                               
+ADD $6, $3, $7                    
+SUB $3, $3, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $3, $5, 0xA6109A38           
+NOP                               
+SUBI $4, $4, 0x3503848D           
+ADDI $1, $3, 0x8001DF98           
+SUB $1, $7, $5                    
+SUB $7, $2, $3                    
+ADD $0, $5, $5                    
+ADDI $7, $5, 0x6BCC8265           
+SUBI $0, $2, 0xC5B562D0           
+SUBI $4, $4, 0x96C22879           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x167BA56E
+STORE $5, $2, $1                  
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x167BA57A
+STORE $1, $3, $5                  
+ADDI $5, $0, 0x3F12A80A           
+SUB $4, $7, $2                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x167BA57E
+STORE $5, $3, $0                  
+NOP                               
+NOP                               
+SUB $6, $1, $4                    
+ADDI $2, $2, 0xE1CC3741           
+SUB $3, $3, $3
+STORE $3, $7, 0x167BA57E          
+ADD $4, $3, $0                    
+ADDI $0, $1, 0xF1DC9939           
+SUB $6, $6, $2                    
+HALT $0
+#
+D@0x167BA562
+0xCFCBED65		# 167BA562		= -808719003
+0xFBF90526		# 167BA566		= -67566298
+0x092C97A3		# 167BA56A		= 153917347
+0x4ABA2AB0		# 167BA56E		= 1253714608
+0xAA71366E		# 167BA572		= -1435421074
+0xCAB5D247		# 167BA576		= -894053817
+0x48AFA0EC		# 167BA57A		= 1219469548
+0xF6C9A449		# 167BA57E		= -154557367
+0x1E491816		# 167BA582		= 508106774

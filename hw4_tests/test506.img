@@ -1,0 +1,107 @@
+# Test N.506
+#
+L10
+S5
+O8
+N5
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $7, $1, 0xED993866           
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x282A2A29
+STORE $7, $1, $0                  
+NOP                               
+NOP                               
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x282A2A2D
+LOAD $6, $4, $5                   
+NOP                               
+SUBI $3, $6, 0xFA9290A1           
+ADD $7, $2, $3                    
+NOP                               
+ADD $6, $1, $7                    
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $6, $5, 0xB163D16F           
+SUB $7, $7, $7
+LOAD $0, $7, 0x282A2A29           
+NOP                               
+SUB $7, $7, $7
+STORE $7, $4, 0x282A2A25          
+NOP                               
+ADDI $1, $4, 0xE4B0C371           
+ADDI $0, $2, 0xC6FF384B           
+ADD $3, $2, $1                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $0, $2, 0xCF7010B0           
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x282A2A31
+LOAD $0, $6, $7                   
+NOP                               
+ADD $3, $4, $4                    
+SUB $4, $4, $4
+LOAD $3, $4, 0x282A2A29           
+SUB $3, $7, $3                    
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x282A2A2D
+STORE $1, $2, $4                  
+SUB $2, $2, $2
+LOAD $6, $2, 0x282A2A2D           
+SUB $0, $0, $0
+STORE $0, $3, 0x282A2A29          
+ADDI $7, $1, 0x5D9E7270           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $4, $4, $4
+LOAD $5, $4, 0x282A2A29           
+SUB $3, $2, $4                    
+ADDI $7, $7, 0x2E6A5E27           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x282A2A31
+LOAD $6, $6, $1                   
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x282A2A31
+STORE $1, $6, $3                  
+SUB $5, $5, $5
+LOAD $7, $5, 0x282A2A29           
+NOP                               
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x282A2A29
+STORE $2, $0, $7                  
+SUB $3, $3, $3
+STORE $3, $6, 0x282A2A2D          
+SUBI $4, $0, 0x792CCCF6           
+HALT $0
+#
+D@0x282A2A25
+0xED4123EF		# 282A2A25		= -314498065
+0x7BB35219		# 282A2A29		= 2075349529
+0x40B52B1A		# 282A2A2D		= 1085614874
+0x92324D7F		# 282A2A31		= -1842197121

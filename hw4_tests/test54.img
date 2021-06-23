@@ -1,0 +1,101 @@
+# Test N.54
+#
+L7
+S6
+O3
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x5D6BC6A5
+STORE $1, $6, $3                  
+SUBI $0, $1, 0x14AB1945           
+ADDI $2, $5, 0xBF8E5904           
+SUB $1, $1, $1
+STORE $1, $7, 0x5D6BC69D          
+SUBI $4, $1, 0x8E06FD9B           
+SUB $4, $4, $4
+STORE $4, $0, 0x5D6BC6A5          
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $1, $5, $2                    
+SUB $0, $0, $0
+LOAD $5, $0, 0x5D6BC691           
+SUB $6, $6, $6
+LOAD $7, $6, 0x5D6BC67D           
+ADDI $3, $1, 0xDCCB0451           
+SUB $5, $5, $4                    
+SUB $4, $4, $4
+STORE $4, $5, 0x5D6BC69D          
+SUBI $2, $1, 0x6B774F91           
+SUB $7, $7, $7
+STORE $7, $2, 0x5D6BC695          
+SUB $5, $7, $6                    
+NOP                               
+SUBI $4, $5, 0x8B2A46BD           
+SUB $1, $4, $3                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+NOP                               
+SUB $3, $3, $3
+STORE $3, $3, 0x5D6BC679          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $4, $1, $7                    
+SUBI $0, $7, 0x404DB397           
+NOP                               
+NOP                               
+NOP                               
+SUB $6, $6, $6
+LOAD $6, $6, 0x5D6BC6A5           
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x5D6BC679
+LOAD $2, $6, $2                   
+ADDI $0, $7, 0x1C1C0A15           
+SUBI $7, $0, 0x567496F5           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $4, $5, $4                    
+ADD $4, $7, $3                    
+ADDI $2, $4, 0x4E0897B1           
+SUBI $7, $6, 0xE96B2C82           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $7, $4, $3                    
+HALT $0
+#
+D@0x5D6BC679
+0xC4074566		# 5D6BC679		= -1006156442
+0x7011D0FA		# 5D6BC67D		= 1880215802
+0xF7F5E629		# 5D6BC681		= -134879703
+0xFDF4E2C9		# 5D6BC685		= -34282807
+0x433A391D		# 5D6BC689		= 1127889181
+0x3A2627BA		# 5D6BC68D		= 975579066
+0xB1CAE4B2		# 5D6BC691		= -1312103246
+0xCE5A792C		# 5D6BC695		= -832931540
+0x926E505D		# 5D6BC699		= -1838264227
+0x70654044		# 5D6BC69D		= 1885683780
+0xC8507813		# 5D6BC6A1		= -934250477
+0x23C31F0A		# 5D6BC6A5		= 599990026

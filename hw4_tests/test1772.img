@@ -1,0 +1,67 @@
+# Test N.1772
+#
+L8
+S7
+O7
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+LOAD $0, $7, 0x157DCACD           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $7, $2, 0xF291DE67           
+NOP                               
+SUB $7, $7, $7
+LOAD $3, $7, 0x157DCAC9           
+ADDI $2, $5, 0x16C027C9           
+ADDI $5, $7, 0x39AAFF23           
+SUB $7, $7, $7
+STORE $7, $6, 0x157DCAC9          
+ADD $0, $0, $0                    
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x157DCAC9
+STORE $3, $6, $4                  
+SUB $0, $5, $2                    
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x157DCAC9
+STORE $5, $3, $6                  
+SUB $2, $2, $2
+STORE $2, $6, 0x157DCACD          
+SUB $3, $3, $3
+LOAD $1, $3, 0x157DCAC9           
+ADD $1, $7, $6                    
+SUB $2, $6, $7                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $4, $3, $4                    
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x157DCAC9
+LOAD $7, $5, $1                   
+SUB $4, $4, $4
+STORE $4, $3, 0x157DCACD          
+ADDI $7, $2, 0xB87B8DCE           
+NOP                               
+SUBI $3, $2, 0x1934BEDE           
+SUBI $6, $0, 0x62A81599           
+NOP                               
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x157DCACD
+STORE $6, $1, $5                  
+HALT $0
+#
+D@0x157DCAC9
+0x2C552871		# 157DCAC9		= 743778417
+0xD1A9E036		# 157DCACD		= -777396170

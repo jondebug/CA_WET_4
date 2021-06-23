@@ -1,0 +1,84 @@
+# Test N.1934
+#
+L9
+S5
+O8
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $2, $3, 0xD9A6EADE           
+SUB $6, $1, $5                    
+ADD $5, $6, $4                    
+SUBI $7, $2, 0x54C02E86           
+SUBI $2, $4, 0x3C48A56D           
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x6A58CE36
+STORE $2, $1, $0                  
+SUBI $7, $6, 0xF4E69ADC           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x6A58CE42
+LOAD $5, $5, $4                   
+SUB $7, $4, $0                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $4, $0, 0x4F0318FE           
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x6A58CE26
+LOAD $5, $7, $1                   
+SUBI $4, $0, 0x64D7D1EF           
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x6A58CE3E
+STORE $7, $3, $1                  
+SUB $4, $7, $2                    
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x6A58CE36
+LOAD $4, $6, $4                   
+SUB $4, $4, $4
+LOAD $1, $4, 0x6A58CE46           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $6, $4, $7                    
+NOP                               
+SUB $1, $1, $1
+STORE $1, $0, 0x6A58CDFE          
+HALT $0
+#
+D@0x6A58CDFE
+0x00236C1F		# 6A58CDFE		= 2321439
+0x21B5927F		# 6A58CE02		= 565547647
+0xDA9CC0AE		# 6A58CE06		= -627261266
+0x48AD7327		# 6A58CE0A		= 1219326759
+0x7737F909		# 6A58CE0E		= 2000156937
+0xF8FDF6B7		# 6A58CE12		= -117573961
+0x0344AC55		# 6A58CE16		= 54832213
+0xB94AD7E9		# 6A58CE1A		= -1186277399
+0xD8A053C2		# 6A58CE1E		= -660581438
+0xA2F75371		# 6A58CE22		= -1560849551
+0x8928987F		# 6A58CE26		= -1993828225
+0x581C17D4		# 6A58CE2A		= 1478236116
+0x5BF62FFE		# 6A58CE2E		= 1542860798
+0xE42063F5		# 6A58CE32		= -467639307
+0x8CC914B5		# 6A58CE36		= -1932979019
+0xD8E3C80D		# 6A58CE3A		= -656160755
+0x07D80B7B		# 6A58CE3E		= 131599227
+0xD31D535D		# 6A58CE42		= -753052835
+0x3CEF2B7D		# 6A58CE46		= 1022307197

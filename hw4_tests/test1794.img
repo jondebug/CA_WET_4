@@ -1,0 +1,102 @@
+# Test N.1794
+#
+L3
+S5
+O4
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $1, $4, $0                    
+SUBI $6, $0, 0xD8F5E2B9           
+SUBI $5, $5, 0xBCF7338E           
+SUBI $2, $2, 0x2F72C271           
+ADD $4, $2, $5                    
+SUB $5, $5, $5
+LOAD $5, $5, 0x0CDF972A           
+SUB $6, $0, $6                    
+SUB $1, $1, $1
+STORE $1, $0, 0x0CDF9732          
+ADDI $0, $5, 0x0CE201EB           
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x0CDF972A
+LOAD $3, $4, $7                   
+ADDI $3, $1, 0x4AC0DCAE           
+ADDI $5, $7, 0x2C4436B2           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUBI $2, $7, 0x6776F8AB           
+SUBI $6, $4, 0x4305E19A           
+NOP                               
+ADDI $0, $7, 0x864E9F83           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $2, $3                    
+SUBI $3, $5, 0xF844DD5C           
+ADDI $3, $5, 0x71B4EFC1           
+NOP                               
+SUB $0, $3, $3                    
+NOP                               
+ADD $1, $5, $1                    
+ADD $3, $1, $1                    
+NOP                               
+SUB $6, $5, $3                    
+ADDI $1, $7, 0x4A025649           
+SUB $6, $6, $6
+STORE $6, $5, 0x0CDF9732          
+SUB $0, $6, $4                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $3, $5, $4                    
+NOP                               
+ADDI $5, $4, 0x6CAC9723           
+ADD $6, $2, $6                    
+ADD $2, $4, $2                    
+SUB $5, $5, $1                    
+SUB $4, $4, $4
+LOAD $1, $4, 0x0CDF9732           
+ADDI $2, $2, 0x527F0323           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x0CDF9732
+LOAD $1, $2, $3                   
+NOP                               
+SUB $6, $6, $6
+STORE $6, $5, 0x0CDF9726          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x0CDF9726
+STORE $6, $6, $2                  
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x0CDF9732
+STORE $6, $0, $5                  
+SUB $0, $0, $0
+LOAD $1, $0, 0x0CDF973A           
+HALT $0
+#
+D@0x0CDF9726
+0x505F049B		# 0CDF9726		= 1348404379
+0x1C205000		# 0CDF972A		= 471879680
+0xE49F40A1		# 0CDF972E		= -459325279
+0x8DD073C2		# 0CDF9732		= -1915718718
+0x4036F739		# 0CDF9736		= 1077344057
+0x9356840B		# 0CDF973A		= -1823046645

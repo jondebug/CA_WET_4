@@ -1,0 +1,100 @@
+# Test N.102
+#
+L1
+S7
+O9
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+LOAD $1, $1, 0x1AB7709F           
+NOP                               
+NOP                               
+ADDI $3, $6, 0xD9A4EC27           
+SUBI $1, $2, 0x7C1528EF           
+SUBI $1, $1, 0x70F35FC7           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $6, $6, $6
+LOAD $3, $6, 0x1AB770AB           
+SUB $7, $2, $3                    
+ADDI $7, $1, 0x9C1DB9CA           
+ADDI $5, $0, 0x1EA2478E           
+SUB $0, $0, $0
+LOAD $0, $0, 0x1AB7708F           
+SUBI $5, $0, 0x1B0AF31C           
+NOP                               
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x1AB77073
+STORE $1, $0, $3                  
+ADD $0, $6, $4                    
+SUB $7, $7, $7
+STORE $7, $4, 0x1AB7708F          
+SUB $0, $2, $7                    
+SUB $0, $0, $0
+LOAD $5, $0, 0x1AB7707F           
+SUBI $0, $2, 0xCF9F347A           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $3, $7, 0x481B2A58           
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x1AB7707F
+STORE $2, $7, $4                  
+NOP                               
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x1AB7707B
+LOAD $3, $1, $3                   
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x1AB770A7
+LOAD $5, $6, $1                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $6, $2, $1                    
+SUB $0, $0, $0
+LOAD $3, $0, 0x1AB77093           
+ADDI $4, $7, 0xE3B57A1D           
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x1AB7708F
+STORE $7, $3, $4                  
+SUBI $5, $6, 0xF5428FF8           
+SUB $7, $2, $4                    
+SUB $5, $5, $5
+STORE $5, $3, 0x1AB77077          
+ADD $0, $4, $6                    
+HALT $0
+#
+D@0x1AB77073
+0x3E0CA71A		# 1AB77073		= 1041016602
+0xB43A287E		# 1AB77077		= -1271256962
+0x4D809DE7		# 1AB7707B		= 1300274663
+0x29195021		# 1AB7707F		= 689524769
+0x0F425197		# 1AB77083		= 256004503
+0x2ADCD6A6		# 1AB77087		= 719115942
+0x73E3E67A		# 1AB7708B		= 1944315514
+0x2D9A6D43		# 1AB7708F		= 765095235
+0xFBE04E37		# 1AB77093		= -69185993
+0xB0B5D779		# 1AB77097		= -1330260103
+0xBB6453ED		# 1AB7709B		= -1151052819
+0x4399832B		# 1AB7709F		= 1134134059
+0x72A934A9		# 1AB770A3		= 1923691689
+0x3ECC9CFF		# 1AB770A7		= 1053596927
+0xB7B9A3CF		# 1AB770AB		= -1212570673

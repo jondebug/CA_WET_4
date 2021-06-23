@@ -1,0 +1,72 @@
+# Test N.1910
+#
+L9
+S8
+O7
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $0, $5, $0                    
+ADDI $5, $4, 0x87A53490           
+ADD $5, $5, $0                    
+SUBI $0, $7, 0x43CF20F7           
+ADD $7, $3, $0                    
+NOP                               
+ADD $4, $1, $5                    
+NOP                               
+NOP                               
+ADD $6, $6, $4                    
+SUB $7, $7, $7
+LOAD $1, $7, 0x58BA3E8B           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $6, $3, 0x8639730B           
+SUBI $1, $3, 0xE2E7B5FB           
+ADD $0, $1, $7                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $1, $1, $1                    
+SUB $1, $1, $1
+LOAD $5, $1, 0x58BA3E63           
+ADDI $7, $5, 0xC20EC3B4           
+ADDI $3, $4, 0xDBD3BA12           
+SUBI $3, $4, 0x754A7E0E           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $1, $3, 0x44BA3B11           
+ADDI $5, $3, 0x9A28A4EF           
+SUB $0, $5, $5                    
+HALT $0
+#
+D@0x58BA3E5B
+0xE412928B		# 58BA3E5B		= -468544885
+0x990D46D2		# 58BA3E5F		= -1727183150
+0x17D8DCAD		# 58BA3E63		= 400088237
+0xEEF137B6		# 58BA3E67		= -286181450
+0x16D1A9B1		# 58BA3E6B		= 382839217
+0x505CEA62		# 58BA3E6F		= 1348266594
+0xADC98EF7		# 58BA3E73		= -1379299593
+0x7F7FEBCE		# 58BA3E77		= 2139089870
+0x2E9A30BD		# 58BA3E7B		= 781856957
+0x059B0EE2		# 58BA3E7F		= 94047970
+0xFA22A49D		# 58BA3E83		= -98392931
+0xF714D027		# 58BA3E87		= -149630937
+0x70CDDA5D		# 58BA3E8B		= 1892538973
+0xEAE32193		# 58BA3E8F		= -354213485
+0xA7E61EC4		# 58BA3E93		= -1478091068

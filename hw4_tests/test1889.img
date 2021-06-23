@@ -1,0 +1,71 @@
+# Test N.1889
+#
+L1
+S1
+O7
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $0                    
+NOP                               
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x0AEF9E8F
+LOAD $1, $1, $3                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADD $4, $4, $5                    
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x0AEF9E9F
+LOAD $2, $4, $5                   
+NOP                               
+SUB $4, $6, $3                    
+ADD $3, $3, $3                    
+SUB $3, $3, $3
+LOAD $0, $3, 0x0AEF9E9B           
+ADD $4, $0, $3                    
+SUB $2, $4, $5                    
+SUB $5, $7, $4                    
+SUB $4, $4, $4
+STORE $4, $1, 0x0AEF9E8B          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $6
+LOAD $1, $6, 0x0AEF9E9B           
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x0AEF9E9F
+STORE $6, $6, $0                  
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x0AEF9E87
+LOAD $4, $0, $5                   
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x0AEF9EA3
+LOAD $0, $4, $2                   
+ADDI $2, $6, 0x07BAAF83           
+NOP                               
+HALT $0
+#
+D@0x0AEF9E87
+0x391E784C		# 0AEF9E87		= 958298188
+0xF722B9E0		# 0AEF9E8B		= -148719136
+0x9E6EB738		# 0AEF9E8F		= -1636911304
+0x950F3D6C		# 0AEF9E93		= -1794163348
+0xA2BDE07D		# 0AEF9E97		= -1564614531
+0x7E253556		# 0AEF9E9B		= 2116367702
+0xB9EF95B9		# 0AEF9E9F		= -1175480903
+0xEA787D18		# 0AEF9EA3		= -361202408
+0x32A4254F		# 0AEF9EA7		= 849618255
+0x8F5674D2		# 0AEF9EAB		= -1890159406

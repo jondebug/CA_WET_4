@@ -1,0 +1,62 @@
+# Test N.1072
+#
+L6
+S6
+O2
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $6, $5, 0x19F9CDD1           
+ADDI $0, $7, 0x77CFA6C1           
+NOP                               
+SUB $2, $0, $0                    
+SUB $0, $0, $0
+STORE $0, $2, 0x44AA8032          
+NOP                               
+SUBI $1, $6, 0x950EB1CF           
+ADDI $4, $2, 0xC70CD181           
+NOP                               
+ADD $2, $7, $0                    
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x44AA801A
+LOAD $4, $0, $7                   
+NOP                               
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x44AA801A
+LOAD $1, $0, $6                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x44AA8032
+STORE $0, $4, $7                  
+NOP                               
+SUB $5, $5, $5
+LOAD $5, $5, 0x44AA801A           
+ADDI $5, $3, 0xB1AC3986           
+SUBI $5, $7, 0x173A13E7           
+SUBI $2, $7, 0x2D4332AA           
+ADDI $4, $2, 0xAD75B48F           
+SUB $7, $6, $3                    
+SUBI $1, $5, 0x46513E32           
+SUB $3, $3, $3
+LOAD $2, $3, 0x44AA8032           
+SUB $3, $3, $3
+STORE $3, $5, 0x44AA8026          
+HALT $0
+#
+D@0x44AA801A
+0x3B07A1B4		# 44AA801A		= 990355892
+0x157CCC4C		# 44AA801E		= 360500300
+0xB72AC601		# 44AA8022		= -1221933567
+0x013EE40C		# 44AA8026		= 20898828
+0xA7D286B1		# 44AA802A		= -1479375183
+0x3A94C85A		# 44AA802E		= 982829146
+0x94CB80EF		# 44AA8032		= -1798602513

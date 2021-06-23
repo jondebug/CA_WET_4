@@ -1,0 +1,103 @@
+# Test N.1203
+#
+L6
+S9
+O9
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+LOAD $1, $2, 0x552AF14F           
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x552AF143
+LOAD $1, $4, $5                   
+ADDI $6, $4, 0x7318ABEF           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x552AF14B
+STORE $5, $6, $1                  
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x552AF13B
+STORE $3, $4, $1                  
+SUBI $0, $4, 0x97076A30           
+SUB $6, $6, $6
+LOAD $5, $6, 0x552AF147           
+SUB $7, $7, $7
+LOAD $5, $7, 0x552AF133           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $4, $5, 0xEA1ADDF6           
+ADD $0, $3, $3                    
+SUB $7, $7, $7
+STORE $7, $5, 0x552AF133          
+ADD $1, $1, $5                    
+ADDI $6, $2, 0x8192E167           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $1, 0x552AF137          
+ADD $6, $4, $2                    
+SUB $5, $5, $2                    
+ADDI $3, $0, 0x0929EC18           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $7, 0x552AF14F          
+ADD $0, $6, $1                    
+ADD $2, $6, $4                    
+SUB $4, $4, $4
+LOAD $0, $4, 0x552AF147           
+SUB $4, $2, $3                    
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x552AF14F
+LOAD $2, $0, $4                   
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $4, $4, $4
+LOAD $5, $4, 0x552AF13F           
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x552AF137
+STORE $3, $7, $2                  
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $1, $0, $5                    
+NOP                               
+ADDI $3, $6, 0x849E05C0           
+ADD $2, $4, $3                    
+ADD $7, $2, $2                    
+NOP                               
+SUB $5, $0, $1                    
+HALT $0
+#
+D@0x552AF133
+0x1B28EFB4		# 552AF133		= 455667636
+0x7AB87C26		# 552AF137		= 2058910758
+0x06426165		# 552AF13B		= 105013605
+0xC114A25A		# 552AF13F		= -1055612326
+0xDE4647EF		# 552AF143		= -565819409
+0xEEFDC4DC		# 552AF147		= -285358884
+0x2D4B2E73		# 552AF14B		= 759901811
+0xA5ABAE68		# 552AF14F		= -1515475352

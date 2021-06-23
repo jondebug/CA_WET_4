@@ -1,0 +1,110 @@
+# Test N.705
+#
+L4
+S1
+O1
+N8
+
+# Thread 0
+T0
+I@0x00000000
+ADD $1, $3, $4                    
+ADDI $3, $6, 0xA58E591D           
+ADD $2, $3, $3                    
+ADDI $7, $5, 0x3E818278           
+SUBI $2, $2, 0x3696B6AB           
+SUBI $7, $5, 0xC31D4C03           
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x6B763802
+LOAD $6, $7, $0                   
+ADDI $4, $1, 0xE60F9FDE           
+SUB $2, $1, $7                    
+NOP                               
+SUB $1, $0, $1                    
+SUB $4, $1, $4                    
+ADD $0, $5, $4                    
+SUB $7, $7, $7
+STORE $7, $4, 0x6B763802          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x6B763802
+STORE $0, $1, $3                  
+NOP                               
+SUB $0, $0, $0
+LOAD $0, $0, 0x6B763802           
+SUB $5, $5, $5
+STORE $5, $6, 0x6B763802          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $4, $4, 0x6DEBD132           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $2, $1, 0x20A8DB37           
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x6B763802
+LOAD $5, $5, $2                   
+SUBI $4, $3, 0xE2F3EE79           
+ADDI $7, $1, 0x00DFF6AC           
+SUBI $1, $7, 0x47BCE906           
+ADDI $4, $4, 0x8A40E9B2           
+ADDI $6, $0, 0x31896A7A           
+SUBI $1, $4, 0xF2A05D42           
+SUBI $7, $4, 0x830FF0D1           
+SUB $0, $0, $1                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUBI $0, $3, 0xC3C5E492           
+ADD $5, $6, $6                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x6B763802
+LOAD $1, $3, $1                   
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x6B763802
+STORE $3, $3, $2                  
+SUB $2, $6, $0                    
+ADDI $0, $4, 0xB735C514           
+SUBI $5, $6, 0x37C0F407           
+NOP                               
+SUB $7, $7, $7
+LOAD $2, $7, 0x6B763802           
+SUB $4, $2, $6                    
+ADD $3, $3, $1                    
+ADDI $6, $5, 0x9897FC87           
+HALT $0
+#
+D@0x6B763802
+0x4FFF3C22		# 6B763802		= 1342127138

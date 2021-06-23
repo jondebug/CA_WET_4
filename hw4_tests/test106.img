@@ -1,0 +1,80 @@
+# Test N.106
+#
+L1
+S4
+O9
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $6, $1, 0xAC5F5400           
+SUB $5, $5, $5
+STORE $5, $6, 0x19B05AB5          
+NOP                               
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x19B05AE9
+LOAD $2, $1, $4                   
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x19B05AE5
+STORE $3, $6, $0                  
+SUB $0, $0, $0
+STORE $0, $7, 0x19B05ACD          
+ADDI $1, $2, 0x86C5FBE8           
+ADDI $1, $0, 0xF9D36ED2           
+ADD $4, $6, $0                    
+SUB $0, $0, $0
+LOAD $3, $0, 0x19B05AED           
+ADDI $1, $3, 0xE50E4548           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $7, $4, 0x394A234A           
+SUB $3, $3, $3
+STORE $3, $6, 0x19B05ABD          
+NOP                               
+ADD $5, $3, $7                    
+NOP                               
+ADDI $4, $5, 0xD105F5C1           
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x19B05AF5
+STORE $6, $7, $0                  
+SUB $7, $7, $7
+STORE $7, $0, 0x19B05AD5          
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x19B05ABD
+STORE $2, $0, $1                  
+SUB $1, $0, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+D@0x19B05AB5
+0xAFB48ACB		# 19B05AB5		= -1347122485
+0xAA08FDFD		# 19B05AB9		= -1442251267
+0x05DCADA2		# 19B05ABD		= 98348450
+0x86795475		# 19B05AC1		= -2038868875
+0xDD224817		# 19B05AC5		= -584955881
+0xC4D418A6		# 19B05AC9		= -992733018
+0xB6D32203		# 19B05ACD		= -1227677181
+0x39702BFA		# 19B05AD1		= 963652602
+0x6454BC4F		# 19B05AD5		= 1683274831
+0x016DC711		# 19B05AD9		= 23971601
+0xA0B3F83D		# 19B05ADD		= -1598818243
+0xFD89E712		# 19B05AE1		= -41294062
+0x8EEE74C7		# 19B05AE5		= -1896975161
+0x9B74AC72		# 19B05AE9		= -1686852494
+0x3C6D7C96		# 19B05AED		= 1013808278
+0x55949FB8		# 19B05AF1		= 1435803576
+0x8FC0996F		# 19B05AF5		= -1883203217
+0x2C13DB7B		# 19B05AF9		= 739498875

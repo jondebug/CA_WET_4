@@ -1,0 +1,77 @@
+# Test N.1130
+#
+L4
+S5
+O9
+N3
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $6, $4                    
+SUB $7, $7, $7
+STORE $7, $1, 0x3E3DB370          
+ADDI $2, $6, 0x3E1BA01E           
+SUB $5, $1, $2                    
+ADD $0, $0, $0                    
+ADD $4, $6, $7                    
+ADD $3, $0, $5                    
+ADD $1, $3, $3                    
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x3E3DB374
+LOAD $7, $2, $4                   
+SUB $6, $7, $7                    
+SUBI $4, $1, 0xA77C0190           
+NOP                               
+ADD $7, $7, $6                    
+ADD $7, $6, $1                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $1, $3, $0                    
+NOP                               
+NOP                               
+ADDI $4, $6, 0x16ECA14F           
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x3E3DB390
+LOAD $3, $5, $0                   
+SUB $6, $3, $0                    
+SUBI $3, $4, 0xF47494C5           
+SUB $4, $4, $4
+LOAD $3, $4, 0x3E3DB380           
+SUB $1, $1, $1
+STORE $1, $6, 0x3E3DB394          
+NOP                               
+SUB $2, $2, $2
+LOAD $2, $2, 0x3E3DB394           
+ADD $2, $1, $1                    
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x3E3DB39C
+STORE $1, $2, $6                  
+NOP                               
+HALT $0
+#
+D@0x3E3DB36C
+0x657F62FA		# 3E3DB36C		= 1702847226
+0xB45E1A45		# 3E3DB370		= -1268901307
+0xB9D4C0AE		# 3E3DB374		= -1177239378
+0x4B9FB072		# 3E3DB378		= 1268756594
+0xD55202F7		# 3E3DB37C		= -716045577
+0x85A79D07		# 3E3DB380		= -2052612857
+0x157BF7BF		# 3E3DB384		= 360445887
+0x023F137F		# 3E3DB388		= 37688191
+0xDC0FAF8B		# 3E3DB38C		= -602951797
+0xD37B12BB		# 3E3DB390		= -746908997
+0xE51EC956		# 3E3DB394		= -450967210
+0xEED13BBA		# 3E3DB398		= -288277574
+0xC75F89A4		# 3E3DB39C		= -950040156

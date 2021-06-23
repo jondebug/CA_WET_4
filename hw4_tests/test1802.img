@@ -1,0 +1,113 @@
+# Test N.1802
+#
+L8
+S9
+O1
+N8
+
+# Thread 0
+T0
+I@0x00000000
+ADD $2, $5, $7                    
+SUBI $2, $0, 0x68C0BFAB           
+SUBI $3, $4, 0xD43C0FE0           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $3, $7, 0xFC759BBC           
+ADDI $0, $6, 0x95DDFFB8           
+NOP                               
+ADD $4, $0, $5                    
+SUB $0, $4, $1                    
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x53001603
+STORE $5, $1, $2                  
+NOP                               
+SUB $5, $6, $0                    
+NOP                               
+SUB $1, $1, $1
+LOAD $1, $1, 0x53001603           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $7, $2, $6                    
+ADDI $2, $7, 0x94F87EB5           
+SUB $6, $5, $5                    
+NOP                               
+NOP                               
+SUB $7, $7, $7
+STORE $7, $5, 0x530015F7          
+SUB $0, $0, $0
+STORE $0, $7, 0x53001603          
+SUB $2, $2, $2
+STORE $2, $0, 0x530015F7          
+SUB $4, $3, $6                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $6, $7, 0x3B7747F5           
+SUB $4, $4, $4
+LOAD $2, $4, 0x530015F7           
+SUBI $4, $6, 0xB04F10B8           
+SUB $6, $6, $6
+LOAD $3, $6, 0x530015FB           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $7, $3, $2                    
+ADD $4, $3, $3                    
+SUB $3, $3, $3
+LOAD $6, $3, 0x530015FB           
+SUB $2, $2, $2
+LOAD $4, $2, 0x530015FB           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUBI $6, $3, 0xDCBDA79B           
+SUB $3, $0, $7                    
+ADD $0, $5, $6                    
+SUBI $4, $0, 0x436A4088           
+ADDI $1, $1, 0xF5AA8AFE           
+SUB $1, $1, $1
+STORE $1, $5, 0x530015FF          
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x530015FB
+STORE $0, $6, $6                  
+NOP                               
+ADDI $1, $0, 0x3D402E79           
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+ADDI $3, $0, 0x330B6ECD           
+ADDI $3, $5, 0x799C4BE3           
+ADDI $1, $6, 0xA9553FB5           
+ADD $4, $2, $4                    
+ADDI $4, $1, 0x32FD9063           
+NOP                               
+NOP                               
+HALT $0
+#
+D@0x530015F7
+0x30F487D0		# 530015F7		= 821331920
+0x808D7A4E		# 530015FB		= -2138211762
+0xD88E6692		# 530015FF		= -661756270
+0x6FC2223A		# 53001603		= 1874993722

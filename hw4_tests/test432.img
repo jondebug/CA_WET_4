@@ -1,0 +1,51 @@
+# Test N.432
+#
+L2
+S6
+O5
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $1, $6, 0x4D36669E           
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x4E16DF66
+STORE $7, $7, $3                  
+SUBI $1, $0, 0x157E623C           
+NOP                               
+NOP                               
+ADDI $0, $0, 0x41018479           
+SUB $3, $3, $3                    
+SUBI $2, $5, 0x1EC066D5           
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x4E16DF56
+LOAD $3, $6, $4                   
+SUB $7, $6, $1                    
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+LOAD $5, $1, 0x4E16DF66           
+SUBI $0, $6, 0xA062745E           
+NOP                               
+SUB $6, $7, $3                    
+SUB $1, $1, $1
+STORE $1, $6, 0x4E16DF66          
+SUB $0, $0, $0
+LOAD $5, $0, 0x4E16DF56           
+ADDI $1, $2, 0x76277F08           
+HALT $0
+#
+D@0x4E16DF52
+0xC70D1FE8		# 4E16DF52		= -955441176
+0xFA727E09		# 4E16DF56		= -93159927
+0xF4EC1FEB		# 4E16DF5A		= -185851925
+0x0464BBA1		# 4E16DF5E		= 73710497
+0xF9E543CD		# 4E16DF62		= -102415411
+0x099F71EB		# 4E16DF66		= 161444331

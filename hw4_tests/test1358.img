@@ -1,0 +1,149 @@
+# Test N.1358
+#
+L7
+S1
+O7
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $3, $4, 0x8DD3A0EF           
+NOP                               
+NOP                               
+SUB $1, $6, $1                    
+SUBI $2, $7, 0xCA6F0B23           
+SUB $5, $5, $5
+STORE $5, $1, 0x260C228E          
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x260C2296
+LOAD $5, $4, $5                   
+NOP                               
+NOP                               
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x260C229E
+STORE $7, $5, $4                  
+ADDI $0, $7, 0x8FCD9D47           
+ADDI $3, $5, 0x7AFFCD8E           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x260C22AE
+LOAD $4, $2, $3                   
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $4, $6, 0x61D6D585           
+SUB $1, $1, $1
+STORE $1, $1, 0x260C2286          
+ADDI $2, $1, 0xDA688980           
+SUBI $3, $6, 0xA0C0438D           
+SUBI $7, $2, 0x95BFBC01           
+SUB $3, $6, $1                    
+SUB $1, $1, $1
+STORE $1, $0, 0x260C22B6          
+NOP                               
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x260C22B2
+LOAD $1, $4, $6                   
+NOP                               
+ADDI $3, $7, 0xD516AED7           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $4                    
+ADDI $7, $7, 0x9D8FE6EF           
+SUBI $5, $6, 0x0516F723           
+NOP                               
+SUB $4, $3, $2                    
+SUB $0, $0, $0
+LOAD $3, $0, 0x260C22A6           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $5, $7, 0x6F131ADA           
+NOP                               
+ADDI $3, $1, 0xEE494FA2           
+SUBI $2, $6, 0x60B988A8           
+SUB $6, $6, $6
+STORE $6, $1, 0x260C22A2          
+SUBI $6, $2, 0xF18FB69A           
+ADD $6, $1, $7                    
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+ADDI $4, $3, 0x7CF68321           
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x260C22A6
+STORE $2, $2, $4                  
+ADDI $2, $2, 0x32A9F562           
+NOP                               
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x260C228E
+STORE $4, $7, $2                  
+ADDI $6, $6, 0x5C3BAC78           
+SUBI $7, $3, 0x8AAD4DEF           
+ADDI $5, $4, 0x77CEB56A           
+ADDI $7, $4, 0x48EF371E           
+SUB $1, $1, $1
+LOAD $7, $1, 0x260C228A           
+SUB $1, $1, $1
+STORE $1, $3, 0x260C2292          
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUBI $3, $6, 0xB7915089           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x260C229E
+LOAD $0, $4, $2                   
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x260C22AE
+STORE $5, $5, $4                  
+SUBI $2, $3, 0x1CD13A6E           
+SUBI $4, $4, 0x4F74C303           
+ADDI $4, $7, 0x9B39F756           
+SUBI $5, $1, 0x09BD7AFE           
+ADDI $2, $0, 0x800CC94C           
+ADDI $4, $7, 0xDBE212D0           
+SUBI $6, $7, 0xC5D58B27           
+HALT $0
+#
+D@0x260C2286
+0x618F248A		# 260C2286		= 1636770954
+0xE99207B9		# 260C228A		= -376305735
+0xD908E138		# 260C228E		= -653729480
+0x5AA3BF0E		# 260C2292		= 1520680718
+0xFF054E5F		# 260C2296		= -16429473
+0x229CE703		# 260C229A		= 580708099
+0xBA12D8F8		# 260C229E		= -1173169928
+0x81626ED8		# 260C22A2		= -2124255528
+0xD4A42CCC		# 260C22A6		= -727438132
+0xB464EE4B		# 260C22AA		= -1268453813
+0x1E990E57		# 260C22AE		= 513347159
+0x92364342		# 260C22B2		= -1841937598
+0x5BE43657		# 260C22B6		= 1541682775
+0x9A9B1227		# 260C22BA		= -1701113305

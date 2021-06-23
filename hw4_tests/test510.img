@@ -1,0 +1,91 @@
+# Test N.510
+#
+L9
+S9
+O10
+N5
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $6, $5, $0                    
+SUB $6, $6, $5                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x692D0CB4
+STORE $3, $1, $6                  
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x692D0CB8
+LOAD $7, $1, $0                   
+SUB $2, $0, $5                    
+ADDI $6, $1, 0xA4F3949C           
+ADD $4, $2, $6                    
+NOP                               
+ADDI $7, $1, 0x9D677BB1           
+SUB $0, $4, $3                    
+SUB $4, $5, $6                    
+SUB $6, $0, $5                    
+ADDI $5, $5, 0xE4FCDE8F           
+NOP                               
+ADDI $2, $4, 0x9089AF5F           
+ADDI $4, $6, 0x79439E73           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x692D0CB8
+STORE $2, $2, $3                  
+ADD $1, $1, $2                    
+SUB $6, $4, $5                    
+SUB $6, $6, $6
+STORE $6, $0, 0x692D0CB8          
+ADDI $1, $0, 0xDE3567A6           
+ADDI $5, $5, 0x8654DA7F           
+ADD $6, $7, $0                    
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x692D0CA4
+STORE $3, $3, $2                  
+SUB $6, $6, $6
+LOAD $5, $6, 0x692D0CAC           
+SUB $2, $2, $2
+LOAD $7, $2, 0x692D0CAC           
+NOP                               
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x692D0CB8
+LOAD $2, $5, $1                   
+ADD $6, $2, $2                    
+SUBI $5, $3, 0xEBE5B6C0           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $2, $6, 0x87AA3C53           
+ADDI $1, $3, 0xFDF60C31           
+HALT $0
+#
+D@0x692D0CA0
+0x3C23819A		# 692D0CA0		= 1008959898
+0xC00CD6DE		# 692D0CA4		= -1072900386
+0x38CE27F5		# 692D0CA8		= 953034741
+0xE8CE86E9		# 692D0CAC		= -389118231
+0xF1D091C9		# 692D0CB0		= -237989431
+0xE0804BB7		# 692D0CB4		= -528462921
+0xE99493F9		# 692D0CB8		= -376138759

@@ -1,0 +1,100 @@
+# Test N.359
+#
+L2
+S5
+O6
+N7
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $1, $3, 0xDBB28181           
+ADD $0, $2, $6                    
+SUB $2, $2, $2
+LOAD $2, $2, 0x7444F0EC           
+SUB $2, $2, $2
+STORE $2, $2, 0x7444F0EC          
+SUB $6, $6, $6
+LOAD $2, $6, 0x7444F0EC           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $6, $5, $7                    
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x7444F0E8
+STORE $7, $3, $6                  
+ADDI $2, $5, 0x794BBA4A           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $3, 0x7444F0F0          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x7444F0EC
+LOAD $6, $0, $4                   
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x7444F0EC
+LOAD $0, $2, $6                   
+SUBI $2, $5, 0x6BFF5847           
+SUBI $7, $7, 0xBEF97EA1           
+ADD $0, $4, $5                    
+ADDI $3, $1, 0x9B5D60B3           
+SUB $1, $1, $1
+LOAD $4, $1, 0x7444F0EC           
+SUBI $6, $3, 0x84597FF1           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $7, $1, 0x297597B3           
+NOP                               
+SUBI $1, $4, 0x0EDB32DD           
+SUB $3, $7, $7                    
+SUBI $7, $7, 0x3E2C330D           
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x7444F0EC
+LOAD $7, $1, $6                   
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADD $7, $7, $0                    
+SUB $3, $7, $1                    
+NOP                               
+SUB $6, $5, $4                    
+SUB $1, $1, $1
+STORE $1, $1, 0x7444F0EC          
+SUB $0, $0, $0
+STORE $0, $0, 0x7444F0EC          
+NOP                               
+ADD $4, $5, $0                    
+NOP                               
+NOP                               
+SUB $0, $7, $7                    
+ADDI $7, $6, 0xA4AE905B           
+HALT $0
+#
+D@0x7444F0E8
+0xB4C663F9		# 7444F0E8		= -1262066695
+0x74F8ABD7		# 7444F0EC		= 1962453975
+0x168370EE		# 7444F0F0		= 377712878

@@ -1,0 +1,98 @@
+# Test N.1907
+#
+L3
+S4
+O4
+N4
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+ADDI $1, $1, 0xD5C58771           
+SUBI $5, $0, 0x568294B2           
+ADD $2, $7, $3                    
+SUBI $0, $4, 0xF3181E98           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $0, $3, 0x4408EE5E           
+ADDI $3, $7, 0x33A85100           
+SUB $4, $0, $3                    
+SUB $6, $6, $6
+LOAD $4, $6, 0x00C9D5D7           
+ADDI $0, $0, 0xEB89555E           
+ADDI $7, $1, 0x776BBF84           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x00C9D5DB
+LOAD $3, $1, $0                   
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x00C9D5DB
+LOAD $5, $2, $7                   
+ADD $2, $4, $7                    
+NOP                               
+SUB $7, $7, $7
+STORE $7, $2, 0x00C9D5D7          
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x00C9D5DB
+STORE $7, $1, $5                  
+SUB $5, $5, $5
+STORE $5, $0, 0x00C9D5D7          
+SUB $2, $4, $3                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $4, $7, 0xDEE55662           
+SUB $5, $2, $6                    
+SUB $4, $7, $0                    
+NOP                               
+NOP                               
+NOP                               
+SUB $0, $0, $0
+LOAD $4, $0, 0x00C9D5DB           
+ADD $5, $3, $5                    
+NOP                               
+SUB $2, $2, $2
+LOAD $6, $2, 0x00C9D5DB           
+SUB $1, $7, $3                    
+SUBI $0, $0, 0x81361333           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $7, $7, $7
+LOAD $7, $7, 0x00C9D5DB           
+SUB $3, $3, $3
+STORE $3, $3, 0x00C9D5D7          
+SUB $5, $6, $1                    
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x00C9D5D7
+STORE $1, $7, $7                  
+SUB $6, $6, $5                    
+ADDI $7, $6, 0xB8BCB6B5           
+SUB $0, $2, $3                    
+SUB $6, $3, $4                    
+SUB $0, $7, $3                    
+SUB $7, $5, $0                    
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x00C9D5DB
+STORE $3, $2, $0                  
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x00C9D5D7
+STORE $6, $0, $1                  
+HALT $0
+#
+D@0x00C9D5D7
+0xC1FF13EE		# 00C9D5D7		= -1040247826
+0x8D21DCC4		# 00C9D5DB		= -1927160636

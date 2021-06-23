@@ -1,0 +1,105 @@
+# Test N.161
+#
+L2
+S4
+O1
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $4, 0x495CB92B          
+SUBI $6, $2, 0xD0E12D36           
+SUB $0, $0, $0                    
+NOP                               
+ADD $5, $7, $5                    
+NOP                               
+SUBI $1, $0, 0xDFC833F1           
+SUB $4, $4, $4
+STORE $4, $6, 0x495CB92F          
+SUB $6, $2, $6                    
+SUB $1, $1, $1
+LOAD $0, $1, 0x495CB927           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+LOAD $4, $2, 0x495CB927           
+NOP                               
+SUB $4, $4, $4
+LOAD $6, $4, 0x495CB92B           
+SUB $6, $0, $6                    
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x495CB92F
+LOAD $0, $5, $2                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $5, $2                    
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x495CB92F
+LOAD $6, $0, $1                   
+NOP                               
+NOP                               
+SUBI $6, $3, 0x5731B00F           
+SUB $1, $1, $1
+STORE $1, $6, 0x495CB92B          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x495CB933
+STORE $2, $7, $6                  
+SUB $4, $3, $6                    
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x495CB92F
+STORE $2, $6, $3                  
+ADD $3, $1, $1                    
+SUB $3, $3, $3
+STORE $3, $5, 0x495CB92B          
+SUB $0, $0, $0
+LOAD $6, $0, 0x495CB92B           
+ADDI $2, $5, 0xA4867C22           
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x495CB927
+LOAD $2, $7, $0                   
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADDI $3, $0, 0xECB6C358           
+NOP                               
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $5, $4, $6                    
+ADD $7, $5, $4                    
+HALT $0
+#
+D@0x495CB927
+0xDDB14BA7		# 495CB927		= -575583321
+0x4DA2F468		# 495CB92B		= 1302525032
+0xB5861FEE		# 495CB92F		= -1249501202
+0x1AD02AB4		# 495CB933		= 449850036

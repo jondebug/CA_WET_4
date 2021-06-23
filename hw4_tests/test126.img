@@ -1,0 +1,84 @@
+# Test N.126
+#
+L9
+S1
+O4
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $6, $5                    
+SUBI $4, $4, 0x44F15A9E           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $6, $1, $6                    
+SUB $3, $3, $3
+STORE $3, $4, 0x572E7A6F          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $2, $1, 0x403A440A           
+SUB $2, $5, $5                    
+ADD $7, $0, $7                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $7, $6, $1                    
+SUBI $4, $6, 0xE19CF96A           
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x572E7A6F
+LOAD $0, $0, $3                   
+SUB $7, $2, $6                    
+SUB $7, $4, $7                    
+SUB $7, $7, $7
+LOAD $1, $7, 0x572E7A6F           
+SUB $2, $6, $5                    
+ADDI $6, $3, 0x9BB221BB           
+SUB $6, $6, $6
+STORE $6, $0, 0x572E7A6F          
+SUBI $3, $2, 0x1B9D60E9           
+SUB $5, $5, $5
+STORE $5, $4, 0x572E7A6F          
+ADDI $2, $2, 0xCA8D3754           
+NOP                               
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x572E7A6F
+STORE $6, $0, $4                  
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $1, 0x572E7A6F          
+ADDI $4, $3, 0xDB40DD02           
+NOP                               
+SUB $6, $6, $2                    
+ADD $0, $5, $0                    
+ADDI $7, $2, 0xCFBFB0DA           
+SUB $2, $2, $3                    
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x572E7A6F
+LOAD $7, $6, $3                   
+ADDI $1, $4, 0xC82B5530           
+SUB $4, $4, $5                    
+SUB $2, $2, $2
+LOAD $0, $2, 0x572E7A6F           
+SUBI $7, $2, 0x0EC07587           
+SUB $6, $6, $3                    
+NOP                               
+HALT $0
+#
+D@0x572E7A6F
+0x0C2EC6EA		# 572E7A6F		= 204392170

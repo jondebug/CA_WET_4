@@ -1,0 +1,109 @@
+# Test N.134
+#
+L4
+S2
+O8
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $2, $7                    
+SUB $2, $5, $6                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADDI $2, $2, 0xC51D6372           
+SUB $6, $6, $6
+STORE $6, $6, 0x670A4DC1          
+ADD $3, $0, $6                    
+SUB $5, $5, $5
+STORE $5, $3, 0x670A4DC1          
+SUB $0, $0, $0
+STORE $0, $7, 0x670A4DC1          
+ADDI $3, $3, 0x361EF885           
+ADD $1, $3, $5                    
+SUBI $4, $3, 0xBC32A53B           
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x670A4DC1
+LOAD $0, $6, $3                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $5, $2, $0                    
+NOP                               
+NOP                               
+SUB $7, $6, $0                    
+SUB $2, $2, $2
+STORE $2, $0, 0x670A4DC1          
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x670A4DC1
+STORE $6, $7, $2                  
+ADD $6, $4, $6                    
+SUBI $6, $4, 0xFF0422D8           
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x670A4DC1
+LOAD $6, $0, $4                   
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x670A4DC1
+LOAD $3, $4, $3                   
+SUBI $7, $5, 0x993E287A           
+SUB $6, $6, $0                    
+SUB $2, $2, $2
+LOAD $2, $2, 0x670A4DC1           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $5, $0                    
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x670A4DC1
+LOAD $6, $2, $6                   
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x670A4DC1
+STORE $7, $7, $1                  
+SUBI $6, $5, 0x8E4C2F3F           
+SUB $7, $6, $1                    
+ADD $2, $2, $6                    
+SUB $1, $1, $1
+LOAD $0, $1, 0x670A4DC1           
+SUBI $4, $4, 0x37D645AF           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUBI $0, $6, 0x229BFC0E           
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x670A4DC1
+STORE $0, $6, $3                  
+SUBI $6, $0, 0x8F6C72AB           
+SUB $4, $0, $3                    
+SUB $5, $5, $0                    
+SUB $4, $6, $5                    
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x670A4DC1
+LOAD $3, $3, $0                   
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x670A4DC1
+LOAD $6, $6, $4                   
+HALT $0
+#
+D@0x670A4DC1
+0x81D45604		# 670A4DC1		= -2116790780

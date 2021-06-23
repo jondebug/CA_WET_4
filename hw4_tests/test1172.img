@@ -1,0 +1,95 @@
+# Test N.1172
+#
+L8
+S8
+O7
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $0, $6                    
+SUB $0, $7, $0                    
+NOP                               
+ADD $2, $5, $4                    
+NOP                               
+NOP                               
+SUBI $2, $2, 0x3506EC8C           
+SUB $0, $3, $7                    
+ADD $3, $5, $1                    
+ADDI $3, $1, 0xD15ECE42           
+ADD $0, $5, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $7, $2, 0xEC9236FE           
+NOP                               
+SUB $0, $0, $0
+STORE $0, $4, 0x73DD689D          
+SUBI $3, $4, 0x0F367916           
+SUB $7, $7, $7
+STORE $7, $0, 0x73DD6895          
+SUB $3, $3, $3
+LOAD $0, $3, 0x73DD688D           
+SUB $2, $0, $6                    
+ADD $1, $0, $0                    
+ADDI $2, $2, 0xF0E9338A           
+SUB $5, $3, $0                    
+SUBI $2, $0, 0xDE3BA22A           
+ADD $4, $0, $7                    
+SUBI $4, $1, 0x60B64907           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $2, $2, 0xFE7ABD5D           
+SUB $3, $4, $7                    
+ADDI $4, $5, 0x49069F29           
+SUB $5, $5, $5
+LOAD $1, $5, 0x73DD68A9           
+ADD $0, $0, $7                    
+ADD $0, $4, $2                    
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x73DD689D
+LOAD $2, $3, $4                   
+SUB $1, $6, $6                    
+SUB $3, $4, $6                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $0, $5, $6                    
+ADDI $4, $6, 0x72BA0A1E           
+SUB $0, $6, $4                    
+ADDI $5, $2, 0x3D01FD00           
+SUB $2, $2, $2
+LOAD $1, $2, 0x73DD6891           
+SUB $1, $1, $1
+STORE $1, $1, 0x73DD6899          
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x73DD6899
+LOAD $7, $6, $2                   
+HALT $0
+#
+D@0x73DD6885
+0x41D353E7		# 73DD6885		= 1104368615
+0x405EBDA0		# 73DD6889		= 1079950752
+0xFBFDE29A		# 73DD688D		= -67247462
+0xC431531E		# 73DD6891		= -1003400418
+0xDAE2727B		# 73DD6895		= -622693765
+0xA97E31C2		# 73DD6899		= -1451347518
+0x52CCC856		# 73DD689D		= 1389152342
+0x286B3030		# 73DD68A1		= 678113328
+0x79B7F927		# 73DD68A5		= 2042100007
+0xC93A9AAB		# 73DD68A9		= -918906197

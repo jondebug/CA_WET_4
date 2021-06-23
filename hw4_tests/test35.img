@@ -1,0 +1,95 @@
+# Test N.35
+#
+L2
+S1
+O2
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x0B216A52
+STORE $7, $7, $4                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $6, $0, $6                    
+SUB $4, $1, $6                    
+SUBI $2, $7, 0x13976314           
+SUB $6, $2, $3                    
+SUB $7, $6, $6                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $0, $5, 0xAB33A84D           
+ADD $3, $3, $2                    
+SUB $0, $6, $7                    
+SUB $2, $3, $7                    
+SUB $6, $6, $6
+STORE $6, $1, 0x0B216A42          
+ADDI $6, $4, 0x2134D5B0           
+NOP                               
+ADD $6, $6, $1                    
+SUBI $0, $7, 0x78A42F0A           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $6, $6                    
+SUBI $2, $4, 0x7B240A3B           
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $3, $7, 0x6EA8660E           
+ADDI $6, $3, 0xE64AAFBC           
+NOP                               
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x0B216A6A
+STORE $1, $6, $5                  
+SUBI $2, $7, 0x7702037B           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x0B216A66
+LOAD $0, $1, $5                   
+ADDI $1, $0, 0x1ADFF1C8           
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $0, $0, $1                    
+ADD $1, $3, $2                    
+SUB $3, $0, $6                    
+SUB $0, $0, $5                    
+SUB $0, $0, $0
+LOAD $4, $0, 0x0B216A42           
+NOP                               
+NOP                               
+HALT $0
+#
+D@0x0B216A3A
+0xC97FA8BC		# 0B216A3A		= -914380612
+0x00AF4100		# 0B216A3E		= 11485440
+0x167BF55E		# 0B216A42		= 377222494
+0xE4EB967A		# 0B216A46		= -454322566
+0x25B75795		# 0B216A4A		= 632772501
+0xA64A7B8B		# 0B216A4E		= -1505068149
+0x145A9AE8		# 0B216A52		= 341482216
+0x89B59F05		# 0B216A56		= -1984585979
+0x27BF4AD3		# 0B216A5A		= 666847955
+0xFA2078DF		# 0B216A5E		= -98535201
+0xFB409DE5		# 0B216A62		= -79651355
+0x48265566		# 0B216A66		= 1210471782
+0xE3FC9FBB		# 0B216A6A		= -469983301

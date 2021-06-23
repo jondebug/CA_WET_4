@@ -1,0 +1,171 @@
+# Test N.1757
+#
+L6
+S5
+O4
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $7, $2                    
+ADD $1, $0, $3                    
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x1879E868
+LOAD $6, $7, $3                   
+NOP                               
+NOP                               
+SUBI $4, $4, 0x1E32BBF1           
+ADDI $3, $5, 0x21DFDAA9           
+SUB $4, $7, $6                    
+NOP                               
+SUB $7, $7, $7
+STORE $7, $7, 0x1879E86C          
+SUB $7, $7, $7
+STORE $7, $2, 0x1879E860          
+SUB $1, $4, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $0, $0
+LOAD $1, $0, 0x1879E878           
+ADDI $3, $7, 0x3A367F22           
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x1879E870
+STORE $0, $1, $4                  
+ADDI $2, $7, 0xEB7E20DC           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $0, $5                    
+ADD $6, $3, $3                    
+SUB $5, $5, $5
+LOAD $2, $5, 0x1879E86C           
+NOP                               
+SUB $7, $7, $7
+LOAD $5, $7, 0x1879E864           
+SUBI $3, $5, 0xFF234092           
+ADD $3, $6, $6                    
+ADD $0, $4, $7                    
+SUB $1, $1, $1
+STORE $1, $7, 0x1879E86C          
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x1879E860
+STORE $2, $7, $7                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $0, $0, $0
+LOAD $7, $0, 0x1879E874           
+NOP                               
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x1879E874
+LOAD $5, $6, $5                   
+ADDI $6, $1, 0xE9BE40B3           
+ADDI $3, $2, 0x1328B584           
+SUBI $7, $7, 0x7AA23DE2           
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x1879E870
+LOAD $6, $2, $6                   
+SUBI $6, $7, 0xA159AB16           
+SUB $4, $7, $5                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $2, $5                    
+ADD $6, $2, $3                    
+SUB $5, $5, $5
+LOAD $4, $5, 0x1879E874           
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $2, $6, $7                    
+NOP                               
+ADDI $7, $2, 0xC864959C           
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x1879E870
+LOAD $6, $3, $1                   
+SUB $2, $2, $2
+LOAD $4, $2, 0x1879E86C           
+ADDI $6, $6, 0xEA40838C           
+SUB $6, $6, $6
+STORE $6, $1, 0x1879E860          
+ADDI $7, $5, 0x1114392F           
+ADD $4, $4, $5                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADDI $4, $0, 0x63A20C59           
+SUB $7, $3, $0                    
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x1879E874
+STORE $1, $6, $2                  
+SUB $0, $7, $4                    
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x1879E874
+STORE $0, $0, $4                  
+SUB $5, $5, $5
+STORE $5, $3, 0x1879E860          
+ADD $0, $5, $3                    
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+NOP                               
+SUB $7, $7, $7
+STORE $7, $4, 0x1879E868          
+SUB $5, $2, $2                    
+SUB $3, $3, $3
+STORE $3, $3, 0x1879E878          
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x1879E868
+STORE $7, $4, $4                  
+SUB $7, $4, $0                    
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x1879E878
+LOAD $6, $7, $6                   
+NOP                               
+NOP                               
+NOP                               
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x1879E878
+LOAD $6, $2, $7                   
+NOP                               
+NOP                               
+SUB $6, $1, $0                    
+HALT $0
+#
+D@0x1879E860
+0xCF780D56		# 1879E860		= -814215850
+0x273F8EDA		# 1879E864		= 658476762
+0xC7F72CA6		# 1879E868		= -940102490
+0x1AD0F71E		# 1879E86C		= 449902366
+0x335FACCA		# 1879E870		= 861908170
+0x2DF67616		# 1879E874		= 771126806
+0xA66E619D		# 1879E878		= -1502715491

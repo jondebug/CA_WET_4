@@ -1,0 +1,90 @@
+# Test N.608
+#
+L1
+S10
+O5
+N6
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $5, $5, $5
+LOAD $2, $5, 0x4A25AEB1           
+SUBI $5, $3, 0x5D9E57AC           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $2, $3, 0xC7C33A18           
+ADDI $2, $1, 0x89306CCC           
+SUBI $5, $1, 0x69466B89           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $2, $3, $5                    
+NOP                               
+SUB $3, $0, $1                    
+SUBI $7, $1, 0x9D9CAC45           
+SUB $4, $4, $4
+LOAD $4, $4, 0x4A25AEB9           
+ADD $0, $5, $0                    
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x4A25AEB9
+LOAD $5, $4, $6                   
+NOP                               
+ADDI $0, $6, 0x59285E25           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUBI $0, $6, 0xC695A389           
+SUBI $1, $0, 0x57A5E994           
+SUB $2, $2, $2
+LOAD $1, $2, 0x4A25AEA9           
+ADD $5, $3, $6                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $2, $1                    
+SUBI $0, $7, 0x7A22D5E7           
+SUBI $7, $7, 0xC07AF530           
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+SUBI $7, $5, 0x550E6330           
+ADDI $6, $7, 0x0582CE6A           
+HALT $0
+#
+D@0x4A25AEA5
+0x736E9BF1		# 4A25AEA5		= 1936628721
+0x3F29F90F		# 4A25AEA9		= 1059715343
+0x66816781		# 4A25AEAD		= 1719756673
+0x94CD20EE		# 4A25AEB1		= -1798496018
+0xE4391BDD		# 4A25AEB5		= -466019363
+0x0F36710E		# 4A25AEB9		= 255226126
+0x6473C54C		# 4A25AEBD		= 1685308748
+0x1ACB2B1C		# 4A25AEC1		= 449522460
+0x25C61D14		# 4A25AEC5		= 633740564
+0x34FD155C		# 4A25AEC9		= 889001308
+0x1AF78A0F		# 4A25AECD		= 452430351
+0x6191078B		# 4A25AED1		= 1636894603
+0x264A3A20		# 4A25AED5		= 642398752
+0x5D72D9EE		# 4A25AED9		= 1567807982
+0x2C50801A		# 4A25AEDD		= 743473178
+0x7C804CFF		# 4A25AEE1		= 2088783103
+0x9B174B74		# 4A25AEE5		= -1692972172
+0x7FE4022F		# 4A25AEE9		= 2145649199

@@ -1,0 +1,124 @@
+# Test N.1564
+#
+L7
+S3
+O2
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x18FB441B
+LOAD $6, $4, $1                   
+ADD $2, $5, $3                    
+NOP                               
+ADD $7, $4, $0                    
+NOP                               
+SUBI $0, $2, 0x71197D10           
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x18FB43FB
+LOAD $7, $7, $5                   
+SUB $3, $3, $0                    
+SUBI $6, $1, 0xC53B6C2E           
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x18FB4417
+LOAD $4, $0, $6                   
+NOP                               
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x18FB442F
+STORE $5, $0, $0                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $5, $2, 0xDD85E9AE           
+SUBI $1, $1, 0xC847B0D4           
+ADDI $7, $2, 0x60FA0991           
+SUB $0, $7, $4                    
+SUB $7, $0, $0                    
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x18FB441F
+STORE $4, $2, $6                  
+SUB $5, $5, $5
+STORE $5, $2, 0x18FB441F          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x18FB442F
+LOAD $7, $0, $2                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $6, $7, $2                    
+SUB $6, $6, $6
+STORE $6, $2, 0x18FB4413          
+ADDI $3, $4, 0xC50EABF6           
+SUBI $1, $2, 0x2431ADC3           
+ADDI $3, $2, 0x48384336           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x18FB440F
+STORE $1, $5, $6                  
+SUB $1, $1, $6                    
+NOP                               
+SUB $4, $4, $4
+STORE $4, $6, 0x18FB4407          
+NOP                               
+SUB $1, $0, $5                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $0, $3, $0                    
+ADDI $7, $3, 0x6C53D736           
+SUBI $5, $0, 0xB337F195           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x18FB4433
+LOAD $5, $6, $1                   
+NOP                               
+SUB $5, $4, $6                    
+SUB $3, $0, $5                    
+HALT $0
+#
+D@0x18FB43FB
+0xD5324F7F		# 18FB43FB		= -718123137
+0x24FD604F		# 18FB43FF		= 620585039
+0x5588E8BF		# 18FB4403		= 1435035839
+0x6F2409A2		# 18FB4407		= 1864632738
+0x241A664F		# 18FB440B		= 605709903
+0x74D87FFA		# 18FB440F		= 1960345594
+0x30959DC3		# 18FB4413		= 815111619
+0xB07F7B38		# 18FB4417		= -1333822664
+0xC22ED430		# 18FB441B		= -1037118416
+0x30F202CD		# 18FB441F		= 821166797
+0xB5F46E67		# 18FB4423		= -1242272153
+0x2FB1CE76		# 18FB4427		= 800181878
+0xE2CF1FE6		# 18FB442B		= -489742362
+0x299FA2DC		# 18FB442F		= 698327772
+0x570BCA23		# 18FB4433		= 1460390435
+0xCBD4DDD0		# 18FB4437		= -875242032

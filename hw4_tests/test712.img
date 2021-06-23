@@ -1,0 +1,75 @@
+# Test N.712
+#
+L6
+S3
+O10
+N3
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $0, $2, 0x7A3AD597           
+SUB $0, $0, $0
+LOAD $3, $0, 0x58CCED28           
+SUB $0, $0, $0
+LOAD $7, $0, 0x58CCED14           
+NOP                               
+SUBI $0, $7, 0xF4D91806           
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x58CCED24
+LOAD $4, $4, $6                   
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x58CCED18
+STORE $4, $7, $6                  
+NOP                               
+ADDI $2, $5, 0x9791F9F7           
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x58CCED34
+STORE $5, $5, $4                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $5, $0                    
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x58CCED10
+STORE $5, $7, $3                  
+SUB $7, $2, $2                    
+SUB $5, $4, $3                    
+SUBI $4, $6, 0x7F3360BC           
+SUB $1, $1, $1
+LOAD $2, $1, 0x58CCED14           
+SUBI $6, $1, 0x710BBA00           
+SUB $2, $2, $2
+LOAD $7, $2, 0x58CCED14           
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x58CCED04
+LOAD $0, $3, $5                   
+HALT $0
+#
+D@0x58CCED04
+0x634DB481		# 58CCED04		= 1666036865
+0xF1F17329		# 58CCED08		= -235834583
+0x84BE395A		# 58CCED0C		= -2067908262
+0xB144EA9F		# 58CCED10		= -1320883553
+0x7DD12F8B		# 58CCED14		= 2110861195
+0x5F3D60BD		# 58CCED18		= 1597857981
+0x0042266F		# 58CCED1C		= 4335215
+0x899A6214		# 58CCED20		= -1986371052
+0x226EEAA9		# 58CCED24		= 577694377
+0xB83FA6DA		# 58CCED28		= -1203788070
+0x31A4B96C		# 58CCED2C		= 832878956
+0x389C8518		# 58CCED30		= 949781784
+0x7FEFF7F9		# 58CCED34		= 2146433017
+0x63442895		# 58CCED38		= 1665411221

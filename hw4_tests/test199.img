@@ -1,0 +1,61 @@
+# Test N.199
+#
+L7
+S10
+O5
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $2, $0, 0x00013B71           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x53EA7C01
+LOAD $3, $7, $4                   
+SUB $1, $1, $1
+LOAD $0, $1, 0x53EA7BFD           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x53EA7C05
+LOAD $2, $7, $6                   
+SUB $4, $4, $4
+STORE $4, $0, 0x53EA7BE9          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $6, $5, 0x53CAD76D           
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x53EA7C05
+STORE $6, $1, $5                  
+NOP                               
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x53EA7BE9
+LOAD $7, $7, $6                   
+HALT $0
+#
+D@0x53EA7BE9
+0x7B293A80		# 53EA7BE9		= 2066299520
+0xEF021346		# 53EA7BED		= -285076666
+0x4D026D60		# 53EA7BF1		= 1292004704
+0x2FD99BC8		# 53EA7BF5		= 802790344
+0x5C2FFADC		# 53EA7BF9		= 1546648284
+0x063E73EC		# 53EA7BFD		= 104756204
+0xED8177EC		# 53EA7C01		= -310282260
+0x689132B1		# 53EA7C05		= 1754346161
+0xE7DC5ED3		# 53EA7C09		= -404988205

@@ -1,0 +1,93 @@
+# Test N.1050
+#
+L8
+S7
+O6
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $2, $2                    
+SUBI $2, $7, 0x2B88053A           
+SUBI $7, $3, 0xB9D69707           
+SUB $0, $6, $2                    
+ADDI $2, $4, 0x99FFE15F           
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x0CFD5C2B
+STORE $4, $0, $7                  
+ADD $5, $2, $5                    
+SUBI $2, $1, 0xA839406D           
+ADD $3, $0, $4                    
+NOP                               
+ADD $0, $1, $6                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $6, $0, $4                    
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x0CFD5C43
+STORE $0, $0, $1                  
+ADDI $4, $7, 0x01917D6D           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x0CFD5C0F
+LOAD $7, $1, $0                   
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x0CFD5C3F
+LOAD $2, $7, $1                   
+NOP                               
+SUB $7, $7, $7
+LOAD $1, $7, 0x0CFD5C3F           
+NOP                               
+SUB $2, $1, $4                    
+ADD $1, $3, $4                    
+NOP                               
+SUBI $1, $6, 0xE7DCF304           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x0CFD5C0F
+STORE $4, $0, $6                  
+NOP                               
+SUB $5, $5, $7                    
+SUBI $0, $1, 0x125E5985           
+ADD $1, $3, $0                    
+ADD $4, $6, $3                    
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x0CFD5C33
+STORE $7, $2, $2                  
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x0CFD5C2F
+STORE $4, $1, $5                  
+ADD $3, $0, $0                    
+HALT $0
+#
+D@0x0CFD5C07
+0x0B8A1B3F		# 0CFD5C07		= 193600319
+0x99CB98AA		# 0CFD5C0B		= -1714710358
+0x70D3A549		# 0CFD5C0F		= 1892918601
+0x98651C88		# 0CFD5C13		= -1738204024
+0xACEC9B96		# 0CFD5C17		= -1393779818
+0xF91242FF		# 0CFD5C1B		= -116243713
+0xF73A90FF		# 0CFD5C1F		= -147156737
+0xBABD0A74		# 0CFD5C23		= -1162016140
+0x734E99C2		# 0CFD5C27		= 1934531010
+0xEB9879B5		# 0CFD5C2B		= -342328907
+0x28FE9F4E		# 0CFD5C2F		= 687775566
+0xD06C8699		# 0CFD5C33		= -798194023
+0x14139F17		# 0CFD5C37		= 336830231
+0x65ECAF1A		# 0CFD5C3B		= 1710010138
+0xEDA3BA04		# 0CFD5C3F		= -308037116
+0x4A594C64		# 0CFD5C43		= 1247366244

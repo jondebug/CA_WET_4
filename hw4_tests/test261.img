@@ -1,0 +1,117 @@
+# Test N.261
+#
+L2
+S8
+O7
+N6
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+NOP                               
+ADDI $2, $1, 0x8CB08716           
+SUB $5, $1, $2                    
+ADD $0, $0, $6                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x5B77F613
+STORE $0, $1, $6                  
+ADD $5, $7, $1                    
+ADD $6, $7, $2                    
+ADD $2, $3, $7                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $2, $6                    
+ADDI $6, $2, 0x598AD968           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x5B77F61B
+STORE $1, $5, $0                  
+SUB $7, $7, $7
+STORE $7, $5, 0x5B77F60F          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x5B77F60F
+STORE $4, $0, $7                  
+SUB $3, $3, $3
+LOAD $7, $3, 0x5B77F60F           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x5B77F623
+STORE $2, $6, $3                  
+NOP                               
+ADD $6, $5, $1                    
+SUB $0, $0, $0
+LOAD $1, $0, 0x5B77F617           
+SUBI $1, $0, 0x52EE3635           
+SUB $2, $2, $2
+STORE $2, $1, 0x5B77F61F          
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x5B77F60B
+LOAD $7, $7, $1                   
+SUB $0, $3, $5                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x5B77F61F
+LOAD $6, $5, $7                   
+NOP                               
+SUB $0, $0, $0
+LOAD $7, $0, 0x5B77F623           
+SUB $7, $3, $2                    
+NOP                               
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x5B77F60B
+STORE $2, $6, $4                  
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+SUB $3, $2, $3                    
+SUB $5, $4, $1                    
+ADDI $4, $7, 0x568E0294           
+SUBI $3, $2, 0xD7760265           
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x5B77F623
+STORE $5, $6, $6                  
+SUB $0, $2, $2                    
+SUB $1, $1, $1
+STORE $1, $7, 0x5B77F60B          
+SUB $6, $4, $6                    
+HALT $0
+#
+D@0x5B77F603
+0xD979E66C		# 5B77F603		= -646322580
+0x39B151D9		# 5B77F607		= 967922137
+0x702C076D		# 5B77F60B		= 1881933677
+0x83A75E06		# 5B77F60F		= -2086183418
+0x462AEB53		# 5B77F613		= 1177217875
+0x98696C27		# 5B77F617		= -1737921497
+0xFCC6AEF4		# 5B77F61B		= -54087948
+0x403B73D7		# 5B77F61F		= 1077638103
+0x133759F9		# 5B77F623		= 322394617

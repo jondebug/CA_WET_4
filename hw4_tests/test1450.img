@@ -1,0 +1,142 @@
+# Test N.1450
+#
+L10
+S4
+O5
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $3, $7                    
+SUBI $7, $0, 0x9B5C043A           
+ADD $6, $5, $3                    
+SUBI $2, $5, 0xF392FC29           
+NOP                               
+SUB $2, $2, $5                    
+ADDI $5, $2, 0x1CBA1E6A           
+SUB $4, $4, $7                    
+ADDI $1, $5, 0x5817698F           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x0E285F07
+STORE $2, $5, $6                  
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x0E285EDB
+LOAD $4, $5, $2                   
+SUB $5, $7, $6                    
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x0E285ECB
+LOAD $1, $0, $5                   
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x0E285EEB
+LOAD $4, $7, $6                   
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $5, $6, 0xD72C2E4C           
+ADDI $7, $6, 0xE9774E27           
+ADDI $4, $6, 0xE34CBB93           
+SUB $5, $5, $5
+STORE $5, $2, 0x0E285EF3          
+ADDI $3, $4, 0xEE0DF8D7           
+SUB $3, $1, $0                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $2, $2, 0x4ECB1335           
+SUBI $1, $2, 0xE2F49EF3           
+NOP                               
+SUB $6, $6, $6
+LOAD $4, $6, 0x0E285ED3           
+ADDI $0, $1, 0x38C584D6           
+NOP                               
+SUB $5, $5, $5
+STORE $5, $1, 0x0E285EC7          
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x0E285EEF
+STORE $1, $1, $6                  
+SUBI $7, $4, 0x458E6FF0           
+SUB $2, $7, $5                    
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x0E285EC3
+STORE $4, $3, $3                  
+ADDI $6, $5, 0x99C31BFA           
+ADD $3, $6, $1                    
+SUB $3, $3, $3
+LOAD $3, $3, 0x0E285F03           
+SUB $2, $2, $2
+LOAD $7, $2, 0x0E285EDB           
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x0E285EC7
+LOAD $4, $2, $1                   
+NOP                               
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $0, $4, $5                    
+ADD $2, $3, $5                    
+NOP                               
+NOP                               
+NOP                               
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x0E285EFF
+LOAD $5, $6, $7                   
+ADD $1, $3, $3                    
+SUBI $5, $4, 0x7AAB2EA9           
+SUB $2, $2, $2
+STORE $2, $2, 0x0E285EF3          
+ADD $1, $4, $6                    
+SUB $3, $3, $3
+LOAD $4, $3, 0x0E285EE3           
+HALT $0
+#
+D@0x0E285EC3
+0x1142AED1		# 0E285EC3		= 289582801
+0xEE30F523		# 0E285EC7		= -298781405
+0x9A75445C		# 0E285ECB		= -1703590820
+0x6D8FE9FD		# 0E285ECF		= 1838148093
+0xF46D7281		# 0E285ED3		= -194153855
+0xC34739B7		# 0E285ED7		= -1018742345
+0x947CF12B		# 0E285EDB		= -1803751125
+0x97D34440		# 0E285EDF		= -1747762112
+0xFCA7E4AD		# 0E285EE3		= -56105811
+0x4517B41E		# 0E285EE7		= 1159181342
+0x3B448DBC		# 0E285EEB		= 994348476
+0x7B24C078		# 0E285EEF		= 2066006136
+0x87338036		# 0E285EF3		= -2026667978
+0xD02CFC3B		# 0E285EF7		= -802358213
+0x403FE4ED		# 0E285EFB		= 1077929197
+0xB759CC73		# 0E285EFF		= -1218851725
+0x05C29486		# 0E285F03		= 96638086
+0x2D58DB59		# 0E285F07		= 760798041
+0x3B7455BB		# 0E285F0B		= 997479867

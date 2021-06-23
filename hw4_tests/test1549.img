@@ -1,0 +1,62 @@
+# Test N.1549
+#
+L1
+S8
+O3
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $4, $0, 0x8D513149           
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x2E2ECBDA
+LOAD $4, $0, $7                   
+SUB $3, $3, $3
+STORE $3, $6, 0x2E2ECBDE          
+SUBI $6, $5, 0xDA7201DF           
+ADD $6, $1, $0                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $4, $3, 0x9B71D2E1           
+SUB $1, $1, $1
+STORE $1, $7, 0x2E2ECBE2          
+ADD $4, $4, $3                    
+SUB $0, $0, $0
+STORE $0, $4, 0x2E2ECBFE          
+ADDI $3, $4, 0xDA1C9191           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUBI $3, $6, 0x2838442F           
+ADD $3, $7, $3                    
+NOP                               
+SUB $4, $3, $2                    
+SUB $1, $1, $1
+LOAD $5, $1, 0x2E2ECBDE           
+HALT $0
+#
+D@0x2E2ECBCA
+0x37EB00E4		# 2E2ECBCA		= 938148068
+0x542D1053		# 2E2ECBCE		= 1412239443
+0x9E0AD66E		# 2E2ECBD2		= -1643456914
+0x19EA6F4B		# 2E2ECBD6		= 434794315
+0xD4C14E34		# 2E2ECBDA		= -725529036
+0x2D610853		# 2E2ECBDE		= 761333843
+0x6C2C734C		# 2E2ECBE2		= 1814852428
+0xBC767430		# 2E2ECBE6		= -1133087696
+0x9AB5226A		# 2E2ECBEA		= -1699405206
+0xBAE757A3		# 2E2ECBEE		= -1159243869
+0xE46687EF		# 2E2ECBF2		= -463042577
+0x35F871AE		# 2E2ECBF6		= 905474478
+0x86C52196		# 2E2ECBFA		= -2033901162
+0x10DE8116		# 2E2ECBFE		= 283017494
+0x56FF453C		# 2E2ECC02		= 1459569980
+0x2F4B42BB		# 2E2ECC06		= 793461435

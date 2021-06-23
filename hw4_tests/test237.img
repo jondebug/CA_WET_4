@@ -1,0 +1,61 @@
+# Test N.237
+#
+L6
+S6
+O10
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $2, $4, 0x06F3E29E           
+SUB $2, $3, $4                    
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x3D650CE9
+STORE $4, $2, $6                  
+ADD $4, $4, $3                    
+SUB $4, $2, $4                    
+SUBI $6, $5, 0x4ECF5B00           
+ADD $7, $4, $7                    
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x3D650CC9
+STORE $6, $0, $1                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $2, $6                    
+SUB $5, $7, $0                    
+NOP                               
+SUB $5, $5, $5
+LOAD $3, $5, 0x3D650CD1           
+NOP                               
+ADDI $2, $7, 0xB9B0C5A0           
+SUB $0, $0, $0
+STORE $0, $0, 0x3D650CC9          
+SUB $4, $4, $4
+STORE $4, $2, 0x3D650CF5          
+ADDI $2, $6, 0x8A52AC99           
+NOP                               
+NOP                               
+SUBI $6, $5, 0x7180F7C3           
+SUB $3, $0, $0                    
+SUBI $5, $5, 0x62A99243           
+HALT $0
+#
+D@0x3D650CC9
+0xB43647E2		# 3D650CC9		= -1271511070
+0x005A06A3		# 3D650CCD		= 5899939
+0xBA9D5E88		# 3D650CD1		= -1164091768
+0x7DA48E84		# 3D650CD5		= 2107936388
+0xEC25AF83		# 3D650CD9		= -333074557
+0x383833E9		# 3D650CDD		= 943207401
+0xFB15F1D4		# 3D650CE1		= -82447916
+0xD7FE3C05		# 3D650CE5		= -671204347
+0x5A977DB1		# 3D650CE9		= 1519877553
+0xA1BD47CA		# 3D650CED		= -1581430838
+0xE17143E9		# 3D650CF1		= -512670743
+0xB5D85FAD		# 3D650CF5		= -1244110931

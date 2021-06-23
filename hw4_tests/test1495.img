@@ -1,0 +1,36 @@
+# Test N.1495
+#
+L7
+S9
+O4
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x37575FAD
+LOAD $5, $1, $3                   
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x37575FAD
+STORE $5, $5, $1                  
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x37575FAD
+STORE $0, $0, $5                  
+ADDI $7, $1, 0x3FDF490B           
+SUBI $6, $2, 0x3AF5AFA7           
+SUBI $1, $1, 0x207390E4           
+SUBI $1, $6, 0xC42303E4           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $1, $6                    
+HALT $0
+#
+D@0x37575FAD
+0x227578C1		# 37575FAD		= 578123969

@@ -1,0 +1,73 @@
+# Test N.265
+#
+L3
+S3
+O2
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $2, $4, $0                    
+SUB $3, $3, $3
+STORE $3, $5, 0x741F8A4E          
+ADDI $4, $1, 0xAB9C446B           
+SUB $7, $7, $7
+STORE $7, $0, 0x741F8A4E          
+ADD $6, $1, $1                    
+ADD $5, $4, $5                    
+SUB $6, $6, $6
+STORE $6, $6, 0x741F8A3E          
+ADD $7, $0, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $4                    
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x741F8A4E
+STORE $5, $7, $1                  
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $2, $3, 0xE56EE35D           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x741F8A4A
+LOAD $4, $3, $2                   
+ADDI $2, $3, 0x280D8DBE           
+SUBI $4, $5, 0x56B20961           
+ADDI $7, $0, 0x99C0C980           
+SUB $5, $2, $6                    
+SUBI $5, $6, 0xE8F8275E           
+SUB $2, $0, $4                    
+SUB $5, $2, $2                    
+HALT $0
+#
+D@0x741F8A2E
+0xDCBCA9E3		# 741F8A2E		= -591615517
+0xB2950781		# 741F8A32		= -1298856063
+0xD64DE7E9		# 741F8A36		= -699537431
+0x453D17CF		# 741F8A3A		= 1161631695
+0x0D95CDED		# 741F8A3E		= 227921389
+0xCAB6D284		# 741F8A42		= -893988220
+0xC9FF2085		# 741F8A46		= -906026875
+0x3EDF4D2C		# 741F8A4A		= 1054821676
+0x0F5B910B		# 741F8A4E		= 257659147
+0xE352F7FC		# 741F8A52		= -481101828

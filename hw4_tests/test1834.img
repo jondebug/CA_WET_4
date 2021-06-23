@@ -1,0 +1,95 @@
+# Test N.1834
+#
+L6
+S5
+O5
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x3826CFAE
+STORE $6, $0, $5                  
+ADDI $7, $3, 0x564D3979           
+SUB $6, $6, $6
+LOAD $1, $6, 0x3826CFB2           
+SUBI $0, $0, 0xDCFA33F7           
+NOP                               
+NOP                               
+ADDI $2, $1, 0x4396613E           
+SUBI $0, $7, 0x1B289971           
+ADD $5, $6, $7                    
+SUB $4, $4, $0                    
+SUB $2, $2, $2
+STORE $2, $1, 0x3826CFB2          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+LOAD $3, $1, 0x3826CFB2           
+ADDI $5, $2, 0x50CDF7C8           
+SUBI $5, $2, 0x12B6D83A           
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x3826CFAE
+LOAD $0, $7, $6                   
+SUB $1, $1, $1
+STORE $1, $2, 0x3826CFAE          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $7, $0, 0x5B022392           
+NOP                               
+SUB $4, $4, $4
+STORE $4, $7, 0x3826CFB2          
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x3826CFB2
+LOAD $7, $1, $2                   
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x3826CFB2
+LOAD $3, $6, $1                   
+SUB $7, $7, $7
+LOAD $5, $7, 0x3826CFB2           
+ADDI $7, $1, 0x2C6EFABB           
+SUB $6, $6, $6
+STORE $6, $4, 0x3826CFB2          
+SUB $6, $6, $6
+LOAD $0, $6, 0x3826CFB2           
+ADD $6, $7, $0                    
+SUB $1, $1, $1
+STORE $1, $0, 0x3826CFAE          
+ADD $1, $6, $4                    
+ADD $6, $7, $6                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x3826CFB2
+LOAD $6, $3, $4                   
+SUB $5, $5, $5
+STORE $5, $0, 0x3826CFAE          
+SUB $6, $2, $5                    
+ADDI $4, $1, 0x5C2449A3           
+SUB $2, $2, $2
+LOAD $2, $2, 0x3826CFAE           
+SUB $0, $4, $0                    
+NOP                               
+NOP                               
+SUB $3, $1, $4                    
+HALT $0
+#
+D@0x3826CFAE
+0xE32BD659		# 3826CFAE		= -483666343
+0x67F9D256		# 3826CFB2		= 1744425558

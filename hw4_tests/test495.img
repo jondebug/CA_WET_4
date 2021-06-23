@@ -1,0 +1,49 @@
+# Test N.495
+#
+L6
+S2
+O9
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADD $7, $7, $6                    
+SUB $1, $5, $1                    
+ADD $0, $2, $1                    
+SUB $0, $0, $0
+LOAD $6, $0, 0x54623CA6           
+SUBI $2, $0, 0x9BA67451           
+SUBI $3, $1, 0xCCD571CF           
+SUB $4, $4, $4
+LOAD $3, $4, 0x54623C9E           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $2, $3, 0x8CDADA35           
+SUB $2, $7, $4                    
+SUB $3, $0, $1                    
+NOP                               
+SUBI $6, $2, 0x4CA7979A           
+NOP                               
+SUB $4, $4, $4
+STORE $4, $2, 0x54623CAA          
+NOP                               
+ADDI $7, $6, 0x9230D011           
+SUBI $1, $0, 0xF45EEA98           
+SUB $2, $2, $2
+STORE $2, $6, 0x54623CA6          
+SUB $1, $1, $1
+STORE $1, $6, 0x54623CAA          
+SUB $5, $5, $5
+LOAD $4, $5, 0x54623CA6           
+HALT $0
+#
+D@0x54623C9A
+0x29337975		# 54623C9A		= 691239285
+0x04D0C3C1		# 54623C9E		= 80790465
+0x6646726E		# 54623CA2		= 1715892846
+0x30DBC062		# 54623CA6		= 819708002
+0x59C783D1		# 54623CAA		= 1506247633

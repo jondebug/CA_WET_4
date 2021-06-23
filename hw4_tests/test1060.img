@@ -1,0 +1,131 @@
+# Test N.1060
+#
+L10
+S2
+O8
+N6
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+ADD $1, $2, $5                    
+ADDI $5, $4, 0x4BDF0F93           
+SUB $6, $6, $6
+STORE $6, $3, 0x29FC39A6          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $0, $3, 0x66D38566           
+ADD $6, $5, $6                    
+SUBI $1, $2, 0x4075D78E           
+SUB $5, $5, $3                    
+ADDI $5, $5, 0x33441624           
+NOP                               
+SUB $1, $5, $0                    
+NOP                               
+SUBI $5, $2, 0x26D535F0           
+ADD $2, $1, $6                    
+ADD $5, $4, $5                    
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x29FC39AE
+STORE $1, $7, $6                  
+SUB $0, $0, $0
+LOAD $1, $0, 0x29FC39A6           
+ADDI $3, $2, 0x5235554A           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $5, $4, 0x90CCC78D           
+SUB $2, $2, $2
+STORE $2, $6, 0x29FC3992          
+SUBI $4, $1, 0x58C5C35A           
+SUBI $1, $6, 0x21048D7D           
+SUB $3, $2, $1                    
+SUB $7, $2, $1                    
+ADD $7, $4, $4                    
+NOP                               
+SUBI $7, $3, 0xD018A7CD           
+SUBI $3, $7, 0x8A29B46F           
+NOP                               
+ADD $2, $2, $7                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $2, 0x29FC39AA          
+ADDI $7, $3, 0x4DD9C862           
+NOP                               
+SUB $5, $7, $2                    
+ADD $5, $7, $4                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $4, $2, 0x44E711BE           
+SUBI $7, $4, 0xAB37937C           
+SUBI $5, $1, 0xAF99553A           
+SUBI $1, $4, 0x8D9A46DD           
+SUB $7, $3, $3                    
+ADD $4, $1, $2                    
+ADD $0, $4, $3                    
+ADDI $6, $5, 0xF7B9E44E           
+ADD $2, $6, $1                    
+NOP                               
+ADDI $6, $7, 0x22ED5413           
+SUBI $1, $1, 0xB2A3F8DF           
+SUB $0, $0, $2                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $4, $4, $4
+LOAD $7, $4, 0x29FC3992           
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x29FC39A2
+STORE $5, $2, $6                  
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x29FC3996
+LOAD $0, $1, $5                   
+SUB $5, $4, $5                    
+SUB $1, $1, $1
+LOAD $3, $1, 0x29FC399E           
+NOP                               
+ADD $5, $5, $6                    
+SUBI $2, $7, 0x813C0BD5           
+ADD $5, $3, $4                    
+ADD $4, $3, $0                    
+SUB $6, $6, $6
+LOAD $7, $6, 0x29FC399E           
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x29FC39AE
+STORE $0, $5, $2                  
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x29FC39A2
+LOAD $7, $5, $2                   
+SUB $0, $0, $0
+LOAD $0, $0, 0x29FC399A           
+HALT $0
+#
+D@0x29FC3992
+0xC6BAF262		# 29FC3992		= -960826782
+0x281B2094		# 29FC3996		= 672866452
+0xEDB76D3D		# 29FC399A		= -306746051
+0x0E73526C		# 29FC399E		= 242438764
+0x612334F9		# 29FC39A2		= 1629697273
+0x9CA80B08		# 29FC39A6		= -1666708728
+0xA93A9696		# 29FC39AA		= -1455778154
+0x86E711DC		# 29FC39AE		= -2031676964

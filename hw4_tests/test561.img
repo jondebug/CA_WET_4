@@ -1,0 +1,88 @@
+# Test N.561
+#
+L4
+S6
+O4
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $3, $1                    
+NOP                               
+ADD $6, $4, $0                    
+NOP                               
+SUB $0, $7, $7                    
+NOP                               
+SUB $7, $0, $6                    
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x37C8BF80
+LOAD $7, $7, $5                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADDI $2, $5, 0x20EBE233           
+ADD $4, $2, $5                    
+SUB $1, $1, $1
+LOAD $6, $1, 0x37C8BF84           
+SUB $4, $4, $4
+LOAD $6, $4, 0x37C8BF80           
+NOP                               
+SUB $3, $2, $7                    
+NOP                               
+ADDI $1, $4, 0xF62101EB           
+SUB $2, $6, $6                    
+ADD $3, $5, $3                    
+SUB $6, $4, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $6, $7, 0x487E0F53           
+SUBI $5, $0, 0xABD7BDAC           
+SUB $7, $5, $6                    
+SUB $4, $4, $5                    
+ADD $4, $0, $1                    
+ADD $7, $7, $0                    
+SUBI $5, $4, 0xEADC3DAA           
+SUBI $5, $7, 0xA6537ECB           
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x37C8BF90
+LOAD $2, $5, $0                   
+SUB $5, $4, $0                    
+SUBI $6, $6, 0x8BE40A70           
+SUB $7, $0, $3                    
+SUBI $4, $0, 0xF200B298           
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $4, $2, 0x4EDEAC9B           
+SUBI $4, $2, 0x3209CC99           
+SUB $0, $5, $3                    
+SUB $3, $3, $3
+LOAD $2, $3, 0x37C8BF88           
+SUBI $7, $7, 0xBA632479           
+SUBI $3, $1, 0x2E387481           
+ADD $0, $1, $6                    
+HALT $0
+#
+D@0x37C8BF70
+0x1400F82A		# 37C8BF70		= 335607850
+0x21F4AE6A		# 37C8BF74		= 569683562
+0xE42D71FD		# 37C8BF78		= -466783747
+0x27DB8D71		# 37C8BF7C		= 668700017
+0xD1D79912		# 37C8BF80		= -774399726
+0x528F0290		# 37C8BF84		= 1385104016
+0x6C6846DB		# 37C8BF88		= 1818773211
+0xAFE46A9F		# 37C8BF8C		= -1343984993
+0xA5669AA4		# 37C8BF90		= -1520002396
+0x01A64367		# 37C8BF94		= 27673447

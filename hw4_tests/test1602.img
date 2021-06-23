@@ -1,0 +1,92 @@
+# Test N.1602
+#
+L1
+S8
+O8
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $5, 0x55B59DDE          
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x55B59DE2
+STORE $1, $4, $3                  
+SUBI $2, $1, 0xFA785495           
+ADD $7, $6, $4                    
+SUB $5, $5, $0                    
+NOP                               
+ADDI $5, $5, 0xCBE169B6           
+SUBI $5, $6, 0x3971CBC2           
+SUBI $2, $0, 0xAD0549B3           
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x55B59DEA
+LOAD $5, $0, $1                   
+SUBI $7, $3, 0x63F76399           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $0, $4, 0x1B79DD31           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $1, $7, 0x3640E1FC           
+SUB $6, $6, $6
+STORE $6, $5, 0x55B59DE2          
+SUB $5, $4, $5                    
+NOP                               
+SUB $6, $6, $6
+LOAD $4, $6, 0x55B59DDA           
+SUBI $5, $1, 0xAFD8CD51           
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x55B59DD2
+STORE $4, $5, $2                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+ADD $1, $0, $3                    
+SUB $7, $7, $7
+STORE $7, $6, 0x55B59DDA          
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x55B59DDE
+LOAD $0, $1, $4                   
+SUB $2, $7, $6                    
+ADD $1, $4, $3                    
+SUB $7, $0, $4                    
+ADD $1, $2, $0                    
+SUBI $7, $1, 0x6C39490E           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $5, $6, $2                    
+ADD $3, $5, $4                    
+ADDI $3, $4, 0xF8C86206           
+SUBI $1, $7, 0xB3984E36           
+ADD $6, $4, $3                    
+HALT $0
+#
+D@0x55B59DCE
+0xDA4A96A9		# 55B59DCE		= -632645975
+0xDFE50771		# 55B59DD2		= -538638479
+0x8F7F6927		# 55B59DD6		= -1887475417
+0xDBAA6CE1		# 55B59DDA		= -609587999
+0x18613AD8		# 55B59DDE		= 409025240
+0x6C6B67B2		# 55B59DE2		= 1818978226
+0xDF4A32B8		# 55B59DE6		= -548785480
+0x1F8EFFD0		# 55B59DEA		= 529465296
+0x0E760004		# 55B59DEE		= 242614276
+0x87A0AD78		# 55B59DF2		= -2019512968

@@ -1,0 +1,78 @@
+# Test N.72
+#
+L5
+S1
+O6
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $6, $4                    
+ADD $1, $2, $7                    
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x19DCAF30
+LOAD $2, $0, $5                   
+ADDI $1, $1, 0x28E0CF7C           
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x19DCAF2C
+LOAD $7, $4, $2                   
+SUB $6, $4, $3                    
+NOP                               
+SUB $1, $1, $1
+LOAD $0, $1, 0x19DCAF40           
+ADDI $3, $5, 0x5041C378           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $6, 0x19DCAF3C          
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x19DCAF38
+STORE $1, $0, $3                  
+SUB $2, $2, $2
+STORE $2, $3, 0x19DCAF3C          
+ADDI $3, $5, 0x1737246E           
+ADD $3, $1, $3                    
+SUB $2, $5, $2                    
+ADDI $4, $6, 0x13A3F720           
+SUB $2, $2, $2
+STORE $2, $5, 0x19DCAF40          
+ADDI $0, $7, 0xF91CA3CE           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $0, $2, 0x8F801891           
+SUBI $4, $4, 0x415750FD           
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x19DCAF34
+STORE $5, $6, $4                  
+SUB $0, $4, $7                    
+NOP                               
+ADDI $0, $3, 0x8937C212           
+HALT $0
+#
+D@0x19DCAF24
+0xE7F3EB2C		# 19DCAF24		= -403444948
+0xCAE71C0B		# 19DCAF28		= -890823669
+0xCE79291A		# 19DCAF2C		= -830920422
+0xE18AFB7C		# 19DCAF30		= -510985348
+0xA8D98696		# 19DCAF34		= -1462139242
+0x0C6F4105		# 19DCAF38		= 208617733
+0x13DCEC68		# 19DCAF3C		= 333245544
+0x09C22018		# 19DCAF40		= 163717144
+0x02108831		# 19DCAF44		= 34637873

@@ -1,0 +1,33 @@
+# Test N.536
+#
+L6
+S5
+O8
+N2
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $7, 0x7B748AF7          
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x7B748AF7
+LOAD $4, $0, $6                   
+SUB $4, $4, $4
+STORE $4, $5, 0x7B748AF7          
+SUB $5, $2, $2                    
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x7B748AF7
+STORE $4, $4, $1                  
+HALT $0
+#
+D@0x7B748AF7
+0x13324A00		# 7B748AF7		= 322062848

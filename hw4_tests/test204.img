@@ -1,0 +1,101 @@
+# Test N.204
+#
+L1
+S5
+O4
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $1, 0x5EEB1122          
+NOP                               
+ADDI $3, $6, 0x3450AF76           
+ADD $3, $4, $4                    
+SUB $3, $3, $3
+LOAD $7, $3, 0x5EEB112E           
+SUBI $7, $5, 0x000AD370           
+SUB $6, $6, $6
+LOAD $7, $6, 0x5EEB1122           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $4, $3, 0xA86ECF0B           
+SUBI $0, $0, 0x84799232           
+SUBI $6, $4, 0x7630D98D           
+SUB $2, $2, $2
+LOAD $5, $2, 0x5EEB1116           
+SUB $5, $6, $7                    
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x5EEB1106
+STORE $3, $1, $1                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $2, $1, 0x02CDA496           
+ADD $5, $4, $6                    
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x5EEB1106
+STORE $7, $5, $4                  
+NOP                               
+NOP                               
+ADDI $5, $0, 0x57BB6349           
+ADDI $5, $2, 0x9FA08CCC           
+NOP                               
+NOP                               
+SUB $0, $4, $5                    
+ADD $6, $4, $0                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $3, $2, $2                    
+SUBI $1, $0, 0x6E15E499           
+NOP                               
+NOP                               
+NOP                               
+ADDI $7, $7, 0xE6A528EB           
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x5EEB112A
+STORE $5, $3, $4                  
+SUB $1, $1, $1
+STORE $1, $5, 0x5EEB111A          
+ADDI $4, $7, 0xA0F2FF14           
+SUBI $4, $5, 0x5BD62FBC           
+SUB $2, $2, $2
+LOAD $4, $2, 0x5EEB111E           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x5EEB111A
+LOAD $0, $5, $1                   
+HALT $0
+#
+D@0x5EEB1106
+0xE9C86223		# 5EEB1106		= -372743645
+0xE5871225		# 5EEB110A		= -444132827
+0x1DF63028		# 5EEB110E		= 502673448
+0x42909765		# 5EEB1112		= 1116772197
+0xEFAB5EF2		# 5EEB1116		= -273981710
+0xA9A4B200		# 5EEB111A		= -1448824320
+0x0C3F6C25		# 5EEB111E		= 205483045
+0x05380495		# 5EEB1122		= 87557269
+0x81C0CF7B		# 5EEB1126		= -2118070405
+0x5EE29278		# 5EEB112A		= 1591906936
+0xFD8067F8		# 5EEB112E		= -41916424
+0x67218978		# 5EEB1132		= 1730251128

@@ -1,0 +1,113 @@
+# Test N.1194
+#
+L3
+S8
+O10
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $2, $5, $4                    
+ADDI $2, $1, 0xD7C9EDBA           
+SUB $7, $7, $7
+STORE $7, $2, 0x4FF8C031          
+SUB $4, $4, $4
+LOAD $5, $4, 0x4FF8C031           
+NOP                               
+SUB $7, $2, $2                    
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x4FF8C02D
+STORE $7, $2, $0                  
+ADD $7, $7, $5                    
+SUB $7, $7, $7
+LOAD $2, $7, 0x4FF8C02D           
+NOP                               
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x4FF8C029
+STORE $7, $2, $3                  
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x4FF8C029
+LOAD $5, $7, $5                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUBI $1, $3, 0xA90808FF           
+NOP                               
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x4FF8C029
+LOAD $3, $0, $3                   
+SUB $7, $7, $7
+STORE $7, $0, 0x4FF8C02D          
+ADD $2, $0, $6                    
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x4FF8C029
+LOAD $1, $5, $4                   
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x4FF8C02D
+LOAD $1, $7, $1                   
+NOP                               
+SUBI $1, $0, 0x24E87F56           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x4FF8C02D
+STORE $3, $0, $7                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $5                    
+SUB $0, $5, $6                    
+ADD $0, $5, $7                    
+NOP                               
+SUB $2, $2, $2
+LOAD $7, $2, 0x4FF8C029           
+SUB $0, $2, $3                    
+ADD $2, $5, $2                    
+SUB $0, $2, $3                    
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x4FF8C02D
+STORE $0, $5, $5                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $1, 0x4FF8C02D          
+ADD $5, $0, $5                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x4FF8C02D
+STORE $1, $0, $3                  
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x4FF8C029
+LOAD $4, $1, $2                   
+ADDI $2, $5, 0x7963514B           
+SUBI $6, $0, 0x8B532FBA           
+SUB $0, $0, $0
+LOAD $6, $0, 0x4FF8C031           
+ADDI $2, $0, 0xDD9AFEDF           
+HALT $0
+#
+D@0x4FF8C029
+0x6F8B4C2A		# 4FF8C029		= 1871399978
+0x68556450		# 4FF8C02D		= 1750426704
+0xCA79A3A4		# 4FF8C031		= -897997916

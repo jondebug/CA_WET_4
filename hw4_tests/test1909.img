@@ -1,0 +1,108 @@
+# Test N.1909
+#
+L3
+S6
+O4
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $7, $2, $5                    
+SUB $2, $2, $2
+STORE $2, $2, 0x0C0F551E          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $7, $0, 0x8A448ACE           
+SUB $2, $7, $6                    
+ADDI $1, $7, 0xD4BE42B2           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUBI $7, $1, 0xDAA7E247           
+NOP                               
+SUBI $3, $1, 0x45BC3719           
+ADDI $7, $2, 0x45A78023           
+ADDI $6, $2, 0x83CFD39A           
+SUBI $1, $1, 0x05B8515B           
+ADD $1, $4, $5                    
+ADD $3, $0, $3                    
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $7, $5, 0x92E5C84C           
+SUBI $2, $6, 0xD0EB777E           
+ADDI $5, $4, 0x4B5E533E           
+ADDI $7, $5, 0xF75282EA           
+SUBI $2, $3, 0x9348346F           
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x0C0F5516
+LOAD $1, $0, $7                   
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x0C0F54FA
+LOAD $7, $0, $1                   
+SUBI $5, $4, 0xEF7C1F25           
+SUBI $2, $4, 0x7AAF3FCC           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $5, $4, $3                    
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x0C0F54FE
+STORE $4, $0, $6                  
+SUB $3, $3, $3
+LOAD $2, $3, 0x0C0F5516           
+ADDI $3, $0, 0xBE87368B           
+SUBI $0, $1, 0x02F4D0A5           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x0C0F552E
+LOAD $1, $6, $1                   
+SUB $2, $2, $2
+LOAD $5, $2, 0x0C0F5532           
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x0C0F5532
+STORE $1, $0, $6                  
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x0C0F551A
+STORE $2, $7, $5                  
+ADD $4, $6, $1                    
+ADDI $3, $2, 0xB6B28BF5           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x0C0F5512
+STORE $5, $1, $1                  
+HALT $0
+#
+D@0x0C0F54FA
+0x48ECF0BE		# 0C0F54FA		= 1223487678
+0xB05A65EB		# 0C0F54FE		= -1336252949
+0x8432D81D		# 0C0F5502		= -2077042659
+0x4323D981		# 0C0F5506		= 1126422913
+0x01514078		# 0C0F550A		= 22102136
+0xBF245513		# 0C0F550E		= -1088137965
+0x0D2B95BA		# 0C0F5512		= 220960186
+0xF9C5D750		# 0C0F5516		= -104474800
+0x0F0C2628		# 0C0F551A		= 252454440
+0x24E985E6		# 0C0F551E		= 619283942
+0xE33A8325		# 0C0F5522		= -482704603
+0xA288DA0E		# 0C0F5526		= -1568089586
+0x0568B4AB		# 0C0F552A		= 90748075
+0x85431DC6		# 0C0F552E		= -2059199034
+0x47DE3E2F		# 0C0F5532		= 1205747247

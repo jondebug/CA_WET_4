@@ -1,0 +1,113 @@
+# Test N.1217
+#
+L8
+S5
+O9
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $4, 0x756D7CF0          
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x756D7D14
+LOAD $4, $0, $3                   
+NOP                               
+ADDI $7, $6, 0x3BC02858           
+SUB $7, $7, $7
+LOAD $7, $7, 0x756D7D14           
+ADD $4, $2, $7                    
+SUBI $5, $7, 0x40E01C65           
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x756D7D14
+STORE $2, $1, $5                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $7, $4, 0xCBCD349D           
+ADDI $0, $2, 0x528B0981           
+SUBI $2, $0, 0x4CAEC22B           
+NOP                               
+ADD $3, $2, $2                    
+SUBI $5, $3, 0xD755F036           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $3, $6                    
+NOP                               
+ADD $6, $4, $3                    
+ADDI $3, $0, 0xE12D0A63           
+SUB $5, $6, $1                    
+SUBI $0, $6, 0x01BE0F1D           
+SUB $4, $7, $6                    
+SUBI $2, $4, 0xFDF049F0           
+ADD $0, $1, $3                    
+ADD $2, $3, $4                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $7, $4, 0xE4D6B9D2           
+ADDI $0, $0, 0x058A2F48           
+SUBI $7, $5, 0xB6E32DCC           
+SUB $4, $1, $3                    
+SUBI $7, $2, 0x4457D3EE           
+NOP                               
+ADD $1, $1, $1                    
+NOP                               
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x756D7D0C
+LOAD $6, $3, $1                   
+ADD $6, $4, $1                    
+SUB $7, $7, $7
+LOAD $0, $7, 0x756D7D18           
+ADDI $7, $1, 0x148C021F           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $0, $0, $5                    
+SUBI $7, $7, 0x3DE41CB9           
+SUB $2, $2, $2
+LOAD $4, $2, 0x756D7D10           
+SUBI $1, $2, 0x3B368A55           
+ADD $1, $5, $2                    
+SUB $3, $4, $3                    
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x756D7D14
+STORE $2, $2, $3                  
+SUB $3, $3, $3
+STORE $3, $6, 0x756D7D08          
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+ADDI $7, $5, 0x54C463BF           
+HALT $0
+#
+D@0x756D7CF0
+0x7930A646		# 756D7CF0		= 2033231430
+0x4CC23565		# 756D7CF4		= 1287796069
+0xD92DBE30		# 756D7CF8		= -651313616
+0x3F9FD98F		# 756D7CFC		= 1067440527
+0xBD892655		# 756D7D00		= -1115085227
+0x13E53F08		# 756D7D04		= 333790984
+0xD1A484A1		# 756D7D08		= -777747295
+0x55CBFF1B		# 756D7D0C		= 1439432475
+0xE6314276		# 756D7D10		= -432979338
+0x7509D0A0		# 756D7D14		= 1963577504
+0x367BCC63		# 756D7D18		= 914082915
+0x727E3214		# 756D7D1C		= 1920872980

@@ -1,0 +1,71 @@
+# Test N.815
+#
+L3
+S3
+O4
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $5, $7, 0x54546DBB           
+SUBI $6, $6, 0x0139463E           
+NOP                               
+SUB $4, $4, $4
+STORE $4, $6, 0x61D2D01C          
+SUB $1, $1, $4                    
+SUBI $0, $5, 0x376A49D1           
+SUB $0, $3, $4                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $3, 0x61D2D020          
+SUB $1, $1, $7                    
+SUBI $7, $2, 0xFB646DAF           
+SUB $4, $4, $4
+STORE $4, $4, 0x61D2D024          
+ADD $1, $7, $6                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $7, $6, 0xCDF03EF5           
+SUB $4, $0, $5                    
+SUB $1, $7, $3                    
+SUB $0, $0, $0
+STORE $0, $4, 0x61D2D018          
+NOP                               
+SUB $6, $3, $4                    
+ADD $7, $2, $5                    
+NOP                               
+SUB $4, $4, $4
+STORE $4, $3, 0x61D2D018          
+SUB $4, $4, $4
+STORE $4, $7, 0x61D2D018          
+ADD $7, $2, $2                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x61D2D024
+LOAD $0, $3, $7                   
+NOP                               
+ADDI $2, $0, 0xC0FC5F11           
+SUB $7, $7, $7
+LOAD $4, $7, 0x61D2D024           
+SUB $0, $0, $5                    
+HALT $0
+#
+D@0x61D2D018
+0x17648D0D		# 61D2D018		= 392465677
+0xE498435A		# 61D2D01C		= -459783334
+0xAB9685E1		# 61D2D020		= -1416198687
+0x7BE76FD2		# 61D2D024		= 2078765010

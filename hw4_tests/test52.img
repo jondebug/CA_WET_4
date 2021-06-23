@@ -1,0 +1,109 @@
+# Test N.52
+#
+L7
+S10
+O6
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $7, $6, $5                    
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x546DD11E
+STORE $4, $7, $6                  
+ADDI $6, $1, 0x003D74A2           
+SUB $0, $0, $0
+STORE $0, $2, 0x546DD10A          
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x546DD11E
+LOAD $1, $4, $3                   
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x546DD11E
+STORE $4, $2, $1                  
+ADDI $7, $3, 0x1AFB7D39           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $5, $6, 0x88889008           
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x546DD11E
+STORE $7, $7, $1                  
+SUBI $1, $1, 0xB3B63FAD           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $0                    
+NOP                               
+SUB $3, $4, $2                    
+SUB $6, $4, $6                    
+ADDI $1, $0, 0xE3C539FA           
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x546DD11E
+LOAD $2, $2, $1                   
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x546DD10E
+LOAD $3, $3, $2                   
+ADD $4, $5, $7                    
+ADDI $4, $1, 0xEF96F0AF           
+SUB $4, $4, $4
+STORE $4, $4, 0x546DD112          
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $0, 0x546DD112          
+ADD $7, $0, $7                    
+SUB $0, $2, $1                    
+SUBI $4, $2, 0xDD0CC99E           
+SUB $1, $7, $7                    
+ADDI $0, $0, 0x9E63A8BC           
+SUB $7, $2, $3                    
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x546DD11E
+LOAD $7, $2, $1                   
+SUB $6, $1, $7                    
+SUB $0, $1, $6                    
+NOP                               
+SUB $6, $6, $6
+LOAD $0, $6, 0x546DD10A           
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x546DD106
+LOAD $0, $3, $2                   
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x546DD112
+STORE $2, $4, $7                  
+ADD $0, $7, $6                    
+SUB $4, $0, $6                    
+HALT $0
+#
+D@0x546DD106
+0xD6BE5B76		# 546DD106		= -692167818
+0x67C44E95		# 546DD10A		= 1740918421
+0x9F095F40		# 546DD10E		= -1626775744
+0xBEE39141		# 546DD112		= -1092382399
+0x8D518004		# 546DD116		= -1924038652
+0x1A9BD6B0		# 546DD11A		= 446420656
+0x6DC2FA28		# 546DD11E		= 1841494568

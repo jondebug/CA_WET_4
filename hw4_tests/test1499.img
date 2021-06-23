@@ -1,0 +1,83 @@
+# Test N.1499
+#
+L6
+S5
+O2
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $6, $6, 0xA0E7A0EE           
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x021DCC88
+STORE $7, $3, $1                  
+SUB $3, $3, $3
+STORE $3, $6, 0x021DCC98          
+SUBI $2, $3, 0xC2CD651B           
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x021DCC84
+STORE $7, $7, $2                  
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x021DCC90
+LOAD $4, $5, $2                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $1, 0x021DCC84          
+NOP                               
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x021DCCB0
+STORE $7, $3, $2                  
+SUBI $7, $7, 0x84C70195           
+SUBI $2, $7, 0xC55B001E           
+SUBI $1, $5, 0xAE7B9380           
+NOP                               
+ADD $1, $1, $1                    
+SUB $6, $1, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $6, $7, 0x8CA47788           
+ADDI $7, $5, 0xD13355F7           
+SUB $2, $2, $2
+STORE $2, $6, 0x021DCCB0          
+SUB $7, $0, $7                    
+NOP                               
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x021DCCA8
+STORE $3, $2, $2                  
+SUB $5, $5, $5
+LOAD $0, $5, 0x021DCCA4           
+ADD $1, $7, $5                    
+HALT $0
+#
+D@0x021DCC74
+0x2C6367EF		# 021DCC74		= 744712175
+0xF10FCDF1		# 021DCC78		= -250622479
+0x90EEBC9C		# 021DCC7C		= -1863402340
+0xAE38253B		# 021DCC80		= -1372052165
+0xA1110642		# 021DCC84		= -1592719806
+0x25BA74F3		# 021DCC88		= 632976627
+0x6B8D0E03		# 021DCC8C		= 1804406275
+0x092E1A2D		# 021DCC90		= 154016301
+0x4CD32B24		# 021DCC94		= 1288907556
+0x8C9474C4		# 021DCC98		= -1936427836
+0x516B57F3		# 021DCC9C		= 1365989363
+0x95E240C2		# 021DCCA0		= -1780334398
+0x7A554D70		# 021DCCA4		= 2052410736
+0x5749974C		# 021DCCA8		= 1464440652
+0x04D4CCD8		# 021DCCAC		= 81054936
+0x0951D9F1		# 021DCCB0		= 156359153
+0x2F5C4644		# 021DCCB4		= 794576452
+0xAA7CB558		# 021DCCB8		= -1434667688

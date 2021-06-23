@@ -1,0 +1,55 @@
+# Test N.42
+#
+L10
+S2
+O6
+N2
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $0, $0, $0
+STORE $0, $4, 0x4671AB78          
+SUB $3, $3, $3
+LOAD $6, $3, 0x4671AB78           
+NOP                               
+SUB $2, $2, $2
+LOAD $4, $2, 0x4671AB78           
+SUBI $1, $4, 0xEDCE6570           
+SUBI $7, $5, 0x10E403A6           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x4671AB74
+STORE $3, $7, $7                  
+SUB $6, $6, $6
+LOAD $2, $6, 0x4671AB7C           
+ADDI $4, $1, 0x40B3CB81           
+NOP                               
+NOP                               
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x4671AB84
+LOAD $7, $4, $0                   
+SUB $2, $2, $2
+LOAD $2, $2, 0x4671AB7C           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUBI $3, $5, 0xDF97AC82           
+SUB $7, $6, $4                    
+SUB $3, $0, $0                    
+ADDI $2, $3, 0x1C6CFC5F           
+ADDI $3, $7, 0x0F068B6C           
+HALT $0
+#
+D@0x4671AB70
+0xF3EB4832		# 4671AB70		= -202684366
+0x44DD9441		# 4671AB74		= 1155372097
+0xA18ADDEC		# 4671AB78		= -1584734740
+0x8AF1EE43		# 4671AB7C		= -1963856317
+0xF41406E3		# 4671AB80		= -200014109
+0xFB57EC7B		# 4671AB84		= -78123909

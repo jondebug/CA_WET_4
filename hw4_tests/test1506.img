@@ -1,0 +1,70 @@
+# Test N.1506
+#
+L5
+S5
+O1
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $3, $6, 0x26901C9E           
+ADDI $0, $4, 0x67306FED           
+ADDI $3, $2, 0x498D364A           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $1, $1, $1
+LOAD $6, $1, 0x4CCA843D           
+ADD $1, $6, $3                    
+SUB $6, $6, $6
+LOAD $6, $6, 0x4CCA843D           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $2, $2, 0xB9C5FD65           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUBI $6, $5, 0x9D9CBE44           
+ADDI $7, $2, 0x36579423           
+ADD $5, $0, $3                    
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x4CCA8439
+STORE $2, $7, $4                  
+SUBI $4, $4, 0x7619913F           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x4CCA8439
+STORE $6, $7, $1                  
+ADD $7, $2, $6                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $7, $5, 0x7A5112AE           
+SUBI $3, $4, 0x6DA20EA1           
+SUB $6, $6, $4                    
+SUB $4, $1, $2                    
+ADDI $3, $2, 0x7C417BD0           
+SUBI $6, $7, 0x52CD84DC           
+ADDI $5, $6, 0x78A0A28B           
+ADD $6, $0, $3                    
+HALT $0
+#
+D@0x4CCA8435
+0x518FA067		# 4CCA8435		= 1368367207
+0x0F3CC7B2		# 4CCA8439		= 255641522
+0xFD4B6F6A		# 4CCA843D		= -45387926
+0xE201C4D3		# 4CCA8441		= -503200557

@@ -1,0 +1,164 @@
+# Test N.644
+#
+L6
+S4
+O5
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $0, $0
+LOAD $3, $0, 0x2E109D7A           
+SUBI $2, $4, 0xA60E7D7B           
+SUBI $2, $0, 0xE5910E3A           
+SUBI $3, $4, 0x33437220           
+SUB $6, $1, $7                    
+SUB $0, $0, $0
+LOAD $0, $0, 0x2E109D92           
+SUBI $4, $5, 0xB2ECA3CE           
+SUB $2, $0, $5                    
+ADD $6, $3, $1                    
+ADD $5, $4, $3                    
+SUB $7, $7, $7
+STORE $7, $4, 0x2E109DA6          
+SUBI $0, $2, 0xF91FF0AD           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x2E109D86
+STORE $7, $5, $4                  
+SUBI $3, $7, 0x1E70F52A           
+NOP                               
+ADD $6, $4, $0                    
+SUB $4, $4, $4
+LOAD $3, $4, 0x2E109D96           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $5, $4                    
+ADD $7, $0, $2                    
+SUB $7, $7, $7
+STORE $7, $5, 0x2E109D9E          
+NOP                               
+SUB $7, $7, $0                    
+SUBI $0, $0, 0xD95C2443           
+SUB $3, $3, $3
+STORE $3, $6, 0x2E109D7A          
+SUBI $7, $2, 0xA97CDC38           
+SUBI $6, $6, 0x051CABCE           
+SUBI $5, $4, 0x2865564D           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $5, $0, 0x2FB16F72           
+SUB $1, $0, $5                    
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x2E109D82
+STORE $4, $6, $3                  
+ADDI $1, $3, 0x925946F8           
+ADDI $7, $1, 0x25DC30F1           
+SUBI $0, $7, 0x2DED3215           
+SUB $0, $5, $0                    
+ADD $6, $5, $4                    
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x2E109D76
+LOAD $3, $5, $7                   
+SUB $0, $0, $0
+STORE $0, $3, 0x2E109D8A          
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x2E109D72
+LOAD $4, $1, $4                   
+SUB $4, $1, $0                    
+NOP                               
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x2E109D86
+STORE $2, $2, $5                  
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $4, $5, 0x25004B5E           
+SUB $5, $5, $5
+LOAD $6, $5, 0x2E109D7E           
+SUB $6, $6, $6
+STORE $6, $5, 0x2E109D7E          
+SUB $1, $1, $1
+LOAD $7, $1, 0x2E109D8A           
+ADDI $6, $3, 0xD5E42D8F           
+SUB $0, $5, $7                    
+SUBI $6, $0, 0x6E1C3D3E           
+SUB $7, $7, $7
+LOAD $2, $7, 0x2E109D8A           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x2E109D72
+STORE $3, $4, $7                  
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $3, $7, $7                    
+ADD $3, $2, $0                    
+ADD $7, $3, $7                    
+ADD $5, $4, $7                    
+SUB $2, $7, $2                    
+SUBI $4, $7, 0x81A066E2           
+ADDI $4, $4, 0x830566B5           
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x2E109D9A
+STORE $0, $7, $4                  
+SUB $1, $1, $1
+STORE $1, $7, 0x2E109D8E          
+ADDI $6, $7, 0xC3C99566           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADD $6, $7, $0                    
+SUB $3, $2, $0                    
+ADD $4, $7, $7                    
+SUB $7, $5, $1                    
+ADD $3, $3, $4                    
+ADDI $2, $0, 0x69F01E37           
+ADDI $4, $7, 0x96C1FDEC           
+SUB $1, $4, $4                    
+ADD $6, $6, $3                    
+SUB $4, $4, $2                    
+SUB $0, $6, $7                    
+SUBI $2, $7, 0xB10E870D           
+ADDI $2, $7, 0xB5638B16           
+HALT $0
+#
+D@0x2E109D72
+0xE3DAF246		# 2E109D72		= -472190394
+0xB2B32B2F		# 2E109D76		= -1296880849
+0xCC09016C		# 2E109D7A		= -871825044
+0x25D961D6		# 2E109D7E		= 635003350
+0x6738D235		# 2E109D82		= 1731777077
+0xCAB8CC13		# 2E109D86		= -893858797
+0x73523006		# 2E109D8A		= 1934766086
+0xA80274C3		# 2E109D8E		= -1476234045
+0x9490A469		# 2E109D92		= -1802460055
+0x77693ED8		# 2E109D96		= 2003386072
+0xF5E0C7C5		# 2E109D9A		= -169818171
+0xE4962EC5		# 2E109D9E		= -459919675
+0xE11772E7		# 2E109DA2		= -518556953
+0x79595F98		# 2E109DA6		= 2035900312

@@ -1,0 +1,32 @@
+# Test N.1412
+#
+L5
+S9
+O3
+N1
+
+# Thread 0
+T0
+I@0x00000000
+ADD $3, $7, $0                    
+SUB $0, $0, $6                    
+SUBI $5, $6, 0xA67D767F           
+ADDI $1, $4, 0x649FD661           
+ADDI $3, $4, 0xF691B61C           
+SUB $5, $5, $5
+LOAD $2, $5, 0x22CAFE8F           
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x22CAFE8B
+STORE $2, $7, $0                  
+ADDI $0, $1, 0x984A98D4           
+SUBI $3, $7, 0xEA04DC48           
+SUB $1, $1, $1
+STORE $1, $7, 0x22CAFE97          
+HALT $0
+#
+D@0x22CAFE8B
+0x05BABE1B		# 22CAFE8B		= 96124443
+0x6CBD3791		# 22CAFE8F		= 1824339857
+0x6295E364		# 22CAFE93		= 1653990244
+0xD8433111		# 22CAFE97		= -666685167

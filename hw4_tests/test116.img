@@ -1,0 +1,54 @@
+# Test N.116
+#
+L5
+S8
+O1
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADD $5, $4, $2                    
+SUB $5, $0, $0                    
+ADD $6, $7, $1                    
+ADD $1, $2, $1                    
+SUBI $3, $5, 0x3F16D2B9           
+NOP                               
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x6554BFF2
+LOAD $2, $3, $5                   
+SUB $4, $6, $2                    
+ADDI $6, $5, 0xEA1CABCE           
+ADD $1, $0, $4                    
+SUB $3, $7, $2                    
+SUB $4, $0, $5                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x6554BFE6
+STORE $5, $2, $3                  
+ADDI $7, $1, 0xCC0C9EF1           
+SUB $0, $2, $4                    
+ADDI $7, $3, 0xDBDA3102           
+ADD $7, $5, $7                    
+SUB $5, $5, $5
+LOAD $7, $5, 0x6554BFD6           
+NOP                               
+HALT $0
+#
+D@0x6554BFD6
+0x0FC56EE4		# 6554BFD6		= 264597220
+0x10F434AA		# 6554BFDA		= 284439722
+0x77F2691F		# 6554BFDE		= 2012375327
+0x1DA54683		# 6554BFE2		= 497370755
+0xE836B8F4		# 6554BFE6		= -399066892
+0x2847F38D		# 6554BFEA		= 675804045
+0x1CF67B88		# 6554BFEE		= 485915528
+0x041B88DB		# 6554BFF2		= 68913371
+0x85D113FD		# 6554BFF6		= -2049895427
+0x0791F7DB		# 6554BFFA		= 127006683

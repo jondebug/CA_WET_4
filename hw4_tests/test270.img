@@ -1,0 +1,103 @@
+# Test N.270
+#
+L2
+S4
+O9
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $7, $2                    
+NOP                               
+ADD $3, $0, $7                    
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $2, $2, $2                    
+ADDI $7, $4, 0xA45FF525           
+SUB $7, $5, $2                    
+NOP                               
+SUBI $6, $5, 0x6B5A705D           
+SUB $4, $4, $4
+LOAD $6, $4, 0x1EDC4B3A           
+ADD $1, $4, $6                    
+ADDI $7, $6, 0x99634366           
+SUBI $7, $6, 0xF5674E81           
+SUB $4, $0, $1                    
+SUB $3, $3, $3
+LOAD $6, $3, 0x1EDC4B2E           
+ADD $5, $2, $4                    
+ADD $1, $0, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $3, $0, $1                    
+NOP                               
+ADD $6, $6, $2                    
+SUBI $1, $1, 0xAE10E2BB           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x1EDC4B36
+STORE $6, $0, $3                  
+ADDI $4, $2, 0x46AC9A6B           
+ADDI $1, $4, 0x3AAAAF53           
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $2, $5, 0x1262E882           
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x1EDC4B2E
+LOAD $5, $5, $3                   
+SUBI $7, $6, 0xE8D29C75           
+SUBI $2, $6, 0x337E5AE6           
+SUB $3, $3, $3
+LOAD $7, $3, 0x1EDC4B36           
+SUBI $1, $5, 0x8B24FDBB           
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x1EDC4B2A
+LOAD $3, $4, $0                   
+ADDI $2, $4, 0x7FEE72A7           
+SUB $3, $3, $3
+LOAD $2, $3, 0x1EDC4B3A           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADDI $7, $0, 0xB57CC96B           
+SUB $5, $5, $5
+STORE $5, $2, 0x1EDC4B36          
+SUBI $3, $3, 0x30692456           
+SUB $7, $7, $7
+LOAD $5, $7, 0x1EDC4B3E           
+SUBI $0, $2, 0x231A3D91           
+SUB $3, $4, $0                    
+SUB $1, $1, $1
+LOAD $7, $1, 0x1EDC4B3E           
+ADDI $6, $7, 0x7F9B2FFD           
+HALT $0
+#
+D@0x1EDC4B2A
+0xA96FC943		# 1EDC4B2A		= -1452291773
+0xCE887E78		# 1EDC4B2E		= -829915528
+0x0C5CF39D		# 1EDC4B32		= 207418269
+0x085BA811		# 1EDC4B36		= 140224529
+0x132D2821		# 1EDC4B3A		= 321726497
+0x2CCB1A4C		# 1EDC4B3E		= 751508044

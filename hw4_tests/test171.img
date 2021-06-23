@@ -1,0 +1,172 @@
+# Test N.171
+#
+L6
+S2
+O3
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x1B0941DF
+LOAD $6, $0, $4                   
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x1B0941C7
+LOAD $2, $3, $2                   
+SUB $7, $7, $7
+STORE $7, $5, 0x1B0941C7          
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x1B0941C7
+LOAD $0, $2, $3                   
+NOP                               
+ADDI $3, $3, 0xBC0C72C5           
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x1B0941E3
+STORE $7, $2, $1                  
+SUB $6, $6, $1                    
+ADD $2, $7, $4                    
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x1B0941F3
+STORE $3, $4, $2                  
+SUBI $6, $4, 0x317062A2           
+SUB $0, $0, $0
+LOAD $5, $0, 0x1B0941EF           
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x1B0941DB
+LOAD $5, $4, $7                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $1, $0, $2                    
+SUB $0, $0, $0
+LOAD $5, $0, 0x1B0941EB           
+ADD $5, $6, $1                    
+SUB $1, $3, $2                    
+SUBI $2, $2, 0xA2B0C999           
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x1B0941DF
+STORE $5, $4, $2                  
+NOP                               
+SUB $4, $0, $0                    
+ADD $1, $3, $7                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $1, $6, 0xCEA0A765           
+SUB $7, $7, $1                    
+NOP                               
+SUBI $4, $4, 0xAE2824A9           
+SUB $7, $7, $7
+LOAD $7, $7, 0x1B0941D7           
+ADD $1, $3, $2                    
+NOP                               
+ADDI $1, $1, 0xCD8EEA30           
+SUB $6, $7, $2                    
+ADD $1, $4, $5                    
+ADD $3, $2, $7                    
+ADDI $7, $3, 0xC3CDB3DE           
+SUB $4, $4, $0                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $4, $3, 0x1506CB39           
+SUBI $4, $3, 0xA1DA0901           
+ADDI $5, $0, 0x77ABF23A           
+SUB $1, $1, $1
+STORE $1, $5, 0x1B0941BF          
+SUBI $0, $7, 0x4656847D           
+SUB $0, $5, $3                    
+ADDI $5, $2, 0x3871C889           
+ADD $3, $1, $0                    
+SUB $7, $7, $7
+LOAD $1, $7, 0x1B0941DB           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $6, $6                    
+ADDI $3, $5, 0xEB421893           
+SUB $6, $4, $3                    
+SUB $2, $2, $2
+STORE $2, $6, 0x1B0941EB          
+ADDI $3, $0, 0x85F5F139           
+SUBI $4, $3, 0xA6E322C7           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $6, $0, $2                    
+ADD $4, $2, $3                    
+SUB $6, $1, $7                    
+ADD $0, $7, $4                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $1, $1, $1
+LOAD $5, $1, 0x1B0941BB           
+SUB $2, $0, $5                    
+NOP                               
+NOP                               
+NOP                               
+SUB $6, $6, $6
+STORE $6, $1, 0x1B0941B3          
+NOP                               
+NOP                               
+NOP                               
+SUB $5, $5, $5
+LOAD $0, $5, 0x1B0941D7           
+SUB $3, $5, $2                    
+SUBI $5, $6, 0x1A14DC0F           
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+ADDI $5, $5, 0xE5BEBB92           
+ADD $5, $3, $6                    
+SUBI $0, $6, 0x0C87FB04           
+SUBI $2, $3, 0x21B4BA9F           
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x1B0941CF
+STORE $0, $5, $5                  
+ADDI $3, $1, 0xAF84557C           
+HALT $0
+#
+D@0x1B0941B3
+0x02BC05D6		# 1B0941B3		= 45876694
+0xBCE53945		# 1B0941B7		= -1125828283
+0x6B42484E		# 1B0941BB		= 1799505998
+0xCFF7B014		# 1B0941BF		= -805851116
+0xE3A65C7D		# 1B0941C3		= -475636611
+0x4506E2E9		# 1B0941C7		= 1158079209
+0xC6D5A52F		# 1B0941CB		= -959077073
+0xA1F371E5		# 1B0941CF		= -1577881115
+0xBC1E92AB		# 1B0941D3		= -1138847061
+0x7FD6D959		# 1B0941D7		= 2144786777
+0x6F353045		# 1B0941DB		= 1865756741
+0xFC6F5ED3		# 1B0941DF		= -59810093
+0xA8952AC8		# 1B0941E3		= -1466619192
+0xE03F9031		# 1B0941E7		= -532705231
+0x9DECA3D7		# 1B0941EB		= -1645435945
+0x3AF19B0A		# 1B0941EF		= 988912394
+0x709A694A		# 1B0941F3		= 1889167690
+0xF31BE912		# 1B0941F7		= -216274670

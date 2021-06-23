@@ -1,0 +1,55 @@
+# Test N.672
+#
+L5
+S3
+O2
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADD $1, $0, $6                    
+ADDI $3, $1, 0x3B7313F5           
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x247291D9
+LOAD $4, $1, $4                   
+SUB $7, $7, $7
+STORE $7, $1, 0x247291DD          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $1, $5, 0x99E4FA3F           
+ADDI $4, $3, 0x5D46D74E           
+SUB $2, $5, $7                    
+SUBI $4, $4, 0x6F21D8CA           
+SUBI $2, $3, 0xA404CE3C           
+NOP                               
+SUBI $3, $2, 0x835E0EA4           
+SUBI $3, $3, 0x39E324DA           
+SUB $0, $2, $2                    
+SUB $5, $5, $5
+STORE $5, $1, 0x247291D9          
+ADD $5, $5, $3                    
+ADD $2, $3, $4                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $2, $7, 0x63AA7C03           
+ADD $3, $0, $6                    
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x247291D9
+STORE $1, $1, $7                  
+SUB $7, $7, $6                    
+SUB $0, $6, $2                    
+SUB $0, $4, $2                    
+HALT $0
+#
+D@0x247291D9
+0x8F46A54A		# 247291D9		= -1891195574
+0xA5A32CFE		# 247291DD		= -1516032770

@@ -1,0 +1,65 @@
+# Test N.1262
+#
+L7
+S7
+O6
+N4
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $3, $6, 0x0FFE2266           
+SUBI $2, $3, 0x4BBE127B           
+NOP                               
+SUBI $1, $3, 0xB95AFE30           
+SUB $3, $3, $3
+STORE $3, $5, 0x086524B4          
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x086524B8
+LOAD $5, $6, $7                   
+SUBI $3, $6, 0x3CABB72B           
+SUBI $4, $0, 0xC1DBD369           
+SUBI $5, $4, 0x966DB8C4           
+ADDI $2, $4, 0xC793FD27           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $6, $1, $2                    
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x086524B8
+LOAD $2, $3, $2                   
+NOP                               
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x086524B8
+LOAD $1, $5, $2                   
+NOP                               
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x086524B8
+LOAD $4, $6, $0                   
+SUB $3, $3, $3
+STORE $3, $1, 0x086524B8          
+SUB $1, $4, $2                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $3, $0, 0x6B761C11           
+NOP                               
+HALT $0
+#
+D@0x086524B0
+0x9282C641		# 086524B0		= -1836923327
+0x1129AC8B		# 086524B4		= 287943819
+0xC3AAFECB		# 086524B8		= -1012203829

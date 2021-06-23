@@ -1,0 +1,102 @@
+# Test N.921
+#
+L1
+S1
+O2
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $1, $6, 0xBEF436B6           
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x6BE5C80E
+STORE $6, $6, $3                  
+ADDI $2, $6, 0x973E0185           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $2, $3, $1                    
+SUB $3, $3, $3
+STORE $3, $7, 0x6BE5C826          
+SUB $1, $1, $1
+LOAD $4, $1, 0x6BE5C806           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x6BE5C7FE
+LOAD $0, $6, $5                   
+SUB $7, $6, $7                    
+ADD $3, $3, $2                    
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x6BE5C802
+STORE $4, $7, $3                  
+SUB $6, $6, $6                    
+SUB $0, $2, $0                    
+ADDI $2, $1, 0x488CD543           
+SUB $5, $5, $0                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $3, $3
+LOAD $6, $3, 0x6BE5C80A           
+ADD $2, $2, $0                    
+NOP                               
+SUB $7, $7, $7
+STORE $7, $4, 0x6BE5C80A          
+ADD $2, $2, $3                    
+SUBI $2, $3, 0xBB799777           
+SUB $0, $6, $6                    
+SUBI $4, $6, 0xCE71C1E0           
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x6BE5C80E
+LOAD $7, $7, $1                   
+SUB $4, $1, $2                    
+SUB $1, $1, $1
+LOAD $1, $1, 0x6BE5C80E           
+ADD $3, $2, $4                    
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x6BE5C806
+STORE $3, $7, $6                  
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $7, $2, $7                    
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x6BE5C7FE
+LOAD $1, $4, $7                   
+NOP                               
+ADDI $7, $1, 0xB7AEA883           
+SUB $1, $6, $3                    
+ADD $3, $0, $2                    
+NOP                               
+HALT $0
+#
+D@0x6BE5C7FE
+0xBB142A62		# 6BE5C7FE		= -1156306334
+0x4EDC7FA8		# 6BE5C802		= 1323073448
+0x72A14C3A		# 6BE5C806		= 1923173434
+0x865575FA		# 6BE5C80A		= -2041219590
+0x37603D6C		# 6BE5C80E		= 929054060
+0x56E6083E		# 6BE5C812		= 1457915966
+0x93E63418		# 6BE5C816		= -1813629928
+0xD20C7C3B		# 6BE5C81A		= -770933701
+0xDC499547		# 6BE5C81E		= -599157433
+0x4F00CF8C		# 6BE5C822		= 1325453196
+0x12226E3C		# 6BE5C826		= 304246332

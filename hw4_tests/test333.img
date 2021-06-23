@@ -1,0 +1,59 @@
+# Test N.333
+#
+L8
+S4
+O4
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $5, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $1, $6                    
+SUB $2, $6, $4                    
+SUB $0, $6, $5                    
+ADD $2, $7, $0                    
+SUBI $3, $2, 0x0C722CCE           
+SUBI $3, $3, 0x25BD85D6           
+SUBI $2, $4, 0xAC4D6419           
+ADDI $7, $2, 0xCC51959E           
+ADD $1, $0, $6                    
+SUB $6, $6, $6
+LOAD $3, $6, 0x627B3652           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $6, 0x627B3652          
+ADDI $6, $0, 0x973E3A99           
+NOP                               
+SUB $4, $4, $4
+STORE $4, $3, 0x627B3652          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $4, $4, 0x31C836BA           
+NOP                               
+SUB $3, $3, $3
+LOAD $2, $3, 0x627B3652           
+ADDI $1, $1, 0x8F62AA59           
+SUBI $1, $0, 0xCD4F1567           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x627B3652
+STORE $2, $4, $3                  
+SUBI $6, $4, 0x3B422BC5           
+HALT $0
+#
+D@0x627B3652
+0xB22D13C3		# 627B3652		= -1305668669

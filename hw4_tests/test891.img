@@ -1,0 +1,94 @@
+# Test N.891
+#
+L3
+S1
+O9
+N6
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $1, $3, 0x3CEA7FCE           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+LOAD $7, $1, 0x143DCF62           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADD $4, $3, $1                    
+ADDI $2, $7, 0x2704A69D           
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x143DCF6E
+LOAD $1, $6, $3                   
+SUB $3, $0, $1                    
+NOP                               
+NOP                               
+SUB $5, $0, $6                    
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $7, $5                    
+NOP                               
+ADD $2, $1, $1                    
+ADD $1, $7, $5                    
+ADD $2, $2, $7                    
+ADDI $7, $7, 0x35413F1F           
+SUB $1, $1, $6                    
+SUB $1, $3, $5                    
+SUBI $6, $3, 0x4751D74A           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUB $6, $1, $7                    
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x143DCF62
+LOAD $1, $0, $3                   
+NOP                               
+ADD $5, $6, $2                    
+SUB $3, $2, $2                    
+ADDI $1, $5, 0x4BD941C7           
+NOP                               
+ADDI $0, $4, 0x4D065097           
+ADDI $1, $4, 0x2ED64E31           
+SUB $1, $1, $1
+STORE $1, $2, 0x143DCF72          
+SUB $2, $0, $6                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x143DCF6A
+STORE $0, $6, $5                  
+SUBI $5, $4, 0x2C368095           
+HALT $0
+#
+D@0x143DCF4E
+0xB4C9DCFC		# 143DCF4E		= -1261839108
+0x27AA652B		# 143DCF52		= 665478443
+0x81ADCDD0		# 143DCF56		= -2119316016
+0x015CC1AC		# 143DCF5A		= 22856108
+0x41D246F2		# 143DCF5E		= 1104299762
+0x9C0FDA69		# 143DCF62		= -1676682647
+0x411DEAF8		# 143DCF66		= 1092479736
+0xD467F745		# 143DCF6A		= -731383995
+0xCA178556		# 143DCF6E		= -904428202
+0x421BFF1D		# 143DCF72		= 1109131037

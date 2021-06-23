@@ -1,0 +1,65 @@
+# Test N.816
+#
+L2
+S4
+O6
+N3
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $6, $2, $0                    
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x3BB324B6
+LOAD $6, $3, $1                   
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x3BB324B6
+LOAD $3, $5, $3                   
+ADDI $0, $7, 0x7F217706           
+SUB $0, $0, $0
+LOAD $5, $0, 0x3BB324B2           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $7, $4, $5                    
+NOP                               
+NOP                               
+ADDI $1, $3, 0xAF97A3B7           
+SUB $6, $2, $3                    
+SUBI $1, $1, 0xD405538A           
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x3BB324B2
+LOAD $3, $4, $1                   
+SUB $3, $3, $3
+STORE $3, $0, 0x3BB324B2          
+SUBI $6, $5, 0x6A4E10CA           
+SUBI $1, $0, 0xAE905E37           
+SUB $4, $4, $4
+STORE $4, $0, 0x3BB324B6          
+ADD $6, $3, $2                    
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x3BB324B2
+LOAD $5, $0, $2                   
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $1, $2, $0                    
+SUB $2, $2, $2
+STORE $2, $6, 0x3BB324B2          
+SUB $7, $5, $7                    
+HALT $0
+#
+D@0x3BB324B2
+0xB52937D0		# 3BB324B2		= -1255589936
+0xB071C7CF		# 3BB324B6		= -1334720561

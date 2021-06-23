@@ -1,0 +1,95 @@
+# Test N.996
+#
+L7
+S4
+O6
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x14FF2AE6
+STORE $7, $0, $0                  
+SUB $0, $0, $0
+LOAD $1, $0, 0x14FF2ABA           
+SUB $2, $1, $5                    
+NOP                               
+SUB $7, $2, $4                    
+NOP                               
+SUBI $1, $6, 0x27D59FFC           
+NOP                               
+ADD $5, $0, $0                    
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x14FF2AAE
+STORE $3, $4, $6                  
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x14FF2AF2
+LOAD $7, $6, $2                   
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x14FF2AB6
+STORE $6, $6, $7                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+LOAD $6, $5, 0x14FF2AF2           
+SUBI $2, $6, 0xEE7D0F0A           
+SUB $1, $4, $0                    
+ADD $3, $3, $4                    
+ADD $0, $6, $2                    
+ADDI $7, $6, 0x3CDC0A85           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $3, $3
+STORE $3, $2, 0x14FF2AD2          
+SUB $3, $3, $3
+LOAD $6, $3, 0x14FF2AC6           
+NOP                               
+SUBI $6, $7, 0x61CF6F5E           
+SUB $7, $7, $7
+STORE $7, $3, 0x14FF2ACE          
+SUBI $6, $2, 0xC428A6F4           
+ADD $2, $0, $2                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $3, $6, $0                    
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x14FF2AEE
+STORE $0, $0, $1                  
+ADDI $1, $1, 0x2C18F4E3           
+NOP                               
+HALT $0
+#
+D@0x14FF2AAE
+0xA89616EA		# 14FF2AAE		= -1466558742
+0x0AF89447		# 14FF2AB2		= 184063047
+0xC1E48407		# 14FF2AB6		= -1041988601
+0x274F7E27		# 14FF2ABA		= 659521063
+0xB788AEC3		# 14FF2ABE		= -1215779133
+0xB3DA9C5B		# 14FF2AC2		= -1277518757
+0x412BF115		# 14FF2AC6		= 1093398805
+0xB9DE4F36		# 14FF2ACA		= -1176613066
+0x4F3AE834		# 14FF2ACE		= 1329260596
+0xC9924CE5		# 14FF2AD2		= -913158939
+0xAC28F742		# 14FF2AD6		= -1406601406
+0x4BE73455		# 14FF2ADA		= 1273443413
+0x1A091685		# 14FF2ADE		= 436803205
+0x23CEEE35		# 14FF2AE2		= 600763957
+0x430BA2F8		# 14FF2AE6		= 1124836088
+0x7CF1FFB7		# 14FF2AEA		= 2096234423
+0xBF5FC508		# 14FF2AEE		= -1084242680
+0x69E657FD		# 14FF2AF2		= 1776703485

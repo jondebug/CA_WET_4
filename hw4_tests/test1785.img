@@ -1,0 +1,102 @@
+# Test N.1785
+#
+L8
+S8
+O8
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x275B60D6
+STORE $7, $7, $2                  
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x275B60EE
+LOAD $4, $6, $4                   
+SUBI $5, $6, 0x8910ADB9           
+NOP                               
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x275B60D6
+LOAD $0, $1, $2                   
+SUB $6, $6, $6
+STORE $6, $3, 0x275B60DA          
+SUB $1, $1, $1
+LOAD $0, $1, 0x275B60E6           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $4, $6, $3                    
+SUB $0, $0, $0
+STORE $0, $3, 0x275B60EE          
+ADDI $0, $6, 0x9B05102F           
+SUB $7, $7, $7
+LOAD $2, $7, 0x275B60E6           
+SUBI $5, $7, 0xFBA01539           
+ADD $0, $3, $7                    
+ADD $3, $5, $2                    
+ADD $1, $2, $2                    
+SUBI $0, $4, 0x60F5CAC6           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $3, $1, 0x4FD57057           
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x275B60EE
+LOAD $1, $0, $5                   
+SUB $7, $5, $5                    
+ADD $0, $3, $0                    
+SUB $2, $2, $2
+LOAD $3, $2, 0x275B60E2           
+NOP                               
+SUB $7, $6, $4                    
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x275B60DE
+LOAD $7, $7, $6                   
+SUB $7, $7, $7
+LOAD $3, $7, 0x275B60D2           
+SUB $5, $5, $5
+STORE $5, $6, 0x275B60EA          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $1, 0x275B60DA          
+ADD $3, $2, $3                    
+NOP                               
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x275B60CA
+STORE $0, $2, $7                  
+SUBI $3, $1, 0xB4F1580E           
+ADD $4, $6, $0                    
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x275B60D6
+LOAD $4, $7, $6                   
+ADD $3, $6, $1                    
+HALT $0
+#
+D@0x275B60CA
+0xE614707C		# 275B60CA		= -434868100
+0x7181F307		# 275B60CE		= 1904341767
+0xDC252F9F		# 275B60D2		= -601542753
+0xC804C0BE		# 275B60D6		= -939212610
+0xEBC07B7E		# 275B60DA		= -339707010
+0x722B087E		# 275B60DE		= 1915422846
+0x4FA4496F		# 275B60E2		= 1336166767
+0xE96E205E		# 275B60E6		= -378658722
+0xB918066D		# 275B60EA		= -1189607827
+0xCAAA3C6E		# 275B60EE		= -894813074
+0x6AB3C9EB		# 275B60F2		= 1790167531

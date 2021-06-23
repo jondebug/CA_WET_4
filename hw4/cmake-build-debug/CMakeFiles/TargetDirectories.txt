@@ -1,0 +1,3 @@
+C:/technion/semester_5/Computer Arch/hw4/cmake-build-debug/CMakeFiles/sim_main.dir
+C:/technion/semester_5/Computer Arch/hw4/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/technion/semester_5/Computer Arch/hw4/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,64 @@
+# Test N.233
+#
+L1
+S6
+O9
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x4CD0C142
+LOAD $2, $7, $5                   
+SUBI $1, $1, 0x76C60720           
+ADD $0, $5, $7                    
+NOP                               
+SUB $6, $6, $6
+LOAD $4, $6, 0x4CD0C14A           
+ADD $6, $4, $7                    
+NOP                               
+SUB $2, $2, $2
+STORE $2, $5, 0x4CD0C142          
+ADD $0, $4, $4                    
+ADDI $3, $0, 0x3E75AFDB           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $1, $0                    
+SUB $3, $3, $3
+LOAD $5, $3, 0x4CD0C152           
+SUB $4, $4, $4
+STORE $4, $4, 0x4CD0C142          
+ADDI $2, $5, 0x6B156432           
+NOP                               
+SUB $7, $7, $7
+LOAD $2, $7, 0x4CD0C14A           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x4CD0C152
+STORE $1, $5, $0                  
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x4CD0C14E
+LOAD $0, $2, $5                   
+ADD $1, $7, $0                    
+SUB $5, $5, $5
+LOAD $5, $5, 0x4CD0C142           
+SUBI $0, $2, 0x53604BA7           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x4CD0C14A
+LOAD $6, $6, $1                   
+HALT $0
+#
+D@0x4CD0C13E
+0xAFE9A63D		# 4CD0C13E		= -1343642051
+0xB07D5A03		# 4CD0C142		= -1333962237
+0x112A71D4		# 4CD0C146		= 287994324
+0xE048CAD4		# 4CD0C14A		= -532100396
+0xC076F83B		# 4CD0C14E		= -1065945029
+0x0FD1FAFA		# 4CD0C152		= 265419514

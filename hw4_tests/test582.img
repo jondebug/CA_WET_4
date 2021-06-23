@@ -1,0 +1,104 @@
+# Test N.582
+#
+L5
+S6
+O10
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $0, 0x0984ED91          
+NOP                               
+NOP                               
+ADDI $1, $3, 0xDC7F993E           
+SUB $2, $2, $2
+STORE $2, $7, 0x0984ED91          
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $7, $1, 0xF2AF79AB           
+ADD $0, $7, $3                    
+SUB $5, $1, $6                    
+SUB $6, $1, $7                    
+ADD $3, $5, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $1, 0x0984ED91          
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x0984ED91
+STORE $5, $3, $3                  
+ADDI $1, $4, 0x43F74B0E           
+NOP                               
+NOP                               
+ADD $0, $3, $1                    
+SUB $7, $7, $7
+LOAD $0, $7, 0x0984ED91           
+NOP                               
+SUB $5, $6, $0                    
+NOP                               
+ADDI $0, $5, 0xD663531B           
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $5, 0x0984ED91          
+SUBI $3, $0, 0xEA6B2DB3           
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x0984ED91
+LOAD $4, $3, $4                   
+NOP                               
+SUB $6, $1, $7                    
+SUBI $7, $5, 0xC5477EF7           
+SUBI $1, $6, 0x61642C6D           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x0984ED91
+LOAD $1, $1, $5                   
+ADDI $1, $5, 0x6F639274           
+SUBI $4, $4, 0x30A155C8           
+SUBI $4, $0, 0xE4718AD3           
+SUB $5, $0, $2                    
+SUBI $2, $7, 0x70B4DE30           
+ADDI $2, $7, 0xAB80580D           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $2, $3, 0xEB9EBCF3           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $3, $6, $2                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUBI $7, $0, 0xB35E6E01           
+ADD $0, $4, $3                    
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+HALT $0
+#
+D@0x0984ED91
+0xBB711915		# 0984ED91		= -1150215915

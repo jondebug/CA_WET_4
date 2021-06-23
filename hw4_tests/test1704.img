@@ -1,0 +1,102 @@
+# Test N.1704
+#
+L8
+S9
+O2
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $4, 0x73AAB971          
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x73AAB945
+STORE $5, $2, $6                  
+SUB $7, $7, $7
+STORE $7, $4, 0x73AAB941          
+SUBI $2, $2, 0x653260C0           
+SUBI $4, $6, 0xD8117630           
+ADD $1, $4, $6                    
+SUB $5, $5, $5
+STORE $5, $3, 0x73AAB949          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $2, $3, 0xF36B3561           
+SUB $6, $6, $6
+STORE $6, $1, 0x73AAB949          
+SUBI $7, $5, 0x6978CE22           
+NOP                               
+ADDI $6, $0, 0xC6EFD01D           
+SUB $1, $4, $6                    
+SUB $5, $1, $4                    
+NOP                               
+SUB $5, $5, $5
+STORE $5, $7, 0x73AAB951          
+ADD $6, $2, $0                    
+ADD $1, $6, $5                    
+ADD $5, $7, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADDI $6, $1, 0xBB155756           
+SUB $4, $4, $4
+LOAD $7, $4, 0x73AAB94D           
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $7, $7, 0xF652AAA0           
+NOP                               
+SUBI $3, $0, 0x16C1B46F           
+SUB $0, $0, $0
+LOAD $5, $0, 0x73AAB949           
+ADDI $0, $6, 0x45B34755           
+ADDI $4, $6, 0xDD580B7E           
+NOP                               
+NOP                               
+ADD $4, $6, $7                    
+ADD $3, $5, $0                    
+ADDI $2, $3, 0x68FEE18F           
+SUB $3, $3, $3
+STORE $3, $0, 0x73AAB94D          
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x73AAB94D
+LOAD $6, $2, $4                   
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $0, 0x73AAB971          
+SUB $7, $1, $5                    
+ADDI $1, $1, 0x5F5B170A           
+ADDI $2, $2, 0xE5C4CDC9           
+HALT $0
+#
+D@0x73AAB941
+0x5AF213D0		# 73AAB941		= 1525814224
+0x73E8EEA9		# 73AAB945		= 1944645289
+0x6DDA090F		# 73AAB949		= 1843005711
+0x77ABDFD4		# 73AAB94D		= 2007752660
+0x05EEE5A0		# 73AAB951		= 99542432
+0x71E89FE1		# 73AAB955		= 1911070689
+0xE9709BAD		# 73AAB959		= -378496083
+0xAF69DB9A		# 73AAB95D		= -1352016998
+0x5445DAA0		# 73AAB961		= 1413864096
+0xBC005F08		# 73AAB965		= -1140826360
+0x43A6B508		# 73AAB969		= 1134998792
+0xE7A1495B		# 73AAB96D		= -408860325
+0xD8CBBEC4		# 73AAB971		= -657735996
+0xB5568AD1		# 73AAB975		= -1252619567

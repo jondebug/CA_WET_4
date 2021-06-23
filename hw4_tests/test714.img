@@ -1,0 +1,78 @@
+# Test N.714
+#
+L5
+S3
+O7
+N3
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $1, $6, $7                    
+SUB $6, $6, $6
+STORE $6, $6, 0x1BCF8FAC          
+SUB $0, $0, $0
+STORE $0, $1, 0x1BCF8FB8          
+NOP                               
+ADD $1, $7, $0                    
+SUBI $7, $2, 0xCB2BF68B           
+SUB $5, $5, $5
+LOAD $0, $5, 0x1BCF8FAC           
+SUB $0, $1, $7                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x1BCF8FAC
+STORE $3, $0, $4                  
+ADD $0, $5, $0                    
+SUBI $3, $6, 0x921F50B5           
+ADD $3, $5, $7                    
+ADDI $2, $3, 0xB7EBDDFF           
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x1BCF8FAC
+STORE $6, $6, $7                  
+ADDI $2, $1, 0x8B1FA034           
+SUB $7, $7, $6                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x1BCF8FAC
+STORE $7, $4, $3                  
+ADDI $6, $2, 0xA42356F0           
+SUB $5, $5, $0                    
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x1BCF8FB8
+STORE $5, $3, $6                  
+SUB $7, $7, $7
+STORE $7, $6, 0x1BCF8FAC          
+SUBI $7, $7, 0x187283F7           
+NOP                               
+ADD $2, $7, $2                    
+SUBI $4, $4, 0x0E746D53           
+SUB $1, $5, $3                    
+SUB $6, $6, $6
+LOAD $1, $6, 0x1BCF8FB4           
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x1BCF8FB8
+LOAD $2, $7, $6                   
+SUB $1, $1, $1
+LOAD $3, $1, 0x1BCF8FB0           
+HALT $0
+#
+D@0x1BCF8FAC
+0x4EA0D741		# 1BCF8FAC		= 1319163713
+0xC40C91AD		# 1BCF8FB0		= -1005809235
+0x55F0B02A		# 1BCF8FB4		= 1441837098
+0x10A17C8E		# 1BCF8FB8		= 279018638

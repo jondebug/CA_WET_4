@@ -1,0 +1,103 @@
+# Test N.1094
+#
+L2
+S5
+O5
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x1ACE5684
+LOAD $1, $4, $5                   
+SUB $6, $6, $6
+STORE $6, $4, 0x1ACE5670          
+SUBI $3, $7, 0xCEC4AAEE           
+SUB $6, $7, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $6, $0, $1                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $0, 0x1ACE567C          
+NOP                               
+ADD $0, $3, $0                    
+SUB $0, $0, $0
+STORE $0, $6, 0x1ACE5668          
+SUB $0, $2, $7                    
+SUB $6, $7, $6                    
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x1ACE5678
+LOAD $6, $6, $4                   
+SUB $7, $7, $7
+STORE $7, $7, 0x1ACE5664          
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x1ACE5680
+STORE $4, $0, $6                  
+ADDI $7, $0, 0x656BD1CD           
+SUB $1, $6, $6                    
+SUB $7, $7, $7
+LOAD $3, $7, 0x1ACE566C           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $7, $7, $7
+LOAD $0, $7, 0x1ACE5684           
+ADDI $5, $7, 0xE31A7BCD           
+NOP                               
+ADDI $4, $0, 0xF3EDF5AB           
+SUBI $0, $6, 0x7656BBDE           
+SUB $0, $0, $0
+STORE $0, $5, 0x1ACE5678          
+SUB $1, $7, $4                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUBI $1, $5, 0x0C6FB3E2           
+SUB $1, $3, $2                    
+SUB $5, $5, $5
+LOAD $4, $5, 0x1ACE567C           
+SUB $6, $3, $3                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+NOP                               
+NOP                               
+SUB $2, $2, $2
+STORE $2, $5, 0x1ACE5684          
+NOP                               
+SUB $7, $7, $7
+STORE $7, $4, 0x1ACE5684          
+ADD $6, $5, $3                    
+SUB $5, $0, $3                    
+NOP                               
+HALT $0
+#
+D@0x1ACE5664
+0x15C5854C		# 1ACE5664		= 365266252
+0x8AD10A0D		# 1ACE5668		= -1966011891
+0x2E48F601		# 1ACE566C		= 776533505
+0xF95D4974		# 1ACE5670		= -111326860
+0x32C1D7D7		# 1ACE5674		= 851564503
+0xA3483F07		# 1ACE5678		= -1555546361
+0xE697F077		# 1ACE567C		= -426250121
+0xCF1E067C		# 1ACE5680		= -820115844
+0x1E3289B3		# 1ACE5684		= 506628531

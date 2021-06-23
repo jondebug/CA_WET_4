@@ -1,0 +1,46 @@
+# Test N.1524
+#
+L4
+S8
+O3
+N1
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+ADDI $5, $5, 0xA61CA5C1           
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x42F7FEB4
+LOAD $1, $0, $2                   
+SUB $0, $0, $0
+LOAD $1, $0, 0x42F7FEB8           
+SUB $5, $0, $4                    
+SUB $5, $5, $5
+STORE $5, $3, 0x42F7FEB8          
+SUB $4, $4, $4
+STORE $4, $5, 0x42F7FEC8          
+ADDI $6, $7, 0x123AAADE           
+SUBI $4, $5, 0x6EE72FBE           
+SUB $6, $6, $6
+LOAD $0, $6, 0x42F7FEB8           
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x42F7FEC8
+LOAD $5, $0, $6                   
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x42F7FEBC
+STORE $4, $0, $2                  
+HALT $0
+#
+D@0x42F7FEB4
+0xBDB12235		# 42F7FEB4		= -1112464843
+0x344267C8		# 42F7FEB8		= 876767176
+0x77AF38C4		# 42F7FEBC		= 2007972036
+0xA85DCD6F		# 42F7FEC0		= -1470247569
+0xDAE730DC		# 42F7FEC4		= -622382884
+0xF9E39715		# 42F7FEC8		= -102525163
+0xB5EC3213		# 42F7FECC		= -1242811885
+0xE43DBAA6		# 42F7FED0		= -465716570

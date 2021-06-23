@@ -1,0 +1,51 @@
+# Test N.498
+#
+L3
+S10
+O5
+N3
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADD $2, $1, $6                    
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x04DA0401
+STORE $7, $2, $1                  
+ADD $0, $5, $1                    
+SUB $2, $2, $2
+STORE $2, $3, 0x04DA0401          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $5, 0x04DA0401          
+SUBI $3, $3, 0xF3A2DA64           
+NOP                               
+ADD $7, $5, $5                    
+SUBI $3, $3, 0x1DE67A0C           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x04DA0401
+LOAD $4, $3, $7                   
+ADDI $5, $4, 0x2C86A304           
+SUB $4, $3, $6                    
+ADD $5, $4, $7                    
+NOP                               
+SUB $7, $3, $4                    
+SUB $3, $6, $6                    
+ADDI $4, $0, 0xA502D481           
+SUBI $7, $4, 0x452F97C0           
+HALT $0
+#
+D@0x04DA0401
+0xE135B899		# 04DA0401		= -516573031

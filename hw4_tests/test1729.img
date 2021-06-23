@@ -1,0 +1,69 @@
+# Test N.1729
+#
+L1
+S1
+O2
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $0, $0
+LOAD $4, $0, 0x75DF4DF0           
+SUB $5, $1, $3                    
+SUB $6, $6, $6
+STORE $6, $1, 0x75DF4E0C          
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x75DF4E04
+LOAD $0, $0, $7                   
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x75DF4E14
+STORE $6, $0, $2                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $3, $2, $2                    
+SUB $7, $7, $7
+STORE $7, $6, 0x75DF4E08          
+SUB $2, $6, $4                    
+SUBI $0, $3, 0xBBF54815           
+SUB $4, $2, $7                    
+NOP                               
+ADD $4, $3, $4                    
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x75DF4E10
+STORE $5, $5, $6                  
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x75DF4E00
+STORE $3, $0, $4                  
+ADDI $0, $4, 0xD732296B           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x75DF4DF0
+STORE $3, $3, $7                  
+SUB $6, $6, $6
+STORE $6, $4, 0x75DF4DFC          
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x75DF4DF0
+STORE $4, $1, $6                  
+HALT $0
+#
+D@0x75DF4DF0
+0x74DE4BB0		# 75DF4DF0		= 1960725424
+0xBED428F8		# 75DF4DF4		= -1093392136
+0x55A4DCB6		# 75DF4DF8		= 1436867766
+0xFEFCC5CC		# 75DF4DFC		= -16988724
+0x12A6E2D2		# 75DF4E00		= 312926930
+0x024D788B		# 75DF4E04		= 38631563
+0x3FFE5797		# 75DF4E08		= 1073633175
+0x1345904E		# 75DF4E0C		= 323326030
+0xA802AFBE		# 75DF4E10		= -1476218946
+0x7A940771		# 75DF4E14		= 2056521585
+0x422565E8		# 75DF4E18		= 1109747176

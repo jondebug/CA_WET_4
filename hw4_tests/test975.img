@@ -1,0 +1,87 @@
+# Test N.975
+#
+L1
+S9
+O2
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+LOAD $7, $7, 0x5B1A3E28           
+SUB $7, $4, $7                    
+NOP                               
+NOP                               
+ADDI $6, $1, 0xFDCC5260           
+SUB $0, $0, $0
+STORE $0, $5, 0x5B1A3DF4          
+NOP                               
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x5B1A3E14
+LOAD $6, $0, $2                   
+SUB $6, $7, $4                    
+ADD $3, $4, $2                    
+SUB $5, $7, $6                    
+SUBI $1, $2, 0x8323F4DC           
+SUB $5, $5, $5
+STORE $5, $7, 0x5B1A3DFC          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $3, $3
+LOAD $3, $3, 0x5B1A3E24           
+SUB $6, $6, $6
+STORE $6, $6, 0x5B1A3E08          
+SUB $0, $0, $0
+LOAD $6, $0, 0x5B1A3DF8           
+ADDI $3, $6, 0x824E4B6E           
+ADD $0, $3, $2                    
+NOP                               
+SUBI $4, $1, 0x99FB1CDA           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x5B1A3E08
+LOAD $6, $0, $5                   
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x5B1A3E10
+LOAD $7, $6, $4                   
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x5B1A3E1C
+LOAD $0, $2, $0                   
+SUBI $7, $3, 0xA68D6F80           
+SUB $1, $6, $2                    
+SUB $6, $7, $0                    
+HALT $0
+#
+D@0x5B1A3DE8
+0x06B3AD36		# 5B1A3DE8		= 112438582
+0xD1B53591		# 5B1A3DEC		= -776653423
+0xD38D53C4		# 5B1A3DF0		= -745712700
+0x2E754239		# 5B1A3DF4		= 779436601
+0x940052B1		# 5B1A3DF8		= -1811918159
+0xF7BB4EF4		# 5B1A3DFC		= -138719500
+0xEDEA6A23		# 5B1A3E00		= -303404509
+0xD2678EF3		# 5B1A3E04		= -764965133
+0x17B988F9		# 5B1A3E08		= 398035193
+0x8FC25468		# 5B1A3E0C		= -1883089816
+0xC1D53BE2		# 5B1A3E10		= -1042990110
+0xB011BF56		# 5B1A3E14		= -1341014186
+0x0E746EBF		# 5B1A3E18		= 242511551
+0xF90284C7		# 5B1A3E1C		= -117275449
+0x06AAF3DB		# 5B1A3E20		= 111866843
+0x117F1FBF		# 5B1A3E24		= 293543871
+0x4DE999F0		# 5B1A3E28		= 1307154928
+0xC4FB672B		# 5B1A3E2C		= -990157013

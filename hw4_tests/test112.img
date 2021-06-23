@@ -1,0 +1,64 @@
+# Test N.112
+#
+L5
+S9
+O4
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $3, $1                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+LOAD $2, $1, 0x7A2EE2CD           
+ADDI $5, $6, 0x5B5570D7           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x7A2EE299
+STORE $2, $2, $3                  
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x7A2EE2CD
+LOAD $0, $6, $7                   
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x7A2EE2AD
+STORE $5, $4, $0                  
+SUB $7, $7, $7
+STORE $7, $7, 0x7A2EE2BD          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $2, $4, $0                    
+ADDI $0, $2, 0xFC645070           
+NOP                               
+SUB $7, $2, $0                    
+SUB $6, $6, $6
+STORE $6, $5, 0x7A2EE2BD          
+SUB $3, $4, $4                    
+HALT $0
+#
+D@0x7A2EE299
+0xBFAA0A2E		# 7A2EE299		= -1079375314
+0x40C2EEEC		# 7A2EE29D		= 1086516972
+0xA02590F4		# 7A2EE2A1		= -1608150796
+0x60250DA8		# 7A2EE2A5		= 1613041064
+0x727FFFA8		# 7A2EE2A9		= 1920991144
+0x6E438F66		# 7A2EE2AD		= 1849921382
+0x880C713B		# 7A2EE2B1		= -2012450501
+0x950803A5		# 7A2EE2B5		= -1794636891
+0x6D7F8603		# 7A2EE2B9		= 1837073923
+0xE27C9225		# 7A2EE2BD		= -495152603
+0xD0358A55		# 7A2EE2C1		= -801797547
+0x5CB83765		# 7A2EE2C5		= 1555576677
+0x8CE1F838		# 7A2EE2C9		= -1931347912
+0x52C145D6		# 7A2EE2CD		= 1388398038
+0xA51AA33D		# 7A2EE2D1		= -1524980931
+0x6A2BFFA2		# 7A2EE2D5		= 1781268386

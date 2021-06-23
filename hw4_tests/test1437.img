@@ -1,0 +1,53 @@
+# Test N.1437
+#
+L5
+S3
+O6
+N3
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x64B0E0CB
+LOAD $1, $4, $3                   
+NOP                               
+SUB $7, $5, $4                    
+ADDI $5, $5, 0x5C64BE19           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $3, $4                    
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x64B0E0C7
+LOAD $4, $6, $4                   
+SUBI $1, $0, 0x8979DC09           
+SUB $2, $2, $2
+LOAD $6, $2, 0x64B0E0CB           
+ADDI $4, $4, 0x9C324582           
+ADD $7, $0, $5                    
+SUB $4, $6, $3                    
+ADDI $7, $5, 0xB0ACE27B           
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x64B0E0C7
+LOAD $5, $2, $6                   
+SUB $7, $7, $5                    
+SUB $4, $4, $4
+STORE $4, $7, 0x64B0E0C7          
+SUB $3, $2, $6                    
+HALT $0
+#
+D@0x64B0E0C7
+0x67D5DC92		# 64B0E0C7		= 1742068882
+0x511CC3E9		# 64B0E0CB		= 1360839657
+0x508113F3		# 64B0E0CF		= 1350636531

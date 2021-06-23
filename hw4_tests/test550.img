@@ -1,0 +1,94 @@
+# Test N.550
+#
+L2
+S3
+O4
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $5, $4, $4                    
+ADD $4, $7, $4                    
+SUBI $5, $5, 0xBF18FE8A           
+ADDI $6, $5, 0x10E4E892           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $3, $4                    
+ADD $2, $4, $4                    
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x7DC0C870
+LOAD $3, $2, $5                   
+ADD $6, $6, $5                    
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x7DC0C86C
+LOAD $4, $1, $3                   
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x7DC0C864
+STORE $2, $1, $3                  
+ADDI $3, $1, 0x469E1D5D           
+NOP                               
+NOP                               
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x7DC0C85C
+LOAD $2, $0, $4                   
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $4, $4                    
+ADDI $1, $0, 0x208EA109           
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x7DC0C85C
+LOAD $1, $7, $6                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $1, $3, 0x5B16E4E0           
+NOP                               
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x7DC0C860
+LOAD $5, $2, $4                   
+ADDI $7, $2, 0x25562910           
+NOP                               
+ADD $1, $0, $2                    
+NOP                               
+SUBI $6, $2, 0x4807D674           
+NOP                               
+ADD $7, $2, $0                    
+ADDI $2, $2, 0x8F32E667           
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x7DC0C864
+LOAD $3, $0, $1                   
+ADDI $4, $1, 0x78251202           
+NOP                               
+HALT $0
+#
+D@0x7DC0C85C
+0xCBDEB69B		# 7DC0C85C		= -874596709
+0x60DAE944		# 7DC0C860		= 1624959300
+0xFC718153		# 7DC0C864		= -59670189
+0x747C9D0A		# 7DC0C868		= 1954323722
+0x5AA7D70F		# 7DC0C86C		= 1520949007
+0xE6367F94		# 7DC0C870		= -432636012

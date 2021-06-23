@@ -1,0 +1,54 @@
+# Test N.1897
+#
+L1
+S10
+O9
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $4, $7, 0xB468ABC7           
+SUBI $2, $5, 0x6BE0B2F2           
+SUBI $2, $3, 0x5EC04468           
+SUB $6, $6, $6
+STORE $6, $5, 0x5B19B71E          
+ADDI $7, $2, 0xA9EFAD5C           
+SUBI $6, $7, 0x96631500           
+NOP                               
+SUBI $0, $7, 0xB8701B00           
+SUBI $3, $4, 0x8D0E887F           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+NOP                               
+ADD $0, $6, $6                    
+NOP                               
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x5B19B6FE
+LOAD $2, $2, $5                   
+ADDI $2, $0, 0x2D4F376A           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x5B19B70A
+LOAD $6, $3, $7                   
+SUBI $7, $0, 0xFBEEFCEE           
+ADD $0, $5, $2                    
+SUB $5, $3, $0                    
+ADDI $2, $3, 0x7029A19A           
+HALT $0
+#
+D@0x5B19B6FE
+0xF72B1685		# 5B19B6FE		= -148171131
+0xEDD0133B		# 5B19B702		= -305130693
+0x6B5CB668		# 5B19B706		= 1801238120
+0xA7ADE75E		# 5B19B70A		= -1481775266
+0x6EBCC038		# 5B19B70E		= 1857863736
+0xAD642942		# 5B19B712		= -1385944766
+0x67F7152C		# 5B19B716		= 1744246060
+0x952E5445		# 5B19B71A		= -1792125883
+0x66613349		# 5B19B71E		= 1717646153

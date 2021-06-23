@@ -1,0 +1,159 @@
+# Test N.1756
+#
+L5
+S2
+O5
+N7
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $3, $4, $1                    
+SUB $4, $1, $6                    
+SUB $7, $7, $7
+STORE $7, $4, 0x7BD951A4          
+NOP                               
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x7BD951A4
+LOAD $4, $1, $6                   
+SUBI $0, $3, 0xC02392B7           
+SUB $7, $4, $3                    
+NOP                               
+SUB $7, $7, $7
+STORE $7, $4, 0x7BD951A4          
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x7BD951A4
+LOAD $6, $0, $1                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $6, $3, 0x8C0EC05A           
+SUBI $5, $0, 0x27E78DD9           
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x7BD951A4
+STORE $3, $1, $2                  
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x7BD951A4
+LOAD $1, $2, $5                   
+ADDI $1, $4, 0x5952183D           
+ADD $3, $0, $6                    
+SUB $7, $7, $7
+STORE $7, $3, 0x7BD951A4          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $5, $1, 0x7B1BA0CC           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+ADD $3, $2, $2                    
+SUBI $0, $5, 0x63666BBC           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x7BD951A4
+LOAD $4, $1, $5                   
+ADDI $4, $7, 0x95536C91           
+SUB $6, $6, $6
+STORE $6, $7, 0x7BD951A4          
+ADD $4, $0, $2                    
+SUBI $3, $3, 0xBC3CA008           
+NOP                               
+NOP                               
+SUB $0, $4, $0                    
+SUB $1, $6, $3                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUB $3, $3, $3
+LOAD $3, $3, 0x7BD951A4           
+ADD $4, $5, $4                    
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x7BD951A4
+STORE $3, $3, $2                  
+SUB $2, $2, $2
+STORE $2, $4, 0x7BD951A4          
+ADD $2, $5, $1                    
+SUB $2, $2, $6                    
+ADD $7, $5, $7                    
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x7BD951A4
+STORE $0, $3, $4                  
+NOP                               
+ADD $7, $4, $0                    
+SUBI $1, $6, 0xEE56C994           
+ADDI $7, $4, 0x25CD6500           
+SUBI $5, $7, 0xD9F0358A           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUBI $7, $4, 0x7AFD609C           
+SUBI $2, $6, 0xAAF5DF8F           
+SUB $6, $6, $6
+LOAD $7, $6, 0x7BD951A4           
+NOP                               
+ADDI $0, $3, 0xB160E5DC           
+SUB $7, $7, $7
+LOAD $6, $7, 0x7BD951A4           
+ADD $5, $0, $2                    
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x7BD951A4
+LOAD $6, $3, $4                   
+SUBI $4, $6, 0x8E0E0548           
+ADDI $3, $7, 0x4842C313           
+NOP                               
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x7BD951A4
+LOAD $6, $1, $2                   
+SUB $1, $1, $1
+STORE $1, $0, 0x7BD951A4          
+SUB $4, $4, $4
+LOAD $2, $4, 0x7BD951A4           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $6, $7, $2                    
+ADD $4, $1, $7                    
+ADDI $1, $2, 0xF0A7C956           
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x7BD951A4
+LOAD $3, $3, $5                   
+SUBI $4, $2, 0x51CA28BB           
+SUB $2, $2, $2
+LOAD $4, $2, 0x7BD951A4           
+SUB $7, $7, $7
+STORE $7, $1, 0x7BD951A4          
+SUBI $4, $1, 0xACBB4FA0           
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x7BD951A4
+LOAD $0, $5, $4                   
+SUB $5, $5, $5
+LOAD $7, $5, 0x7BD951A4           
+HALT $0
+#
+D@0x7BD951A4
+0xC5D74A4F		# 7BD951A4		= -975746481

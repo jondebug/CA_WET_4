@@ -1,0 +1,71 @@
+# Test N.1717
+#
+L3
+S10
+O10
+N4
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $4, $5, 0x66D17DE3           
+SUBI $3, $7, 0x6CEC08D4           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x71534CD5
+LOAD $0, $2, $3                   
+SUBI $5, $1, 0x9DBC384C           
+SUBI $7, $2, 0x98CF8F54           
+SUBI $5, $7, 0x23DA36B7           
+ADDI $4, $5, 0x9FD14832           
+NOP                               
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x71534CE1
+LOAD $6, $0, $1                   
+ADDI $7, $5, 0x825BEC27           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $0, $0                    
+NOP                               
+ADDI $7, $5, 0xF6C2E9EC           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $4, $3                    
+NOP                               
+SUB $0, $0, $0
+LOAD $6, $0, 0x71534CED           
+SUB $5, $5, $5
+STORE $5, $1, 0x71534CDD          
+ADD $6, $7, $0                    
+NOP                               
+ADDI $6, $1, 0x8A3FEE2D           
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $5, $7, 0x19E71401           
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x71534CED
+LOAD $3, $4, $3                   
+HALT $0
+#
+D@0x71534CD5
+0x85DBD8DC		# 71534CD5		= -2049189668
+0x8B46664A		# 71534CD9		= -1958320566
+0xAE455E11		# 71534CDD		= -1371185647
+0x325C7B12		# 71534CE1		= 844921618
+0xEB06BD58		# 71534CE5		= -351879848
+0x44C7E386		# 71534CE9		= 1153950598
+0xF8F0580A		# 71534CED		= -118466550
+0x57D5CAC5		# 71534CF1		= 1473628869

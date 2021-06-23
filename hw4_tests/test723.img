@@ -1,0 +1,21 @@
+# Test N.723
+#
+L8
+S9
+O3
+N1
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $5, $1, 0x8A3BA79C           
+SUBI $4, $0, 0xABF3B69B           
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x4D47E51E
+STORE $2, $6, $4                  
+HALT $0
+#
+D@0x4D47E51E
+0xB363C15F		# 4D47E51E		= -1285308065
+0xF140DA23		# 4D47E522		= -247408093

@@ -1,0 +1,62 @@
+# Test N.588
+#
+L7
+S10
+O1
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $2, $6                    
+SUB $6, $6, $6                    
+ADD $4, $0, $6                    
+ADDI $7, $3, 0x01838835           
+ADDI $2, $7, 0xAA92DE30           
+SUB $1, $1, $1
+LOAD $6, $1, 0x67CAC49D           
+SUB $4, $5, $1                    
+NOP                               
+ADDI $5, $1, 0x42EE8181           
+ADDI $7, $0, 0x08146D76           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $0, $4, 0x7BCC821D           
+NOP                               
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x67CAC4A1
+STORE $0, $7, $4                  
+SUB $2, $2, $2
+LOAD $5, $2, 0x67CAC4A5           
+SUBI $1, $1, 0xDE56C5DD           
+ADDI $7, $4, 0xD5E95D34           
+ADDI $4, $6, 0x16EF0A34           
+ADD $2, $5, $4                    
+ADDI $7, $5, 0xBCEC8A4C           
+SUB $1, $1, $2                    
+SUB $0, $7, $7                    
+ADDI $7, $4, 0x61581AF6           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $0, 0x67CAC4A9          
+NOP                               
+SUB $0, $6, $7                    
+HALT $0
+#
+D@0x67CAC499
+0xA49AE822		# 67CAC499		= -1533351902
+0xAD584015		# 67CAC49D		= -1386725355
+0xFDCBEC32		# 67CAC4A1		= -36967374
+0x1C82450C		# 67CAC4A5		= 478299404
+0x5FCB6A94		# 67CAC4A9		= 1607166612
+0x10127730		# 67CAC4AD		= 269645616
+0x8D1BDF13		# 67CAC4B1		= -1927553261

@@ -1,0 +1,98 @@
+# Test N.417
+#
+L5
+S10
+O7
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $2, 0x5DFE8627          
+SUB $4, $6, $0                    
+SUBI $3, $6, 0x256FC364           
+SUBI $7, $6, 0xFDDD2A30           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $7, $5                    
+SUB $3, $6, $4                    
+SUB $1, $7, $4                    
+SUB $4, $4, $4
+STORE $4, $7, 0x5DFE8613          
+NOP                               
+SUB $4, $7, $4                    
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x5DFE8613
+STORE $0, $5, $3                  
+SUB $6, $6, $6
+STORE $6, $3, 0x5DFE8617          
+SUB $5, $5, $1                    
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x5DFE8633
+STORE $5, $7, $1                  
+SUB $1, $1, $1
+STORE $1, $3, 0x5DFE861B          
+SUB $6, $4, $0                    
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x5DFE8633
+STORE $2, $2, $5                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $1, $1, $1
+LOAD $0, $1, 0x5DFE8633           
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x5DFE8617
+STORE $5, $0, $4                  
+ADD $2, $3, $6                    
+SUBI $6, $2, 0x347CAD3C           
+SUB $1, $1, $3                    
+SUB $4, $4, $4
+STORE $4, $6, 0x5DFE8637          
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x5DFE8613
+STORE $3, $1, $2                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $5, 0x5DFE861B          
+NOP                               
+ADDI $7, $0, 0x6D8D0D2B           
+ADD $7, $4, $1                    
+SUBI $6, $7, 0x40DEAEFF           
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x5DFE862B
+STORE $1, $0, $3                  
+NOP                               
+SUB $3, $3, $3
+LOAD $1, $3, 0x5DFE8627           
+SUBI $4, $3, 0xA15C66C9           
+HALT $0
+#
+D@0x5DFE8613
+0x499E83E3		# 5DFE8613		= 1235125219
+0x3F3A32D6		# 5DFE8617		= 1060778710
+0xC4D12666		# 5DFE861B		= -992926106
+0x06657337		# 5DFE861F		= 107311927
+0x53F496BD		# 5DFE8623		= 1408538301
+0x2E7E3AF1		# 5DFE8627		= 780024561
+0xE9D9D334		# 5DFE862B		= -371600588
+0x280CF3E5		# 5DFE862F		= 671937509
+0xD394902F		# 5DFE8633		= -745238481
+0x961A04D2		# 5DFE8637		= -1776679726

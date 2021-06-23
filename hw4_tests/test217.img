@@ -1,0 +1,28 @@
+# Test N.217
+#
+L5
+S2
+O1
+N1
+
+# Thread 0
+T0
+I@0x00000000
+ADD $4, $3, $4                    
+NOP                               
+ADD $2, $6, $2                    
+NOP                               
+ADD $3, $1, $5                    
+SUB $6, $6, $6
+STORE $6, $2, 0x5E6CDC28          
+SUBI $2, $6, 0xE97FA009           
+HALT $0
+#
+D@0x5E6CDC14
+0x6DEDFD50		# 5E6CDC14		= 1844313424
+0x150F0FE5		# 5E6CDC18		= 353308645
+0xE7509EED		# 5E6CDC1C		= -414146835
+0xB60C4BC2		# 5E6CDC20		= -1240708158
+0xA6F8F015		# 5E6CDC24		= -1493635051
+0x239217FA		# 5E6CDC28		= 596776954
+0x60A2015A		# 5E6CDC2C		= 1621229914

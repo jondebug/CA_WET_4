@@ -1,0 +1,43 @@
+# Test N.1512
+#
+L3
+S8
+O3
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $7, $5, 0x53C2C8EB           
+ADDI $3, $7, 0xBD032F82           
+NOP                               
+ADD $1, $7, $5                    
+SUB $3, $3, $3
+STORE $3, $0, 0x3189DADB          
+ADD $4, $5, $7                    
+SUBI $0, $7, 0x69017AAC           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $3, $4, 0xA90A0A49           
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x3189DAD3
+LOAD $2, $7, $5                   
+SUBI $1, $4, 0xF6B10A61           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+D@0x3189DACF
+0xEA62FB07		# 3189DACF		= -362611961
+0x7C87B492		# 3189DAD3		= 2089268370
+0xDC7064BB		# 3189DAD7		= -596613957
+0x85D325AB		# 3189DADB		= -2049759829

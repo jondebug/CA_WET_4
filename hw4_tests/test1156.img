@@ -1,0 +1,125 @@
+# Test N.1156
+#
+L4
+S2
+O8
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $0, $0                    
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x2D20D66C
+STORE $6, $2, $5                  
+ADDI $7, $5, 0x001930C9           
+NOP                               
+ADD $4, $7, $5                    
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x2D20D63C
+LOAD $3, $1, $3                   
+SUB $7, $6, $5                    
+SUB $7, $5, $3                    
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $6, $7, 0x4EBB6DA6           
+SUB $1, $1, $1
+LOAD $5, $1, 0x2D20D644           
+SUB $3, $1, $4                    
+SUB $4, $6, $6                    
+ADDI $2, $3, 0x1ED96EDC           
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x2D20D65C
+STORE $5, $0, $0                  
+SUB $0, $6, $2                    
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x2D20D674
+LOAD $1, $5, $4                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $5, $5, 0x3B46D555           
+SUBI $3, $7, 0xDFB16A71           
+SUBI $3, $7, 0xA878BDC0           
+SUB $6, $6, $6
+LOAD $4, $6, 0x2D20D674           
+SUB $4, $0, $4                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $6, $7, $6                    
+NOP                               
+SUB $7, $7, $1                    
+NOP                               
+SUB $3, $3, $3
+LOAD $5, $3, 0x2D20D654           
+SUB $5, $6, $5                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+ADDI $0, $7, 0xABF32FFF           
+ADDI $2, $0, 0xC1D0D8B8           
+SUB $0, $7, $2                    
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x2D20D670
+STORE $6, $4, $1                  
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x2D20D670
+LOAD $4, $0, $5                   
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+NOP                               
+SUBI $0, $0, 0xA50EB1D7           
+SUB $7, $7, $7
+LOAD $1, $7, 0x2D20D66C           
+SUB $2, $6, $5                    
+SUB $7, $7, $7
+STORE $7, $7, 0x2D20D644          
+ADD $3, $4, $7                    
+HALT $0
+#
+D@0x2D20D638
+0xCAE3EAE4		# 2D20D638		= -891032860
+0xA667C9D1		# 2D20D63C		= -1503147567
+0xBF3B055B		# 2D20D640		= -1086651045
+0x834A0462		# 2D20D644		= -2092301214
+0xCF05E924		# 2D20D648		= -821696220
+0xFE43D555		# 2D20D64C		= -29108907
+0xBFC2B37C		# 2D20D650		= -1077759108
+0x29F947DA		# 2D20D654		= 704202714
+0x4F9D0CCE		# 2D20D658		= 1335692494
+0xEB407A4A		# 2D20D65C		= -348095926
+0x2859BD46		# 2D20D660		= 676969798
+0x9894EF41		# 2D20D664		= -1735069887
+0xAD149546		# 2D20D668		= -1391159994
+0x935B64EC		# 2D20D66C		= -1822726932
+0x3E5BE94C		# 2D20D670		= 1046210892
+0xC2E3A724		# 2D20D674		= -1025267932

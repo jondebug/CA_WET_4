@@ -1,0 +1,49 @@
+# Test N.1181
+#
+L1
+S4
+O7
+N3
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $3, $7, $2                    
+ADDI $3, $1, 0x95E45657           
+NOP                               
+SUB $6, $1, $3                    
+SUB $4, $3, $4                    
+SUB $4, $4, $4
+STORE $4, $3, 0x3C196D52          
+SUB $6, $6, $6
+LOAD $6, $6, 0x3C196D4E           
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x3C196D52
+LOAD $1, $3, $2                   
+SUB $1, $1, $1
+LOAD $7, $1, 0x3C196D4E           
+NOP                               
+ADDI $4, $7, 0xA1B18C4E           
+ADDI $5, $5, 0x3DC525A0           
+ADDI $0, $4, 0x7CD10E0C           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $5, $4, 0xEF122087           
+ADDI $4, $4, 0x2910BAC0           
+ADD $5, $2, $7                    
+NOP                               
+HALT $0
+#
+D@0x3C196D4E
+0xBB1D1F88		# 3C196D4E		= -1155719288
+0x93B2BBC3		# 3C196D52		= -1817003069
+0x385596E3		# 3C196D56		= 945133283

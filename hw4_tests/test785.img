@@ -1,0 +1,35 @@
+# Test N.785
+#
+L2
+S3
+O9
+N1
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $7, $0, 0xDD53CDAA           
+NOP                               
+SUBI $0, $5, 0x2C42B5C2           
+NOP                               
+NOP                               
+SUB $1, $6, $7                    
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x4D708EF1
+STORE $0, $4, $4                  
+NOP                               
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x4D708EF1
+LOAD $1, $1, $7                   
+NOP                               
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x4D708EF1
+LOAD $2, $2, $7                   
+NOP                               
+HALT $0
+#
+D@0x4D708EF1
+0xA83422A8		# 4D708EF1		= -1472978264

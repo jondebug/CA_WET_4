@@ -1,0 +1,70 @@
+# Test N.609
+#
+L1
+S1
+O8
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $6, $7, 0x6E11D2B8           
+ADD $3, $7, $5                    
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $2, $1                    
+SUBI $3, $2, 0x0931BA8D           
+SUB $1, $1, $1
+LOAD $7, $1, 0x6E3AB68F           
+ADD $6, $1, $7                    
+ADDI $2, $2, 0x7B3FFDC0           
+SUB $3, $6, $0                    
+SUB $3, $3, $3
+STORE $3, $5, 0x6E3AB68B          
+SUB $4, $4, $4
+STORE $4, $1, 0x6E3AB68F          
+SUBI $4, $7, 0x6E6074AB           
+SUB $4, $0, $5                    
+NOP                               
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x6E3AB687
+STORE $2, $0, $5                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $1, 0x6E3AB68B          
+SUBI $4, $3, 0x83EAFE8C           
+NOP                               
+SUBI $0, $6, 0x8550DA37           
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x6E3AB687
+STORE $3, $5, $6                  
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x6E3AB68F
+STORE $2, $0, $1                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $6, $1, 0x554FEBC7           
+ADD $1, $1, $2                    
+NOP                               
+HALT $0
+#
+D@0x6E3AB687
+0xA14B4E64		# 6E3AB687		= -1588900252
+0xA5AE44C0		# 6E3AB68B		= -1515305792
+0x8588F26E		# 6E3AB68F		= -2054622610
+0xEE7990D1		# 6E3AB693		= -294022959
+0x50F4C673		# 6E3AB697		= 1358218867

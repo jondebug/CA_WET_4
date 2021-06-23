@@ -1,0 +1,47 @@
+# Test N.247
+#
+L10
+S7
+O8
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $1, $3                    
+SUBI $3, $4, 0xA0B396F7           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $5, $3, 0xCDE575D3           
+ADD $2, $2, $0                    
+ADDI $3, $3, 0x91478266           
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x2D536B2C
+LOAD $0, $5, $3                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $1, 0x2D536B2C          
+SUB $0, $0, $0
+STORE $0, $7, 0x2D536B30          
+SUB $4, $4, $4
+LOAD $2, $4, 0x2D536B34           
+SUBI $7, $3, 0x234F32CC           
+SUBI $6, $0, 0x9A3EC5BC           
+SUB $2, $2, $2
+STORE $2, $0, 0x2D536B2C          
+SUB $2, $2, $2
+LOAD $3, $2, 0x2D536B2C           
+HALT $0
+#
+D@0x2D536B2C
+0xDFED84E4		# 2D536B2C		= -538082076
+0xCCEE19D9		# 2D536B30		= -856811047
+0x2179CB07		# 2D536B34		= 561629959

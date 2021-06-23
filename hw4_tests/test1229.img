@@ -1,0 +1,101 @@
+# Test N.1229
+#
+L2
+S10
+O5
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x358E4FFE
+LOAD $1, $4, $1                   
+NOP                               
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x358E500E
+STORE $6, $3, $2                  
+SUB $7, $7, $7
+STORE $7, $6, 0x358E4FFA          
+SUB $5, $5, $5
+LOAD $2, $5, 0x358E5012           
+ADD $1, $3, $7                    
+ADDI $1, $7, 0x41FCAB67           
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x358E4FEE
+STORE $3, $1, $5                  
+ADD $1, $5, $0                    
+SUB $0, $0, $0
+STORE $0, $6, 0x358E4FF6          
+SUB $0, $0, $0
+STORE $0, $5, 0x358E4FE6          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $3, $2, $1                    
+SUB $0, $7, $4                    
+SUB $7, $6, $6                    
+SUB $7, $7, $4                    
+ADD $5, $5, $1                    
+SUB $1, $1, $1
+LOAD $4, $1, 0x358E4FEA           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $6, $0, 0xC2815A7C           
+ADDI $6, $3, 0x03CD419E           
+SUB $6, $0, $1                    
+ADD $4, $1, $1                    
+ADD $3, $7, $6                    
+NOP                               
+ADDI $5, $3, 0x7002C5C8           
+NOP                               
+SUB $1, $1, $5                    
+ADDI $3, $1, 0xDA878FFC           
+SUB $6, $5, $4                    
+ADDI $0, $2, 0xC7C8B57D           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $1, $2, 0x2A5AA92B           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $0, $3, $7                    
+NOP                               
+SUBI $7, $3, 0x7761B82A           
+ADDI $0, $7, 0x58D3F96C           
+ADDI $7, $0, 0xCE0223D4           
+ADD $0, $0, $4                    
+HALT $0
+#
+D@0x358E4FE6
+0xEE6808FA		# 358E4FE6		= -295171846
+0x73D156AF		# 358E4FEA		= 1943099055
+0x20B32C5D		# 358E4FEE		= 548613213
+0x2476FD43		# 358E4FF2		= 611777859
+0x14F7D843		# 358E4FF6		= 351787075
+0x4FC237D1		# 358E4FFA		= 1338128337
+0xF98990FC		# 358E4FFE		= -108424964
+0xAC04DD80		# 358E5002		= -1408967296
+0xB810D447		# 358E5006		= -1206856633
+0x9BD56891		# 358E500A		= -1680512879
+0x4926C6CF		# 358E500E		= 1227278031
+0x33FE87EF		# 358E5012		= 872318959
+0x829CCEA2		# 358E5016		= -2103652702

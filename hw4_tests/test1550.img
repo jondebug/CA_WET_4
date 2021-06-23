@@ -1,0 +1,64 @@
+# Test N.1550
+#
+L9
+S2
+O4
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $0, $2, 0xDEF05C7B           
+SUB $5, $5, $4                    
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x20B0DC00
+STORE $6, $3, $7                  
+NOP                               
+SUB $6, $5, $5                    
+NOP                               
+NOP                               
+SUB $5, $5, $5
+LOAD $5, $5, 0x20B0DBF4           
+NOP                               
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x20B0DBF4
+LOAD $2, $4, $2                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $1, $1, 0xF6A80ABB           
+SUB $0, $0, $1                    
+NOP                               
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x20B0DC00
+LOAD $3, $1, $4                   
+SUBI $5, $7, 0x4CBD56D7           
+ADD $6, $0, $4                    
+SUBI $6, $0, 0x5EB05924           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $1, $0, $0                    
+HALT $0
+#
+D@0x20B0DBDC
+0xB59D4712		# 20B0DBDC		= -1247983854
+0x77D3862A		# 20B0DBE0		= 2010351146
+0x7D4EA9F2		# 20B0DBE4		= 2102307314
+0x96286449		# 20B0DBE8		= -1775737783
+0xE9F23C22		# 20B0DBEC		= -370000862
+0x7F7F6842		# 20B0DBF0		= 2139056194
+0xD8334DC3		# 20B0DBF4		= -667726397
+0xD36295B1		# 20B0DBF8		= -748513871
+0x5157EC39		# 20B0DBFC		= 1364716601
+0x4C5B4F97		# 20B0DC00		= 1281052567
+0x143DE84C		# 20B0DC04		= 339601484
+0x7FA051CA		# 20B0DC08		= 2141213130
+0xE9FEDEB2		# 20B0DC0C		= -369172814

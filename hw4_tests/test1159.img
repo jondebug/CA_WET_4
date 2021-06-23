@@ -1,0 +1,28 @@
+# Test N.1159
+#
+L4
+S8
+O8
+N1
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $3, $0, 0xF3974403           
+SUBI $5, $3, 0x6EEEA59F           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x4CC8A69D
+STORE $6, $2, $1                  
+SUBI $7, $6, 0x7C60EEF6           
+ADDI $2, $3, 0x3F551488           
+ADDI $3, $1, 0x9B958C41           
+HALT $0
+#
+D@0x4CC8A699
+0x21A970D6		# 4CC8A699		= 564752598
+0xC23AC193		# 4CC8A69D		= -1036336749
+0x5753C55F		# 4CC8A6A1		= 1465107807
+0xF35A0C3E		# 4CC8A6A5		= -212202434
+0xB9E81A25		# 4CC8A6A9		= -1175971291

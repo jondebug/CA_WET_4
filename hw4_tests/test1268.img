@@ -1,0 +1,25 @@
+# Test N.1268
+#
+L9
+S6
+O10
+N1
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $3, $6                    
+ADDI $2, $1, 0xD38C1E22           
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x632C7C37
+LOAD $4, $4, $5                   
+SUB $5, $0, $3                    
+NOP                               
+NOP                               
+ADDI $5, $1, 0x14DE3B0D           
+HALT $0
+#
+D@0x632C7C37
+0x30AE520C		# 632C7C37		= 816730636
+0xC467C90C		# 632C7C3B		= -999831284

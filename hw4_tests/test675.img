@@ -1,0 +1,123 @@
+# Test N.675
+#
+L2
+S9
+O5
+N7
+
+# Thread 0
+T0
+I@0x00000000
+ADD $6, $2, $3                    
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x3EEBB302
+STORE $7, $5, $5                  
+SUB $1, $1, $1
+STORE $1, $5, 0x3EEBB2F2          
+ADDI $3, $4, 0x908331FC           
+SUB $6, $6, $7                    
+SUB $1, $2, $6                    
+ADD $0, $7, $7                    
+SUB $6, $3, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $5, 0x3EEBB2EA          
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x3EEBB2E2
+LOAD $7, $6, $5                   
+SUBI $4, $3, 0x04B0E735           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $7, $4                    
+SUBI $2, $5, 0xBACDB86A           
+SUB $2, $2, $2
+LOAD $6, $2, 0x3EEBB30A           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x3EEBB2EE
+LOAD $1, $1, $0                   
+SUBI $0, $3, 0x93542093           
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x3EEBB2CE
+STORE $6, $4, $4                  
+NOP                               
+ADDI $6, $5, 0xA7978126           
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x3EEBB2EA
+LOAD $0, $2, $0                   
+ADDI $0, $4, 0xEAC516D8           
+SUBI $2, $3, 0xCA7F6FF7           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $7, $5, 0xBCE18E5D           
+SUB $5, $2, $6                    
+SUB $7, $2, $1                    
+ADD $3, $3, $5                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUBI $7, $1, 0xD1157D25           
+NOP                               
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADD $2, $4, $4                    
+ADDI $3, $3, 0x08E42E66           
+SUB $1, $7, $6                    
+ADD $4, $1, $5                    
+SUB $6, $4, $7                    
+ADDI $5, $6, 0xE318DA93           
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x3EEBB2DE
+STORE $0, $0, $1                  
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x3EEBB2FA
+STORE $4, $3, $3                  
+ADDI $2, $5, 0xD683A6D6           
+ADD $3, $0, $0                    
+ADDI $5, $6, 0x83E45B57           
+ADDI $1, $3, 0x48C5663E           
+HALT $0
+#
+D@0x3EEBB2CE
+0x5302DEF1		# 3EEBB2CE		= 1392697073
+0x51FD1D87		# 3EEBB2D2		= 1375542663
+0x5BB9406D		# 3EEBB2D6		= 1538867309
+0xAB47269D		# 3EEBB2DA		= -1421400419
+0x54DAAAE6		# 3EEBB2DE		= 1423616742
+0x2FC3D6A8		# 3EEBB2E2		= 801363624
+0x7252D8BC		# 3EEBB2E6		= 1918032060
+0x822B0059		# 3EEBB2EA		= -2111111079
+0x783E3BDF		# 3EEBB2EE		= 2017344479
+0xAA6EDEF0		# 3EEBB2F2		= -1435574544
+0x364F70D0		# 3EEBB2F6		= 911175888
+0xA9FFC06D		# 3EEBB2FA		= -1442856851
+0xC7E0BDCF		# 3EEBB2FE		= -941572657
+0xBDED8F6C		# 3EEBB302		= -1108504724
+0x63060811		# 3EEBB306		= 1661339665
+0xF0AC2C41		# 3EEBB30A		= -257151935

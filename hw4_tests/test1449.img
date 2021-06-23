@@ -1,0 +1,54 @@
+# Test N.1449
+#
+L5
+S5
+O2
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $6, $7                    
+ADD $3, $2, $4                    
+SUB $2, $2, $2
+STORE $2, $2, 0x30327E19          
+NOP                               
+SUB $4, $1, $2                    
+ADDI $1, $2, 0x854D5EF0           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $4, $2, 0x75A74F65           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $1, $4, 0x0330C613           
+NOP                               
+ADD $7, $5, $1                    
+SUB $5, $7, $7                    
+SUB $5, $3, $2                    
+SUB $0, $0, $0
+LOAD $3, $0, 0x30327E19           
+SUB $6, $2, $1                    
+ADD $5, $2, $5                    
+NOP                               
+ADDI $6, $2, 0xBB471732           
+ADDI $2, $4, 0xB65BB75E           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $4, $3                    
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x30327E19
+STORE $1, $4, $3                  
+HALT $0
+#
+D@0x30327E19
+0x0106765D		# 30327E19		= 17200733

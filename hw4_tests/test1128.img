@@ -1,0 +1,68 @@
+# Test N.1128
+#
+L6
+S5
+O3
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $6, $0                    
+SUBI $7, $7, 0x5769F73A           
+SUB $6, $6, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $1, $2                    
+ADD $7, $7, $4                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $7, $2, 0xF2164414           
+NOP                               
+ADD $4, $7, $5                    
+SUB $6, $6, $6                    
+ADDI $5, $3, 0x9A2C1668           
+SUB $3, $6, $0                    
+SUB $6, $2, $2                    
+SUB $0, $3, $4                    
+SUB $0, $5, $0                    
+SUB $6, $6, $6
+STORE $6, $5, 0x374D6A8B          
+SUBI $1, $5, 0xBB399E60           
+SUB $2, $0, $2                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $6, $6, $4                    
+NOP                               
+SUB $3, $7, $6                    
+SUBI $3, $4, 0x086BDD2D           
+SUB $0, $7, $6                    
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x374D6A87
+LOAD $6, $3, $1                   
+SUBI $6, $4, 0x85F88255           
+ADDI $5, $6, 0x75E1088F           
+SUB $0, $0, $0
+LOAD $2, $0, 0x374D6A8B           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $3, $0, 0x6858367F           
+NOP                               
+HALT $0
+#
+D@0x374D6A87
+0xDC8F94C5		# 374D6A87		= -594570043
+0x6FB78BC8		# 374D6A8B		= 1874299848

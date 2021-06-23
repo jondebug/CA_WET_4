@@ -1,0 +1,70 @@
+# Test N.565
+#
+L5
+S9
+O4
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $0, $0
+LOAD $3, $0, 0x3E1B23F2           
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x3E1B23E6
+STORE $5, $1, $3                  
+NOP                               
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x3E1B2406
+STORE $5, $4, $0                  
+ADD $7, $1, $0                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $7, $4, 0x385E288D           
+SUB $4, $7, $4                    
+NOP                               
+ADD $5, $6, $4                    
+SUB $3, $5, $2                    
+SUB $1, $1, $1
+STORE $1, $0, 0x3E1B23F2          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $0, $4, 0xC9AE60A4           
+ADD $5, $1, $3                    
+SUBI $1, $3, 0x3EFFEEC6           
+NOP                               
+ADD $7, $1, $5                    
+NOP                               
+ADDI $4, $4, 0x9E6FF08E           
+NOP                               
+ADD $1, $7, $3                    
+ADDI $7, $0, 0x67604870           
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x3E1B23EA
+STORE $1, $2, $3                  
+SUB $5, $0, $7                    
+ADDI $3, $4, 0xDF3C4B66           
+ADDI $7, $5, 0x5F7D26D4           
+HALT $0
+#
+D@0x3E1B23E6
+0x3A55543E		# 3E1B23E6		= 978670654
+0x4921A6FF		# 3E1B23EA		= 1226942207
+0xCE7AB603		# 3E1B23EE		= -830818813
+0xC03C51F4		# 3E1B23F2		= -1069788684
+0x601EE29D		# 3E1B23F6		= 1612636829
+0x0372047A		# 3E1B23FA		= 57803898
+0xCB2BB126		# 3E1B23FE		= -886329050
+0xC21BA6F6		# 3E1B2402		= -1038375178
+0xDC046846		# 3E1B2406		= -603690938
+0x10CD4949		# 3E1B240A		= 281889097
+0xF85ADF1E		# 3E1B240E		= -128262370

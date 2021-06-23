@@ -1,0 +1,82 @@
+# Test N.219
+#
+L8
+S7
+O9
+N4
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x28D14C14
+STORE $2, $3, $1                  
+ADDI $4, $4, 0xFF320FAC           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x28D14C24
+LOAD $1, $2, $3                   
+SUB $4, $4, $4
+LOAD $3, $4, 0x28D14C18           
+SUB $0, $5, $5                    
+SUBI $3, $6, 0xFB0FBBC2           
+ADD $4, $7, $1                    
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x28D14C20
+LOAD $2, $4, $0                   
+SUB $0, $1, $4                    
+ADD $7, $1, $3                    
+SUBI $3, $4, 0x9B1B3ED8           
+SUB $1, $1, $1
+STORE $1, $0, 0x28D14C20          
+ADDI $4, $5, 0xAD89F8B9           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $4, $1, 0x031CA554           
+SUBI $6, $5, 0x3F91E03E           
+SUB $5, $5, $5
+STORE $5, $7, 0x28D14C1C          
+ADD $7, $2, $3                    
+NOP                               
+SUBI $2, $1, 0x022F8E6F           
+SUBI $7, $2, 0x33D45B22           
+ADDI $5, $0, 0x25F9FD11           
+SUBI $4, $4, 0x742A0555           
+NOP                               
+NOP                               
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x28D14C20
+STORE $7, $6, $2                  
+ADD $5, $0, $7                    
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x28D14C20
+LOAD $7, $6, $1                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $0, $0, $0
+STORE $0, $1, 0x28D14C24          
+ADD $4, $2, $6                    
+HALT $0
+#
+D@0x28D14C14
+0x66F664B2		# 28D14C14		= 1727423666
+0x7C69CB58		# 28D14C18		= 2087308120
+0x2CD36A99		# 28D14C1C		= 752052889
+0xBB8B8E6A		# 28D14C20		= -1148481942
+0x1A5EF22A		# 28D14C24		= 442429994

@@ -1,0 +1,127 @@
+# Test N.220
+#
+L10
+S4
+O7
+N6
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+ADD $5, $2, $3                    
+ADDI $2, $0, 0xCBE5C27E           
+ADD $2, $6, $1                    
+ADDI $2, $6, 0x8C0FB88E           
+SUB $7, $0, $0                    
+SUB $0, $3, $5                    
+ADDI $2, $3, 0xFC5DE1EA           
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x5D2C6197
+STORE $6, $3, $4                  
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x5D2C61AB
+STORE $4, $1, $1                  
+ADD $6, $1, $0                    
+ADDI $3, $7, 0x96C3E5CE           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $5, $3, $1                    
+SUB $0, $6, $5                    
+SUB $2, $5, $2                    
+ADDI $0, $0, 0xF1545A4A           
+SUBI $1, $2, 0xB19B60F4           
+SUB $1, $1, $1
+LOAD $4, $1, 0x5D2C619B           
+SUBI $7, $3, 0x1A6603E2           
+SUBI $0, $5, 0x4CC1EEB9           
+SUB $4, $6, $4                    
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x5D2C618B
+STORE $6, $3, $1                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $6, $3                    
+ADDI $5, $0, 0x817DC416           
+SUB $0, $6, $7                    
+ADDI $5, $6, 0x2F72634A           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $3, $7, $6                    
+SUB $5, $5, $5
+STORE $5, $4, 0x5D2C617F          
+ADDI $0, $6, 0x0293F03B           
+SUB $2, $5, $2                    
+SUBI $5, $6, 0x8D787A1A           
+ADDI $1, $2, 0x10D5D8F8           
+ADDI $7, $0, 0x8111CA89           
+SUB $2, $2, $2
+STORE $2, $7, 0x5D2C61A7          
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x5D2C61AB
+LOAD $7, $7, $4                   
+ADDI $4, $2, 0x952384BB           
+ADD $0, $1, $5                    
+ADD $1, $7, $0                    
+SUBI $2, $4, 0xC5C6D53A           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $1, $2, 0x1EE206D4           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADDI $7, $7, 0x25D56C54           
+SUB $6, $6, $6
+LOAD $4, $6, 0x5D2C619B           
+SUB $0, $0, $0
+STORE $0, $7, 0x5D2C61A3          
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x5D2C618B
+STORE $6, $2, $3                  
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x5D2C6193
+STORE $2, $3, $3                  
+SUB $0, $3, $6                    
+SUBI $0, $0, 0xACC90300           
+ADDI $2, $1, 0x5C915CB8           
+SUB $2, $0, $3                    
+ADDI $7, $1, 0x24949C20           
+SUBI $0, $3, 0x2365AE98           
+ADD $5, $3, $1                    
+ADDI $3, $0, 0x98AD9D20           
+HALT $0
+#
+D@0x5D2C617B
+0x90B80823		# 5D2C617B		= -1866987485
+0x727924B4		# 5D2C617F		= 1920541876
+0xD64DBC12		# 5D2C6183		= -699548654
+0xBB0520A5		# 5D2C6187		= -1157291867
+0xB789954A		# 5D2C618B		= -1215720118
+0x31CC6334		# 5D2C618F		= 835478324
+0xE6DC4491		# 5D2C6193		= -421772143
+0x8F08C6BF		# 5D2C6197		= -1895250241
+0xDD12F6AB		# 5D2C619B		= -585959765
+0xA1A5F9CD		# 5D2C619F		= -1582958131
+0x537D5F9F		# 5D2C61A3		= 1400725407
+0xF995F84A		# 5D2C61A7		= -107612086
+0xC2F6FE98		# 5D2C61AB		= -1024000360

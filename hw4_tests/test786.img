@@ -1,0 +1,62 @@
+# Test N.786
+#
+L1
+S5
+O1
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $0, $1, 0xF2338BC0           
+SUB $6, $6, $6
+LOAD $6, $6, 0x7617D167           
+SUBI $1, $0, 0x620670FB           
+SUB $3, $3, $7                    
+SUBI $5, $1, 0xE165C935           
+SUBI $7, $1, 0xA361ACA4           
+NOP                               
+NOP                               
+SUBI $2, $2, 0xC7D46D18           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $2, $7                    
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x7617D167
+LOAD $5, $7, $4                   
+SUBI $3, $7, 0x7B9284A4           
+SUB $4, $4, $4
+STORE $4, $2, 0x7617D167          
+ADDI $3, $0, 0x558EA505           
+SUB $4, $4, $5                    
+SUB $4, $4, $4
+LOAD $1, $4, 0x7617D167           
+SUB $1, $4, $6                    
+SUB $2, $1, $3                    
+SUB $4, $0, $0                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $2, $7, 0x864EE2B2           
+SUB $3, $3, $3
+LOAD $6, $3, 0x7617D163           
+NOP                               
+SUB $2, $4, $3                    
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x7617D163
+STORE $2, $1, $5                  
+NOP                               
+NOP                               
+HALT $0
+#
+D@0x7617D15F
+0x3B6D56B7		# 7617D15F		= 997021367
+0x0A012EEC		# 7617D163		= 167849708
+0xF61A57C1		# 7617D167		= -166045759

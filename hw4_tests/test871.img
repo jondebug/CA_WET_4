@@ -1,0 +1,93 @@
+# Test N.871
+#
+L9
+S1
+O5
+N6
+
+# Thread 0
+T0
+I@0x00000000
+ADD $0, $0, $7                    
+SUB $2, $2, $2
+STORE $2, $0, 0x7FA1CAC1          
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x7FA1CADD
+LOAD $7, $5, $6                   
+ADDI $7, $5, 0xB6C6D100           
+ADD $6, $1, $2                    
+SUB $4, $7, $5                    
+ADDI $6, $1, 0x0983B535           
+NOP                               
+ADD $0, $7, $3                    
+ADDI $7, $4, 0x3526B40B           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+LOAD $6, $7, 0x7FA1CAE1           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $1, $3, $3                    
+SUBI $6, $0, 0xECB2FE1F           
+SUBI $0, $0, 0xA3194F6C           
+NOP                               
+ADD $7, $2, $0                    
+ADDI $1, $4, 0x5117ACA0           
+SUBI $6, $3, 0x8AC6B97F           
+ADD $2, $0, $7                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $7, $7, $7
+LOAD $7, $7, 0x7FA1CADD           
+SUBI $2, $4, 0x0BB1A7DC           
+NOP                               
+SUB $0, $0, $0
+LOAD $4, $0, 0x7FA1CAC5           
+SUBI $4, $0, 0x5BA21168           
+ADD $1, $2, $2                    
+SUB $5, $7, $7                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x7FA1CADD
+STORE $7, $1, $6                  
+ADD $5, $6, $4                    
+SUB $4, $4, $4
+LOAD $5, $4, 0x7FA1CAC5           
+HALT $0
+#
+D@0x7FA1CAB5
+0x23A04D1E		# 7FA1CAB5		= 597708062
+0x772D54CB		# 7FA1CAB9		= 1999459531
+0x5CD22290		# 7FA1CABD		= 1557275280
+0x978912EA		# 7FA1CAC1		= -1752624406
+0x222E8BDB		# 7FA1CAC5		= 573475803
+0xFAF8636B		# 7FA1CAC9		= -84384917
+0xE472AA8B		# 7FA1CACD		= -462247285
+0x71705316		# 7FA1CAD1		= 1903186710
+0xCF44FF8A		# 7FA1CAD5		= -817561718
+0xF5020221		# 7FA1CAD9		= -184417759
+0x845B4BC6		# 7FA1CADD		= -2074391610
+0x701E6607		# 7FA1CAE1		= 1881040391
+0x71C09E87		# 7FA1CAE5		= 1908448903
+0xA3B4DEAC		# 7FA1CAE9		= -1548427604

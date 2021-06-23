@@ -1,0 +1,94 @@
+# Test N.1848
+#
+L1
+S3
+O4
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $3, $3
+LOAD $5, $3, 0x22D6CE23           
+ADDI $7, $2, 0x932C8C2D           
+ADDI $4, $6, 0x93A83D02           
+ADD $7, $5, $7                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $1, $5, 0x1F3D4AD8           
+SUB $0, $0, $0
+STORE $0, $6, 0x22D6CE23          
+NOP                               
+ADDI $0, $3, 0xBA3DABD2           
+NOP                               
+SUB $5, $3, $0                    
+SUBI $4, $1, 0x48DA4B5F           
+SUB $0, $0, $0
+LOAD $5, $0, 0x22D6CE1B           
+SUBI $7, $5, 0x2864536B           
+ADDI $0, $7, 0x296DFB02           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $6
+STORE $6, $6, 0x22D6CE1F          
+ADD $6, $1, $4                    
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x22D6CE27
+LOAD $4, $2, $5                   
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $6, $5, 0xED4A3A2B           
+ADD $3, $7, $0                    
+ADDI $5, $5, 0xD834FD97           
+SUB $6, $6, $6
+STORE $6, $0, 0x22D6CE27          
+ADDI $2, $4, 0x81D00E97           
+NOP                               
+ADD $3, $5, $5                    
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x22D6CE1F
+LOAD $5, $4, $1                   
+SUB $0, $0, $0
+STORE $0, $0, 0x22D6CE27          
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x22D6CE1F
+LOAD $6, $5, $1                   
+ADDI $6, $1, 0xC58DCC07           
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x22D6CE27
+STORE $0, $1, $4                  
+NOP                               
+NOP                               
+SUB $5, $5, $5
+STORE $5, $5, 0x22D6CE1F          
+NOP                               
+SUB $2, $5, $4                    
+ADD $5, $5, $6                    
+NOP                               
+ADD $0, $0, $3                    
+HALT $0
+#
+D@0x22D6CE1B
+0x6A70DAC1		# 22D6CE1B		= 1785780929
+0x7E83E238		# 22D6CE1F		= 2122572344
+0xEEA68D53		# 22D6CE23		= -291074733
+0x9DD778D8		# 22D6CE27		= -1646823208

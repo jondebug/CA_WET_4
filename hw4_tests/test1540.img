@@ -1,0 +1,109 @@
+# Test N.1540
+#
+L5
+S2
+O7
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $7, $4, 0xAF2FCB8B           
+SUBI $4, $1, 0x7D4C664A           
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x562DFA92
+STORE $3, $0, $1                  
+SUB $0, $1, $7                    
+SUBI $6, $0, 0x24E4038A           
+SUBI $3, $0, 0x0851D17B           
+SUBI $0, $2, 0x8DCDF414           
+ADD $2, $2, $3                    
+NOP                               
+ADDI $4, $0, 0xB612B710           
+SUB $1, $1, $5                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $1, $5, 0x6D76FF70           
+ADDI $5, $6, 0xB3F79002           
+ADDI $7, $3, 0x19F9B102           
+ADDI $3, $3, 0xD7469E29           
+ADD $6, $6, $6                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x562DFA96
+LOAD $7, $3, $6                   
+SUB $3, $6, $0                    
+NOP                               
+SUB $5, $4, $5                    
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x562DFA92
+LOAD $2, $0, $1                   
+ADDI $3, $6, 0x306CCB72           
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x562DFA82
+STORE $1, $4, $0                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $1, $4, $5                    
+SUB $5, $3, $1                    
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x562DFA9A
+STORE $0, $7, $1                  
+ADD $6, $0, $4                    
+ADDI $5, $3, 0x70841A43           
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x562DFA72
+LOAD $2, $0, $4                   
+SUBI $5, $0, 0xA1F209F6           
+SUB $0, $0, $0
+LOAD $3, $0, 0x562DFA86           
+SUBI $5, $3, 0x401E6440           
+SUB $3, $3, $3
+LOAD $3, $3, 0x562DFA8A           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $6, $5, $7                    
+ADDI $7, $2, 0x1FE13ABD           
+NOP                               
+SUBI $1, $3, 0x487E7FD8           
+SUB $1, $2, $7                    
+SUBI $0, $0, 0x760A4D08           
+SUBI $3, $2, 0x4C46F97E           
+HALT $0
+#
+D@0x562DFA6E
+0xB63FE2B2		# 562DFA6E		= -1237327182
+0xBB1EA5E7		# 562DFA72		= -1155619353
+0xD57A8F28		# 562DFA76		= -713388248
+0x66B9B728		# 562DFA7A		= 1723447080
+0xF0898F18		# 562DFA7E		= -259420392
+0x8CAD529C		# 562DFA82		= -1934798180
+0x80D2189C		# 562DFA86		= -2133714788
+0x36BF2778		# 562DFA8A		= 918497144
+0xF1A45470		# 562DFA8E		= -240888720
+0x925F27B8		# 562DFA92		= -1839257672
+0xF5E0D0B4		# 562DFA96		= -169815884
+0x9A6FC67E		# 562DFA9A		= -1703950722
+0x998DF21B		# 562DFA9E		= -1718750693
+0x421CC4EE		# 562DFAA2		= 1109181678
+0xE8E8D970		# 562DFAA6		= -387393168
+0x41BC9E09		# 562DFAAA		= 1102880265

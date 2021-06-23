@@ -1,0 +1,121 @@
+# Test N.1171
+#
+L7
+S3
+O8
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $1, 0x72F8D704          
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x72F8D704
+LOAD $6, $6, $1                   
+ADDI $1, $1, 0x838C4A29           
+SUBI $5, $7, 0x638C9AE6           
+SUB $6, $6, $6
+LOAD $2, $6, 0x72F8D6F8           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $6, $7, 0x6A27C541           
+SUB $6, $6, $6
+LOAD $3, $6, 0x72F8D6FC           
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x72F8D700
+STORE $4, $1, $0                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+NOP                               
+NOP                               
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x72F8D700
+STORE $7, $5, $0                  
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x72F8D700
+LOAD $4, $7, $2                   
+ADD $5, $2, $7                    
+SUB $4, $1, $4                    
+SUB $2, $2, $6                    
+ADD $1, $3, $1                    
+SUBI $0, $4, 0xFFB3D0E8           
+ADD $2, $6, $4                    
+SUB $0, $3, $6                    
+ADD $3, $6, $5                    
+SUB $1, $1, $1
+STORE $1, $3, 0x72F8D700          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $6, $1, $6                    
+SUB $5, $0, $7                    
+SUB $4, $4, $4
+STORE $4, $1, 0x72F8D700          
+ADDI $0, $2, 0xCD7145C1           
+ADD $7, $3, $5                    
+SUBI $0, $6, 0x39293D5D           
+SUBI $0, $0, 0x0A3D78F1           
+SUB $6, $6, $6
+LOAD $2, $6, 0x72F8D6FC           
+ADD $4, $0, $7                    
+ADD $1, $7, $2                    
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x72F8D6F8
+STORE $4, $1, $3                  
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x72F8D704
+STORE $4, $2, $0                  
+SUBI $6, $1, 0xB5A119B0           
+ADDI $5, $0, 0x49C88FB1           
+SUB $7, $7, $7
+STORE $7, $3, 0x72F8D6FC          
+SUB $3, $3, $3
+LOAD $3, $3, 0x72F8D700           
+SUB $3, $3, $3
+STORE $3, $3, 0x72F8D700          
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x72F8D6FC
+STORE $4, $7, $0                  
+SUB $0, $5, $5                    
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x72F8D6FC
+STORE $7, $4, $1                  
+SUB $7, $7, $7
+LOAD $4, $7, 0x72F8D6F8           
+SUB $2, $2, $2
+LOAD $2, $2, 0x72F8D6F8           
+HALT $0
+#
+D@0x72F8D6F8
+0xDD9900DD		# 72F8D6F8		= -577175331
+0xD75F08F5		# 72F8D6FC		= -681637643
+0x86B5A46B		# 72F8D700		= -2034916245
+0x83125026		# 72F8D704		= -2095951834

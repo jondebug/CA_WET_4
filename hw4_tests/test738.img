@@ -1,0 +1,44 @@
+# Test N.738
+#
+L3
+S4
+O7
+N1
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x0B1AD6E3
+STORE $0, $7, $5                  
+ADDI $2, $2, 0xE47D47A0           
+NOP                               
+SUBI $4, $5, 0x0836833B           
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x0B1AD6F7
+STORE $1, $4, $6                  
+SUBI $5, $1, 0x1DCED16C           
+NOP                               
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x0B1AD6DB
+LOAD $0, $0, $7                   
+NOP                               
+HALT $0
+#
+D@0x0B1AD6DB
+0x87FFEB6C		# 0B1AD6DB		= -2013271188
+0x381F47EB		# 0B1AD6DF		= 941574123
+0xEAD194C8		# 0B1AD6E3		= -355363640
+0xBDB8BA19		# 0B1AD6E7		= -1111967207
+0x13943BAC		# 0B1AD6EB		= 328481708
+0xA5EC9450		# 0B1AD6EF		= -1511222192
+0x3A1D3F0A		# 0B1AD6F3		= 974995210
+0x3C69067A		# 0B1AD6F7		= 1013515898
+0x4CAB0299		# 0B1AD6FB		= 1286275737
+0x800E32F4		# 0B1AD6FF		= -2146553100
+0x052EC1EE		# 0B1AD703		= 86950382
+0x06417F14		# 0B1AD707		= 104955668

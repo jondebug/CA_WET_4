@@ -1,0 +1,92 @@
+# Test N.499
+#
+L3
+S2
+O5
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $0, $7, 0x78EA951E           
+SUB $7, $3, $5                    
+SUB $5, $2, $7                    
+ADDI $7, $6, 0x078898D3           
+SUBI $5, $4, 0xED74A4B4           
+NOP                               
+ADDI $4, $6, 0x80792853           
+NOP                               
+SUB $5, $7, $1                    
+SUB $6, $6, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $1, $2                    
+SUB $4, $4, $4
+STORE $4, $3, 0x7FED3548          
+SUBI $3, $6, 0x306346D6           
+SUB $2, $2, $2
+STORE $2, $6, 0x7FED3544          
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x7FED3530
+STORE $5, $3, $6                  
+SUBI $7, $0, 0xF7916A64           
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x7FED354C
+LOAD $7, $4, $6                   
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x7FED3540
+STORE $6, $7, $4                  
+SUB $2, $2, $2
+STORE $2, $0, 0x7FED353C          
+NOP                               
+ADD $4, $0, $1                    
+ADD $6, $6, $3                    
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x7FED354C
+STORE $2, $4, $3                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x7FED354C
+LOAD $1, $4, $2                   
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x7FED3528
+STORE $2, $1, $6                  
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x7FED3528
+STORE $0, $4, $2                  
+SUBI $0, $2, 0x0054118B           
+ADD $2, $7, $3                    
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $1, $2, $0                    
+HALT $0
+#
+D@0x7FED3528
+0x19394DCB		# 7FED3528		= 423185867
+0x45D8F9A8		# 7FED352C		= 1171847592
+0x076C583B		# 7FED3530		= 124540987
+0x746A5341		# 7FED3534		= 1953125185
+0xF8BB6E82		# 7FED3538		= -121934206
+0x998F7EE2		# 7FED353C		= -1718649118
+0x7016EE65		# 7FED3540		= 1880551013
+0x1E35656E		# 7FED3544		= 506815854
+0xC5C0B578		# 7FED3548		= -977226376
+0x4A5D4619		# 7FED354C		= 1247626777

@@ -1,0 +1,176 @@
+# Test N.1002
+#
+L2
+S6
+O4
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x5F29DAE0
+STORE $7, $7, $5                  
+SUBI $1, $6, 0xBCDA1A6D           
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x5F29DB04
+STORE $5, $0, $6                  
+ADD $7, $0, $3                    
+NOP                               
+ADD $2, $6, $7                    
+ADDI $3, $5, 0x83BE461B           
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x5F29DAEC
+LOAD $1, $5, $6                   
+NOP                               
+NOP                               
+SUB $0, $1, $5                    
+NOP                               
+SUB $3, $3, $3
+STORE $3, $1, 0x5F29DAEC          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $7, $2                    
+ADDI $2, $1, 0x4D4D8889           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x5F29DAF4
+LOAD $6, $5, $1                   
+SUB $7, $7, $7
+STORE $7, $7, 0x5F29DAE0          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $2, $4, 0x171CDE15           
+ADD $2, $6, $6                    
+ADDI $6, $0, 0xF3BF4FCA           
+SUB $3, $3, $3
+STORE $3, $4, 0x5F29DAF4          
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x5F29DAF4
+STORE $6, $3, $7                  
+ADD $2, $1, $4                    
+NOP                               
+ADDI $2, $2, 0xD1BD02EB           
+SUBI $0, $5, 0x7F8FD779           
+SUB $7, $0, $3                    
+NOP                               
+SUB $3, $4, $0                    
+SUBI $1, $4, 0xEBF49C3E           
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $0, $3, 0xFCA65213           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x5F29DAE4
+STORE $6, $3, $1                  
+ADD $7, $5, $1                    
+SUBI $5, $3, 0x1470F2DA           
+ADDI $6, $1, 0x392DEA7B           
+NOP                               
+SUB $3, $2, $7                    
+SUBI $4, $4, 0x48EE8D77           
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x5F29DB00
+STORE $3, $3, $5                  
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x5F29DB00
+STORE $5, $4, $6                  
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $1, $1, $1
+LOAD $1, $1, 0x5F29DB04           
+ADDI $0, $5, 0x6B4FD773           
+SUBI $2, $7, 0x4177202A           
+ADD $3, $1, $4                    
+SUB $2, $2, $2
+STORE $2, $7, 0x5F29DAF8          
+NOP                               
+SUB $7, $7, $7
+STORE $7, $0, 0x5F29DAE8          
+ADD $5, $0, $5                    
+NOP                               
+ADDI $4, $5, 0x541648AA           
+ADDI $6, $5, 0xE2606782           
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x5F29DAE8
+STORE $6, $1, $4                  
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+NOP                               
+ADDI $4, $0, 0xA8E87ABC           
+SUB $0, $0, $0
+LOAD $1, $0, 0x5F29DB04           
+SUBI $4, $7, 0xC70D7DAC           
+ADDI $4, $1, 0x33A77726           
+ADDI $3, $4, 0x45DE0059           
+SUBI $1, $4, 0x0CCDDD37           
+NOP                               
+ADD $2, $4, $6                    
+SUB $1, $1, $1
+LOAD $0, $1, 0x5F29DAF0           
+ADDI $7, $2, 0x6E9045AF           
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+NOP                               
+SUB $0, $1, $5                    
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x5F29DAF4
+STORE $7, $1, $2                  
+NOP                               
+SUBI $1, $3, 0xAEB8F6AF           
+NOP                               
+NOP                               
+ADD $7, $4, $5                    
+ADDI $2, $7, 0xAF21694D           
+SUBI $6, $6, 0x361EBAA2           
+ADD $4, $2, $4                    
+ADD $7, $5, $2                    
+SUB $7, $7, $7
+STORE $7, $1, 0x5F29DAF8          
+HALT $0
+#
+D@0x5F29DAE0
+0x860BAD6D		# 5F29DAE0		= -2046055059
+0x171236DC		# 5F29DAE4		= 387069660
+0xC4E0664D		# 5F29DAE8		= -991926707
+0xB4E9DF4F		# 5F29DAEC		= -1259741361
+0xCE6751D7		# 5F29DAF0		= -832089641
+0x48902006		# 5F29DAF4		= 1217404934
+0x2DD6C46A		# 5F29DAF8		= 769049706
+0xB734EFC8		# 5F29DAFC		= -1221267512
+0x25D85B7A		# 5F29DB00		= 634936186
+0x36EEEFB6		# 5F29DB04		= 921628598

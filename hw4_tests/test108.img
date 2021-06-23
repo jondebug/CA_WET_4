@@ -1,0 +1,61 @@
+# Test N.108
+#
+L2
+S10
+O3
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $4, $3, 0x8DA32831           
+SUB $1, $1, $1
+STORE $1, $2, 0x1DA2C904          
+NOP                               
+SUB $5, $5, $5
+STORE $5, $5, 0x1DA2C8F4          
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x1DA2C8F4
+LOAD $3, $0, $3                   
+SUBI $1, $0, 0x860A6FF9           
+SUB $2, $3, $6                    
+SUB $4, $4, $7                    
+SUB $1, $7, $1                    
+SUB $2, $4, $0                    
+SUB $6, $6, $6
+LOAD $7, $6, 0x1DA2C908           
+SUBI $5, $1, 0xE94F8F1E           
+ADDI $4, $0, 0xA0D6098D           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x1DA2C910
+STORE $3, $4, $6                  
+SUBI $4, $0, 0xCDB80B11           
+SUBI $0, $6, 0x64B32203           
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x1DA2C900
+LOAD $5, $0, $5                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $1, $4                    
+HALT $0
+#
+D@0x1DA2C8F4
+0x61F59032		# 1DA2C8F4		= 1643483186
+0xAEACECC3		# 1DA2C8F8		= -1364398909
+0xC993476E		# 1DA2C8FC		= -913094802
+0xCE3883F0		# 1DA2C900		= -835157008
+0x9A4D422C		# 1DA2C904		= -1706212820
+0x47E9595D		# 1DA2C908		= 1206475101
+0x0AE401D3		# 1DA2C90C		= 182714835
+0xEC492A8D		# 1DA2C910		= -330749299

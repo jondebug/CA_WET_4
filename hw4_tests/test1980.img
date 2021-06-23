@@ -1,0 +1,93 @@
+# Test N.1980
+#
+L4
+S5
+O1
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $5, $1, 0x40D04C38           
+SUB $0, $7, $5                    
+SUBI $1, $5, 0x3882D6CF           
+SUB $5, $2, $5                    
+NOP                               
+ADDI $7, $3, 0x8AFAC69E           
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x3D4A9DC5
+LOAD $6, $5, $7                   
+SUBI $1, $7, 0xD5C7CEAD           
+NOP                               
+ADDI $7, $2, 0x689B8D1A           
+NOP                               
+SUB $5, $5, $5
+STORE $5, $1, 0x3D4A9DE1          
+ADDI $6, $6, 0x9F04BCA9           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x3D4A9DC9
+LOAD $3, $2, $1                   
+ADD $2, $6, $2                    
+SUBI $2, $7, 0x1CF5C3D6           
+NOP                               
+ADDI $4, $4, 0x11C201AF           
+NOP                               
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x3D4A9DD9
+STORE $0, $4, $1                  
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $7, $3                    
+SUB $2, $2, $2
+LOAD $6, $2, 0x3D4A9DC9           
+ADD $1, $3, $7                    
+SUB $1, $7, $1                    
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x3D4A9DC5
+LOAD $2, $6, $1                   
+SUBI $1, $1, 0x392EC719           
+SUB $1, $6, $7                    
+SUBI $1, $7, 0x8D14A65F           
+ADD $1, $6, $7                    
+SUBI $7, $5, 0xAEA8CFDA           
+NOP                               
+SUBI $4, $3, 0xD9879FAC           
+SUB $3, $4, $3                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $7, $7, $4                    
+ADD $4, $4, $3                    
+NOP                               
+HALT $0
+#
+D@0x3D4A9DB9
+0xF89CD7EB		# 3D4A9DB9		= -123938837
+0x4F6C7C20		# 3D4A9DBD		= 1332509728
+0x21594B97		# 3D4A9DC1		= 559500183
+0xB88C77E4		# 3D4A9DC5		= -1198753820
+0x440374D9		# 3D4A9DC9		= 1141077209
+0xD7FD88A0		# 3D4A9DCD		= -671250272
+0xD5114E41		# 3D4A9DD1		= -720286143
+0xD09050C3		# 3D4A9DD5		= -795848509
+0x4BE4AB46		# 3D4A9DD9		= 1273277254
+0x4903AB2E		# 3D4A9DDD		= 1224977198
+0xE262A37C		# 3D4A9DE1		= -496852100
+0x767B32C6		# 3D4A9DE5		= 1987785414
+0x4E8C32B6		# 3D4A9DE9		= 1317810870
+0xD181556F		# 3D4A9DED		= -780053137

@@ -1,0 +1,62 @@
+# Test N.1257
+#
+L2
+S9
+O9
+N4
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $1, $7, 0x95C6D638           
+ADD $6, $6, $4                    
+ADD $3, $7, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $5, $5, 0x5C26A1CB           
+SUB $2, $5, $1                    
+SUB $5, $5, $5
+LOAD $0, $5, 0x3A08B0DD           
+ADDI $7, $2, 0x5C6387B7           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $5, $4, 0x90B8C30D           
+ADDI $5, $6, 0xA72DA924           
+ADD $7, $5, $3                    
+ADD $6, $3, $4                    
+SUB $1, $1, $1
+LOAD $3, $1, 0x3A08B0E1           
+SUBI $6, $1, 0x1FCAEBB8           
+ADDI $4, $1, 0x21827CB3           
+NOP                               
+ADDI $7, $0, 0xCCF02739           
+ADD $7, $7, $0                    
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x3A08B0DD
+LOAD $4, $6, $1                   
+SUBI $0, $7, 0xA5518A3A           
+SUB $1, $1, $1
+LOAD $3, $1, 0x3A08B0DD           
+SUBI $5, $5, 0x6CDE0172           
+ADDI $3, $3, 0x81486499           
+SUB $5, $5, $5
+LOAD $2, $5, 0x3A08B0DD           
+HALT $0
+#
+D@0x3A08B0DD
+0xEFCB78AA		# 3A08B0DD		= -271877974
+0xE7B9D967		# 3A08B0E1		= -407250585

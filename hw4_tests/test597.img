@@ -1,0 +1,73 @@
+# Test N.597
+#
+L1
+S10
+O7
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x152BCA0E
+LOAD $0, $3, $1                   
+ADD $5, $4, $0                    
+ADD $7, $0, $5                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $2, $7, 0x9BD8A375           
+ADD $4, $3, $7                    
+SUB $0, $0, $0
+LOAD $6, $0, 0x152BCA0E           
+NOP                               
+SUB $3, $3, $3
+LOAD $3, $3, 0x152BCA0E           
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x152BCA0E
+LOAD $0, $7, $4                   
+SUBI $4, $3, 0x63912E58           
+ADDI $4, $5, 0xA42A5507           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $4, $4, 0xE483BE23           
+ADDI $0, $1, 0xF2DF6A80           
+SUB $4, $6, $7                    
+SUB $3, $3, $3
+STORE $3, $6, 0x152BCA0E          
+NOP                               
+ADD $4, $7, $7                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $3, $3, 0xFDD43BE5           
+SUBI $6, $7, 0x47699C41           
+SUBI $6, $5, 0x8212FAAB           
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $6, $6, $6
+LOAD $1, $6, 0x152BCA0E           
+SUB $7, $6, $5                    
+NOP                               
+ADDI $5, $3, 0xA1A84EC5           
+SUB $1, $5, $0                    
+SUBI $5, $0, 0x83B40DF4           
+SUB $0, $0, $4                    
+SUBI $5, $3, 0x85C367BD           
+HALT $0
+#
+D@0x152BCA0E
+0x3ADE068D		# 152BCA0E		= 987629197

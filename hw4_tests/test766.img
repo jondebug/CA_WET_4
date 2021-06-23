@@ -1,0 +1,60 @@
+# Test N.766
+#
+L8
+S7
+O7
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADD $2, $3, $4                    
+ADD $3, $5, $2                    
+ADDI $7, $7, 0xD5FDD335           
+SUB $3, $3, $3
+LOAD $7, $3, 0x17D8CEEA           
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x17D8CF02
+LOAD $3, $4, $7                   
+SUB $1, $1, $2                    
+SUB $1, $4, $2                    
+SUB $4, $4, $4
+STORE $4, $0, 0x17D8CEEE          
+SUBI $7, $4, 0x0339831C           
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x17D8CEEA
+LOAD $5, $1, $7                   
+ADDI $3, $3, 0x89CA9B19           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $4, $7, $6                    
+NOP                               
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x17D8CEFE
+STORE $1, $0, $3                  
+ADDI $5, $4, 0x7B249BFC           
+ADD $5, $4, $7                    
+ADD $5, $6, $7                    
+SUBI $2, $3, 0x6CDFC2C1           
+SUBI $6, $1, 0xB65393C0           
+SUB $0, $4, $2                    
+HALT $0
+#
+D@0x17D8CEE2
+0x92C9D0E6		# 17D8CEE2		= -1832267546
+0xE5652CDF		# 17D8CEE6		= -446354209
+0x7C04AECD		# 17D8CEEA		= 2080681677
+0xBB2875E2		# 17D8CEEE		= -1154976286
+0xB31D63DA		# 17D8CEF2		= -1289919526
+0xC9EC2CDC		# 17D8CEF6		= -907268900
+0x172F9204		# 17D8CEFA		= 388993540
+0xEB86FA95		# 17D8CEFE		= -343475563
+0xE97DD822		# 17D8CF02		= -377628638
+0xD8531C1F		# 17D8CF06		= -665641953
+0x83BF81EB		# 17D8CF0A		= -2084601365

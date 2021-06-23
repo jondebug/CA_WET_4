@@ -1,0 +1,98 @@
+# Test N.383
+#
+L10
+S2
+O2
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $6, $6, $1                    
+SUB $2, $2, $2
+LOAD $3, $2, 0x20E908D7           
+ADD $4, $0, $3                    
+SUBI $7, $2, 0xBFDE3DE7           
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x20E908DB
+STORE $6, $7, $5                  
+ADDI $3, $0, 0x1C52594B           
+SUBI $7, $4, 0xADFEC0D3           
+ADD $1, $7, $4                    
+SUB $4, $0, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $6, $6, $6
+LOAD $3, $6, 0x20E908BB           
+SUB $5, $2, $4                    
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x20E908CB
+STORE $5, $2, $1                  
+ADD $5, $3, $7                    
+NOP                               
+SUB $6, $6, $6
+LOAD $0, $6, 0x20E908C7           
+ADD $2, $7, $6                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x20E908BB
+LOAD $7, $7, $2                   
+SUBI $5, $4, 0xD99695AA           
+ADDI $2, $2, 0x95B01EE4           
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x20E908B7
+LOAD $7, $7, $5                   
+ADDI $5, $3, 0x2C9542EF           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $1, $7, 0xF7C1EBC6           
+ADD $7, $3, $0                    
+SUB $3, $3, $3
+STORE $3, $2, 0x20E908C3          
+SUBI $3, $4, 0x9DACC222           
+SUB $3, $6, $3                    
+SUB $0, $0, $0
+STORE $0, $1, 0x20E908DB          
+ADD $2, $6, $7                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $1, $2, 0x49C8B45A           
+ADD $3, $3, $3                    
+ADD $5, $4, $7                    
+SUB $4, $2, $0                    
+ADDI $3, $7, 0x1894E396           
+ADDI $3, $4, 0x9791D43D           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x20E908C7
+LOAD $1, $3, $7                   
+HALT $0
+#
+D@0x20E908B7
+0x9A2B14E2		# 20E908B7		= -1708452638
+0x7F70902B		# 20E908BB		= 2138083371
+0xFE27924E		# 20E908BF		= -30961074
+0xDC6E56BE		# 20E908C3		= -596748610
+0x85D7610F		# 20E908C7		= -2049482481
+0x02039AAA		# 20E908CB		= 33790634
+0xC728320A		# 20E908CF		= -953667062
+0x59F00B59		# 20E908D3		= 1508903769
+0x26777A6B		# 20E908D7		= 645364331
+0x2EA41C74		# 20E908DB		= 782507124

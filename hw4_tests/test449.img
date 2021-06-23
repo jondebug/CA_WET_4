@@ -1,0 +1,89 @@
+# Test N.449
+#
+L5
+S5
+O1
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $4, $0, 0xB5BD9547           
+SUBI $1, $7, 0x463A9D00           
+NOP                               
+SUB $4, $4, $4
+STORE $4, $3, 0x26CDA1B2          
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x26CDA1B2
+LOAD $0, $6, $5                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+NOP                               
+SUBI $4, $1, 0xDD0DB4CD           
+NOP                               
+SUB $5, $5, $5
+STORE $5, $7, 0x26CDA19E          
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x26CDA1A2
+STORE $2, $6, $7                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $6, $1, $1                    
+SUBI $3, $3, 0xE9427C60           
+SUBI $7, $7, 0xB4D247DB           
+SUB $4, $4, $4
+LOAD $3, $4, 0x26CDA1AE           
+SUB $1, $1, $1
+STORE $1, $6, 0x26CDA1AE          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $4, $0                    
+ADDI $1, $0, 0xB57D9949           
+SUB $3, $5, $6                    
+SUB $4, $4, $4
+STORE $4, $4, 0x26CDA1AE          
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x26CDA1B2
+STORE $6, $3, $7                  
+NOP                               
+SUB $6, $2, $2                    
+NOP                               
+NOP                               
+ADD $7, $4, $0                    
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x26CDA1A2
+LOAD $1, $5, $7                   
+SUB $2, $6, $3                    
+SUB $0, $3, $3                    
+ADD $2, $2, $1                    
+ADDI $1, $5, 0xDE756592           
+HALT $0
+#
+D@0x26CDA19E
+0x2F15A661		# 26CDA19E		= 789948001
+0xE9BE4167		# 26CDA1A2		= -373407385
+0x0647942A		# 26CDA1A6		= 105354282
+0x94C1F1AB		# 26CDA1AA		= -1799229013
+0x41B41283		# 26CDA1AE		= 1102320259
+0x32E269A5		# 26CDA1B2		= 853698981

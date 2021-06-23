@@ -1,0 +1,98 @@
+# Test N.698
+#
+L9
+S3
+O1
+N4
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x3E589B5E
+LOAD $0, $7, $2                   
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x3E589B56
+LOAD $5, $7, $2                   
+ADDI $5, $7, 0x052A9DE4           
+SUB $7, $7, $7
+STORE $7, $7, 0x3E589B56          
+SUB $7, $7, $6                    
+SUB $6, $6, $6
+LOAD $1, $6, 0x3E589B5A           
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x3E589B62
+LOAD $0, $0, $3                   
+ADD $6, $4, $6                    
+SUB $2, $2, $2
+LOAD $5, $2, 0x3E589B5E           
+SUBI $2, $3, 0xC6D2028D           
+ADDI $6, $3, 0xD3007A10           
+ADD $0, $2, $4                    
+SUB $3, $7, $4                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $2, $3, $6                    
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x3E589B56
+STORE $1, $2, $3                  
+SUB $6, $1, $3                    
+SUB $7, $3, $6                    
+ADDI $6, $6, 0x4F4CAF39           
+SUB $7, $7, $7
+STORE $7, $5, 0x3E589B46          
+SUBI $0, $0, 0x7EBDE7E2           
+SUB $3, $3, $3
+STORE $3, $2, 0x3E589B5E          
+ADD $5, $1, $4                    
+ADD $7, $2, $2                    
+SUB $3, $6, $0                    
+SUBI $6, $0, 0x9F5C390A           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $4, $4
+LOAD $1, $4, 0x3E589B62           
+SUB $1, $1, $1
+STORE $1, $2, 0x3E589B66          
+NOP                               
+SUBI $5, $5, 0xE66AC0E7           
+SUB $2, $1, $0                    
+SUBI $3, $3, 0x53BABFEF           
+SUBI $7, $1, 0x0D9AFAE5           
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x3E589B66
+LOAD $2, $5, $4                   
+SUB $2, $2, $2
+LOAD $2, $2, 0x3E589B5E           
+HALT $0
+#
+D@0x3E589B3E
+0x4D4606F5		# 3E589B3E		= 1296434933
+0x0E05552F		# 3E589B42		= 235230511
+0x866602B8		# 3E589B46		= -2040134984
+0x65FFD5D4		# 3E589B4A		= 1711265236
+0xDE5EDB73		# 3E589B4E		= -564208781
+0x70839C2D		# 3E589B52		= 1887673389
+0xEFB1A0D3		# 3E589B56		= -273571629
+0x9D645F0B		# 3E589B5A		= -1654366453
+0xEEBCD4D9		# 3E589B5E		= -289614631
+0x36E1A206		# 3E589B62		= 920756742
+0x5A64A174		# 3E589B66		= 1516544372
+0x2C46C926		# 3E589B6A		= 742836518

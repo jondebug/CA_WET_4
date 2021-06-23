@@ -1,0 +1,22 @@
+# Test N.1243
+#
+L9
+S6
+O7
+N1
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $3, $0                    
+ADDI $5, $1, 0xDC82A82B           
+ADDI $5, $2, 0x25273159           
+SUBI $4, $4, 0xB28BA61E           
+NOP                               
+ADDI $1, $7, 0xBBDF93C0           
+ADD $4, $7, $4                    
+HALT $0
+#
+D@0x401EE507
+0x0896E98D		# 401EE507		= 144107917
+0x332BA6FB		# 401EE50B		= 858498811

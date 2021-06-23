@@ -1,0 +1,85 @@
+# Test N.122
+#
+L4
+S10
+O6
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $4, $3, $2                    
+SUB $1, $1, $1
+STORE $1, $5, 0x5A825C47          
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x5A825C43
+STORE $7, $2, $3                  
+ADD $0, $5, $5                    
+ADD $0, $0, $7                    
+ADD $6, $5, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x5A825C37
+LOAD $3, $6, $7                   
+NOP                               
+NOP                               
+SUB $7, $7, $7
+STORE $7, $3, 0x5A825C3B          
+SUBI $7, $6, 0x06FE4473           
+SUB $2, $2, $2
+LOAD $4, $2, 0x5A825C47           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $5, $2, 0x424A6436           
+ADD $6, $7, $1                    
+SUBI $1, $4, 0x68C85534           
+SUB $4, $2, $3                    
+SUB $7, $7, $7
+STORE $7, $3, 0x5A825C37          
+SUB $4, $3, $0                    
+SUBI $7, $1, 0x10A0656B           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $2, $0, 0x8E17AC38           
+ADD $7, $1, $6                    
+SUB $4, $4, $4
+STORE $4, $0, 0x5A825C37          
+SUB $7, $7, $7
+LOAD $2, $7, 0x5A825C4B           
+SUB $2, $2, $2
+LOAD $4, $2, 0x5A825C3B           
+SUB $0, $3, $0                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $0, $0, $0
+LOAD $1, $0, 0x5A825C43           
+ADD $5, $6, $4                    
+SUBI $3, $6, 0x43F3C41A           
+ADD $7, $1, $4                    
+SUBI $5, $7, 0xEE4EC677           
+HALT $0
+#
+D@0x5A825C37
+0x66C4901D		# 5A825C37		= 1724157981
+0xE81AD3D0		# 5A825C3B		= -400895024
+0x4398982B		# 5A825C3F		= 1134073899
+0x8F3DE25E		# 5A825C43		= -1891769762
+0x38897A6A		# 5A825C47		= 948533866
+0x3E05BD0D		# 5A825C4B		= 1040563469
+0x0CD06A2C		# 5A825C4F		= 214985260

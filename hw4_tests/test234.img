@@ -1,0 +1,33 @@
+# Test N.234
+#
+L1
+S2
+O4
+N1
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $1, $7, 0xE44EBDD5           
+SUB $2, $3, $1                    
+NOP                               
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x7F42E4D6
+LOAD $6, $0, $4                   
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x7F42E4DA
+STORE $2, $7, $7                  
+SUBI $3, $7, 0x8B5D6312           
+ADD $4, $6, $1                    
+SUB $5, $0, $5                    
+SUBI $3, $4, 0x54F8CC31           
+HALT $0
+#
+D@0x7F42E4D2
+0xF0AF0CBF		# 7F42E4D2		= -256963393
+0xEFB874C8		# 7F42E4D6		= -273124152
+0xDC4A541D		# 7F42E4DA		= -599108579
+0x97F68028		# 7F42E4DE		= -1745453016
+0x944BCA95		# 7F42E4E2		= -1806972267

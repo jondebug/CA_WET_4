@@ -1,0 +1,64 @@
+# Test N.1260
+#
+L9
+S3
+O1
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $2, $2, 0xC29F9BAB           
+NOP                               
+SUB $4, $4, $4
+LOAD $6, $4, 0x5726D1B3           
+SUB $3, $3, $3
+LOAD $0, $3, 0x5726D1B3           
+ADDI $6, $5, 0x8F69B28F           
+NOP                               
+SUBI $7, $0, 0xA78A2C12           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $4, $6, 0x7757E2B0           
+ADDI $3, $4, 0xDAC90858           
+SUBI $0, $0, 0x80F0827D           
+NOP                               
+SUB $1, $1, $1
+STORE $1, $4, 0x5726D1B3          
+SUB $3, $5, $3                    
+NOP                               
+ADD $0, $0, $1                    
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x5726D1AF
+STORE $2, $0, $7                  
+ADD $1, $7, $4                    
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x5726D1B3
+STORE $6, $4, $5                  
+ADD $4, $6, $3                    
+NOP                               
+SUB $2, $2, $7                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADDI $7, $4, 0xA1E3291B           
+NOP                               
+ADD $5, $2, $3                    
+NOP                               
+SUB $2, $2, $2
+STORE $2, $3, 0x5726D1AF          
+NOP                               
+HALT $0
+#
+D@0x5726D1AB
+0xA8E769C8		# 5726D1AB		= -1461229112
+0xF9330F41		# 5726D1AF		= -114094271
+0xE92169D3		# 5726D1B3		= -383686189

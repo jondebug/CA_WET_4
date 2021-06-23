@@ -1,0 +1,112 @@
+# Test N.459
+#
+L6
+S10
+O5
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x2859DFBD
+LOAD $6, $3, $6                   
+NOP                               
+NOP                               
+NOP                               
+ADD $7, $2, $4                    
+NOP                               
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x2859DF99
+LOAD $1, $2, $6                   
+ADDI $2, $6, 0x8CD66312           
+SUB $4, $4, $4
+STORE $4, $2, 0x2859DFB5          
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x2859DF95
+STORE $5, $2, $7                  
+SUB $3, $5, $1                    
+SUB $7, $7, $7
+LOAD $2, $7, 0x2859DF95           
+ADDI $4, $3, 0xE7C85859           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $4, $0, 0x2CD4462E           
+SUB $2, $2, $2
+LOAD $4, $2, 0x2859DFB5           
+ADDI $3, $3, 0x21B45DEB           
+SUBI $1, $0, 0x926E8081           
+SUBI $4, $4, 0xD0CE5753           
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x2859DF8D
+STORE $7, $5, $3                  
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x2859DFC1
+LOAD $3, $7, $2                   
+NOP                               
+SUBI $4, $4, 0x481DF9ED           
+SUBI $6, $0, 0xE88ADFA7           
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x2859DFA5
+LOAD $6, $2, $0                   
+SUB $0, $7, $5                    
+SUBI $5, $7, 0x9851EFC9           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x2859DFBD
+STORE $0, $1, $6                  
+SUB $7, $7, $7
+STORE $7, $5, 0x2859DFBD          
+NOP                               
+SUBI $0, $5, 0x2D0E495A           
+SUB $0, $0, $0
+STORE $0, $5, 0x2859DF89          
+SUB $2, $5, $0                    
+SUB $3, $3, $3
+LOAD $7, $3, 0x2859DFBD           
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x2859DFA9
+STORE $0, $0, $2                  
+SUB $0, $6, $0                    
+NOP                               
+NOP                               
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x2859DFB1
+LOAD $6, $5, $3                   
+NOP                               
+HALT $0
+#
+D@0x2859DF85
+0x377090BE		# 2859DF85		= 930123966
+0xDDBFC073		# 2859DF89		= -574635917
+0x3F9913A0		# 2859DF8D		= 1066996640
+0xA81F0882		# 2859DF91		= -1474361214
+0xA0021FB2		# 2859DF95		= -1610473550
+0x81F7F328		# 2859DF99		= -2114456792
+0x68E096DF		# 2859DF9D		= 1759549151
+0x66FCBDFD		# 2859DFA1		= 1727839741
+0x8FF8E351		# 2859DFA5		= -1879514287
+0x7BC59958		# 2859DFA9		= 2076547416
+0xE6A1EE05		# 2859DFAD		= -425595387
+0x73FC1F2A		# 2859DFB1		= 1945902890
+0x006FA2C6		# 2859DFB5		= 7316166
+0x974BAA28		# 2859DFB9		= -1756648920
+0xFCF09E02		# 2859DFBD		= -51339774
+0x2F8AA642		# 2859DFC1		= 797615682

@@ -1,0 +1,117 @@
+# Test N.1394
+#
+L8
+S5
+O4
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x0AD0FC31
+LOAD $0, $5, $4                   
+SUBI $5, $7, 0x67831DC8           
+ADD $2, $0, $2                    
+SUB $3, $3, $3
+STORE $3, $4, 0x0AD0FC0D          
+SUB $2, $2, $2
+LOAD $5, $2, 0x0AD0FC11           
+NOP                               
+NOP                               
+SUB $1, $1, $1
+LOAD $4, $1, 0x0AD0FC0D           
+NOP                               
+SUB $3, $3, $3
+LOAD $0, $3, 0x0AD0FC31           
+SUBI $5, $0, 0xB994626D           
+SUB $7, $7, $7
+STORE $7, $6, 0x0AD0FC29          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $6, $2, $5                    
+SUB $2, $0, $5                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $1, $1, $1
+STORE $1, $4, 0x0AD0FC2D          
+SUB $2, $2, $2
+LOAD $3, $2, 0x0AD0FC11           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x0AD0FC1D
+STORE $2, $5, $6                  
+SUBI $2, $7, 0x88EC5A48           
+SUBI $2, $6, 0x690E53E9           
+SUB $1, $2, $6                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $5, 0x0AD0FC09          
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x0AD0FC11
+STORE $7, $5, $5                  
+SUBI $7, $6, 0x25A26267           
+SUBI $7, $3, 0x81D68CF7           
+SUB $4, $4, $4
+LOAD $1, $4, 0x0AD0FC25           
+SUB $7, $7, $7
+LOAD $0, $7, 0x0AD0FC09           
+SUB $4, $2, $3                    
+ADDI $5, $7, 0x31C97BC8           
+ADDI $1, $4, 0x7DE2E169           
+SUBI $6, $1, 0x1CDF1E4E           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+NOP                               
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x0AD0FC19
+LOAD $6, $1, $2                   
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x0AD0FC29
+LOAD $7, $6, $3                   
+ADD $5, $1, $5                    
+HALT $0
+#
+D@0x0AD0FC01
+0xBB7B5838		# 0AD0FC01		= -1149544392
+0x078D22B5		# 0AD0FC05		= 126689973
+0x62157AEA		# 0AD0FC09		= 1645574890
+0xDA06E156		# 0AD0FC0D		= -637083306
+0x1B29F7A6		# 0AD0FC11		= 455735206
+0x4665183A		# 0AD0FC15		= 1181030458
+0x5CDB4EE8		# 0AD0FC19		= 1557876456
+0x560A9161		# 0AD0FC1D		= 1443533153
+0xA7AFC045		# 0AD0FC21		= -1481654203
+0x925F8048		# 0AD0FC25		= -1839235000
+0x40757AC8		# 0AD0FC29		= 1081440968
+0x3B883B54		# 0AD0FC2D		= 998783828
+0xCA275D34		# 0AD0FC31		= -903389900

@@ -1,0 +1,94 @@
+# Test N.1013
+#
+L1
+S3
+O6
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $5, $7, 0x2E19B741           
+SUB $3, $3, $3
+STORE $3, $4, 0x7682E8FA          
+ADDI $5, $1, 0xF7AC7EF1           
+SUB $6, $6, $6
+LOAD $6, $6, 0x7682E8EE           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x7682E8EE
+STORE $5, $0, $1                  
+SUBI $4, $1, 0x0C7F1A8A           
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x7682E8EE
+LOAD $6, $6, $7                   
+ADD $2, $3, $2                    
+SUB $7, $5, $2                    
+ADD $4, $4, $7                    
+SUB $3, $3, $3
+STORE $3, $5, 0x7682E902          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x7682E8F2
+LOAD $4, $4, $7                   
+NOP                               
+SUB $6, $2, $7                    
+ADD $2, $4, $5                    
+ADDI $0, $7, 0x3A9E7765           
+ADD $7, $4, $0                    
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x7682E8EA
+STORE $2, $3, $0                  
+SUB $1, $1, $1
+STORE $1, $3, 0x7682E8EA          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $4, $7, $7                    
+SUB $3, $3, $3
+LOAD $5, $3, 0x7682E8F6           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $7, $1, $5                    
+NOP                               
+SUB $6, $4, $6                    
+SUBI $7, $0, 0xDA838B08           
+ADD $6, $2, $4                    
+ADD $6, $6, $4                    
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x7682E8FA
+STORE $3, $7, $0                  
+ADD $2, $4, $5                    
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x7682E906
+STORE $3, $1, $1                  
+HALT $0
+#
+D@0x7682E8EA
+0x2D78E0A5		# 7682E8EA		= 762896549
+0x0E75F915		# 7682E8EE		= 242612501
+0x322B8019		# 7682E8F2		= 841711641
+0x74C2ED8A		# 7682E8F6		= 1958931850
+0x5580A91A		# 7682E8FA		= 1434495258
+0xA8E83A86		# 7682E8FE		= -1461175674
+0xBB6E5E3D		# 7682E902		= -1150394819
+0x64E728BD		# 7682E906		= 1692870845

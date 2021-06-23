@@ -1,0 +1,61 @@
+# Test N.1927
+#
+L2
+S10
+O1
+N3
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $0, $1, 0x7FCCC7E6           
+ADDI $3, $0, 0x419C2491           
+SUB $7, $0, $0                    
+ADDI $2, $2, 0x8640E432           
+SUBI $3, $7, 0x35CA5F20           
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x2D18548E
+LOAD $6, $4, $1                   
+SUB $5, $6, $4                    
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $7, $4, 0x5A7EC7C5           
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x2D18549E
+LOAD $1, $5, $7                   
+SUB $7, $4, $2                    
+NOP                               
+NOP                               
+NOP                               
+NOP                               
+SUB $3, $3, $3
+LOAD $1, $3, 0x2D185496           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $7, 0x2D185492          
+SUBI $6, $1, 0x5AFB0607           
+SUB $0, $0, $0
+LOAD $1, $0, 0x2D18548E           
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x2D18549A
+STORE $3, $1, $0                  
+HALT $0
+#
+D@0x2D18548E
+0x36E9C0E3		# 2D18548E		= 921288931
+0xD0659356		# 2D185492		= -798649514
+0xF966C20A		# 2D185496		= -110706166
+0x1136FF87		# 2D18549A		= 288817031
+0xA25B75D4		# 2D18549E		= -1571064364

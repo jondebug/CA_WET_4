@@ -1,0 +1,90 @@
+# Test N.1457
+#
+L9
+S10
+O3
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x051CB4A1
+STORE $6, $4, $1                  
+NOP                               
+ADD $6, $5, $6                    
+NOP                               
+SUB $5, $5, $5
+LOAD $1, $5, 0x051CB4A5           
+SUB $2, $2, $2
+STORE $2, $5, 0x051CB4A9          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $6, $1, 0x441D95AC           
+SUBI $5, $7, 0x4FED0854           
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x051CB49D
+STORE $2, $0, $6                  
+ADDI $7, $3, 0x1FF548ED           
+SUBI $1, $6, 0x9A82E0A1           
+ADD $3, $5, $6                    
+SUB $0, $0, $0
+STORE $0, $4, 0x051CB495          
+SUB $1, $1, $1
+LOAD $5, $1, 0x051CB4A5           
+NOP                               
+SUB $6, $7, $6                    
+SUB $2, $7, $6                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $7, $5, $5                    
+ADDI $3, $6, 0x47B5362C           
+ADDI $2, $3, 0x208B01A2           
+SUBI $5, $3, 0xE676E6E0           
+SUBI $5, $3, 0xD158D5BD           
+NOP                               
+SUB $2, $2, $2
+LOAD $1, $2, 0x051CB4A1           
+SUB $0, $1, $5                    
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x051CB495
+LOAD $3, $5, $3                   
+ADD $5, $4, $2                    
+SUBI $4, $2, 0xC23AAD26           
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+LOAD $0, $2, 0x051CB495           
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x051CB4A1
+LOAD $6, $4, $5                   
+SUBI $5, $0, 0x03EC709B           
+NOP                               
+SUB $0, $0, $0
+LOAD $2, $0, 0x051CB4A1           
+HALT $0
+#
+D@0x051CB489
+0x6B5DB656		# 051CB489		= 1801303638
+0x64D4E2C4		# 051CB48D		= 1691673284
+0x70E53174		# 051CB491		= 1894068596
+0x9103FC52		# 051CB495		= -1862009774
+0xFED158BA		# 051CB499		= -19834694
+0xA8738E6D		# 051CB49D		= -1468821907
+0xE4C196EE		# 051CB4A1		= -457074962
+0x9633B85F		# 051CB4A5		= -1774995361
+0x77AFA3F0		# 051CB4A9		= 2007999472

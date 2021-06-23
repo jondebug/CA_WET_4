@@ -1,0 +1,38 @@
+# Test N.1536
+#
+L1
+S5
+O5
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $7, $4                    
+SUBI $3, $5, 0x4D6158B2           
+ADD $3, $1, $3                    
+NOP                               
+SUB $1, $3, $3                    
+SUBI $5, $5, 0x23E21663           
+ADD $0, $1, $1                    
+ADDI $3, $1, 0x53DE24F5           
+ADD $0, $7, $7                    
+NOP                               
+NOP                               
+ADDI $4, $0, 0x1B02D99C           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $2, $6, $7                    
+SUBI $1, $0, 0x299EECDD           
+ADD $3, $3, $3                    
+SUB $2, $2, $2
+STORE $2, $1, 0x3DDE59F2          
+ADD $2, $7, $1                    
+HALT $0
+#
+D@0x3DDE59F2
+0x69E1626E		# 3DDE59F2		= 1776378478
+0xC8C4A9B8		# 3DDE59F6		= -926635592

@@ -1,0 +1,44 @@
+# Test N.1586
+#
+L10
+S9
+O8
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+LOAD $1, $1, 0x0E0DDE62           
+ADD $4, $5, $6                    
+ADD $7, $4, $4                    
+ADDI $0, $3, 0xCDD857B4           
+ADDI $6, $2, 0xE8C4FA27           
+SUB $2, $2, $2                    
+SUB $5, $5, $5
+STORE $5, $3, 0x0E0DDE76          
+ADD $4, $0, $4                    
+SUBI $6, $6, 0x4536415E           
+NOP                               
+SUBI $7, $7, 0x5A75C364           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $3, $1, 0x5F1E269A           
+HALT $0
+#
+D@0x0E0DDE56
+0x7A63846C		# 0E0DDE56		= 2053342316
+0x8146DC1F		# 0E0DDE5A		= -2126062561
+0x5C51284B		# 0E0DDE5E		= 1548822603
+0x08598339		# 0E0DDE62		= 140084025
+0x3848CBF5		# 0E0DDE66		= 944294901
+0x8D8D34CF		# 0E0DDE6A		= -1920125745
+0x421099E0		# 0E0DDE6E		= 1108384224
+0x966CFC8D		# 0E0DDE72		= -1771242355
+0xB7A12D43		# 0E0DDE76		= -1214173885
+0xDFE760CF		# 0E0DDE7A		= -538484529
+0x359637C6		# 0E0DDE7E		= 899037126
+0xBFD7B468		# 0E0DDE82		= -1076382616

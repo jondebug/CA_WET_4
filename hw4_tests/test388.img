@@ -1,0 +1,46 @@
+# Test N.388
+#
+L6
+S6
+O4
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADD $4, $5, $7                    
+SUB $7, $7, $7                    
+SUB $5, $5, $5
+LOAD $4, $5, 0x62B62A11           
+SUB $5, $5, $5
+LOAD $2, $5, 0x62B62A19           
+SUBI $2, $2, 0xB98E0EBF           
+SUB $4, $0, $6                    
+NOP                               
+ADD $1, $6, $1                    
+NOP                               
+ADDI $3, $7, 0xF287D489           
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x62B62A1D
+STORE $3, $4, $4                  
+ADD $1, $2, $4                    
+SUB $3, $5, $0                    
+SUBI $4, $2, 0xDF9B07A7           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+NOP                               
+SUBI $2, $1, 0x2EE6D41D           
+ADDI $4, $2, 0xF68E5CFE           
+NOP                               
+HALT $0
+#
+D@0x62B62A11
+0x872DDC91		# 62B62A11		= -2027037551
+0x7D43F57A		# 62B62A15		= 2101605754
+0xAFFF4447		# 62B62A19		= -1342225337
+0x78B65790		# 62B62A1D		= 2025215888

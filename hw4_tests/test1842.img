@@ -1,0 +1,69 @@
+# Test N.1842
+#
+L2
+S9
+O1
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $3, $1, 0x148D1EC8           
+ADD $2, $0, $7                    
+ADD $0, $6, $4                    
+NOP                               
+ADD $7, $2, $7                    
+NOP                               
+NOP                               
+SUBI $5, $0, 0x7765D657           
+SUB $6, $3, $5                    
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x7D0692B3
+STORE $3, $1, $0                  
+ADD $2, $4, $4                    
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $6, $6, $6
+STORE $6, $0, 0x7D0692AB          
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+NOP                               
+NOP                               
+SUBI $6, $4, 0x397B8F64           
+SUB $1, $2, $0                    
+SUB $7, $4, $3                    
+SUB $0, $6, $0                    
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x7D0692B7
+STORE $0, $0, $3                  
+SUB $3, $2, $5                    
+SUB $5, $6, $0                    
+SUB $3, $3, $3
+STORE $3, $2, 0x7D0692AF          
+NOP                               
+HALT $0
+#
+D@0x7D0692AB
+0xCE6ED171		# 7D0692AB		= -831598223
+0x8A71CE87		# 7D0692AF		= -1972253049
+0xC60DD4F7		# 7D0692B3		= -972172041
+0x39235F89		# 7D0692B7		= 958619529
+0x95DEDBAC		# 7D0692BB		= -1780556884

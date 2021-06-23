@@ -1,0 +1,74 @@
+# Test N.300
+#
+L8
+S7
+O9
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $3, $2                    
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x1AED626D
+STORE $0, $2, $5                  
+SUB $2, $2, $2
+LOAD $6, $2, 0x1AED626D           
+ADD $7, $4, $6                    
+NOP                               
+SUB $3, $3, $3
+STORE $3, $3, 0x1AED626D          
+SUBI $3, $7, 0x1478A58D           
+ADD $3, $1, $2                    
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x1AED626D
+STORE $5, $7, $6                  
+ADD $6, $3, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $5, $4, 0xD1A83FFB           
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x1AED626D
+LOAD $1, $0, $7                   
+SUB $7, $7, $7
+STORE $7, $0, 0x1AED626D          
+NOP                               
+NOP                               
+SUB $7, $1, $1                    
+ADD $4, $2, $2                    
+SUBI $7, $7, 0xF1B841F4           
+SUB $7, $1, $2                    
+SUBI $5, $3, 0x142274F5           
+SUB $7, $7, $7
+LOAD $3, $7, 0x1AED626D           
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x1AED626D
+STORE $4, $1, $5                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $4, $4, 0x57C5D5C7           
+NOP                               
+SUBI $7, $2, 0xFEC24B42           
+NOP                               
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x1AED626D
+STORE $5, $3, $6                  
+SUBI $6, $5, 0xA82A5310           
+SUB $6, $1, $3                    
+SUB $2, $2, $2                    
+SUB $5, $7, $7                    
+HALT $0
+#
+D@0x1AED626D
+0xA900696A		# 1AED626D		= -1459590806

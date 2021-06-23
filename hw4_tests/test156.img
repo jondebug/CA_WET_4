@@ -1,0 +1,71 @@
+# Test N.156
+#
+L10
+S4
+O10
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $6, $7, 0x83CF82CD           
+SUB $0, $1, $6                    
+SUB $1, $5, $3                    
+SUB $1, $3, $6                    
+SUB $0, $4, $6                    
+SUB $3, $1, $7                    
+NOP                               
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x1AE7BDD7
+STORE $0, $0, $6                  
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x1AE7BDD7
+LOAD $2, $7, $6                   
+SUBI $2, $2, 0x2211294E           
+ADDI $0, $1, 0xBCE8C3DE           
+SUB $0, $0, $0
+STORE $0, $1, 0x1AE7BDDF          
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADDI $3, $5, 0x33127A57           
+ADD $3, $7, $2                    
+SUB $4, $1, $2                    
+SUBI $3, $4, 0x14E2031B           
+ADD $5, $0, $2                    
+NOP                               
+SUBI $1, $6, 0x100C6EB7           
+ADDI $2, $0, 0xDDC667AB           
+NOP                               
+ADDI $2, $6, 0xF8033D82           
+ADDI $4, $7, 0x284AD1F4           
+SUBI $6, $7, 0x0AE72F6A           
+SUB $3, $3, $3
+LOAD $1, $3, 0x1AE7BE03           
+HALT $0
+#
+D@0x1AE7BDD7
+0x308E25A9		# 1AE7BDD7		= 814622121
+0x440B36E6		# 1AE7BDDB		= 1141585638
+0x2B0E0AEB		# 1AE7BDDF		= 722340587
+0xE4C005F7		# 1AE7BDE3		= -457177609
+0x9914A615		# 1AE7BDE7		= -1726700011
+0x4DC68AD6		# 1AE7BDEB		= 1304857302
+0x35480DA5		# 1AE7BDEF		= 893914533
+0xB1A14766		# 1AE7BDF3		= -1314830490
+0x17D8F4FF		# 1AE7BDF7		= 400094463
+0x8352C464		# 1AE7BDFB		= -2091727772
+0x24295AC9		# 1AE7BDFF		= 606689993
+0x7430044B		# 1AE7BE03		= 1949303883
+0xFC0924E7		# 1AE7BE07		= -66509593
+0xED8AE86D		# 1AE7BE0B		= -309663635
+0xF31E695E		# 1AE7BE0F		= -216110754
+0x62E83115		# 1AE7BE13		= 1659384085
+0x2DAD300A		# 1AE7BE17		= 766324746
+0x5A4A22D3		# 1AE7BE1B		= 1514808019

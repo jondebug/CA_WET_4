@@ -1,0 +1,41 @@
+# Test N.68
+#
+L1
+S3
+O1
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $4, $3, 0x1651F349           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $7, $7                    
+ADD $2, $0, $5                    
+NOP                               
+NOP                               
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x5A61AF6C
+STORE $3, $0, $4                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+NOP                               
+HALT $0
+#
+D@0x5A61AF6C
+0x529A8C7B		# 5A61AF6C		= 1385860219

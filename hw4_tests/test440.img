@@ -1,0 +1,43 @@
+# Test N.440
+#
+L7
+S9
+O1
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $2, $7, 0x75242DBA           
+NOP                               
+NOP                               
+SUB $0, $0, $0
+STORE $0, $0, 0x2CEA84FE          
+ADD $2, $0, $1                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $7, $6                    
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x2CEA850A
+STORE $5, $3, $0                  
+HALT $0
+#
+D@0x2CEA84EA
+0x3FEF9152		# 2CEA84EA		= 1072664914
+0x5109E487		# 2CEA84EE		= 1359602823
+0x2A0C7992		# 2CEA84F2		= 705460626
+0xE9585458		# 2CEA84F6		= -380087208
+0x4F8DC9CE		# 2CEA84FA		= 1334692302
+0xC9EB53D7		# 2CEA84FE		= -907324457
+0x5B07C9B1		# 2CEA8502		= 1527237041
+0x8B6505A7		# 2CEA8506		= -1956313689
+0xA2988A38		# 2CEA850A		= -1567061448

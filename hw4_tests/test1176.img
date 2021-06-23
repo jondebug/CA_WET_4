@@ -1,0 +1,82 @@
+# Test N.1176
+#
+L7
+S7
+O5
+N4
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $1, $3, $5                    
+SUB $3, $3, $3
+STORE $3, $7, 0x771C3CD6          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $2, $1, $4                    
+ADD $5, $2, $2                    
+NOP                               
+ADD $4, $0, $3                    
+ADDI $3, $7, 0x580E2DFD           
+ADD $4, $7, $1                    
+ADDI $7, $0, 0x9835693D           
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x771C3CEA
+STORE $4, $7, $0                  
+ADDI $3, $1, 0x9A399816           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $6, $7                    
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x771C3CEE
+LOAD $4, $3, $7                   
+SUBI $4, $7, 0xF62E3B19           
+SUB $5, $2, $5                    
+SUBI $3, $6, 0xD9DC912F           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $7, $0                    
+SUBI $2, $1, 0xE5E15688           
+SUBI $4, $1, 0xE23644FA           
+SUB $4, $5, $3                    
+ADD $4, $3, $2                    
+ADDI $7, $4, 0x8E16BDF6           
+SUB $1, $0, $0                    
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x771C3CD6
+LOAD $4, $7, $3                   
+ADDI $1, $5, 0xBB84282D           
+SUB $3, $3, $3
+LOAD $6, $3, 0x771C3CB6           
+ADDI $2, $0, 0x15522ADC           
+HALT $0
+#
+D@0x771C3CB6
+0x5DF372DF		# 771C3CB6		= 1576235743
+0x2A44277D		# 771C3CBA		= 709109629
+0xFDAAD83F		# 771C3CBE		= -39135169
+0xDFC0997B		# 771C3CC2		= -541025925
+0xFB6CAB39		# 771C3CC6		= -76764359
+0xEC0343B5		# 771C3CCA		= -335330379
+0x448842F1		# 771C3CCE		= 1149780721
+0x7CF10949		# 771C3CD2		= 2096171337
+0xF7E2A2B3		# 771C3CD6		= -136142157
+0xF48D2066		# 771C3CDA		= -192077722
+0x9A295679		# 771C3CDE		= -1708566919
+0x6EBA9082		# 771C3CE2		= 1857720450
+0x47A81ED8		# 771C3CE6		= 1202200280
+0xD1609E56		# 771C3CEA		= -782197162
+0x699DD196		# 771C3CEE		= 1771950486

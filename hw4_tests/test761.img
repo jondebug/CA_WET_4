@@ -1,0 +1,70 @@
+# Test N.761
+#
+L8
+S4
+O8
+N5
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $2, $5, 0x01F184E5           
+ADDI $4, $7, 0x9B052C1F           
+SUBI $6, $6, 0x54F89EC6           
+SUB $3, $3, $3
+LOAD $6, $3, 0x00A302D2           
+SUBI $2, $7, 0x99BDA2A0           
+SUB $6, $4, $2                    
+SUB $0, $0, $0
+STORE $0, $1, 0x00A302B2          
+NOP                               
+ADDI $5, $3, 0x493C4536           
+SUBI $5, $1, 0xE6A556CF           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $7, $1, $2                    
+SUB $2, $2, $2
+STORE $2, $3, 0x00A302DE          
+NOP                               
+ADDI $2, $3, 0xDE110732           
+SUBI $6, $6, 0xB2CE70B2           
+ADDI $5, $5, 0xEC865CA8           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $5, $6, 0x106C6F7D           
+ADDI $1, $2, 0x5B0BC5F6           
+SUB $5, $5, $5
+STORE $5, $5, 0x00A302B2          
+ADDI $5, $7, 0xD873006D           
+HALT $0
+#
+D@0x00A302AE
+0x93A6D0EF		# 00A302AE		= -1817784081
+0x40311324		# 00A302B2		= 1076957988
+0x6844F71D		# 00A302B6		= 1749350173
+0x6CC6EA15		# 00A302BA		= 1824975381
+0x3F92BFCC		# 00A302BE		= 1066581964
+0x3C49A4DB		# 00A302C2		= 1011459291
+0xCB0986D3		# 00A302C6		= -888568109
+0xF85D11CB		# 00A302CA		= -128118325
+0xF07353ED		# 00A302CE		= -260877331
+0x375DF0E8		# 00A302D2		= 928903400
+0xF9E11E21		# 00A302D6		= -102687199
+0xB91CCD2A		# 00A302DA		= -1189294806
+0xEC6B5EF5		# 00A302DE		= -328507659

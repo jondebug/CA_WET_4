@@ -1,0 +1,123 @@
+# Test N.10
+#
+L4
+S2
+O10
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6
+LOAD $4, $6, 0x3716CFE2           
+SUB $6, $0, $4                    
+SUB $5, $2, $1                    
+ADDI $5, $1, 0x36EF17EA           
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x3716CFE6
+LOAD $1, $1, $2                   
+SUB $4, $4, $4
+STORE $4, $1, 0x3716CFDA          
+ADDI $7, $3, 0x77E1799B           
+ADD $0, $5, $6                    
+ADD $6, $7, $5                    
+SUB $7, $7, $7
+STORE $7, $2, 0x3716CFD6          
+SUB $3, $3, $3
+STORE $3, $1, 0x3716CFDE          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $0, $3                    
+SUB $0, $2, $1                    
+SUB $3, $5, $5                    
+SUB $3, $2, $4                    
+ADD $1, $5, $4                    
+ADDI $0, $4, 0x0887289C           
+SUB $5, $5, $5
+STORE $5, $6, 0x3716CFE2          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x3716CFD6
+LOAD $7, $7, $6                   
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x3716CFE6
+STORE $4, $3, $0                  
+ADDI $0, $3, 0x67A6317F           
+SUBI $7, $0, 0xB2BB0A51           
+ADDI $4, $3, 0xDA017797           
+ADD $4, $3, $1                    
+SUBI $2, $6, 0xAC70A065           
+ADDI $1, $1, 0x2CBE1708           
+SUB $1, $1, $1
+LOAD $1, $1, 0x3716CFE2           
+SUB $4, $4, $4
+LOAD $5, $4, 0x3716CFE2           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+ADDI $6, $2, 0x2CFF35FF           
+NOP                               
+ADDI $6, $0, 0x87018C78           
+SUB $6, $7, $0                    
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x3716CFDA
+STORE $0, $5, $7                  
+SUB $3, $7, $7                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $3, $7, $3                    
+ADDI $1, $7, 0x3E69D6C4           
+ADDI $6, $2, 0xABB6078C           
+NOP                               
+ADDI $6, $4, 0xE371B1C9           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $1, $1, $1
+LOAD $3, $1, 0x3716CFE6           
+SUB $7, $7, $7
+STORE $7, $2, 0x3716CFE2          
+SUBI $4, $4, 0x354B8D86           
+SUBI $5, $1, 0xC5E83577           
+SUBI $1, $5, 0xA44403B5           
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x3716CFD6
+STORE $4, $1, $0                  
+SUB $1, $1, $1
+LOAD $1, $1, 0x3716CFE6           
+ADD $1, $7, $1                    
+NOP                               
+HALT $0
+#
+D@0x3716CFD6
+0x0C72E08E		# 3716CFD6		= 208855182
+0x43862399		# 3716CFDA		= 1132864409
+0x9F4AB878		# 3716CFDE		= -1622493064
+0xCA663FD1		# 3716CFE2		= -899268655
+0x9D897C51		# 3716CFE6		= -1651934127

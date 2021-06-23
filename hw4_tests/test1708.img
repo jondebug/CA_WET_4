@@ -1,0 +1,47 @@
+# Test N.1708
+#
+L9
+S4
+O2
+N1
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $6, $4, 0x8162ECD8           
+ADD $2, $2, $0                    
+ADDI $5, $7, 0x5CDF4811           
+ADD $1, $7, $2                    
+ADD $3, $4, $5                    
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x22AFAD3B
+STORE $2, $5, $6                  
+SUBI $3, $5, 0x42471B7D           
+ADD $1, $6, $1                    
+NOP                               
+SUB $2, $5, $0                    
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x22AFAD3B
+STORE $6, $7, $5                  
+NOP                               
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x22AFAD47
+LOAD $5, $3, $0                   
+ADDI $3, $4, 0x12749757           
+HALT $0
+#
+D@0x22AFAD2B
+0x9E966DFE		# 22AFAD2B		= -1634308610
+0xD608C0A2		# 22AFAD2F		= -704069470
+0x55DEAAE0		# 22AFAD33		= 1440656096
+0xA9392523		# 22AFAD37		= -1455872733
+0x9E4646ED		# 22AFAD3B		= -1639561491
+0x1EAD4860		# 22AFAD3F		= 514672736
+0x8A62FC74		# 22AFAD43		= -1973224332
+0x71574003		# 22AFAD47		= 1901543427
+0xFB8E9150		# 22AFAD4B		= -74542768
+0x683FFB52		# 22AFAD4F		= 1749023570
+0x011B27FF		# 22AFAD53		= 18556927

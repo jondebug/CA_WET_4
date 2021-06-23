@@ -1,0 +1,83 @@
+# Test N.1628
+#
+L5
+S8
+O4
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $6                    
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x0299F478
+LOAD $1, $4, $0                   
+ADD $5, $1, $1                    
+SUB $7, $7, $7
+LOAD $2, $7, 0x0299F48C           
+NOP                               
+ADD $5, $2, $7                    
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $3, $3
+STORE $3, $5, 0x0299F488          
+SUBI $2, $2, 0xBBAABF44           
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x0299F480
+LOAD $5, $0, $7                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $7, $1, 0x0F0175C4           
+SUBI $3, $6, 0x6D8640BD           
+SUB $2, $2, $2
+STORE $2, $2, 0x0299F484          
+SUBI $0, $6, 0x8121E69F           
+SUBI $5, $3, 0xAADEEFDB           
+ADD $1, $4, $4                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $4, $3, 0x3B643583           
+NOP                               
+SUB $4, $1, $7                    
+NOP                               
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x0299F47C
+STORE $5, $1, $7                  
+ADDI $2, $7, 0xA04A1BFD           
+ADDI $1, $1, 0xB5173B2D           
+SUBI $2, $3, 0x56A789D0           
+SUB $6, $6, $6
+LOAD $2, $6, 0x0299F484           
+SUB $6, $6, $6
+LOAD $2, $6, 0x0299F480           
+SUB $6, $5, $7                    
+SUB $1, $3, $4                    
+SUB $4, $4, $4
+LOAD $2, $4, 0x0299F478           
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x0299F47C
+STORE $1, $0, $2                  
+HALT $0
+#
+D@0x0299F474
+0xBC5A665D		# 0299F474		= -1134926243
+0xC78A86CB		# 0299F478		= -947222837
+0xD2BA5513		# 0299F47C		= -759540461
+0xDFFAAB7E		# 0299F480		= -537220226
+0x07D905AD		# 0299F484		= 131663277
+0xFF6C5267		# 0299F488		= -9678233
+0xC2A4DC53		# 0299F48C		= -1029383085

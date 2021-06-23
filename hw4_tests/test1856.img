@@ -1,0 +1,174 @@
+# Test N.1856
+#
+L1
+S9
+O7
+N8
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $3, $7, 0x6B3FC925           
+ADD $6, $4, $6                    
+NOP                               
+ADDI $0, $6, 0x13DBD1D8           
+SUB $4, $4, $4
+STORE $4, $2, 0x60034F59          
+SUB $3, $7, $7                    
+SUBI $7, $5, 0xFF70CA56           
+ADDI $1, $0, 0x282063CC           
+ADDI $6, $7, 0xCE268A97           
+SUB $5, $6, $4                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+LOAD $6, $1, 0x60034F5D           
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x60034F4D
+STORE $2, $1, $5                  
+SUB $7, $1, $6                    
+ADDI $6, $4, 0x0AED39E0           
+ADD $7, $1, $7                    
+ADDI $2, $6, 0x86958F91           
+ADDI $7, $7, 0x2C6A1160           
+ADD $1, $6, $1                    
+NOP                               
+SUB $5, $5, $2                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $0, $5                    
+SUB $0, $7, $6                    
+SUB $6, $4, $1                    
+ADD $3, $0, $2                    
+SUB $5, $1, $5                    
+ADD $4, $1, $7                    
+SUB $2, $2, $6                    
+ADD $6, $2, $7                    
+NOP                               
+NOP                               
+SUB $0, $0, $0
+LOAD $6, $0, 0x60034F41           
+SUB $4, $4, $4
+STORE $4, $1, 0x60034F39          
+NOP                               
+SUB $3, $7, $3                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $4, 0x60034F45          
+ADD $6, $0, $0                    
+NOP                               
+SUBI $7, $6, 0x4487724E           
+SUBI $5, $4, 0x82521374           
+SUB $6, $6, $6
+STORE $6, $7, 0x60034F61          
+NOP                               
+SUBI $7, $7, 0xB3EDA21A           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $5, $7, 0x350F89D1           
+ADD $5, $4, $6                    
+NOP                               
+SUBI $6, $3, 0xE2EF196E           
+SUB $3, $4, $6                    
+SUB $3, $3, $6                    
+SUBI $0, $1, 0xA4114B7C           
+SUB $0, $2, $1                    
+SUBI $6, $4, 0xF343118E           
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x60034F4D
+STORE $2, $2, $4                  
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $6, $6, $6
+LOAD $1, $6, 0x60034F5D           
+SUB $4, $4, $4
+STORE $4, $0, 0x60034F45          
+SUB $4, $0, $4                    
+ADDI $3, $5, 0xE1AE96D4           
+SUB $6, $2, $5                    
+NOP                               
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x60034F5D
+STORE $7, $2, $2                  
+SUBI $1, $6, 0x3C4D10CA           
+ADD $7, $5, $2                    
+ADD $2, $2, $0                    
+SUBI $6, $3, 0x9DC3A27F           
+ADDI $4, $7, 0x55E8B2B2           
+ADDI $3, $0, 0x4074D0BE           
+NOP                               
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUBI $0, $5, 0x67772346           
+ADDI $0, $7, 0x3EA83F3E           
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x60034F49
+STORE $4, $0, $3                  
+ADD $4, $0, $5                    
+NOP                               
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x60034F49
+STORE $3, $1, $7                  
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $4, $4, $4
+LOAD $7, $4, 0x60034F49           
+SUB $2, $7, $2                    
+ADDI $5, $5, 0xCC14CB99           
+NOP                               
+NOP                               
+SUB $4, $4, $4
+LOAD $1, $4, 0x60034F55           
+SUB $5, $3, $1                    
+SUB $4, $4, $4
+STORE $4, $7, 0x60034F45          
+ADD $0, $7, $6                    
+SUBI $0, $3, 0x9CD99C72           
+SUBI $0, $0, 0x357C2B61           
+SUB $4, $2, $5                    
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x60034F49
+STORE $2, $5, $6                  
+ADD $5, $5, $0                    
+HALT $0
+#
+D@0x60034F39
+0x010F4DA9		# 60034F39		= 17780137
+0x58F7B136		# 60034F3D		= 1492627766
+0x912175F0		# 60034F41		= -1860078096
+0x0F01D8BE		# 60034F45		= 251779262
+0x4395C94E		# 60034F49		= 1133889870
+0x14A994E0		# 60034F4D		= 346658016
+0x2D5C1FAC		# 60034F51		= 761012140
+0xC8968CCB		# 60034F55		= -929657653
+0x31A773C1		# 60034F59		= 833057729
+0x1EC918E7		# 60034F5D		= 516495591
+0xFAE935DF		# 60034F61		= -85379617

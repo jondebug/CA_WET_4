@@ -1,0 +1,55 @@
+# Test N.96
+#
+L2
+S6
+O2
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADD $3, $2, $7                    
+SUB $0, $5, $4                    
+SUB $2, $5, $1                    
+SUB $1, $3, $3                    
+SUB $3, $2, $6                    
+SUB $1, $4, $7                    
+NOP                               
+ADDI $6, $7, 0xCE20B6CD           
+SUBI $6, $3, 0x5DCE337B           
+ADD $1, $6, $2                    
+SUBI $6, $5, 0xBBE640AD           
+ADD $0, $7, $1                    
+ADD $5, $7, $1                    
+ADDI $5, $7, 0xB899CFCD           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $5, $6, $4                    
+SUB $1, $1, $1
+STORE $1, $3, 0x790D78A2          
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x790D78A2
+LOAD $7, $1, $0                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $6
+STORE $6, $5, 0x790D78A6          
+ADDI $0, $3, 0xE7EDF49E           
+SUB $4, $5, $0                    
+SUB $5, $5, $5
+LOAD $7, $5, 0x790D78A6           
+SUB $2, $2, $2
+LOAD $3, $2, 0x790D789E           
+HALT $0
+#
+D@0x790D789E
+0xE760C0C3		# 790D789E		= -413089597
+0x3CE05955		# 790D78A2		= 1021335893
+0x85638B2B		# 790D78A6		= -2057073877

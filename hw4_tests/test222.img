@@ -1,0 +1,106 @@
+# Test N.222
+#
+L8
+S9
+O5
+N6
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $5, $1, 0xBF7F90C8           
+SUB $6, $6, $6
+STORE $6, $3, 0x4922EE54          
+NOP                               
+NOP                               
+ADDI $0, $1, 0xA892C757           
+NOP                               
+ADD $6, $4, $7                    
+ADD $6, $5, $2                    
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x4922EE58
+STORE $4, $0, $3                  
+SUB $7, $3, $5                    
+ADD $6, $6, $1                    
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x4922EE5C
+STORE $6, $2, $4                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+LOAD $1, $2, 0x4922EE5C           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $2, $2, $4                    
+SUB $6, $6, $6
+LOAD $2, $6, 0x4922EE5C           
+SUB $6, $0, $3                    
+NOP                               
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x4922EE58
+STORE $1, $5, $4                  
+ADDI $1, $5, 0x0D4F181E           
+ADDI $2, $2, 0xEA92A3C5           
+SUB $4, $6, $1                    
+ADD $1, $1, $0                    
+ADDI $2, $1, 0x401DB275           
+ADD $3, $1, $5                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $4, $3                    
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+NOP                               
+NOP                               
+SUB $5, $5, $5
+LOAD $4, $5, 0x4922EE5C           
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x4922EE58
+LOAD $0, $2, $7                   
+SUBI $4, $2, 0x1B123C41           
+SUB $1, $5, $6                    
+NOP                               
+ADD $0, $3, $2                    
+ADD $7, $2, $6                    
+SUB $6, $6, $6
+STORE $6, $3, 0x4922EE5C          
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $3, $1, $1                    
+SUB $1, $6, $3                    
+SUB $2, $2, $2
+LOAD $1, $2, 0x4922EE54           
+NOP                               
+SUBI $0, $6, 0xB7F63350           
+ADDI $2, $3, 0xC36A58F7           
+ADDI $6, $1, 0x0FDB2240           
+SUBI $3, $2, 0x9BE00623           
+HALT $0
+#
+D@0x4922EE50
+0xF120C5D5		# 4922EE50		= -249510443
+0x049C4261		# 4922EE54		= 77349473
+0x38B6CC9B		# 4922EE58		= 951504027
+0xDE78701E		# 4922EE5C		= -562532322

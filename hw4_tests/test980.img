@@ -1,0 +1,104 @@
+# Test N.980
+#
+L1
+S8
+O7
+N5
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $2, $2, $2
+STORE $2, $2, 0x4A8949F9          
+ADDI $0, $0, 0x7E327810           
+SUB $6, $6, $6
+STORE $6, $3, 0x4A8949F5          
+ADD $0, $7, $3                    
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x4A8949F5
+LOAD $0, $6, $4                   
+SUB $6, $2, $3                    
+NOP                               
+SUB $0, $0, $0
+LOAD $2, $0, 0x4A8949F5           
+SUB $0, $2, $2                    
+SUB $5, $0, $3                    
+ADD $2, $5, $4                    
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x4A8949ED
+STORE $7, $4, $3                  
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x4A8949ED
+STORE $0, $1, $6                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $0, $1, $0                    
+SUB $4, $4, $4
+LOAD $2, $4, 0x4A8949F1           
+SUB $3, $3, $3
+STORE $3, $0, 0x4A8949F5          
+NOP                               
+SUB $4, $4, $4
+LOAD $3, $4, 0x4A8949F1           
+SUB $4, $4, $4
+LOAD $0, $4, 0x4A8949ED           
+SUB $3, $3, $3
+STORE $3, $6, 0x4A8949F5          
+SUB $4, $6, $6                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $4, $0                    
+SUBI $2, $6, 0x496C3872           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $5, $5, $5
+LOAD $1, $5, 0x4A8949F9           
+ADDI $5, $0, 0x91E7DE46           
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x4A8949F5
+LOAD $3, $6, $5                   
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $7, $7, $7
+LOAD $5, $7, 0x4A8949F9           
+SUBI $3, $3, 0xDB35E46D           
+SUB $7, $7, $7
+STORE $7, $2, 0x4A8949F5          
+NOP                               
+SUB $0, $2, $7                    
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x4A8949F5
+STORE $6, $6, $3                  
+SUB $3, $3, $3                    
+SUB $0, $0, $0
+LOAD $5, $0, 0x4A8949F5           
+SUB $3, $3, $3
+STORE $3, $3, 0x4A8949F9          
+NOP                               
+NOP                               
+HALT $0
+#
+D@0x4A8949ED
+0x8755654C		# 4A8949ED		= -2024446644
+0x48A67DDA		# 4A8949F1		= 1218870746
+0x515E2995		# 4A8949F5		= 1365125525
+0xF0AAFE09		# 4A8949F9		= -257229303

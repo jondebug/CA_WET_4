@@ -1,0 +1,68 @@
+# Test N.1954
+#
+L6
+S1
+O6
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $3, $6                    
+ADDI $7, $7, 0x50DE1C5F           
+SUB $5, $5, $5
+LOAD $1, $5, 0x2D30ADC1           
+SUB $3, $3, $3
+LOAD $5, $3, 0x2D30ADC5           
+SUBI $3, $0, 0x87A5E996           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $0, $2, 0x92F7CAAC           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x2D30ADD5
+STORE $6, $6, $5                  
+SUB $4, $4, $4
+STORE $4, $0, 0x2D30ADD5          
+SUB $2, $5, $6                    
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x2D30ADD1
+STORE $5, $2, $7                  
+ADD $6, $4, $2                    
+SUB $1, $7, $4                    
+ADDI $0, $3, 0x99D476E9           
+NOP                               
+SUB $6, $2, $6                    
+SUB $3, $3, $3
+LOAD $7, $3, 0x2D30ADC9           
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x2D30ADCD
+LOAD $0, $2, $0                   
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x2D30ADE1
+STORE $3, $3, $1                  
+HALT $0
+#
+D@0x2D30ADC1
+0xECE1116E		# 2D30ADC1		= -320794258
+0xB7CB315B		# 2D30ADC5		= -1211420325
+0xB26E9D79		# 2D30ADC9		= -1301373575
+0x21E9A304		# 2D30ADCD		= 568959748
+0x3E980F85		# 2D30ADD1		= 1050152837
+0xC5E8C6DE		# 2D30ADD5		= -974600482
+0xADAAE7A9		# 2D30ADD9		= -1381308503
+0xF15EED42		# 2D30ADDD		= -245437118
+0x1207A8DB		# 2D30ADE1		= 302491867
+0xD502A160		# 2D30ADE5		= -721247904

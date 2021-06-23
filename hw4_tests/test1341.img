@@ -1,0 +1,64 @@
+# Test N.1341
+#
+L3
+S1
+O4
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADD $5, $0, $0                    
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x44BE9707
+STORE $7, $6, $6                  
+SUB $1, $1, $1
+LOAD $2, $1, 0x44BE96EF           
+ADDI $0, $0, 0xC9E231FD           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $7, $1, $4                    
+ADD $0, $0, $2                    
+SUB $3, $3, $6                    
+ADD $5, $4, $3                    
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x44BE96F7
+STORE $7, $7, $2                  
+SUBI $6, $6, 0xFA62235E           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $1, $0, 0xEE39A8A7           
+ADDI $2, $1, 0x09CC1719           
+SUB $2, $2, $2
+STORE $2, $6, 0x44BE9703          
+ADD $5, $1, $2                    
+NOP                               
+NOP                               
+SUB $6, $6, $6
+STORE $6, $6, 0x44BE9703          
+SUBI $7, $6, 0xEFDD47F4           
+HALT $0
+#
+D@0x44BE96DF
+0x609CA6FA		# 44BE96DF		= 1620879098
+0x861946D8		# 44BE96E3		= -2045163816
+0x34D3E3C0		# 44BE96E7		= 886301632
+0x2A7C54D1		# 44BE96EB		= 712791249
+0x4CCF0071		# 44BE96EF		= 1288634481
+0xFD8C52E1		# 44BE96F3		= -41135391
+0x601F09FA		# 44BE96F7		= 1612646906
+0x51FDE56E		# 44BE96FB		= 1375593838
+0xA4AFDE1C		# 44BE96FF		= -1531978212
+0xDA1BED37		# 44BE9703		= -635704009
+0xC2BFE9C3		# 44BE9707		= -1027610173
+0xF8214F70		# 44BE970B		= -132034704
+0x3AF661C4		# 44BE970F		= 989225412

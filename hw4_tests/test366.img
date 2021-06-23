@@ -1,0 +1,124 @@
+# Test N.366
+#
+L3
+S10
+O6
+N8
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $0, $6                    
+SUB $3, $3, $3
+STORE $3, $5, 0x09726C92          
+ADD $2, $4, $1                    
+ADD $3, $2, $3                    
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x09726C76
+LOAD $2, $6, $2                   
+SUBI $7, $7, 0x5DF4E482           
+SUB $7, $4, $1                    
+SUB $4, $5, $3                    
+SUB $2, $0, $7                    
+SUBI $4, $5, 0x87B66180           
+SUB $2, $2, $1                    
+ADDI $4, $5, 0xCABC9C86           
+NOP                               
+SUB $4, $7, $0                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $0, $2                    
+SUB $7, $3, $6                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $3, $5, 0x9DF20FA1           
+SUB $0, $0, $0
+LOAD $2, $0, 0x09726C8E           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $0, $2, 0x8FF45AD0           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $4, 0x09726C7A          
+SUB $0, $0, $0
+STORE $0, $7, 0x09726C9A          
+SUB $2, $2, $2
+STORE $2, $2, 0x09726C9A          
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x09726C9E
+STORE $2, $3, $4                  
+SUBI $0, $5, 0xD4FF0B09           
+NOP                               
+SUB $3, $1, $4                    
+NOP                               
+SUB $3, $3, $3
+LOAD $3, $3, 0x09726C9A           
+ADD $3, $5, $5                    
+SUB $7, $1, $1                    
+SUB $5, $6, $6                    
+SUBI $1, $7, 0x8A33C6F5           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+NOP                               
+SUB $2, $4, $5                    
+SUB $6, $6, $6
+STORE $6, $2, 0x09726C9A          
+SUB $0, $0, $0
+STORE $0, $0, 0x09726C8E          
+SUB $1, $1, $1
+LOAD $3, $1, 0x09726C82           
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+ADD $3, $4, $7                    
+SUB $2, $1, $1                    
+ADD $0, $0, $5                    
+NOP                               
+NOP                               
+ADD $6, $3, $6                    
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x09726C86
+STORE $6, $4, $2                  
+SUBI $5, $1, 0xAF759AA5           
+SUBI $3, $7, 0x11DFA35E           
+HALT $0
+#
+D@0x09726C76
+0x43A4E72E		# 09726C76		= 1134880558
+0x53854FCD		# 09726C7A		= 1401245645
+0x8BFFC9E9		# 09726C7E		= -1946170903
+0xBE134366		# 09726C82		= -1106033818
+0xFA1AA446		# 09726C86		= -98917306
+0x35E069F7		# 09726C8A		= 903899639
+0xEBBFCB33		# 09726C8E		= -339752141
+0xDD455744		# 09726C92		= -582658236
+0x1A1AEE7E		# 09726C96		= 437972606
+0x601984E0		# 09726C9A		= 1612285152
+0x451E6A9A		# 09726C9E		= 1159621274

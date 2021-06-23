@@ -1,0 +1,105 @@
+# Test N.628
+#
+L3
+S5
+O6
+N4
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $2, $2, $2
+STORE $2, $1, 0x5B443F25          
+ADDI $1, $6, 0xD6970F76           
+ADD $0, $5, $4                    
+ADDI $1, $1, 0xAD7D04FF           
+SUB $4, $4, $4
+STORE $4, $7, 0x5B443F25          
+ADDI $2, $3, 0xACF7F28F           
+NOP                               
+ADD $5, $1, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+LOAD $1, $5, 0x5B443F25           
+ADDI $0, $1, 0x3F4CD574           
+ADD $0, $2, $7                    
+NOP                               
+SUB $1, $1, $1
+STORE $1, $7, 0x5B443F11          
+SUBI $3, $1, 0x2221AE06           
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x5B443F05
+LOAD $7, $7, $5                   
+SUB $4, $7, $5                    
+ADD $7, $2, $1                    
+ADDI $6, $3, 0x2FEF59FE           
+SUBI $0, $7, 0x5408F5F4           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $7, $3, 0xE73A1A9C           
+ADDI $5, $0, 0x79546394           
+NOP                               
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x5B443F09
+STORE $4, $1, $3                  
+SUBI $2, $4, 0xE648B8D7           
+ADDI $1, $5, 0x4A856A6F           
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x5B443F19
+STORE $2, $7, $3                  
+ADDI $7, $4, 0x738F939B           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x5B443F19
+LOAD $4, $4, $5                   
+SUB $6, $1, $6                    
+ADDI $4, $1, 0x82D9C2AA           
+NOP                               
+ADD $0, $6, $4                    
+SUB $7, $7, $7
+LOAD $4, $7, 0x5B443F11           
+ADDI $6, $2, 0x2E9D68C5           
+NOP                               
+SUBI $2, $7, 0xC107F783           
+ADD $0, $3, $4                    
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x5B443F15
+STORE $3, $0, $5                  
+SUBI $7, $5, 0xF1FA64FE           
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x5B443EF9
+STORE $7, $7, $0                  
+HALT $0
+#
+D@0x5B443EF5
+0xF8E344D8		# 5B443EF5		= -119323432
+0x75D4E492		# 5B443EF9		= 1976886418
+0x86C16259		# 5B443EFD		= -2034146727
+0x39D59537		# 5B443F01		= 970298679
+0x5E82A5E1		# 5B443F05		= 1585620449
+0x5BE03541		# 5B443F09		= 1541420353
+0x815B3111		# 5B443F0D		= -2124730095
+0xFC149046		# 5B443F11		= -65761210
+0x06AA3D42		# 5B443F15		= 111820098
+0xF8D3EEAD		# 5B443F19		= -120328531
+0x0FE23074		# 5B443F1D		= 266481780
+0xAFDB388A		# 5B443F21		= -1344587638
+0xA593D0B6		# 5B443F25		= -1517039434

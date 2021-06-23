@@ -1,0 +1,58 @@
+# Test N.1370
+#
+L10
+S7
+O2
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADD $3, $3, $0                    
+NOP                               
+SUBI $5, $0, 0x8E4660F7           
+ADD $7, $4, $0                    
+NOP                               
+ADDI $0, $1, 0x7C5CF2EB           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADDI $6, $3, 0xA22966E9           
+SUB $7, $7, $7
+LOAD $0, $7, 0x08B82A80           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $4, $1, $6                    
+ADDI $2, $7, 0x98711443           
+NOP                               
+SUBI $3, $0, 0xD86AEE86           
+ADDI $4, $3, 0x3624C470           
+SUB $0, $7, $1                    
+SUBI $1, $0, 0x489839D0           
+SUB $1, $1, $1
+STORE $1, $5, 0x08B82A88          
+SUB $5, $7, $1                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $7, $1, $1                    
+SUB $2, $2, $1                    
+ADDI $5, $2, 0xCAA609DB           
+NOP                               
+NOP                               
+SUBI $5, $5, 0x24B9AC9C           
+SUBI $3, $3, 0x4AF3254F           
+HALT $0
+#
+D@0x08B82A80
+0x4C6B77C3		# 08B82A80		= 1282111427
+0x9A8B336F		# 08B82A84		= -1702153361
+0xD97CE43E		# 08B82A88		= -646126530

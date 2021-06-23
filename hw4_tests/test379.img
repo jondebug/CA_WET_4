@@ -1,0 +1,93 @@
+# Test N.379
+#
+L2
+S2
+O4
+N6
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+ADDI $5, $4, 0x518B2FB8           
+ADDI $2, $2, 0x3D373154           
+SUB $0, $1, $5                    
+SUB $6, $3, $1                    
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x11BA1095
+LOAD $2, $6, $3                   
+SUB $7, $3, $1                    
+SUBI $7, $0, 0xE710152D           
+SUB $5, $5, $5
+LOAD $5, $5, 0x11BA1095           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $6, $5, 0xBEE7D45E           
+ADD $6, $4, $4                    
+SUBI $5, $3, 0xE8FE18F0           
+SUBI $1, $5, 0x51583E8B           
+ADDI $7, $3, 0x8BC59EAF           
+SUB $7, $7, $4                    
+SUBI $3, $3, 0xA83F4464           
+ADDI $6, $5, 0x7EB29AEF           
+SUB $0, $0, $0
+STORE $0, $2, 0x11BA1095          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $6, $6, $0                    
+SUBI $5, $4, 0x63CEF439           
+NOP                               
+ADD $6, $7, $4                    
+NOP                               
+ADDI $1, $6, 0x604686EF           
+ADDI $3, $2, 0x76019A5B           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x11BA1095
+STORE $4, $7, $2                  
+ADDI $3, $3, 0x8B4FB1D7           
+NOP                               
+SUBI $4, $4, 0x0DE83A19           
+ADD $3, $0, $3                    
+NOP                               
+SUB $0, $1, $3                    
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x11BA1095
+LOAD $6, $7, $4                   
+SUB $5, $3, $2                    
+NOP                               
+SUB $1, $5, $7                    
+SUBI $5, $6, 0xD794D49B           
+ADDI $4, $1, 0xF3803187           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x11BA1095
+LOAD $5, $1, $7                   
+HALT $0
+#
+D@0x11BA1095
+0xEDF26D44		# 11BA1095		= -302879420

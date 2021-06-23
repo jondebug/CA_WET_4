@@ -1,0 +1,92 @@
+# Test N.573
+#
+L3
+S5
+O10
+N4
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $4, $5, $0                    
+SUBI $2, $2, 0x5D8C5BBF           
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x2B1C37F2
+LOAD $2, $6, $0                   
+SUBI $6, $3, 0x4FC4A45E           
+ADDI $7, $4, 0xEE41FE01           
+ADD $2, $2, $5                    
+ADD $4, $1, $4                    
+SUB $4, $4, $7                    
+NOP                               
+ADDI $3, $0, 0x40A4DBDD           
+SUBI $0, $0, 0x8F33E073           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x2B1C3802
+LOAD $7, $1, $0                   
+SUBI $3, $6, 0x825DE23A           
+NOP                               
+SUBI $2, $5, 0xBDBD168D           
+SUB $7, $1, $4                    
+SUB $4, $7, $2                    
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x2B1C37FE
+LOAD $5, $0, $4                   
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x2B1C37EA
+STORE $5, $1, $3                  
+ADD $6, $3, $2                    
+SUBI $0, $7, 0x9EE96C40           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x2B1C37D6
+LOAD $0, $3, $7                   
+SUB $5, $1, $4                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $3, $3, 0x5D984B40           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $2, 0x2B1C37D6          
+NOP                               
+SUB $0, $3, $3                    
+SUBI $3, $4, 0x871647F0           
+NOP                               
+SUB $0, $4, $7                    
+ADDI $7, $5, 0xCF148BA7           
+ADDI $2, $5, 0xB4FDB4ED           
+HALT $0
+#
+D@0x2B1C37D2
+0x0B8EFE3C		# 2B1C37D2		= 193920572
+0x2BA67DBC		# 2B1C37D6		= 732331452
+0x073851F2		# 2B1C37DA		= 121131506
+0x9D5EDDE6		# 2B1C37DE		= -1654727194
+0x6E72EFE2		# 2B1C37E2		= 1853026274
+0xFBA530C3		# 2B1C37E6		= -73060157
+0x19BCDF82		# 2B1C37EA		= 431808386
+0xF0EFB330		# 2B1C37EE		= -252726480
+0xBDF0E9BB		# 2B1C37F2		= -1108284997
+0x0C146112		# 2B1C37F6		= 202662162
+0xBCC0DD36		# 2B1C37FA		= -1128211146
+0xAF50E6E0		# 2B1C37FE		= -1353652512
+0x7A99B711		# 2B1C3802		= 2056894225
+0x382D8047		# 2B1C3806		= 942506055
+0x7D615E5C		# 2B1C380A		= 2103533148

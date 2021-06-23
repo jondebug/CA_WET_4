@@ -1,0 +1,95 @@
+# Test N.587
+#
+L5
+S1
+O2
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6                    
+SUB $7, $7, $7
+LOAD $7, $7, 0x1F905F76           
+NOP                               
+ADDI $5, $5, 0xA13F74C7           
+ADD $1, $6, $4                    
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x1F905F6E
+LOAD $5, $5, $4                   
+SUB $6, $6, $6
+STORE $6, $2, 0x1F905F6E          
+SUBI $2, $4, 0x6EAE125C           
+ADDI $2, $0, 0x2B748D2B           
+SUBI $4, $6, 0x8DAF5C0A           
+ADDI $5, $2, 0xCDECD92E           
+NOP                               
+SUB $0, $2, $3                    
+ADD $5, $2, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x1F905F76
+STORE $5, $7, $6                  
+ADDI $0, $6, 0xA5CC5620           
+ADD $6, $0, $1                    
+NOP                               
+NOP                               
+SUBI $3, $3, 0x323735B2           
+SUBI $4, $4, 0x377F4734           
+ADDI $7, $3, 0x0DB4A144           
+SUBI $4, $1, 0xCBC5067C           
+SUBI $4, $3, 0xEB8E34A2           
+ADD $7, $6, $5                    
+SUB $6, $6, $6
+STORE $6, $1, 0x1F905F76          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $3, $2, 0x90085E70           
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x1F905F6E
+STORE $4, $7, $2                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $5, $1, $6                    
+ADD $4, $0, $6                    
+ADDI $0, $7, 0xF044BF92           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $3, $0                    
+SUB $4, $4, $4
+SUB $0, $0, $0
+ADDI $0, $0, 0x1F905F6E
+LOAD $7, $4, $0                   
+NOP                               
+SUBI $6, $6, 0xABD1126E           
+NOP                               
+SUBI $0, $6, 0xDFAFAF83           
+ADDI $7, $4, 0x88492DF4           
+SUB $3, $5, $7                    
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x1F905F76
+STORE $6, $5, $4                  
+HALT $0
+#
+D@0x1F905F6E
+0xCF9028E7		# 1F905F6E		= -812635929
+0x45EE8025		# 1F905F72		= 1173258277
+0x74B85206		# 1F905F76		= 1958236678

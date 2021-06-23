@@ -1,0 +1,51 @@
+# Test N.1404
+#
+L3
+S1
+O1
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $3, $3
+STORE $3, $6, 0x78B0F030          
+SUB $4, $2, $1                    
+ADDI $2, $7, 0xF6A2C974           
+ADDI $2, $5, 0x7BD2A40E           
+SUB $1, $1, $1
+STORE $1, $3, 0x78B0F030          
+SUB $6, $4, $5                    
+SUB $4, $2, $6                    
+ADD $3, $0, $5                    
+SUB $4, $7, $1                    
+ADD $0, $0, $2                    
+NOP                               
+ADD $5, $3, $0                    
+SUBI $1, $5, 0xCC9BA4EA           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $0, $2, 0xBA3FA8B8           
+SUB $0, $0, $0
+LOAD $4, $0, 0x78B0F030           
+SUBI $0, $7, 0xEF40DF02           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x78B0F030
+STORE $1, $7, $5                  
+ADD $7, $1, $0                    
+SUB $0, $0, $0
+LOAD $1, $0, 0x78B0F030           
+SUBI $5, $3, 0xC25D31B2           
+NOP                               
+NOP                               
+SUBI $3, $0, 0x9BE2DAE5           
+SUBI $3, $7, 0x9D4EF84A           
+SUBI $0, $2, 0xEA0DD89D           
+HALT $0
+#
+D@0x78B0F030
+0x3518B1FC		# 78B0F030		= 890810876

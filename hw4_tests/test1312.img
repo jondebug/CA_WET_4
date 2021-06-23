@@ -1,0 +1,72 @@
+# Test N.1312
+#
+L5
+S7
+O9
+N6
+
+# Thread 0
+T0
+I@0x00000000
+ADD $5, $4, $7                    
+ADDI $0, $7, 0x56FE1431           
+ADD $1, $1, $5                    
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x3C4A68BB
+LOAD $5, $3, $4                   
+SUB $2, $2, $2
+LOAD $7, $2, 0x3C4A68BB           
+SUB $2, $4, $5                    
+NOP                               
+ADDI $3, $5, 0x9E094ECA           
+SUBI $1, $6, 0x8C58E27A           
+NOP                               
+NOP                               
+ADD $2, $0, $6                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $4, $4, $3                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $7, $4, $2                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $4, $0, $6                    
+NOP                               
+SUB $0, $1, $5                    
+SUBI $4, $4, 0xC08C7E7C           
+SUB $4, $4, $4
+LOAD $0, $4, 0x3C4A68BF           
+SUBI $3, $7, 0x154ED3A2           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x3C4A68B7
+LOAD $2, $2, $4                   
+SUBI $2, $5, 0xC52172A6           
+SUBI $0, $2, 0x34FA0CB1           
+HALT $0
+#
+D@0x3C4A68B7
+0x326CA108		# 3C4A68B7		= 845979912
+0x7517ECC8		# 3C4A68BB		= 1964502216
+0x4181A3E8		# 3C4A68BF		= 1099015144

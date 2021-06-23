@@ -1,0 +1,42 @@
+# Test N.739
+#
+L1
+S1
+O2
+N3
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $3, $3
+STORE $3, $4, 0x06C22EBF          
+ADDI $4, $4, 0xC2B81B9D           
+SUB $5, $5, $5
+STORE $5, $4, 0x06C22EC3          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x06C22EC3
+LOAD $5, $7, $1                   
+ADD $0, $0, $6                    
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x06C22EBB
+STORE $0, $0, $5                  
+HALT $0
+#
+D@0x06C22EBB
+0xB4586F8D		# 06C22EBB		= -1269272691
+0x961652A2		# 06C22EBF		= -1776921950
+0xD28CE150		# 06C22EC3		= -762519216
+0xF3DD961D		# 06C22EC7		= -203581923
+0xBFBEA99A		# 06C22ECB		= -1078023782

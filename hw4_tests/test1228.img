@@ -1,0 +1,94 @@
+# Test N.1228
+#
+L7
+S9
+O2
+N5
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+NOP                               
+SUB $6, $2, $3                    
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x3BBCABD5
+STORE $3, $5, $0                  
+SUB $1, $1, $4                    
+NOP                               
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x3BBCABF5
+STORE $0, $2, $7                  
+ADDI $3, $2, 0xF2923C31           
+SUB $3, $0, $5                    
+ADD $0, $0, $5                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $4, $0, 0xC8C5EF62           
+SUBI $4, $5, 0x2938F8BA           
+SUB $7, $7, $7
+STORE $7, $5, 0x3BBCABDD          
+SUBI $2, $7, 0xC06BDDE1           
+ADD $0, $5, $1                    
+SUB $7, $0, $4                    
+NOP                               
+ADD $2, $3, $0                    
+ADDI $5, $7, 0x38CF6DC4           
+SUBI $4, $0, 0xE42BB018           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $4, 0x3BBCABD1          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $1, $3, $2                    
+SUB $1, $1, $1
+STORE $1, $2, 0x3BBCABF9          
+SUB $2, $2, $2
+STORE $2, $0, 0x3BBCABDD          
+SUBI $7, $5, 0xA4CF8B35           
+SUB $3, $3, $3
+LOAD $1, $3, 0x3BBCABF9           
+SUB $6, $2, $6                    
+SUB $0, $0, $0
+STORE $0, $0, 0x3BBCABE5          
+SUBI $2, $0, 0x7ED1C085           
+SUB $3, $3, $3
+STORE $3, $5, 0x3BBCABD5          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x3BBCABDD
+STORE $7, $4, $1                  
+SUB $5, $5, $5
+STORE $5, $4, 0x3BBCABD5          
+HALT $0
+#
+D@0x3BBCABCD
+0x857296BF		# 3BBCABCD		= -2056087873
+0x4311A3CF		# 3BBCABD1		= 1125229519
+0x8DDD65CB		# 3BBCABD5		= -1914870325
+0xB678DE2B		# 3BBCABD9		= -1233592789
+0x778AFB63		# 3BBCABDD		= 2005597027
+0xB39B5DD1		# 3BBCABE1		= -1281663535
+0x3D232D41		# 3BBCABE5		= 1025715521
+0x8DE40C49		# 3BBCABE9		= -1914434487
+0x20CB87C2		# 3BBCABED		= 550209474
+0xAF563FE4		# 3BBCABF1		= -1353302044
+0xBD76FF21		# 3BBCABF5		= -1116274911
+0xBA394AD0		# 3BBCABF9		= -1170650416

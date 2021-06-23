@@ -1,0 +1,66 @@
+# Test N.694
+#
+L6
+S3
+O2
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $7, $0, 0xA00E2D98           
+SUBI $7, $3, 0x727DE88A           
+NOP                               
+ADD $5, $5, $1                    
+SUBI $6, $3, 0x82DF0B01           
+SUBI $5, $6, 0x104060AA           
+ADDI $0, $6, 0x58727BEB           
+SUBI $2, $4, 0x89E916B1           
+SUB $1, $1, $1
+LOAD $2, $1, 0x1F375563           
+SUB $2, $6, $0                    
+SUBI $7, $1, 0x690FC755           
+SUB $3, $3, $3
+STORE $3, $4, 0x1F37555F          
+ADDI $2, $7, 0xF66C5C95           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADD $5, $1, $5                    
+ADDI $6, $1, 0x5417A0B2           
+SUB $1, $1, $1
+STORE $1, $0, 0x1F37555F          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $4, $4
+LOAD $1, $4, 0x1F375563           
+SUBI $1, $7, 0x58517353           
+ADD $4, $2, $0                    
+SUBI $7, $2, 0x1AEFB83E           
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x1F375563
+STORE $7, $7, $0                  
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x1F375563
+LOAD $1, $6, $7                   
+SUBI $3, $5, 0x6C84C6F8           
+SUB $0, $0, $0
+LOAD $0, $0, 0x1F375563           
+NOP                               
+SUB $1, $1, $1
+STORE $1, $7, 0x1F37555F          
+NOP                               
+SUBI $1, $2, 0x6A32E949           
+HALT $0
+#
+D@0x1F37555F
+0x0CEC5C52		# 1F37555F		= 216816722
+0x551E3417		# 1F375563		= 1428042775

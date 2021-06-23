@@ -1,0 +1,101 @@
+# Test N.403
+#
+L1
+S5
+O6
+N6
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $3, $4, 0xBC2022C1           
+NOP                               
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x13AF0FD2
+STORE $2, $5, $7                  
+SUB $5, $2, $7                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $7, $1, 0xF2CD7B8A           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $0, $3, 0x387C86B6           
+ADD $6, $5, $2                    
+ADDI $1, $1, 0x9CCB2D21           
+SUBI $0, $3, 0x63E24BB7           
+NOP                               
+SUBI $2, $0, 0x9D1C6A4A           
+ADD $2, $1, $3                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $6, $6, $6
+LOAD $3, $6, 0x13AF0FB6           
+ADD $7, $1, $5                    
+ADD $3, $3, $1                    
+ADD $6, $1, $6                    
+SUB $5, $5, $5
+STORE $5, $7, 0x13AF0FB6          
+NOP                               
+ADDI $7, $4, 0x2648D3A9           
+ADDI $2, $6, 0x20A18E87           
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x13AF0FCA
+STORE $7, $3, $0                  
+ADD $5, $1, $5                    
+NOP                               
+ADD $4, $0, $4                    
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x13AF0FBA
+LOAD $4, $1, $3                   
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $1, $2, $1                    
+SUB $2, $1, $6                    
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x13AF0FBE
+STORE $7, $4, $3                  
+NOP                               
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x13AF0FCA
+STORE $7, $7, $0                  
+SUBI $1, $1, 0x5B6400CC           
+SUBI $4, $0, 0xC0EDC899           
+ADDI $6, $0, 0xF0B3F317           
+NOP                               
+HALT $0
+#
+D@0x13AF0FB2
+0xF1424434		# 13AF0FB2		= -247315404
+0x426D3133		# 13AF0FB6		= 1114452275
+0xFF208AB3		# 13AF0FBA		= -14644557
+0xE3130F66		# 13AF0FBE		= -485290138
+0xCEA9A27D		# 13AF0FC2		= -827743619
+0x373CCB90		# 13AF0FC6		= 926731152
+0x91033D39		# 13AF0FCA		= -1862058695
+0xED897770		# 13AF0FCE		= -309758096
+0x22C8F336		# 13AF0FD2		= 583594806
+0x212A76DA		# 13AF0FD6		= 556431066
+0xDB16A2A8		# 13AF0FDA		= -619273560
+0x6DD3CB86		# 13AF0FDE		= 1842596742

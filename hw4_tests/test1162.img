@@ -1,0 +1,76 @@
+# Test N.1162
+#
+L1
+S6
+O4
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $5, $3                    
+NOP                               
+ADD $6, $7, $2                    
+SUBI $4, $4, 0x8B5F0416           
+ADD $2, $5, $5                    
+SUB $1, $1, $1
+SUB $0, $0, $0
+ADDI $0, $0, 0x21C2F8C8
+STORE $1, $4, $0                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $3, 0x21C2F8C4          
+ADDI $0, $2, 0xFBF1749C           
+SUBI $1, $1, 0xEB2FBA89           
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x21C2F8C8
+STORE $4, $7, $1                  
+NOP                               
+ADD $5, $3, $2                    
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x21C2F8C8
+LOAD $0, $2, $3                   
+SUB $1, $3, $6                    
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x21C2F8C4
+LOAD $2, $3, $7                   
+SUB $1, $4, $4                    
+ADD $5, $7, $1                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $6, $7, 0x14A03785           
+ADD $7, $4, $0                    
+NOP                               
+NOP                               
+NOP                               
+SUBI $0, $0, 0x87C8F6CD           
+ADDI $1, $1, 0xEDD51E0E           
+NOP                               
+ADDI $6, $0, 0x532838D3           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $2, $1, 0x5EE94CCD           
+SUB $2, $2, $2
+LOAD $1, $2, 0x21C2F8C4           
+SUB $7, $4, $4                    
+NOP                               
+SUB $5, $5, $5
+STORE $5, $7, 0x21C2F8C8          
+HALT $0
+#
+D@0x21C2F8C4
+0x47318853		# 21C2F8C4		= 1194428499
+0x526D58D9		# 21C2F8C8		= 1382897881

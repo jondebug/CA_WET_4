@@ -1,0 +1,134 @@
+# Test N.1494
+#
+L6
+S5
+O7
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x6A4D92D6
+LOAD $2, $6, $7                   
+ADDI $5, $5, 0xC5ECEA19           
+SUBI $1, $5, 0x91530AC1           
+ADD $0, $7, $4                    
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x6A4D92CE
+STORE $0, $6, $4                  
+SUBI $5, $1, 0xBF7195A0           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $0, $6, 0xBF2C933E           
+SUBI $1, $5, 0xEC466640           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $5, $5, 0x29A637F2           
+SUB $5, $0, $7                    
+SUB $2, $2, $2
+STORE $2, $1, 0x6A4D92D6          
+SUB $0, $6, $5                    
+SUB $5, $5, $5
+LOAD $3, $5, 0x6A4D92DE           
+NOP                               
+ADDI $2, $3, 0x1C0D10E6           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $7, $2, $3                    
+SUB $4, $0, $4                    
+SUB $7, $7, $6                    
+SUB $6, $6, $6
+STORE $6, $3, 0x6A4D92D2          
+ADDI $0, $2, 0x2DA1FA9C           
+ADDI $6, $1, 0xC01F9318           
+ADDI $2, $4, 0x5B3802FD           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $3, $1, 0xB78EA775           
+ADDI $5, $0, 0x98B972AC           
+SUB $6, $6, $6
+LOAD $2, $6, 0x6A4D92CE           
+NOP                               
+SUB $1, $5, $0                    
+ADDI $6, $2, 0xBF887CD7           
+NOP                               
+NOP                               
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x6A4D92D6
+LOAD $7, $0, $1                   
+ADD $1, $7, $7                    
+SUB $4, $3, $0                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $2, $4, $0                    
+SUBI $6, $0, 0x2675B117           
+SUB $1, $1, $4                    
+ADDI $1, $2, 0x1060DA9C           
+SUB $5, $5, $5
+STORE $5, $0, 0x6A4D92FA          
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x6A4D92C2
+LOAD $6, $0, $6                   
+NOP                               
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x6A4D92C2
+STORE $2, $6, $0                  
+SUBI $0, $2, 0xAC81D14F           
+NOP                               
+SUB $5, $1, $3                    
+SUBI $5, $2, 0x4F1A6B09           
+SUB $5, $5, $5
+LOAD $6, $5, 0x6A4D92F6           
+SUB $4, $4, $4
+STORE $4, $3, 0x6A4D92D6          
+HALT $0
+#
+D@0x6A4D92BA
+0xBA87667E		# 6A4D92BA		= -1165531522
+0x3429BA99		# 6A4D92BE		= 875149977
+0xB98248D5		# 6A4D92C2		= -1182644011
+0x1D3100C7		# 6A4D92C6		= 489750727
+0x63510153		# 6A4D92CA		= 1666253139
+0x519F1CE8		# 6A4D92CE		= 1369382120
+0x7F83B558		# 6A4D92D2		= 2139338072
+0xFDC4DC9E		# 6A4D92D6		= -37430114
+0xEDA4E445		# 6A4D92DA		= -307960763
+0xA472DE9E		# 6A4D92DE		= -1535975778
+0x37ABA2FE		# 6A4D92E2		= 933995262
+0x5B438AD4		# 6A4D92E6		= 1531153108
+0xC201EF06		# 6A4D92EA		= -1040060666
+0x90EE58F9		# 6A4D92EE		= -1863427847
+0x1501E452		# 6A4D92F2		= 352445522
+0xBC378118		# 6A4D92F6		= -1137213160
+0x40E3CB24		# 6A4D92FA		= 1088670500

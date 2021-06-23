@@ -1,0 +1,101 @@
+# Test N.1185
+#
+L8
+S2
+O6
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $0, $7                    
+NOP                               
+SUB $3, $3, $5                    
+ADDI $6, $5, 0xA6807A1A           
+ADDI $2, $4, 0x48E29213           
+NOP                               
+ADD $4, $6, $7                    
+ADDI $0, $6, 0xAD150C42           
+ADDI $1, $7, 0x47E4B483           
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x57DD80AC
+STORE $7, $3, $4                  
+SUB $2, $2, $2
+STORE $2, $1, 0x57DD809C          
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $0, $6, $1                    
+SUB $3, $3, $3
+STORE $3, $3, 0x57DD80A4          
+SUBI $2, $5, 0x003E9957           
+SUBI $4, $6, 0x4B7EA038           
+SUB $3, $3, $3
+LOAD $5, $3, 0x57DD80A8           
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x57DD80CC
+LOAD $5, $5, $4                   
+ADDI $0, $4, 0xA9F22EBC           
+SUB $2, $2, $0                    
+ADDI $6, $5, 0x19E00B59           
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x57DD80A0
+STORE $7, $3, $6                  
+NOP                               
+SUBI $3, $4, 0x1CE01551           
+SUB $6, $6, $6
+LOAD $4, $6, 0x57DD80A4           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $0, $2, $1                    
+SUBI $4, $2, 0xA7BFD2EC           
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x57DD80C4
+LOAD $3, $2, $7                   
+SUB $3, $5, $4                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUB $7, $7, $7
+STORE $7, $0, 0x57DD80CC          
+SUBI $4, $6, 0x8A618039           
+ADD $0, $2, $5                    
+ADDI $0, $7, 0xC895E8F0           
+NOP                               
+HALT $0
+#
+D@0x57DD809C
+0xCFDEE4FF		# 57DD809C		= -807475969
+0x2A21C03C		# 57DD80A0		= 706854972
+0x9EE7CCBD		# 57DD80A4		= -1628975939
+0x3A339C59		# 57DD80A8		= 976460889
+0xAC7EBDF2		# 57DD80AC		= -1400979982
+0xE44503E3		# 57DD80B0		= -465239069
+0xC6295886		# 57DD80B4		= -970368890
+0x1AD8011F		# 57DD80B8		= 450363679
+0x0FBE3366		# 57DD80BC		= 264123238
+0xF21337F4		# 57DD80C0		= -233621516
+0xD3D761CC		# 57DD80C4		= -740859444
+0x265875CC		# 57DD80C8		= 643331532
+0x19B29315		# 57DD80CC		= 431133461
+0x510C8520		# 57DD80D0		= 1359775008
+0x601AF09A		# 57DD80D4		= 1612378266

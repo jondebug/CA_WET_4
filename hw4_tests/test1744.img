@@ -1,0 +1,53 @@
+# Test N.1744
+#
+L5
+S4
+O9
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $1, $1, 0xD1764BEA           
+SUBI $6, $4, 0x400689F0           
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x4AE92FA9
+STORE $7, $3, $4                  
+SUBI $7, $6, 0xC848C517           
+SUBI $4, $2, 0x085E7E4D           
+NOP                               
+SUB $3, $3, $3
+LOAD $2, $3, 0x4AE92FBD           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x4AE92FAD
+LOAD $0, $2, $1                   
+NOP                               
+SUB $3, $3, $3
+LOAD $2, $3, 0x4AE92FC5           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $7, $3, $1                    
+SUBI $0, $5, 0x82BBD167           
+HALT $0
+#
+D@0x4AE92FA1
+0xE821D4F5		# 4AE92FA1		= -400435979
+0x952DAA00		# 4AE92FA5		= -1792169472
+0xEAD6C9EE		# 4AE92FA9		= -355022354
+0x56156CD7		# 4AE92FAD		= 1444244695
+0x44B1E513		# 4AE92FB1		= 1152509203
+0xCDB7A4B7		# 4AE92FB5		= -843602761
+0x527AC417		# 4AE92FB9		= 1383777303
+0x53445865		# 4AE92FBD		= 1396988005
+0x4D8090EA		# 4AE92FC1		= 1300271338
+0x18FD30DB		# 4AE92FC5		= 419246299

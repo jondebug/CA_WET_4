@@ -1,0 +1,145 @@
+# Test N.1645
+#
+L3
+S7
+O10
+N7
+
+# Thread 0
+T0
+I@0x00000000
+ADD $2, $7, $5                    
+SUBI $5, $0, 0xA2426070           
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x2EEE83E5
+LOAD $0, $3, $0                   
+SUB $1, $5, $6                    
+ADDI $2, $2, 0x0E3E5EBF           
+SUB $5, $0, $6                    
+ADD $2, $6, $6                    
+SUB $4, $4, $4
+STORE $4, $7, 0x2EEE83C9          
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x2EEE83E1
+LOAD $1, $3, $4                   
+SUBI $4, $3, 0x961434FB           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x2EEE83B9
+LOAD $4, $3, $7                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $6, 0x2EEE83D1          
+SUBI $1, $3, 0x47444899           
+SUB $5, $4, $7                    
+SUB $4, $4, $4
+LOAD $7, $4, 0x2EEE83B5           
+ADD $5, $1, $5                    
+ADD $5, $1, $2                    
+SUB $6, $6, $6
+STORE $6, $4, 0x2EEE83D1          
+SUBI $3, $6, 0x7AAB09CF           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUBI $5, $0, 0xDC7FB206           
+ADD $3, $5, $5                    
+NOP                               
+SUB $7, $7, $7
+STORE $7, $3, 0x2EEE83CD          
+SUBI $3, $7, 0x4D311C3E           
+SUB $6, $6, $6
+LOAD $1, $6, 0x2EEE83F1           
+SUB $7, $7, $7
+STORE $7, $2, 0x2EEE83F1          
+ADD $4, $3, $6                    
+NOP                               
+ADDI $4, $3, 0xDA5C2C7E           
+ADD $3, $4, $5                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $6, $3, 0x1DD43D04           
+NOP                               
+SUB $0, $1, $5                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $3, $5, $0                    
+SUBI $2, $7, 0x833A5917           
+SUB $4, $4, $4
+STORE $4, $6, 0x2EEE83F1          
+SUB $2, $6, $2                    
+ADD $2, $5, $6                    
+NOP                               
+SUB $1, $4, $2                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUBI $3, $6, 0xC6F3239C           
+SUB $2, $2, $2
+LOAD $0, $2, 0x2EEE83E9           
+SUBI $2, $6, 0xF6571D15           
+SUBI $2, $4, 0xA64200DC           
+ADD $5, $3, $6                    
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x2EEE83E5
+STORE $6, $7, $2                  
+SUB $2, $2, $6                    
+SUB $3, $3, $3
+STORE $3, $3, 0x2EEE83C9          
+ADDI $3, $3, 0xC009C299           
+SUBI $5, $7, 0x9F3F8AF3           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+NOP                               
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x2EEE83E1
+STORE $0, $0, $5                  
+SUBI $4, $7, 0x9D6BE626           
+NOP                               
+SUBI $5, $4, 0x39FC8351           
+SUB $6, $6, $6
+LOAD $2, $6, 0x2EEE83F5           
+NOP                               
+SUB $3, $5, $1                    
+HALT $0
+#
+D@0x2EEE83B5
+0x4C977B1E		# 2EEE83B5		= 1284995870
+0xC4035C02		# 2EEE83B9		= -1006412798
+0x311B17DD		# 2EEE83BD		= 823859165
+0x21A26A0E		# 2EEE83C1		= 564292110
+0xA31D9B0D		# 2EEE83C5		= -1558340851
+0xBF4ADDAF		# 2EEE83C9		= -1085612625
+0x055513DA		# 2EEE83CD		= 89461722
+0xBFD313AF		# 2EEE83D1		= -1076685905
+0x656289B6		# 2EEE83D5		= 1700956598
+0xDFC863BB		# 2EEE83D9		= -540515397
+0x126AC89E		# 2EEE83DD		= 308988062
+0x503A2294		# 2EEE83E1		= 1345987220
+0x683B0511		# 2EEE83E5		= 1748698385
+0x335867C7		# 2EEE83E9		= 861431751
+0xBDDC5588		# 2EEE83ED		= -1109633656
+0x10633046		# 2EEE83F1		= 274935878
+0x23A9280E		# 2EEE83F5		= 598288398

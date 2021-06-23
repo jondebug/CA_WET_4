@@ -1,0 +1,90 @@
+# Test N.345
+#
+L10
+S5
+O3
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $0, $0
+LOAD $7, $0, 0x6F081ED4           
+ADD $0, $2, $7                    
+SUB $3, $7, $6                    
+SUB $1, $0, $4                    
+ADD $3, $7, $3                    
+ADDI $6, $2, 0xED5FE603           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $6, $5, 0xDDA5A7F9           
+SUB $7, $7, $7
+LOAD $4, $7, 0x6F081EB4           
+ADD $4, $3, $1                    
+ADDI $2, $1, 0x686B65A8           
+ADDI $7, $6, 0x9BE54FD9           
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x6F081ECC
+STORE $0, $5, $1                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $0, $3                    
+SUB $0, $0, $0
+LOAD $6, $0, 0x6F081ED4           
+ADD $7, $4, $7                    
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x6F081EC0
+STORE $0, $3, $4                  
+ADDI $0, $2, 0xA8238654           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x6F081EB0
+LOAD $0, $2, $6                   
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x6F081ECC
+LOAD $6, $6, $7                   
+SUB $3, $0, $6                    
+ADDI $5, $0, 0xE36E5E8A           
+SUB $7, $7, $7
+LOAD $6, $7, 0x6F081ED8           
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x6F081ED8
+STORE $4, $1, $1                  
+NOP                               
+ADDI $7, $6, 0xF633A13E           
+ADDI $6, $4, 0x571C6FE5           
+ADD $5, $5, $6                    
+ADDI $1, $5, 0x6ABD6585           
+SUB $4, $4, $4
+STORE $4, $2, 0x6F081EBC          
+ADD $6, $4, $3                    
+HALT $0
+#
+D@0x6F081EAC
+0x11BB6D80		# 6F081EAC		= 297495936
+0x88CAE8BD		# 6F081EB0		= -1999968067
+0xB608BC9B		# 6F081EB4		= -1240941413
+0xAED38C5E		# 6F081EB8		= -1361867682
+0x93D9F82D		# 6F081EBC		= -1814431699
+0xF6649C9D		# 6F081EC0		= -161178467
+0x6160C3E7		# 6F081EC4		= 1633731559
+0xDBA238AE		# 6F081EC8		= -610125650
+0xE0B1D0A1		# 6F081ECC		= -525217631
+0x82C10983		# 6F081ED0		= -2101278333
+0xF054B72B		# 6F081ED4		= -262883541
+0x4315D283		# 6F081ED8		= 1125503619

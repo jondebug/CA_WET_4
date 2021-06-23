@@ -1,0 +1,35 @@
+# Test N.948
+#
+L7
+S8
+O8
+N1
+
+# Thread 0
+T0
+I@0x00000000
+ADD $7, $4, $4                    
+NOP                               
+ADDI $6, $7, 0xB1D14453           
+ADD $2, $3, $0                    
+ADDI $7, $4, 0xC4E0C836           
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x1F8B1A07
+LOAD $7, $3, $5                   
+SUB $7, $3, $1                    
+NOP                               
+SUBI $4, $1, 0x3ECB6545           
+SUBI $1, $1, 0xE6C4187B           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x1F8B1A0F
+STORE $6, $3, $1                  
+SUB $6, $6, $6
+STORE $6, $3, 0x1F8B1A0B          
+HALT $0
+#
+D@0x1F8B1A07
+0xF813CB5D		# 1F8B1A07		= -132920483
+0x255BA9FA		# 1F8B1A0B		= 626764282
+0x7F8C0E89		# 1F8B1A0F		= 2139885193

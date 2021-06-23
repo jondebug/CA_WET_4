@@ -1,0 +1,54 @@
+# Test N.229
+#
+L9
+S6
+O6
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $5, 0x6027BAE4          
+ADDI $4, $7, 0xA5D12928           
+SUBI $1, $2, 0x9807FACD           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $4, 0x6027BAE4          
+SUB $0, $0, $0
+STORE $0, $7, 0x6027BAE8          
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x6027BAE0
+STORE $5, $2, $1                  
+ADD $1, $0, $7                    
+NOP                               
+ADD $3, $1, $1                    
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x6027BAEC
+LOAD $3, $2, $5                   
+SUBI $2, $4, 0x221AAD67           
+SUB $6, $6, $6
+STORE $6, $4, 0x6027BAE4          
+ADD $0, $1, $3                    
+SUB $0, $0, $0
+LOAD $7, $0, 0x6027BAEC           
+SUBI $5, $7, 0x2C7DBE92           
+ADDI $7, $0, 0x6E4250F7           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x6027BAE0
+STORE $1, $5, $5                  
+HALT $0
+#
+D@0x6027BAE0
+0xC247E2B9		# 6027BAE0		= -1035476295
+0x77475245		# 6027BAE4		= 2001162821
+0x25F2AD9D		# 6027BAE8		= 636661149
+0xB5B93CF4		# 6027BAEC		= -1246151436
+0x72363775		# 6027BAF0		= 1916155765

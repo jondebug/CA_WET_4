@@ -1,0 +1,99 @@
+# Test N.1200
+#
+L9
+S2
+O3
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+LOAD $2, $2, 0x5C5651B9           
+NOP                               
+ADD $1, $5, $7                    
+ADDI $5, $4, 0xEB095BC0           
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x5C5651B5
+STORE $5, $7, $0                  
+ADDI $1, $6, 0x49EBAEF3           
+SUBI $0, $4, 0xB4C71770           
+ADD $0, $1, $2                    
+ADDI $6, $6, 0xD3EC42EB           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $0, $7, 0xF86CFFD4           
+SUB $3, $3, $3
+LOAD $2, $3, 0x5C5651C1           
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x5C5651AD
+STORE $0, $7, $7                  
+SUB $5, $7, $5                    
+ADDI $2, $2, 0x5C0648A3           
+ADDI $1, $0, 0xFCEAABB3           
+ADDI $0, $6, 0x871E070E           
+SUBI $0, $6, 0x8341CA09           
+ADDI $4, $0, 0xD33C7D1C           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $3, $2, $4                    
+ADD $0, $2, $3                    
+NOP                               
+ADD $0, $1, $2                    
+SUB $5, $1, $7                    
+ADD $1, $0, $4                    
+ADDI $7, $6, 0x75812EF8           
+ADD $0, $2, $3                    
+ADDI $7, $7, 0x62BB71F6           
+ADDI $4, $7, 0x2AB86522           
+SUBI $5, $6, 0xA406CD91           
+SUBI $4, $5, 0x951AB66C           
+ADDI $3, $3, 0x78E905C3           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $2, 0x5C5651A5          
+SUB $0, $2, $0                    
+ADD $2, $5, $3                    
+NOP                               
+ADDI $7, $5, 0x97E9B44C           
+SUB $0, $0, $0
+STORE $0, $0, 0x5C565199          
+NOP                               
+HALT $0
+#
+D@0x5C565195
+0xC0F21652		# 5C565195		= -1057876398
+0x958EE0E8		# 5C565199		= -1785798424
+0x9AECD4FA		# 5C56519D		= -1695755014
+0xA7CBA8FE		# 5C5651A1		= -1479825154
+0xC23D0660		# 5C5651A5		= -1036188064
+0xAFF89F48		# 5C5651A9		= -1342660792
+0xD96D3FEA		# 5C5651AD		= -647151638
+0xCA9A1348		# 5C5651B1		= -895872184
+0xF6196B3E		# 5C5651B5		= -166106306
+0x159CDD47		# 5C5651B9		= 362601799
+0x25F9AD08		# 5C5651BD		= 637119752
+0x076DA73C		# 5C5651C1		= 124626748

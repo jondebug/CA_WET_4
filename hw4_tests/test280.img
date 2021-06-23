@@ -1,0 +1,116 @@
+# Test N.280
+#
+L8
+S10
+O2
+N7
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $3, $3
+LOAD $5, $3, 0x2DE4830A           
+ADD $4, $1, $0                    
+ADD $2, $1, $1                    
+SUB $6, $6, $6
+LOAD $2, $6, 0x2DE4830E           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+NOP                               
+SUBI $3, $6, 0x2EE31ABD           
+ADDI $2, $4, 0x59BFD626           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $1, $7, $2                    
+NOP                               
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x2DE482E6
+LOAD $3, $2, $3                   
+NOP                               
+SUBI $0, $3, 0x5458FAD6           
+SUB $6, $6, $6
+LOAD $6, $6, 0x2DE482EE           
+SUBI $0, $2, 0xAF9543C2           
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x2DE482EA
+LOAD $3, $5, $7                   
+SUBI $0, $0, 0x8A0A6E9F           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $0, 0x2DE482FA          
+ADD $6, $2, $3                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x2DE48306
+STORE $7, $1, $2                  
+ADDI $2, $2, 0xC7FB32CC           
+ADDI $3, $7, 0x6FD33F5E           
+NOP                               
+ADDI $3, $0, 0x863A08A4           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x2DE482FA
+LOAD $7, $1, $5                   
+SUB $4, $4, $4
+STORE $4, $1, 0x2DE4830E          
+SUBI $0, $6, 0x99CD22E0           
+NOP                               
+ADD $0, $3, $0                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUBI $7, $4, 0xC014194D           
+SUB $4, $4, $4
+LOAD $0, $4, 0x2DE482E6           
+SUBI $1, $2, 0xAE690FCB           
+NOP                               
+ADDI $1, $0, 0xF6453111           
+ADDI $0, $5, 0xB9F0BF6D           
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x2DE482FE
+STORE $6, $1, $5                  
+NOP                               
+HALT $0
+#
+D@0x2DE482E2
+0x58592587		# 2DE482E2		= 1482237319
+0xEACDEA8B		# 2DE482E6		= -355603829
+0x6F98AB9D		# 2DE482EA		= 1872276381
+0x9A2FB53C		# 2DE482EE		= -1708149444
+0x0BF3BF26		# 2DE482F2		= 200523558
+0x88D1E298		# 2DE482F6		= -1999510888
+0xDC4890B2		# 2DE482FA		= -599224142
+0xC554E067		# 2DE482FE		= -984293273
+0xBCD9ABD8		# 2DE48302		= -1126585384
+0x3FE900D7		# 2DE48306		= 1072234711
+0x3BC0032A		# 2DE4830A		= 1002439466
+0xE24BDBC5		# 2DE4830E		= -498345019
+0x42DABA48		# 2DE48312		= 1121630792
+0xCDEBC055		# 2DE48316		= -840187819
+0x10E27953		# 2DE4831A		= 283277651

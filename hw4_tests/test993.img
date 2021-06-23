@@ -1,0 +1,113 @@
+# Test N.993
+#
+L2
+S1
+O5
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+STORE $4, $7, 0x435D0C9E          
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x435D0C9A
+LOAD $0, $4, $1                   
+SUBI $4, $1, 0xDD035CCA           
+NOP                               
+SUB $3, $7, $4                    
+SUBI $5, $2, 0x266E104E           
+SUB $5, $5, $5
+STORE $5, $4, 0x435D0C9A          
+SUB $7, $1, $5                    
+SUB $6, $0, $1                    
+ADD $6, $7, $6                    
+SUB $7, $7, $7                    
+SUB $6, $1, $0                    
+SUBI $0, $7, 0x2F7638DF           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x435D0CA2
+LOAD $2, $5, $7                   
+SUB $1, $1, $1
+LOAD $3, $1, 0x435D0C9E           
+SUBI $4, $3, 0xC427A8AF           
+NOP                               
+SUBI $7, $3, 0xB37483D1           
+ADDI $6, $3, 0x4BB79FEE           
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x435D0CA2
+STORE $7, $1, $2                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $4, $2, $5                    
+SUB $7, $7, $7
+STORE $7, $2, 0x435D0C9E          
+ADDI $4, $6, 0x2F05D060           
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x435D0C9E
+STORE $5, $0, $6                  
+SUBI $3, $1, 0x02282D3D           
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x435D0C9E
+STORE $4, $1, $2                  
+ADD $1, $6, $4                    
+SUB $4, $4, $4
+STORE $4, $5, 0x435D0C9A          
+NOP                               
+SUB $2, $2, $2
+LOAD $0, $2, 0x435D0C9A           
+SUB $3, $3, $3
+STORE $3, $2, 0x435D0C9A          
+SUB $5, $5, $5
+STORE $5, $5, 0x435D0C9E          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $7, $2                    
+SUBI $7, $5, 0x6B317D77           
+NOP                               
+NOP                               
+ADDI $5, $0, 0x56C54BE7           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $1, $7, 0x761A993F           
+SUBI $0, $1, 0x1303E62B           
+SUB $0, $0, $0
+STORE $0, $7, 0x435D0C9E          
+NOP                               
+SUBI $5, $2, 0xD7BC98BF           
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x435D0CA2
+LOAD $6, $2, $4                   
+SUBI $2, $5, 0x2536E98C           
+ADDI $7, $0, 0xC9A77423           
+SUBI $4, $5, 0x4BADB3F2           
+SUB $1, $1, $1
+LOAD $3, $1, 0x435D0C9E           
+ADDI $4, $1, 0x80B71F55           
+HALT $0
+#
+D@0x435D0C9A
+0x9AF34424		# 435D0C9A		= -1695333340
+0x44EAA382		# 435D0C9E		= 1156227970
+0xACF666F7		# 435D0CA2		= -1393137929

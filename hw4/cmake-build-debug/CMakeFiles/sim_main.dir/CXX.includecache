@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/technion/semester_5/Computer Arch/hw4/core_api.cpp
+core_api.h
+C:/technion/semester_5/Computer Arch/hw4/core_api.h
+sim_api.h
+C:/technion/semester_5/Computer Arch/hw4/sim_api.h
+stdio.h
+-
+queue
+-
+
+C:/technion/semester_5/Computer Arch/hw4/core_api.h
+stdbool.h
+-
+
+C:/technion/semester_5/Computer Arch/hw4/sim_api.h
+stdint.h
+-
+stdbool.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+assert.h
+-
+

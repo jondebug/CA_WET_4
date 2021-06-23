@@ -1,0 +1,115 @@
+# Test N.1672
+#
+L9
+S5
+O10
+N7
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $2, $3, 0xADAF5B94           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x1569EDCA
+LOAD $6, $6, $7                   
+ADDI $6, $2, 0x5E66FCDE           
+ADD $2, $3, $4                    
+ADD $5, $2, $6                    
+SUBI $4, $3, 0xAFF8245D           
+SUB $2, $2, $2
+LOAD $4, $2, 0x1569EDBE           
+ADD $2, $5, $1                    
+SUB $0, $3, $3                    
+SUB $2, $2, $2
+LOAD $6, $2, 0x1569EDCE           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x1569EDC2
+LOAD $0, $5, $1                   
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x1569ED9E
+LOAD $4, $4, $6                   
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADDI $4, $4, 0x1405DC25           
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x1569ED9E
+LOAD $3, $0, $3                   
+SUB $7, $2, $1                    
+ADD $5, $7, $6                    
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+ADDI $1, $3, 0x1497BEFF           
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x1569EDB2
+STORE $3, $3, $6                  
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $5, $7                    
+SUB $3, $6, $4                    
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x1569EDCE
+LOAD $2, $4, $1                   
+SUBI $1, $2, 0x3C9DAD03           
+SUB $2, $7, $1                    
+SUBI $4, $3, 0x582B17B2           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x1569EDA6
+STORE $7, $2, $3                  
+NOP                               
+ADDI $5, $3, 0xB84353EF           
+SUB $5, $1, $7                    
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x1569EDB2
+LOAD $5, $1, $6                   
+SUB $1, $3, $4                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+HALT $0
+#
+D@0x1569ED9E
+0x3B56FAE0		# 1569ED9E		= 995556064
+0x0A7FEC63		# 1569EDA2		= 176155747
+0x17F00F4F		# 1569EDA6		= 401608527
+0xE8E531F0		# 1569EDAA		= -387632656
+0x78F9CF3D		# 1569EDAE		= 2029637437
+0x5E20B1CD		# 1569EDB2		= 1579200973
+0x83E13749		# 1569EDB6		= -2082392247
+0x6C70910B		# 1569EDBA		= 1819316491
+0xC38EE116		# 1569EDBE		= -1014046442
+0x90F36E65		# 1569EDC2		= -1863094683
+0x2F3EC9D9		# 1569EDC6		= 792644057
+0x8B2F8EDE		# 1569EDCA		= -1959817506
+0xC6244693		# 1569EDCE		= -970701165

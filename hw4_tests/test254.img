@@ -1,0 +1,100 @@
+# Test N.254
+#
+L2
+S8
+O6
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x5C99E0B3
+LOAD $6, $4, $3                   
+ADDI $5, $5, 0x7065B38E           
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x5C99E0B3
+STORE $5, $5, $0                  
+ADDI $2, $0, 0x13E9F4EF           
+SUBI $0, $6, 0x96662DDD           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $1, $3, 0xDDF5A80C           
+ADDI $6, $6, 0x3E527469           
+SUBI $1, $6, 0x0CA686A0           
+SUB $0, $2, $2                    
+SUB $0, $0, $4                    
+SUBI $3, $7, 0x1CBAA629           
+SUB $4, $4, $4
+STORE $4, $3, 0x5C99E0B3          
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x5C99E0B3
+STORE $6, $3, $7                  
+SUB $4, $4, $4
+LOAD $7, $4, 0x5C99E0B3           
+ADDI $1, $1, 0xF8BC91AF           
+SUB $4, $4, $4
+LOAD $7, $4, 0x5C99E0B3           
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x5C99E0B3
+STORE $3, $7, $6                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $7, $1, $2                    
+SUB $1, $4, $0                    
+ADD $2, $6, $3                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $1, 0x5C99E0B3          
+SUB $1, $6, $7                    
+ADDI $1, $1, 0x06279698           
+SUB $3, $5, $0                    
+NOP                               
+SUB $4, $1, $6                    
+SUB $4, $4, $4
+STORE $4, $3, 0x5C99E0B3          
+SUB $7, $7, $7
+LOAD $3, $7, 0x5C99E0B3           
+ADD $6, $0, $5                    
+SUB $3, $1, $0                    
+ADD $0, $2, $1                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $1, $3, $5                    
+ADDI $1, $7, 0x3A78D2F2           
+SUB $5, $7, $5                    
+ADDI $3, $6, 0x66826C54           
+SUB $5, $0, $4                    
+SUB $4, $4, $4
+STORE $4, $1, 0x5C99E0B3          
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x5C99E0B3
+LOAD $3, $4, $2                   
+ADD $7, $1, $4                    
+HALT $0
+#
+D@0x5C99E0B3
+0xAE8ABE9C		# 5C99E0B3		= -1366638948

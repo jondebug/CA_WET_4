@@ -1,0 +1,116 @@
+# Test N.1477
+#
+L3
+S6
+O7
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $4, $2                    
+SUB $1, $1, $1
+STORE $1, $1, 0x27FE15A9          
+SUBI $5, $7, 0x9ECACB71           
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x27FE15D5
+STORE $7, $5, $3                  
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x27FE15CD
+LOAD $6, $4, $6                   
+ADDI $1, $6, 0xD47FDAB2           
+SUB $3, $1, $3                    
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x27FE15E1
+LOAD $6, $3, $6                   
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x27FE15B1
+LOAD $0, $7, $6                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x27FE15CD
+STORE $2, $6, $4                  
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x27FE15C9
+STORE $6, $1, $4                  
+ADDI $0, $4, 0x9D204A46           
+NOP                               
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x27FE15C9
+STORE $0, $0, $2                  
+SUB $6, $5, $7                    
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x27FE15E5
+STORE $2, $7, $3                  
+SUBI $0, $4, 0x4A921F44           
+SUB $4, $4, $4
+LOAD $2, $4, 0x27FE15C9           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x27FE15AD
+LOAD $2, $2, $4                   
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x27FE15DD
+LOAD $1, $5, $1                   
+SUB $6, $6, $6
+LOAD $7, $6, 0x27FE15B9           
+SUB $4, $4, $4
+LOAD $7, $4, 0x27FE15A9           
+SUB $6, $6, $6
+STORE $6, $6, 0x27FE15A5          
+SUB $2, $5, $1                    
+ADDI $4, $6, 0x42457AFB           
+ADDI $3, $5, 0xA013B5F0           
+ADD $6, $2, $6                    
+ADDI $6, $7, 0x4D901EDA           
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $0, $1, $3                    
+NOP                               
+SUB $7, $7, $2                    
+NOP                               
+NOP                               
+HALT $0
+#
+D@0x27FE15A1
+0x53F4A25F		# 27FE15A1		= 1408541279
+0x6BA15E24		# 27FE15A5		= 1805737508
+0x9A883B1E		# 27FE15A9		= -1702348002
+0x2F458571		# 27FE15AD		= 793085297
+0x4A568BE7		# 27FE15B1		= 1247185895
+0x26CF16F8		# 27FE15B5		= 651106040
+0x76B34079		# 27FE15B9		= 1991458937
+0x8DBD20C4		# 27FE15BD		= -1916985148
+0xCB66A0A9		# 27FE15C1		= -882466647
+0x2B05231F		# 27FE15C5		= 721756959
+0xF3BE6F84		# 27FE15C9		= -205623420
+0x5F0B2966		# 27FE15CD		= 1594567014
+0x26A402DB		# 27FE15D1		= 648282843
+0xAB6E737B		# 27FE15D5		= -1418824837
+0x1520E415		# 27FE15D9		= 354477077
+0x8FA4CCD5		# 27FE15DD		= -1885025067
+0x58B9041F		# 27FE15E1		= 1488520223
+0xC0FDA1E0		# 27FE15E5		= -1057119776
+0xE615CA26		# 27FE15E9		= -434779610

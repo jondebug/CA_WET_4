@@ -1,0 +1,62 @@
+# Test N.1497
+#
+L9
+S4
+O6
+N4
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $4, $5, 0xB27451FF           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $2, $2, $0                    
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x35FC962E
+STORE $3, $5, $5                  
+ADD $2, $0, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $6
+LOAD $2, $6, 0x35FC9632           
+SUB $3, $3, $3
+LOAD $6, $3, 0x35FC962E           
+SUB $4, $4, $4
+STORE $4, $5, 0x35FC962A          
+ADD $5, $4, $5                    
+SUB $3, $0, $2                    
+NOP                               
+SUB $2, $5, $1                    
+NOP                               
+SUBI $3, $1, 0xA74B4156           
+ADDI $1, $3, 0x1482F490           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+ADDI $3, $4, 0xA71CDFBC           
+SUB $6, $1, $5                    
+ADD $3, $1, $6                    
+ADD $3, $6, $4                    
+ADD $2, $0, $7                    
+SUBI $4, $2, 0x4A51CBFD           
+SUBI $1, $5, 0x688C598D           
+SUBI $1, $0, 0x736C9267           
+ADD $7, $3, $5                    
+HALT $0
+#
+D@0x35FC962A
+0x88E7982C		# 35FC962A		= -1998088148
+0x454DC2C8		# 35FC962E		= 1162724040
+0x3AF308B0		# 35FC9632		= 989006000

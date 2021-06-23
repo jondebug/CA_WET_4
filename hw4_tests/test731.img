@@ -1,0 +1,105 @@
+# Test N.731
+#
+L8
+S3
+O2
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $1                    
+ADD $3, $7, $1                    
+ADDI $7, $1, 0x43698918           
+SUB $5, $5, $5
+LOAD $7, $5, 0x26D1B7A3           
+ADDI $5, $6, 0x5F7FAC0B           
+SUB $6, $6, $6
+LOAD $3, $6, 0x26D1B7A3           
+ADD $2, $3, $1                    
+ADDI $2, $0, 0x467587A1           
+SUB $4, $4, $4
+STORE $4, $1, 0x26D1B7CF          
+ADDI $2, $4, 0x46E40DDA           
+SUBI $5, $0, 0x526BE36E           
+NOP                               
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x26D1B7D3
+LOAD $4, $7, $2                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $6, $4, $4                    
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x26D1B7D3
+LOAD $1, $3, $0                   
+SUB $3, $3, $3
+LOAD $7, $3, 0x26D1B7B3           
+SUB $5, $5, $5
+LOAD $7, $5, 0x26D1B7A3           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $7, $7, $7
+LOAD $7, $7, 0x26D1B797           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x26D1B7CF
+LOAD $7, $2, $5                   
+SUBI $0, $3, 0x4CB38F05           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $5, $3, $1                    
+NOP                               
+SUB $3, $3, $3
+STORE $3, $1, 0x26D1B7A3          
+ADD $4, $6, $3                    
+SUBI $2, $4, 0x3CDC2D5A           
+NOP                               
+ADDI $0, $7, 0x00179EE7           
+SUB $6, $0, $0                    
+SUB $3, $0, $3                    
+NOP                               
+NOP                               
+NOP                               
+SUB $4, $4, $4
+STORE $4, $7, 0x26D1B79F          
+HALT $0
+#
+D@0x26D1B797
+0x2E362FB2		# 26D1B797		= 775303090
+0x4413A204		# 26D1B79B		= 1142137348
+0x6FE2D0CA		# 26D1B79F		= 1877135562
+0x54DB60DA		# 26D1B7A3		= 1423663322
+0x1D40DAD0		# 26D1B7A7		= 490789584
+0x0029F1B3		# 26D1B7AB		= 2748851
+0xD4DFE42D		# 26D1B7AF		= -723524563
+0xEE40E3A7		# 26D1B7B3		= -297737305
+0xF63C0148		# 26D1B7B7		= -163839672
+0x734F2331		# 26D1B7BB		= 1934566193
+0xB577FD39		# 26D1B7BF		= -1250427591
+0x8D7788D8		# 26D1B7C3		= -1921546024
+0xBBB76A6E		# 26D1B7C7		= -1145607570
+0xCABB848E		# 26D1B7CB		= -893680498
+0xFA2D07CF		# 26D1B7CF		= -97712177
+0x72D16D6B		# 26D1B7D3		= 1926327659

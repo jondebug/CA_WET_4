@@ -1,0 +1,103 @@
+# Test N.1252
+#
+L5
+S5
+O1
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $1, 0x0315EFE6          
+SUB $3, $3, $3                    
+ADD $5, $7, $6                    
+SUBI $6, $6, 0x066B4B2C           
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x0315EFE6
+STORE $6, $4, $0                  
+SUBI $0, $3, 0x748B2094           
+ADDI $4, $2, 0x2712EF04           
+ADDI $6, $0, 0x6DB6E100           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x0315EFE2
+STORE $3, $3, $7                  
+SUB $3, $3, $3
+STORE $3, $4, 0x0315EFDE          
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x0315EFDA
+STORE $0, $2, $3                  
+SUB $1, $2, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $3, $0, 0xD2CCCEA6           
+NOP                               
+SUB $0, $0, $0
+LOAD $6, $0, 0x0315EFDE           
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x0315EFE2
+LOAD $1, $0, $2                   
+SUB $7, $7, $7
+STORE $7, $3, 0x0315EFDE          
+SUBI $7, $3, 0x345C2C2E           
+SUB $3, $3, $3
+LOAD $7, $3, 0x0315EFE6           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $1, $3                    
+SUB $1, $1, $1
+STORE $1, $5, 0x0315EFDE          
+SUBI $6, $4, 0x23F6B1C1           
+SUBI $0, $0, 0x08522570           
+NOP                               
+ADDI $3, $3, 0xD19103AF           
+ADDI $4, $7, 0x04E8472D           
+ADDI $4, $1, 0x0A5EDB93           
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x0315EFDE
+STORE $7, $3, $3                  
+ADD $5, $2, $4                    
+ADDI $7, $3, 0xCB1AE3AB           
+ADDI $2, $6, 0x0F3BCF0E           
+ADDI $1, $6, 0x13090030           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $5, $6, $3                    
+SUBI $0, $4, 0xAA76876D           
+SUBI $4, $1, 0x5F2445B0           
+SUB $0, $0, $0
+LOAD $5, $0, 0x0315EFDE           
+SUB $0, $0, $0
+STORE $0, $0, 0x0315EFE2          
+SUB $5, $3, $2                    
+SUB $1, $1, $1                    
+ADDI $3, $3, 0x9397A11C           
+SUB $0, $0, $0
+STORE $0, $4, 0x0315EFD6          
+NOP                               
+ADD $7, $7, $0                    
+NOP                               
+ADDI $5, $4, 0x37C0E182           
+ADD $0, $6, $7                    
+HALT $0
+#
+D@0x0315EFD6
+0x557F3E35		# 0315EFD6		= 1434402357
+0x83E276E8		# 0315EFDA		= -2082310424
+0x02A90983		# 0315EFDE		= 44632451
+0x1FF16A03		# 0315EFE2		= 535915011
+0x8F86723E		# 0315EFE6		= -1887014338

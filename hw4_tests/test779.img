@@ -1,0 +1,98 @@
+# Test N.779
+#
+L9
+S3
+O9
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $3, $3, $3
+LOAD $5, $3, 0x3AD18D7E           
+NOP                               
+NOP                               
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x3AD18D86
+STORE $0, $6, $3                  
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x3AD18D96
+STORE $6, $6, $0                  
+SUBI $4, $7, 0x42C59767           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $1, $3, 0x3A7C0F4B           
+ADDI $7, $6, 0x185891B2           
+ADDI $6, $6, 0x8DB59B51           
+SUB $4, $4, $4                    
+NOP                               
+NOP                               
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x3AD18D82
+STORE $5, $3, $3                  
+ADD $0, $2, $7                    
+SUB $0, $0, $5                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $5, $5
+LOAD $1, $5, 0x3AD18D7E           
+SUB $1, $1, $1
+LOAD $4, $1, 0x3AD18D96           
+SUBI $3, $2, 0x5F1F9661           
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x3AD18D8A
+STORE $0, $7, $4                  
+ADDI $4, $3, 0x5EA46F2A           
+SUBI $3, $2, 0xE7E83A3A           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $7, $0, 0xA40D849D           
+ADD $5, $4, $3                    
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x3AD18D7E
+STORE $1, $4, $6                  
+ADDI $4, $1, 0x0F738C0B           
+SUBI $1, $1, 0x56337181           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x3AD18D82
+STORE $3, $1, $7                  
+ADD $4, $4, $3                    
+ADD $7, $7, $1                    
+SUBI $2, $5, 0xF2402A29           
+SUB $0, $0, $7                    
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x3AD18D8E
+LOAD $5, $7, $0                   
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x3AD18D8A
+LOAD $6, $5, $4                   
+SUB $4, $4, $4
+STORE $4, $2, 0x3AD18D7E          
+SUB $0, $7, $2                    
+HALT $0
+#
+D@0x3AD18D7E
+0xEE5FF612		# 3AD18D7E		= -295700974
+0xAD578E99		# 3AD18D82		= -1386770791
+0x6BE38A4A		# 3AD18D86		= 1810074186
+0xE09BB1CE		# 3AD18D8A		= -526667314
+0xB1940651		# 3AD18D8E		= -1315699119
+0xE909A2C1		# 3AD18D92		= -385244479
+0x190DC31D		# 3AD18D96		= 420332317

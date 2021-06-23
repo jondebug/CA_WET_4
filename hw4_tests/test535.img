@@ -1,0 +1,39 @@
+# Test N.535
+#
+L3
+S9
+O5
+N2
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $3, $1, 0xBCC01CEF           
+SUB $3, $6, $4                    
+NOP                               
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x36B3CAD1
+STORE $1, $3, $7                  
+SUB $6, $6, $6
+STORE $6, $4, 0x36B3CAD1          
+ADDI $3, $1, 0xE7A3312D           
+ADDI $0, $0, 0xFD70FB81           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $2, $2, 0x79AFCB00           
+SUBI $6, $4, 0x708914EA           
+SUB $7, $1, $0                    
+ADD $6, $0, $1                    
+HALT $0
+#
+D@0x36B3CAC9
+0x5862571D		# 36B3CAC9		= 1482839837
+0xA5E14B67		# 36B3CACD		= -1511961753
+0xAB5A397F		# 36B3CAD1		= -1420150401
+0xD99D1E15		# 36B3CAD5		= -644014571
+0x26FAA20F		# 36B3CAD9		= 653959695

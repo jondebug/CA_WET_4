@@ -1,0 +1,93 @@
+# Test N.1092
+#
+L9
+S1
+O4
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x50B1FC8D
+STORE $2, $6, $6                  
+ADDI $4, $6, 0x444E7F45           
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x50B1FC8D
+LOAD $5, $5, $3                   
+SUB $7, $4, $2                    
+SUB $0, $5, $3                    
+SUB $1, $1, $1
+LOAD $0, $1, 0x50B1FC8D           
+SUBI $4, $3, 0xDA19C696           
+ADDI $1, $4, 0x347E0970           
+NOP                               
+SUBI $6, $3, 0x5CC12557           
+ADD $4, $5, $4                    
+ADD $5, $7, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $5, $5, 0x5CF65BEE           
+SUBI $0, $6, 0xBA57076C           
+SUB $3, $3, $3
+LOAD $3, $3, 0x50B1FC81           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x50B1FC81
+STORE $7, $6, $2                  
+ADD $5, $0, $7                    
+ADDI $6, $0, 0x38D44DCF           
+SUB $7, $0, $1                    
+SUB $2, $2, $2
+STORE $2, $0, 0x50B1FC8D          
+SUB $2, $2, $2                    
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $3, $3, $2                    
+SUB $1, $2, $4                    
+SUBI $0, $2, 0x9DB004EA           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x50B1FC8D
+STORE $5, $7, $1                  
+NOP                               
+ADD $4, $7, $1                    
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x50B1FC8D
+STORE $0, $3, $1                  
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x50B1FC89
+STORE $5, $1, $3                  
+ADD $6, $2, $6                    
+SUBI $0, $0, 0xF623CF19           
+NOP                               
+NOP                               
+HALT $0
+#
+D@0x50B1FC81
+0x4B1E9461		# 50B1FC81		= 1260295265
+0xD9FDF957		# 50B1FC85		= -637666985
+0xBA3F5559		# 50B1FC89		= -1170254503
+0x02FF3ADC		# 50B1FC8D		= 50281180

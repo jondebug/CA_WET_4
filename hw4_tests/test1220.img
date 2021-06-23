@@ -1,0 +1,97 @@
+# Test N.1220
+#
+L9
+S10
+O7
+N6
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $1, $4, 0x63A01AD2           
+NOP                               
+SUB $1, $4, $4                    
+SUB $2, $5, $7                    
+SUB $3, $2, $1                    
+ADD $2, $7, $7                    
+SUB $0, $7, $3                    
+SUBI $0, $2, 0xE35B67A4           
+ADDI $1, $5, 0x2D3E9463           
+SUB $7, $7, $7
+STORE $7, $3, 0x52D53FF3          
+SUB $4, $4, $4
+LOAD $7, $4, 0x52D53FF3           
+SUB $4, $4, $4
+LOAD $7, $4, 0x52D53FDF           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $6, $1, 0xFF81D0B0           
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+ADDI $1, $7, 0xBA6A76D2           
+SUBI $3, $1, 0x6ABE87C5           
+ADDI $4, $2, 0xD6FFB2CB           
+NOP                               
+SUB $3, $3, $3
+STORE $3, $5, 0x52D53FEF          
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x52D53FDF
+LOAD $2, $6, $2                   
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x52D53FCF
+LOAD $7, $2, $4                   
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x52D53FDB
+STORE $1, $0, $2                  
+SUB $7, $7, $7
+STORE $7, $1, 0x52D53FF3          
+ADD $3, $5, $4                    
+SUB $6, $2, $6                    
+SUBI $6, $4, 0x18D52415           
+ADD $1, $1, $2                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADDI $1, $5, 0xA88E4772           
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x52D53FDB
+LOAD $3, $6, $0                   
+SUB $1, $3, $7                    
+HALT $0
+#
+D@0x52D53FCF
+0x90A10605		# 52D53FCF		= -1868495355
+0x999C805E		# 52D53FD3		= -1717796770
+0x11734514		# 52D53FD7		= 292766996
+0x3E17C88C		# 52D53FDB		= 1041746060
+0x5B314F33		# 52D53FDF		= 1529958195
+0xECE58B2E		# 52D53FE3		= -320500946
+0xD5A76574		# 52D53FE7		= -710449804
+0xE8EAB57C		# 52D53FEB		= -387271300
+0xB49FF9C3		# 52D53FEF		= -1264584253
+0x10A5C932		# 52D53FF3		= 279300402

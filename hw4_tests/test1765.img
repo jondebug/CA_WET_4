@@ -1,0 +1,113 @@
+# Test N.1765
+#
+L8
+S2
+O4
+N8
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $7, $4, 0xCA963D69           
+SUB $3, $1, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $6, $7, 0xA2EF2C1C           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $0, $5, 0x3FC89608           
+SUB $3, $4, $6                    
+SUB $1, $1, $1
+LOAD $1, $1, 0x3285DCEB           
+SUB $4, $4, $4
+LOAD $1, $4, 0x3285DCEF           
+SUBI $4, $6, 0x6C5AB362           
+SUBI $1, $5, 0xA07DD7FF           
+ADD $3, $2, $1                    
+ADD $2, $2, $7                    
+NOP                               
+SUBI $1, $4, 0x1066B449           
+SUB $3, $1, $5                    
+SUBI $3, $6, 0x53442BCF           
+NOP                               
+ADDI $0, $3, 0xAEB73B63           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $6, $7, $7                    
+SUB $7, $0, $5                    
+ADD $4, $1, $2                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $0, $5, $5                    
+NOP                               
+SUB $1, $1, $1
+STORE $1, $5, 0x3285DCF7          
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $6, $6, $6
+LOAD $2, $6, 0x3285DCEB           
+NOP                               
+ADD $1, $2, $2                    
+ADDI $4, $7, 0xE79D0742           
+NOP                               
+SUB $5, $3, $5                    
+ADDI $1, $3, 0x7DB8A3F8           
+SUB $5, $5, $5
+LOAD $4, $5, 0x3285DCEB           
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x3285DCDF
+STORE $3, $6, $0                  
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x3285DCEF
+LOAD $7, $3, $1                   
+ADD $0, $3, $4                    
+NOP                               
+NOP                               
+NOP                               
+SUBI $3, $2, 0x5414BFD2           
+SUB $3, $3, $3
+LOAD $2, $3, 0x3285DCFB           
+NOP                               
+SUB $0, $0, $7                    
+SUBI $3, $3, 0x985BCCD7           
+SUBI $3, $6, 0x857DBAC8           
+ADD $6, $3, $5                    
+NOP                               
+HALT $0
+#
+D@0x3285DCDF
+0xB825EAC3		# 3285DCDF		= -1205474621
+0xF2FDCE19		# 3285DCE3		= -218247655
+0xB3C03D72		# 3285DCE7		= -1279246990
+0x91ADFCB5		# 3285DCEB		= -1850868555
+0x3B48CCC8		# 3285DCEF		= 994626760
+0xB5813695		# 3285DCF3		= -1249823083
+0xA3924735		# 3285DCF7		= -1550694603
+0x8BEC1C28		# 3285DCFB		= -1947460568

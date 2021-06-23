@@ -1,0 +1,68 @@
+# Test N.1841
+#
+L10
+S4
+O9
+N4
+
+# Thread 0
+T0
+I@0x00000000
+ADD $6, $4, $3                    
+ADDI $1, $2, 0x87AEB594           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+NOP                               
+SUBI $7, $2, 0x3165AEB3           
+SUB $6, $6, $6
+STORE $6, $1, 0x7DEFB07C          
+ADD $2, $3, $4                    
+SUB $2, $5, $5                    
+ADDI $0, $6, 0x73C2939F           
+SUBI $7, $6, 0xF3AD303B           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x7DEFB064
+LOAD $6, $2, $7                   
+SUB $7, $7, $7
+STORE $7, $4, 0x7DEFB078          
+ADDI $1, $6, 0x8AE7D11F           
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x7DEFB074
+LOAD $3, $6, $7                   
+SUB $7, $7, $7
+LOAD $7, $7, 0x7DEFB060           
+HALT $0
+#
+D@0x7DEFB060
+0xBAF63ABA		# 7DEFB060		= -1158268230
+0x5BBCD160		# 7DEFB064		= 1539101024
+0xDE1E5649		# 7DEFB068		= -568437175
+0x4F52F664		# 7DEFB06C		= 1330837092
+0xEDA48CDD		# 7DEFB070		= -307983139
+0xB4EC3B75		# 7DEFB074		= -1259586699
+0x6908B19E		# 7DEFB078		= 1762177438
+0x2B8B7223		# 7DEFB07C		= 730559011
+0xCEF817F7		# 7DEFB080		= -822601737
+0xF12279C4		# 7DEFB084		= -249398844
+0x7F6C6404		# 7DEFB088		= 2137809924
+0x491EF8B0		# 7DEFB08C		= 1226766512
+0xBD441D0B		# 7DEFB090		= -1119609589
+0xC5DD1297		# 7DEFB094		= -975367529
+0x314EB219		# 7DEFB098		= 827240985
+0xEFFCAC0F		# 7DEFB09C		= -268653553

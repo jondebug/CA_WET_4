@@ -1,0 +1,107 @@
+# Test N.335
+#
+L6
+S9
+O9
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $1, $2, 0x18E43202           
+SUB $0, $0, $0
+LOAD $7, $0, 0x57EEFF4E           
+SUB $5, $5, $5
+STORE $5, $3, 0x57EEFF6E          
+SUB $7, $7, $7
+LOAD $3, $7, 0x57EEFF56           
+SUB $6, $6, $6
+LOAD $4, $6, 0x57EEFF42           
+ADD $5, $6, $7                    
+ADD $5, $4, $1                    
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x57EEFF62
+STORE $6, $0, $3                  
+SUB $3, $5, $5                    
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x57EEFF62
+LOAD $3, $7, $2                   
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x57EEFF46
+STORE $3, $6, $1                  
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $4, $4
+LOAD $1, $4, 0x57EEFF66           
+SUB $1, $2, $5                    
+ADD $3, $0, $4                    
+SUBI $3, $5, 0x0F7A1880           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $7, $1, $6                    
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x57EEFF5E
+STORE $3, $6, $7                  
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x57EEFF46
+LOAD $5, $2, $3                   
+ADDI $1, $2, 0x53711B18           
+SUB $7, $7, $1                    
+ADDI $3, $3, 0xB17CAC2D           
+SUB $1, $1, $1
+LOAD $1, $1, 0x57EEFF42           
+ADDI $5, $6, 0xEBDCA995           
+SUBI $5, $3, 0x7E84787F           
+NOP                               
+SUB $1, $4, $2                    
+SUBI $1, $0, 0xE09D106A           
+SUB $4, $4, $4
+STORE $4, $0, 0x57EEFF6E          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUB $2, $2, $2
+LOAD $0, $2, 0x57EEFF52           
+SUB $4, $4, $4
+LOAD $4, $4, 0x57EEFF76           
+ADD $5, $7, $3                    
+NOP                               
+HALT $0
+#
+D@0x57EEFF3A
+0x47BC8866		# 57EEFF3A		= 1203538022
+0x0A10B449		# 57EEFF3E		= 168866889
+0x1BB2A341		# 57EEFF42		= 464692033
+0x94542A11		# 57EEFF46		= -1806423535
+0x57C68A29		# 57EEFF4A		= 1472629289
+0x95479A35		# 57EEFF4E		= -1790469579
+0x05DEBEF8		# 57EEFF52		= 98483960
+0xBB2BDCC6		# 57EEFF56		= -1154753338
+0x9D0743FC		# 57EEFF5A		= -1660468228
+0x91B1B58C		# 57EEFF5E		= -1850624628
+0xEDB9331B		# 57EEFF62		= -306629861
+0x9DD680E6		# 57EEFF66		= -1646886682
+0xF4BFDA60		# 57EEFF6A		= -188753312
+0x2752536C		# 57EEFF6E		= 659706732
+0xAE64D6C2		# 57EEFF72		= -1369123134
+0x8232529A		# 57EEFF76		= -2110631270

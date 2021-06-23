@@ -1,0 +1,42 @@
+# Test N.1107
+#
+L2
+S4
+O9
+N3
+
+# Thread 0
+T0
+I@0x00000000
+ADD $5, $7, $4                    
+SUBI $6, $0, 0x1C4A6423           
+ADD $6, $7, $5                    
+ADDI $1, $5, 0x41C95DFA           
+SUB $1, $5, $6                    
+SUB $4, $6, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $3, $1, 0x3E0771BA           
+ADD $5, $0, $3                    
+ADD $6, $7, $5                    
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x3615C2BE
+STORE $5, $7, $2                  
+ADD $1, $7, $4                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $7, $6, 0x67891280           
+SUBI $2, $5, 0x445DF864           
+NOP                               
+ADDI $2, $0, 0x5D0C6066           
+HALT $0
+#
+D@0x3615C2BE
+0x2A5BB9AA		# 3615C2BE		= 710654378

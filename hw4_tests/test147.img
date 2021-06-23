@@ -1,0 +1,95 @@
+# Test N.147
+#
+L7
+S5
+O1
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $5, 0x1C7C6AE0          
+ADD $2, $6, $4                    
+ADDI $7, $1, 0x69CAF14D           
+ADD $3, $2, $0                    
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x1C7C6AEC
+STORE $4, $0, $2                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $4, $2, 0x74755E4D           
+SUBI $1, $2, 0xA21FED28           
+SUB $2, $4, $0                    
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x1C7C6B08
+STORE $1, $3, $6                  
+ADDI $3, $2, 0xE476B084           
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x1C7C6AF0
+LOAD $4, $3, $0                   
+SUB $3, $7, $5                    
+ADD $0, $0, $0                    
+ADDI $6, $6, 0x0BEADE77           
+ADDI $0, $6, 0x852E00A6           
+SUB $0, $0, $0
+SUB $4, $4, $4
+ADDI $4, $4, 0x1C7C6AEC
+LOAD $5, $0, $4                   
+SUB $2, $3, $6                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $5, $5, 0x4AF2E476           
+ADD $3, $1, $6                    
+NOP                               
+SUB $5, $1, $1                    
+ADD $2, $6, $7                    
+SUB $0, $0, $0
+LOAD $4, $0, 0x1C7C6AEC           
+ADD $1, $2, $3                    
+NOP                               
+SUB $5, $5, $5
+STORE $5, $0, 0x1C7C6ADC          
+ADD $1, $5, $0                    
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $6, $3, $0                    
+SUB $1, $1, $1
+LOAD $1, $1, 0x1C7C6AF4           
+ADDI $0, $1, 0x0BF82A18           
+NOP                               
+ADD $0, $2, $6                    
+HALT $0
+#
+D@0x1C7C6AD4
+0xFBC83552		# 1C7C6AD4		= -70765230
+0x03235847		# 1C7C6AD8		= 52648007
+0x7E76B829		# 1C7C6ADC		= 2121709609
+0x2BF98998		# 1C7C6AE0		= 737773976
+0x18914D54		# 1C7C6AE4		= 412175700
+0x6EB4DF4F		# 1C7C6AE8		= 1857347407
+0x27B20B48		# 1C7C6AEC		= 665979720
+0x799C7163		# 1C7C6AF0		= 2040295779
+0xF4583470		# 1C7C6AF4		= -195546000
+0xB387E60C		# 1C7C6AF8		= -1282939380
+0xABE8A20C		# 1C7C6AFC		= -1410817524
+0xF52A50F7		# 1C7C6B00		= -181776137
+0x8AE061A2		# 1C7C6B04		= -1965006430
+0x39EC427F		# 1C7C6B08		= 971784831
+0xEB5B0CD8		# 1C7C6B0C		= -346354472
+0xCAE77162		# 1C7C6B10		= -890801822

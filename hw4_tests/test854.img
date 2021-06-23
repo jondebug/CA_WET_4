@@ -1,0 +1,87 @@
+# Test N.854
+#
+L2
+S7
+O9
+N3
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+NOP                               
+ADDI $4, $1, 0x2AE054A8           
+ADDI $1, $7, 0xF98834F9           
+SUB $1, $1, $1
+LOAD $7, $1, 0x6C3B3B15           
+NOP                               
+NOP                               
+SUB $2, $2, $2
+STORE $2, $3, 0x6C3B3AF9          
+ADD $6, $4, $3                    
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x6C3B3B11
+STORE $4, $6, $3                  
+SUB $5, $5, $5
+STORE $5, $5, 0x6C3B3AFD          
+SUB $1, $1, $1
+STORE $1, $1, 0x6C3B3AFD          
+NOP                               
+SUBI $1, $2, 0x92416595           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $5, 0x6C3B3AFD          
+SUB $2, $2, $2
+LOAD $3, $2, 0x6C3B3B11           
+ADDI $0, $5, 0x11201974           
+ADDI $0, $6, 0xFDC8B816           
+NOP                               
+ADDI $3, $3, 0xBE846596           
+SUB $2, $1, $0                    
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x6C3B3B19
+LOAD $4, $4, $2                   
+ADDI $1, $4, 0x8CC7A809           
+SUB $5, $5, $5
+STORE $5, $7, 0x6C3B3AFD          
+SUB $7, $7, $7
+SUB $6, $6, $6
+ADDI $6, $6, 0x6C3B3AFD
+STORE $7, $0, $6                  
+SUB $7, $7, $7                    
+SUBI $3, $3, 0x8F925965           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x6C3B3AF9
+LOAD $7, $0, $7                   
+SUB $6, $7, $3                    
+ADDI $7, $0, 0xCAC2EE91           
+SUB $0, $0, $0
+STORE $0, $1, 0x6C3B3AFD          
+SUB $4, $4, $4
+LOAD $5, $4, 0x6C3B3B01           
+ADD $2, $2, $5                    
+SUBI $5, $7, 0x7F594CE7           
+HALT $0
+#
+D@0x6C3B3AF9
+0x944D1EAD		# 6C3B3AF9		= -1806885203
+0xD6EA6396		# 6C3B3AFD		= -689282154
+0x935C89DB		# 6C3B3B01		= -1822651941
+0x3D84F2BB		# 6C3B3B05		= 1032123067
+0xCE891855		# 6C3B3B09		= -829876139
+0x72B463B9		# 6C3B3B0D		= 1924424633
+0x232A3915		# 6C3B3B11		= 589969685
+0x2CA0E4F4		# 6C3B3B15		= 748741876
+0x3B9AFCB8		# 6C3B3B19		= 1000012984

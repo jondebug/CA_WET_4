@@ -1,0 +1,107 @@
+# Test N.431
+#
+L2
+S5
+O3
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x42854C8A
+STORE $6, $3, $0                  
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x42854C8A
+STORE $3, $5, $6                  
+SUB $3, $5, $1                    
+ADDI $0, $3, 0x146A9E01           
+SUB $1, $1, $1
+LOAD $0, $1, 0x42854C8A           
+SUB $4, $1, $5                    
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $3, $1, 0x04A47DB8           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $2, $0, $7                    
+SUB $6, $2, $2                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $2, $1, $2                    
+SUB $2, $0, $1                    
+SUBI $0, $0, 0x07D8D6F6           
+NOP                               
+SUB $5, $5, $5
+SUB $3, $3, $3
+ADDI $3, $3, 0x42854C8A
+STORE $5, $7, $3                  
+ADD $7, $3, $7                    
+SUB $5, $5, $5
+LOAD $3, $5, 0x42854C8A           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADD $5, $3, $5                    
+NOP                               
+ADDI $5, $7, 0x7FCCC928           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADDI $0, $0, 0x99AD9F5A           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+NOP                               
+NOP                               
+SUB $5, $3, $0                    
+SUB $0, $0, $0
+SUB $6, $6, $6
+ADDI $6, $6, 0x42854C8A
+STORE $0, $5, $6                  
+ADD $4, $1, $6                    
+ADD $1, $2, $3                    
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+ADD $7, $3, $6                    
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x42854C8A
+STORE $3, $6, $1                  
+ADD $1, $5, $2                    
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x42854C8A
+LOAD $4, $1, $5                   
+SUB $0, $4, $2                    
+SUB $5, $3, $2                    
+NOP                               
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x42854C8A
+STORE $3, $5, $4                  
+HALT $0
+#
+D@0x42854C8A
+0xA797C9B3		# 42854C8A		= -1483224653

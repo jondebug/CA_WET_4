@@ -1,0 +1,93 @@
+# Test N.902
+#
+L6
+S6
+O5
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $4, $5, 0xD5916D4C           
+SUB $0, $4, $7                    
+SUBI $5, $4, 0x9183A4F6           
+NOP                               
+SUB $4, $4, $4
+LOAD $5, $4, 0x2F948F3B           
+ADD $1, $0, $5                    
+NOP                               
+SUB $5, $5, $5
+STORE $5, $2, 0x2F948F37          
+NOP                               
+ADDI $2, $7, 0x3AD8B55C           
+SUBI $7, $7, 0x0482A405           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $2, $3, 0x8B5ACEB9           
+ADD $6, $5, $6                    
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x2F948F23
+STORE $6, $6, $5                  
+SUB $3, $1, $1                    
+SUBI $0, $3, 0x00AF2DD7           
+ADD $5, $3, $4                    
+SUB $2, $1, $4                    
+ADDI $1, $4, 0xDE673C7C           
+ADDI $3, $0, 0x06979C48           
+ADD $3, $1, $4                    
+SUBI $5, $6, 0x3ECF29DE           
+SUB $2, $2, $2
+STORE $2, $6, 0x2F948F27          
+SUB $3, $3, $3
+LOAD $3, $3, 0x2F948F23           
+SUB $0, $1, $0                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $1, $3, 0x01993F06           
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x2F948F2B
+STORE $5, $4, $7                  
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $6, $0, $5                    
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x2F948F37
+STORE $4, $6, $6                  
+SUBI $0, $2, 0x014B5CAF           
+SUBI $2, $4, 0xD9E14AB4           
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x2F948F3F
+LOAD $1, $2, $7                   
+SUB $4, $1, $3                    
+SUBI $2, $4, 0x4F3BAB59           
+SUB $1, $0, $4                    
+SUB $3, $3, $3                    
+ADD $3, $2, $1                    
+SUB $7, $7, $7
+STORE $7, $3, 0x2F948F1F          
+HALT $0
+#
+D@0x2F948F1B
+0xAEF6F19F		# 2F948F1B		= -1359548001
+0x5258AE0E		# 2F948F1F		= 1381543438
+0x94CBD311		# 2F948F23		= -1798581487
+0x627080A4		# 2F948F27		= 1651540132
+0x1D62AA85		# 2F948F2B		= 493005445
+0xA1335071		# 2F948F2F		= -1590472591
+0x363F00B2		# 2F948F33		= 910098610
+0x3A0A811B		# 2F948F37		= 973766939
+0xD966C842		# 2F948F3B		= -647575486
+0xDE6FDF59		# 2F948F3F		= -563093671

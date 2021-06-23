@@ -1,0 +1,101 @@
+# Test N.1635
+#
+L10
+S8
+O6
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $5, $3, 0x7BC48F64           
+SUBI $0, $6, 0x7DF34CF4           
+NOP                               
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x64B75ACA
+LOAD $0, $0, $7                   
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x64B75ACE
+STORE $2, $2, $6                  
+SUB $6, $2, $1                    
+ADDI $7, $3, 0x0E3A1D3D           
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x64B75AC2
+LOAD $0, $5, $4                   
+ADDI $1, $5, 0x1AC1DC06           
+SUBI $6, $3, 0x6F1ED63D           
+SUB $1, $4, $4                    
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $0, $3, 0x170B8A28           
+SUBI $0, $3, 0xBC50E57F           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $3, $7, 0x3520D406           
+ADD $0, $4, $1                    
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x64B75ACA
+STORE $7, $1, $5                  
+NOP                               
+ADDI $4, $6, 0x4B197DBA           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x64B75ACE
+STORE $3, $0, $7                  
+SUB $7, $7, $7
+LOAD $6, $7, 0x64B75AC2           
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x64B75AC6
+LOAD $3, $4, $1                   
+SUBI $7, $6, 0x1DC73184           
+ADD $0, $3, $7                    
+ADDI $1, $4, 0x79477048           
+SUBI $1, $6, 0xC45105CB           
+SUB $0, $0, $6                    
+SUBI $2, $7, 0x45A7872E           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $1, $4, 0x79DA59A1           
+SUB $7, $7, $6                    
+SUBI $4, $0, 0xB8CC7E2F           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x64B75ACA
+STORE $1, $1, $6                  
+ADDI $5, $6, 0xF5C9AD88           
+SUB $2, $0, $2                    
+NOP                               
+SUB $1, $6, $6                    
+ADDI $6, $6, 0xE0B86712           
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x64B75ACA
+STORE $0, $7, $3                  
+ADDI $1, $1, 0x4D4D5425           
+HALT $0
+#
+D@0x64B75AC2
+0x47D04525		# 64B75AC2		= 1204831525
+0x469B6128		# 64B75AC6		= 1184588072
+0x8922443A		# 64B75ACA		= -1994243014
+0xAD4E99E8		# 64B75ACE		= -1387357720

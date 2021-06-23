@@ -1,0 +1,48 @@
+# Test N.1750
+#
+L3
+S8
+O9
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $0, $2, 0x9C2F9FDC           
+SUB $3, $0, $7                    
+ADDI $1, $7, 0x7DEE8712           
+ADDI $6, $1, 0xD677954B           
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x407FA747
+LOAD $3, $6, $3                   
+NOP                               
+SUB $6, $6, $6
+STORE $6, $6, 0x407FA757          
+ADD $3, $3, $2                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $0, $2, $4                    
+SUBI $7, $1, 0x0E2834E3           
+ADD $4, $3, $0                    
+NOP                               
+SUB $6, $6, $6
+STORE $6, $6, 0x407FA75B          
+NOP                               
+ADDI $6, $0, 0x06E43CAC           
+SUB $5, $5, $5
+LOAD $4, $5, 0x407FA74B           
+SUBI $1, $6, 0xED30E299           
+HALT $0
+#
+D@0x407FA747
+0x67D321D8		# 407FA747		= 1741890008
+0x78C44A2A		# 407FA74B		= 2026129962
+0xACEC8053		# 407FA74F		= -1393786797
+0xE3EEB0AC		# 407FA753		= -470896468
+0x4AA57A13		# 407FA757		= 1252358675
+0xC258341A		# 407FA75B		= -1034406886
+0xAFF4663D		# 407FA75F		= -1342937539

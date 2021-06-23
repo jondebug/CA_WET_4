@@ -1,0 +1,114 @@
+# Test N.1777
+#
+L2
+S3
+O2
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $6, $6, $6                    
+NOP                               
+ADDI $0, $0, 0xFE558C9F           
+ADD $4, $4, $0                    
+SUBI $2, $2, 0x82A43094           
+SUB $6, $6, $6
+LOAD $1, $6, 0x54A6AE58           
+SUB $6, $6, $6
+LOAD $0, $6, 0x54A6AE5C           
+ADD $1, $3, $3                    
+SUB $4, $4, $4
+STORE $4, $3, 0x54A6AE4C          
+SUB $2, $2, $2
+STORE $2, $3, 0x54A6AE5C          
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+LOAD $1, $7, 0x54A6AE48           
+NOP                               
+NOP                               
+SUBI $3, $1, 0x2AD93382           
+NOP                               
+SUB $0, $7, $7                    
+ADDI $5, $1, 0x10410864           
+SUB $6, $2, $2                    
+SUBI $7, $1, 0x67B5E519           
+SUB $1, $1, $1
+STORE $1, $5, 0x54A6AE44          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x54A6AE24
+STORE $2, $4, $4                  
+SUB $0, $0, $0
+STORE $0, $0, 0x54A6AE24          
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $4, $0, $5                    
+ADDI $7, $0, 0xE9807D58           
+ADD $2, $6, $0                    
+NOP                               
+SUB $5, $7, $1                    
+SUB $2, $3, $1                    
+ADD $7, $5, $5                    
+SUB $1, $1, $1
+LOAD $5, $1, 0x54A6AE54           
+ADDI $3, $3, 0xD01B60D1           
+NOP                               
+SUBI $3, $1, 0x6175F6DA           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+ADDI $3, $4, 0x8F11E7EB           
+SUB $3, $3, $3
+LOAD $1, $3, 0x54A6AE30           
+ADD $4, $0, $6                    
+SUB $0, $7, $5                    
+SUB $3, $5, $0                    
+SUB $3, $3, $3
+LOAD $1, $3, 0x54A6AE2C           
+NOP                               
+SUB $7, $7, $7
+LOAD $5, $7, 0x54A6AE4C           
+SUBI $5, $7, 0x719D68B1           
+SUBI $3, $1, 0xBDD5CC31           
+SUB $7, $7, $7
+STORE $7, $7, 0x54A6AE54          
+SUB $2, $2, $2
+LOAD $1, $2, 0x54A6AE3C           
+SUB $3, $3, $3
+STORE $3, $3, 0x54A6AE48          
+HALT $0
+#
+D@0x54A6AE20
+0x73523522		# 54A6AE20		= 1934767394
+0x682754F2		# 54A6AE24		= 1747408114
+0xBD0C5F96		# 54A6AE28		= -1123262570
+0x855C999D		# 54A6AE2C		= -2057528931
+0xF53F4C9D		# 54A6AE30		= -180400995
+0x85D66666		# 54A6AE34		= -2049546650
+0x60C57FB0		# 54A6AE38		= 1623556016
+0xD76E3EA5		# 54A6AE3C		= -680640859
+0x0F667EAC		# 54A6AE40		= 258375340
+0xAC1DFC3B		# 54A6AE44		= -1407321029
+0x9040E420		# 54A6AE48		= -1874795488
+0x88EA7051		# 54A6AE4C		= -1997901743
+0x7F59625A		# 54A6AE50		= 2136564314
+0x5BBD577F		# 54A6AE54		= 1539135359
+0xEB41A6A5		# 54A6AE58		= -348019035
+0x2E26D9AE		# 54A6AE5C		= 774298030

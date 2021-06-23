@@ -1,0 +1,53 @@
+# Test N.1571
+#
+L2
+S2
+O2
+N2
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+ADD $7, $0, $2                    
+ADDI $5, $4, 0xF48A6AED           
+ADDI $1, $2, 0x1EF87178           
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x2BD20E55
+LOAD $0, $2, $5                   
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x2BD20E51
+STORE $1, $0, $6                  
+ADDI $1, $0, 0x6FAB1949           
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x2BD20E51
+LOAD $4, $5, $2                   
+SUBI $3, $5, 0x9D337DA2           
+SUB $2, $7, $3                    
+SUB $3, $3, $3
+LOAD $7, $3, 0x2BD20E4D           
+SUB $1, $1, $1
+LOAD $6, $1, 0x2BD20E59           
+ADD $5, $2, $1                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUBI $1, $5, 0xF3779FEB           
+SUBI $6, $7, 0x32AEFA67           
+ADDI $5, $1, 0xBACB281D           
+ADDI $2, $4, 0x8DA8F64D           
+ADD $6, $0, $3                    
+SUB $2, $1, $7                    
+HALT $0
+#
+D@0x2BD20E4D
+0x6F2C71BC		# 2BD20E4D		= 1865183676
+0x39C43360		# 2BD20E51		= 969159520
+0xAD023E92		# 2BD20E55		= -1392361838
+0x560ABBB5		# 2BD20E59		= 1443543989

@@ -1,0 +1,114 @@
+# Test N.180
+#
+L2
+S5
+O8
+N7
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $7, $5, 0xCC41F70C           
+NOP                               
+SUBI $4, $7, 0x6A402524           
+ADD $4, $5, $6                    
+NOP                               
+SUB $0, $3, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $3, $3
+STORE $3, $4, 0x25BBAA94          
+SUB $3, $3, $6                    
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x25BBAA9C
+STORE $1, $1, $6                  
+SUBI $5, $7, 0x9632B621           
+ADDI $3, $0, 0xBDFEB574           
+ADD $0, $4, $1                    
+NOP                               
+SUB $2, $3, $5                    
+NOP                               
+SUB $4, $4, $4
+SUB $2, $2, $2
+ADDI $2, $2, 0x25BBAA94
+LOAD $3, $4, $2                   
+ADD $1, $3, $7                    
+ADD $2, $1, $6                    
+SUB $1, $1, $1
+STORE $1, $3, 0x25BBAAA0          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADDI $3, $6, 0x2BB4FFBA           
+NOP                               
+NOP                               
+ADDI $7, $3, 0xD50154C9           
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x25BBAA98
+STORE $1, $7, $7                  
+SUBI $0, $5, 0xE3428C39           
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $7, $6, 0xA5D1F5A9           
+SUB $6, $7, $5                    
+SUB $3, $0, $2                    
+ADDI $7, $2, 0xA84BA092           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $2, 0x25BBAA98          
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x25BBAA9C
+LOAD $6, $5, $1                   
+ADDI $6, $7, 0x945AB523           
+NOP                               
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x25BBAA98
+LOAD $5, $7, $5                   
+ADDI $6, $6, 0x5E690E17           
+ADDI $4, $2, 0x4BDE5955           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+ADDI $7, $3, 0x7D5A144B           
+SUBI $3, $3, 0xB2E81D51           
+ADDI $7, $3, 0xEA22111E           
+ADD $4, $6, $7                    
+SUB $5, $5, $5
+LOAD $0, $5, 0x25BBAA8C           
+SUBI $6, $3, 0x59D62A4E           
+SUBI $7, $2, 0x956FC2C7           
+SUB $1, $1, $1
+STORE $1, $7, 0x25BBAA94          
+HALT $0
+#
+D@0x25BBAA8C
+0x98904C06		# 25BBAA8C		= -1735373818
+0x661FBF71		# 25BBAA90		= 1713356657
+0xAF9A943F		# 25BBAA94		= -1348824001
+0x34B5D9EC		# 25BBAA98		= 884333036
+0xCE47CF2D		# 25BBAA9C		= -834154707
+0xA08CCB3E		# 25BBAAA0		= -1601385666

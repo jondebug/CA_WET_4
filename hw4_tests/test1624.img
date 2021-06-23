@@ -1,0 +1,106 @@
+# Test N.1624
+#
+L6
+S1
+O1
+N7
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $2, $2, $2
+LOAD $2, $2, 0x2B4288C6           
+ADDI $5, $0, 0xFD042592           
+SUB $3, $3, $3
+STORE $3, $0, 0x2B4288BE          
+ADDI $7, $4, 0x75463741           
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x2B4288BA
+STORE $5, $6, $4                  
+NOP                               
+SUB $4, $4, $4
+SUB $6, $6, $6
+ADDI $6, $6, 0x2B4288BE
+LOAD $7, $4, $6                   
+SUB $3, $5, $3                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $5, $4, $2                    
+ADDI $2, $3, 0x95EDDAE7           
+ADD $2, $2, $7                    
+ADD $7, $0, $0                    
+NOP                               
+SUBI $3, $2, 0x51201C7C           
+SUBI $0, $1, 0x32932DC3           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $1, $1, $1
+LOAD $1, $1, 0x2B4288B2           
+SUB $6, $2, $5                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $5, $2, 0xCA3695BF           
+ADD $3, $6, $7                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $3, $7, $5                    
+NOP                               
+SUB $1, $1, $1
+LOAD $0, $1, 0x2B4288BA           
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x2B4288B6
+LOAD $7, $0, $5                   
+ADDI $0, $5, 0x306C38C2           
+SUBI $7, $5, 0x8462E340           
+ADD $0, $4, $3                    
+SUB $3, $7, $2                    
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x2B4288B6
+STORE $5, $3, $6                  
+ADD $3, $4, $2                    
+SUB $6, $6, $6
+LOAD $3, $6, 0x2B4288C2           
+SUB $3, $3, $3
+SUB $0, $0, $0
+ADDI $0, $0, 0x2B4288C6
+STORE $3, $3, $0                  
+SUB $4, $4, $4
+STORE $4, $0, 0x2B4288C2          
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $5, $5, $5
+LOAD $5, $5, 0x2B4288C6           
+HALT $0
+#
+D@0x2B4288B2
+0x392D8C5D		# 2B4288B2		= 959286365
+0x3E9CA97D		# 2B4288B6		= 1050454397
+0x7ED5E31B		# 2B4288BA		= 2127946523
+0x94632366		# 2B4288BE		= -1805442202
+0x84DB7D9A		# 2B4288C2		= -2065990246
+0x3D6A1DEA		# 2B4288C6		= 1030364650

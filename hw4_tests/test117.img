@@ -1,0 +1,112 @@
+# Test N.117
+#
+L4
+S5
+O6
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x2EA89A07
+STORE $5, $2, $1                  
+SUB $2, $2, $2
+STORE $2, $7, 0x2EA89A13          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+ADDI $4, $3, 0x5CFE1C67           
+ADDI $5, $7, 0x5A99AED4           
+SUB $0, $5, $4                    
+SUB $1, $3, $4                    
+SUBI $4, $0, 0xDA51DEC0           
+ADD $4, $7, $5                    
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x2EA89A23
+STORE $4, $5, $5                  
+ADD $2, $7, $0                    
+SUBI $5, $5, 0xD1469EA2           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $0, $2                    
+ADDI $6, $3, 0xC2F36622           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x2EA89A13
+LOAD $7, $6, $1                   
+SUBI $6, $7, 0xD5C2F6DE           
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x2EA89A27
+STORE $3, $2, $2                  
+SUBI $5, $3, 0x7076B30F           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $2, $6, $3                    
+SUBI $2, $2, 0x1E8153D0           
+SUB $6, $1, $5                    
+SUB $1, $1, $1
+STORE $1, $5, 0x2EA89A3B          
+NOP                               
+SUB $0, $0, $0
+LOAD $3, $0, 0x2EA89A1F           
+ADDI $7, $1, 0x360F385A           
+NOP                               
+ADD $6, $3, $6                    
+NOP                               
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $4, $4, $4
+LOAD $1, $4, 0x2EA89A27           
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $7, $2, $0                    
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUBI $4, $5, 0x9874A267           
+HALT $0
+#
+D@0x2EA89A03
+0x6C82C398		# 2EA89A03		= 1820509080
+0x29CDF0BA		# 2EA89A07		= 701362362
+0xBDA95E44		# 2EA89A0B		= -1112973756
+0xD871632B		# 2EA89A0F		= -663657685
+0xDCBA7EA5		# 2EA89A13		= -591757659
+0xCC347A0D		# 2EA89A17		= -868976115
+0x9E9F94E4		# 2EA89A1B		= -1633708828
+0xD4369468		# 2EA89A1F		= -734620568
+0x8602ECD2		# 2EA89A23		= -2046628654
+0xE2E7C06E		# 2EA89A27		= -488128402
+0xFC89A7D8		# 2EA89A2B		= -58087464
+0x71C139A0		# 2EA89A2F		= 1908488608
+0xD92DB651		# 2EA89A33		= -651315631
+0x964CD496		# 2EA89A37		= -1773349738
+0xECA60DE3		# 2EA89A3B		= -324661789
+0xC864BE88		# 2EA89A3F		= -932921720
+0xB509B344		# 2EA89A43		= -1257655484

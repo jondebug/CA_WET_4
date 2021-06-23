@@ -1,0 +1,110 @@
+# Test N.2
+#
+L5
+S1
+O4
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $4, $5, 0x3FDDF9C1           
+SUBI $6, $2, 0x08D995FA           
+SUBI $2, $1, 0x18AE925B           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x421A8907
+STORE $5, $2, $7                  
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUBI $5, $6, 0x19694ABB           
+SUBI $3, $7, 0x6DEC7F6D           
+ADDI $5, $4, 0x17F455AD           
+SUB $6, $6, $6
+STORE $6, $2, 0x421A8907          
+SUBI $5, $4, 0x8D7BD6D4           
+SUB $6, $7, $3                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $0, $1, 0x1B4DFCC8           
+SUB $5, $3, $5                    
+ADD $4, $0, $3                    
+SUB $3, $1, $6                    
+ADD $7, $7, $7                    
+ADDI $0, $2, 0xA40D9873           
+SUB $7, $0, $6                    
+SUB $3, $2, $0                    
+SUB $5, $3, $4                    
+SUB $7, $7, $7
+STORE $7, $7, 0x421A8907          
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x421A8907
+LOAD $1, $6, $3                   
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+ADDI $0, $0, 0x854B57C2           
+NOP                               
+ADDI $3, $0, 0x294A9465           
+ADDI $7, $0, 0x8A9A2E19           
+SUBI $6, $5, 0xDE9F470D           
+SUB $7, $7, $7
+SUB $1, $1, $1
+ADDI $1, $1, 0x421A8907
+STORE $7, $0, $1                  
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x421A8907
+STORE $3, $0, $6                  
+SUB $2, $4, $2                    
+SUB $5, $4, $0                    
+NOP                               
+NOP                               
+ADDI $0, $2, 0xA4A9C8CF           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADDI $6, $1, 0x7A4184ED           
+NOP                               
+SUB $7, $7, $7
+STORE $7, $0, 0x421A8903          
+SUB $6, $6, $6
+SUB $7, $7, $7
+ADDI $7, $7, 0x421A8903
+LOAD $1, $6, $7                   
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x421A8907
+LOAD $1, $2, $6                   
+NOP                               
+SUB $1, $1, $1
+LOAD $7, $1, 0x421A8903           
+SUB $7, $7, $7
+LOAD $7, $7, 0x421A8907           
+ADDI $7, $1, 0x50D87ABF           
+SUB $5, $5, $5
+LOAD $6, $5, 0x421A8907           
+NOP                               
+ADDI $6, $5, 0x503E952B           
+NOP                               
+HALT $0
+#
+D@0x421A8903
+0x6F87D1FD		# 421A8903		= 1871172093
+0x5CB6F219		# 421A8907		= 1555493401

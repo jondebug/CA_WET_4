@@ -1,0 +1,173 @@
+# Test N.763
+#
+L5
+S1
+O10
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x1CCCB0A2
+STORE $5, $5, $6                  
+ADDI $5, $7, 0xCBA1AF8D           
+NOP                               
+SUB $0, $0, $0
+STORE $0, $1, 0x1CCCB09A          
+SUB $5, $5, $5
+LOAD $3, $5, 0x1CCCB0A6           
+ADDI $2, $6, 0x32A928DD           
+SUB $7, $7, $7
+LOAD $2, $7, 0x1CCCB092           
+ADDI $2, $6, 0xDB1D7417           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $7, $2, 0x24E51EC8           
+ADD $1, $7, $3                    
+SUB $5, $5, $5
+LOAD $6, $5, 0x1CCCB0A2           
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x1CCCB08A
+LOAD $7, $3, $6                   
+SUB $2, $2, $2
+LOAD $7, $2, 0x1CCCB096           
+SUB $6, $6, $6
+STORE $6, $0, 0x1CCCB092          
+NOP                               
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x1CCCB09E
+STORE $6, $3, $1                  
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x1CCCB09E
+STORE $1, $6, $6                  
+SUBI $6, $2, 0x2E726B1E           
+ADD $4, $3, $4                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $5, $0, $6                    
+SUB $4, $0, $5                    
+ADD $1, $3, $0                    
+ADD $0, $2, $1                    
+SUB $7, $6, $1                    
+SUB $4, $4, $4
+STORE $4, $2, 0x1CCCB09E          
+NOP                               
+NOP                               
+SUBI $5, $3, 0x6493EB9D           
+NOP                               
+SUB $0, $1, $6                    
+SUB $3, $1, $2                    
+ADD $4, $6, $4                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x1CCCB09E
+LOAD $6, $3, $5                   
+SUBI $1, $1, 0x4E270F2B           
+SUBI $3, $2, 0xB0C5A3C7           
+ADD $4, $1, $4                    
+SUBI $5, $5, 0x04E8D3E8           
+SUBI $7, $5, 0xEFF7BEA1           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+NOP                               
+SUB $4, $4, $4
+SUB $1, $1, $1
+ADDI $1, $1, 0x1CCCB08A
+STORE $4, $7, $1                  
+SUB $0, $0, $0                    
+NOP                               
+ADDI $3, $1, 0xA4856EDB           
+ADD $1, $0, $3                    
+SUBI $1, $3, 0xF9FAF46B           
+ADD $4, $0, $2                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x1CCCB0A2
+STORE $6, $5, $0                  
+NOP                               
+SUB $3, $3, $3
+SUB $4, $4, $4
+ADDI $4, $4, 0x1CCCB0A2
+STORE $3, $4, $4                  
+SUB $5, $2, $0                    
+SUBI $1, $7, 0x4610F218           
+SUB $7, $7, $7
+SUB $4, $4, $4
+ADDI $4, $4, 0x1CCCB09A
+LOAD $5, $7, $4                   
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $0, $5, $1                    
+NOP                               
+ADD $6, $6, $2                    
+ADDI $7, $7, 0x9CA0C9CC           
+SUBI $2, $2, 0xE4ADEC4A           
+SUB $3, $3, $3
+STORE $3, $1, 0x1CCCB08A          
+NOP                               
+SUB $5, $5, $5
+STORE $5, $2, 0x1CCCB09A          
+ADD $4, $5, $3                    
+SUB $2, $2, $2
+STORE $2, $4, 0x1CCCB08E          
+SUBI $5, $5, 0x48481173           
+ADDI $7, $5, 0x75B29122           
+SUB $2, $3, $4                    
+SUB $1, $1, $1
+STORE $1, $2, 0x1CCCB09A          
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+SUBI $1, $2, 0xC0E5FC7C           
+SUBI $2, $0, 0x8CAA6A08           
+SUB $1, $7, $2                    
+SUBI $3, $5, 0x44C99064           
+ADDI $4, $3, 0xD527EFE7           
+SUBI $1, $0, 0xEE6D9509           
+ADDI $1, $7, 0x57B28581           
+ADDI $7, $3, 0xC9ECC1BF           
+ADDI $1, $6, 0x88F93642           
+SUBI $3, $3, 0xDE0C041F           
+HALT $0
+#
+D@0x1CCCB08A
+0xC630F3DB		# 1CCCB08A		= -969870373
+0x669A5034		# 1CCCB08E		= 1721389108
+0x030C144E		# 1CCCB092		= 51123278
+0xD35ADAF5		# 1CCCB096		= -749020427
+0x1EE35F20		# 1CCCB09A		= 518217504
+0xD19C35BD		# 1CCCB09E		= -778291779
+0x8852B53C		# 1CCCB0A2		= -2007845572
+0x9FEFFB15		# 1CCCB0A6		= -1611662571

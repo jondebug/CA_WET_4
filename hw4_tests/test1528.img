@@ -1,0 +1,54 @@
+# Test N.1528
+#
+L10
+S5
+O4
+N2
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $2, $3, 0xA0637BD2           
+SUB $6, $6, $6
+LOAD $3, $6, 0x184B21D3           
+NOP                               
+SUB $0, $0, $0
+STORE $0, $5, 0x184B21D7          
+SUB $1, $5, $6                    
+SUB $1, $1, $1
+SUB $4, $4, $4
+ADDI $4, $4, 0x184B21D7
+LOAD $6, $1, $4                   
+SUB $5, $1, $2                    
+SUB $4, $2, $5                    
+SUB $3, $3, $3
+LOAD $4, $3, 0x184B21D3           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $3, $3
+STORE $3, $1, 0x184B21D7          
+SUBI $6, $6, 0x1B8680CF           
+SUB $7, $0, $4                    
+SUBI $7, $4, 0x78B73CAF           
+ADD $2, $3, $5                    
+ADDI $7, $6, 0xC9A0CE69           
+ADD $6, $4, $2                    
+SUB $0, $0, $0
+STORE $0, $5, 0x184B21D7          
+SUB $2, $5, $0                    
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x184B21D3
+STORE $5, $0, $4                  
+NOP                               
+SUB $4, $1, $1                    
+ADD $4, $7, $3                    
+HALT $0
+#
+D@0x184B21CF
+0xF37F71C1		# 184B21CF		= -209751615
+0xC6DF6765		# 184B21D3		= -958437531
+0xEF6C102E		# 184B21D7		= -278130642

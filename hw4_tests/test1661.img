@@ -1,0 +1,69 @@
+# Test N.1661
+#
+L1
+S3
+O4
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $5, $5, 0x033B4D63           
+NOP                               
+ADD $6, $1, $0                    
+SUB $6, $6, $6
+LOAD $6, $6, 0x52A5C4FD           
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x52A5C4F9
+LOAD $2, $1, $6                   
+ADD $5, $6, $2                    
+ADDI $0, $5, 0x1CE3FA79           
+SUB $4, $2, $4                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $2, $2, $2
+LOAD $1, $2, 0x52A5C4F9           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $6, $6, 0x99637512           
+NOP                               
+SUB $2, $4, $6                    
+ADDI $1, $3, 0xDFCB2765           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUBI $3, $3, 0x4BBA39F0           
+ADDI $0, $1, 0xB4F2F30A           
+SUBI $1, $0, 0x4E5E86A9           
+SUBI $3, $3, 0xF1702E55           
+NOP                               
+ADDI $5, $7, 0x89943E70           
+SUB $3, $3, $3
+STORE $3, $1, 0x52A5C505          
+SUBI $3, $1, 0xCC9234C2           
+SUB $7, $5, $2                    
+SUBI $4, $4, 0xDF6F97BC           
+ADDI $7, $0, 0x7CAF9AEE           
+HALT $0
+#
+D@0x52A5C4F5
+0x11A506EF		# 52A5C4F5		= 296027887
+0x3E519B00		# 52A5C4F9		= 1045535488
+0x25AA80B2		# 52A5C4FD		= 631931058
+0x533C21F3		# 52A5C501		= 1396449779
+0x0F6578F4		# 52A5C505		= 258308340

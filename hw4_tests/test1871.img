@@ -1,0 +1,162 @@
+# Test N.1871
+#
+L5
+S1
+O7
+N7
+
+# Thread 0
+T0
+I@0x00000000
+ADDI $5, $2, 0xA58C2629           
+ADDI $0, $0, 0xBFF66265           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $3, $3, $2                    
+SUBI $6, $3, 0x7FA150F9           
+ADDI $5, $2, 0x066412DE           
+SUBI $7, $0, 0x99E467FC           
+SUB $4, $4, $4
+LOAD $0, $4, 0x3BA93AF0           
+SUB $2, $2, $2                    
+SUBI $0, $2, 0xE5830FE7           
+SUB $3, $1, $3                    
+SUB $2, $2, $2
+LOAD $0, $2, 0x3BA93B20           
+SUB $1, $1, $1
+STORE $1, $3, 0x3BA93B18          
+NOP                               
+NOP                               
+SUB $2, $2, $2
+LOAD $4, $2, 0x3BA93AF0           
+ADDI $0, $3, 0xB623AD56           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $5, $5, $5
+LOAD $4, $5, 0x3BA93B18           
+SUB $1, $1, $1
+LOAD $3, $1, 0x3BA93B24           
+ADDI $1, $7, 0xC2FBF7FA           
+SUB $0, $0, $0
+LOAD $0, $0, 0x3BA93AEC           
+NOP                               
+NOP                               
+SUB $6, $6, $6
+STORE $6, $3, 0x3BA93AF8          
+ADD $4, $1, $1                    
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x3BA93B14
+STORE $0, $0, $3                  
+SUB $5, $5, $5
+LOAD $2, $5, 0x3BA93AF8           
+NOP                               
+SUB $4, $7, $6                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $6, $3, $3                    
+SUB $4, $5, $6                    
+SUB $6, $5, $5                    
+SUB $2, $2, $2
+LOAD $5, $2, 0x3BA93B24           
+ADD $5, $6, $3                    
+ADDI $6, $3, 0xE1D222D6           
+ADD $6, $6, $6                    
+ADDI $0, $5, 0x25F10ACF           
+SUB $5, $3, $6                    
+SUBI $5, $5, 0xB9501CE7           
+SUB $4, $7, $7                    
+SUB $5, $2, $2                    
+ADD $7, $2, $7                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $6, $1, $6                    
+SUBI $7, $2, 0x5B83C8C1           
+SUB $7, $2, $4                    
+SUBI $2, $2, 0xEF2E40B4           
+ADD $3, $2, $1                    
+ADDI $2, $1, 0xF6B20BFA           
+ADDI $1, $5, 0x3CF21017           
+ADD $5, $5, $3                    
+SUBI $0, $6, 0xB33DC37A           
+NOP                               
+SUB $3, $3, $3
+LOAD $2, $3, 0x3BA93AEC           
+ADD $2, $6, $0                    
+SUB $5, $3, $7                    
+ADDI $4, $0, 0x1A7BCAE8           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $1, $3, $7                    
+SUBI $6, $5, 0x638D3358           
+ADDI $7, $6, 0xD57176A4           
+ADD $2, $6, $7                    
+SUB $1, $1, $1
+STORE $1, $7, 0x3BA93AE0          
+SUB $6, $6, $6
+STORE $6, $0, 0x3BA93B00          
+NOP                               
+SUB $6, $6, $6
+SUB $4, $4, $4
+ADDI $4, $4, 0x3BA93B14
+LOAD $3, $6, $4                   
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x3BA93AFC
+LOAD $4, $2, $4                   
+SUBI $4, $1, 0xF21F7B43           
+SUB $4, $5, $7                    
+SUB $0, $6, $1                    
+ADDI $3, $6, 0x414E4EB2           
+ADD $4, $1, $7                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $0, $0, $0
+LOAD $7, $0, 0x3BA93AE0           
+SUBI $7, $4, 0x9E5DBDDF           
+SUB $4, $4, $1                    
+ADDI $1, $6, 0x921DAEB0           
+SUBI $1, $2, 0xAFF44034           
+SUB $1, $7, $6                    
+SUB $3, $3, $3
+STORE $3, $5, 0x3BA93B08          
+HALT $0
+#
+D@0x3BA93AE0
+0x57920178		# 3BA93AE0		= 1469186424
+0x01D52A71		# 3BA93AE4		= 30747249
+0x8D7285E0		# 3BA93AE8		= -1921874464
+0xAD326985		# 3BA93AEC		= -1389205115
+0x0FE335C4		# 3BA93AF0		= 266548676
+0x93BF4511		# 3BA93AF4		= -1816181487
+0x75ADCE29		# 3BA93AF8		= 1974324777
+0x53C02019		# 3BA93AFC		= 1405100057
+0xF4DF961C		# 3BA93B00		= -186673636
+0xD41B8CBC		# 3BA93B04		= -736392004
+0x9D5B9215		# 3BA93B08		= -1654943211
+0xFECF4193		# 3BA93B0C		= -19971693
+0x83090D11		# 3BA93B10		= -2096558831
+0xF71F04DF		# 3BA93B14		= -148962081
+0x559D24C7		# 3BA93B18		= 1436361927
+0xF81C055B		# 3BA93B1C		= -132381349
+0xABFA1851		# 3BA93B20		= -1409673135
+0x7699B7AE		# 3BA93B24		= 1989785518

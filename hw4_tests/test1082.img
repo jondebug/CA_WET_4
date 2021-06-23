@@ -1,0 +1,53 @@
+# Test N.1082
+#
+L2
+S4
+O7
+N3
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUB $1, $1, $1
+LOAD $2, $1, 0x6BD6979B           
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $6, $2, 0x8C7F33A7           
+SUB $6, $6, $0                    
+ADDI $0, $7, 0x075A4D94           
+SUB $1, $1, $1
+STORE $1, $4, 0x6BD6979B          
+SUB $4, $1, $4                    
+SUB $0, $0, $0                    
+SUB $4, $6, $1                    
+ADD $0, $1, $4                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $3, $6, $0                    
+ADD $1, $1, $6                    
+SUBI $1, $2, 0x5FCE94E1           
+SUB $3, $3, $3
+SUB $6, $6, $6
+ADDI $6, $6, 0x6BD6979B
+STORE $3, $4, $6                  
+ADDI $6, $4, 0x1B116662           
+ADDI $3, $7, 0x47C49C48           
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x6BD6979B
+LOAD $3, $7, $2                   
+SUB $6, $6, $2                    
+HALT $0
+#
+D@0x6BD6979B
+0x99EDED0F		# 6BD6979B		= -1712460529

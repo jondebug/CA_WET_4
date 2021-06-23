@@ -1,0 +1,38 @@
+# Test N.275
+#
+L2
+S1
+O10
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $3, $0, 0x702F71B0           
+SUB $1, $5, $4                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x24FF0601
+STORE $7, $3, $3                  
+SUB $3, $3, $3
+STORE $3, $4, 0x24FF05FD          
+ADD $2, $6, $2                    
+ADD $0, $2, $2                    
+SUB $6, $0, $3                    
+NOP                               
+SUB $3, $0, $7                    
+SUB $3, $3, $3
+STORE $3, $2, 0x24FF0605          
+SUB $7, $7, $7
+STORE $7, $0, 0x24FF0601          
+HALT $0
+#
+D@0x24FF05FD
+0x44886D19		# 24FF05FD		= 1149791513
+0x9ADACDFD		# 24FF0601		= -1696936451
+0xEB543600		# 24FF0605		= -346802688

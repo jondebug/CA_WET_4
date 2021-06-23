@@ -1,0 +1,89 @@
+# Test N.566
+#
+L6
+S9
+O9
+N4
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x5E788C17
+LOAD $3, $2, $7                   
+SUB $7, $7, $7
+STORE $7, $6, 0x5E788C1F          
+SUB $5, $5, $5
+STORE $5, $2, 0x5E788C27          
+SUB $1, $1, $1
+LOAD $1, $1, 0x5E788C1F           
+ADDI $5, $5, 0x2EBBCB21           
+SUB $6, $6, $1                    
+ADDI $7, $3, 0x43711DD8           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x5E788C1B
+LOAD $2, $6, $1                   
+NOP                               
+SUB $3, $5, $2                    
+SUB $4, $7, $1                    
+SUB $7, $7, $7
+LOAD $0, $7, 0x5E788C1F           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $1, $1                    
+ADDI $0, $1, 0xECC30355           
+SUB $6, $0, $1                    
+NOP                               
+SUB $1, $2, $4                    
+NOP                               
+SUB $3, $1, $3                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $6, $6, $6
+SUB $5, $5, $5
+ADDI $5, $5, 0x5E788C13
+LOAD $3, $6, $5                   
+SUB $4, $1, $3                    
+SUB $5, $5, $5
+SUB $6, $6, $6
+ADDI $6, $6, 0x5E788C27
+LOAD $1, $5, $6                   
+ADDI $1, $7, 0xA259390B           
+SUBI $0, $6, 0xEA7FF890           
+NOP                               
+SUB $1, $1, $1
+STORE $1, $7, 0x5E788C0F          
+SUB $6, $0, $5                    
+SUB $7, $7, $7
+STORE $7, $6, 0x5E788C1B          
+NOP                               
+ADDI $2, $7, 0xE5D6CE1C           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x5E788C13
+LOAD $7, $5, $0                   
+SUBI $1, $5, 0x445CDDBE           
+ADDI $3, $3, 0x87CB76BB           
+HALT $0
+#
+D@0x5E788C0F
+0x4BBF4B97		# 5E788C0F		= 1270827927
+0xDBCB67A8		# 5E788C13		= -607426648
+0xF8C86A54		# 5E788C17		= -121083308
+0xD282BA0C		# 5E788C1B		= -763184628
+0xAFD6F464		# 5E788C1F		= -1344867228
+0x6D7D3F28		# 5E788C23		= 1836924712
+0x5D52154C		# 5E788C27		= 1565660492

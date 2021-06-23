@@ -1,0 +1,59 @@
+# Test N.1646
+#
+L9
+S7
+O9
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $6, $2                    
+SUBI $5, $4, 0x6A191D6F           
+SUB $1, $1, $1
+STORE $1, $1, 0x37ED8DDC          
+SUB $5, $5, $5
+LOAD $3, $5, 0x37ED8DDC           
+NOP                               
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x37ED8DC8
+LOAD $0, $4, $3                   
+ADD $6, $5, $7                    
+SUB $0, $0, $0
+SUB $7, $7, $7
+ADDI $7, $7, 0x37ED8DC8
+LOAD $6, $0, $7                   
+ADD $0, $7, $7                    
+SUBI $6, $3, 0x75C15F79           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $0, $2                    
+SUB $6, $6, $6
+LOAD $2, $6, 0x37ED8DD8           
+ADD $0, $0, $0                    
+NOP                               
+SUB $6, $1, $6                    
+SUB $6, $0, $1                    
+SUB $7, $7, $7
+LOAD $7, $7, 0x37ED8DCC           
+SUB $5, $5, $5
+LOAD $5, $5, 0x37ED8DD8           
+SUBI $5, $6, 0x0AB44EAA           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+HALT $0
+#
+D@0x37ED8DC8
+0x96830ADE		# 37ED8DC8		= -1769796898
+0x52798D27		# 37ED8DCC		= 1383697703
+0x8AE1A2F6		# 37ED8DD0		= -1964924170
+0x98405A61		# 37ED8DD4		= -1740613023
+0x8D92BF91		# 37ED8DD8		= -1919762543
+0x58B6182F		# 37ED8DDC		= 1488328751

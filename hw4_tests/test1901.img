@@ -1,0 +1,36 @@
+# Test N.1901
+#
+L4
+S6
+O3
+N2
+
+# Thread 0
+T0
+I@0x00000000
+NOP                               
+SUBI $6, $3, 0x8E4F6927           
+SUBI $6, $4, 0x82B646A6           
+SUB $0, $3, $4                    
+SUB $4, $4, $4
+SUB $5, $5, $5
+ADDI $5, $5, 0x38C0EFDA
+LOAD $3, $4, $5                   
+SUBI $6, $6, 0x7CA1C329           
+ADDI $7, $0, 0x7975940C           
+ADDI $6, $0, 0x41476592           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $4, $3, 0xA93CD735           
+HALT $0
+#
+D@0x38C0EFC6
+0x38063DB4		# 38C0EFC6		= 939933108
+0xA910D5E8		# 38C0EFCA		= -1458514456
+0x7DC385DF		# 38C0EFCE		= 2109965791
+0x5930E9CC		# 38C0EFD2		= 1496377804
+0xA774C5B1		# 38C0EFD6		= -1485519439
+0x3EE00000		# 38C0EFDA		= 1054867456

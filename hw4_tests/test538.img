@@ -1,0 +1,74 @@
+# Test N.538
+#
+L9
+S2
+O4
+N5
+
+# Thread 0
+T0
+I@0x00000000
+ADD $3, $6, $6                    
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $6, $6, $0                    
+SUB $0, $0, $0
+LOAD $1, $0, 0x01BD68AE           
+SUB $0, $4, $6                    
+ADD $3, $7, $0                    
+ADD $6, $0, $6                    
+SUBI $4, $4, 0x2FF4402F           
+ADDI $7, $4, 0x25F5D4BB           
+ADDI $2, $6, 0x0A72779D           
+SUBI $5, $3, 0x01595C10           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x01BD68AA
+LOAD $0, $3, $2                   
+NOP                               
+SUBI $7, $0, 0xD26E905C           
+ADDI $2, $5, 0xE2B9CEA6           
+ADD $5, $7, $2                    
+NOP                               
+ADDI $3, $4, 0x4CEDE7A9           
+NOP                               
+ADDI $3, $0, 0xDA7BFA0E           
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADDI $6, $1, 0x30263224           
+ADDI $0, $7, 0x9EB2EFDA           
+ADD $2, $5, $1                    
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $5, $5, $5
+SUB $0, $0, $0
+ADDI $0, $0, 0x01BD68AA
+STORE $5, $7, $0                  
+NOP                               
+HALT $0
+#
+D@0x01BD68A2
+0x7C176465		# 01BD68A2		= 2081907813
+0xBFA47CA3		# 01BD68A6		= -1079739229
+0x2DAC9AE9		# 01BD68AA		= 766286569
+0x1D6B1543		# 01BD68AE		= 493557059
+0xF837AFE4		# 01BD68B2		= -130568220

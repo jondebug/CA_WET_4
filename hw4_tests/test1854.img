@@ -1,0 +1,42 @@
+# Test N.1854
+#
+L4
+S3
+O10
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $5, 0x15A5B916          
+ADD $6, $0, $6                    
+SUB $7, $1, $6                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x15A5B916
+STORE $1, $6, $7                  
+SUB $4, $4, $1                    
+SUBI $3, $3, 0xF7B56449           
+SUB $3, $1, $7                    
+ADDI $5, $6, 0x736BA887           
+SUBI $2, $0, 0xC8D74A89           
+ADD $2, $1, $0                    
+SUB $0, $0, $0
+LOAD $7, $0, 0x15A5B916           
+ADDI $1, $6, 0xDA527E03           
+NOP                               
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x15A5B916
+STORE $7, $7, $5                  
+HALT $0
+#
+D@0x15A5B916
+0x7F8CC978		# 15A5B916		= 2139933048

@@ -1,0 +1,110 @@
+# Test N.1531
+#
+L9
+S7
+O9
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x23AB751E
+LOAD $6, $0, $2                   
+SUBI $0, $5, 0x379DE75B           
+SUBI $0, $7, 0x43A6A445           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x23AB74F2
+STORE $5, $2, $1                  
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $2, $4                    
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x23AB7502
+STORE $2, $5, $7                  
+ADDI $4, $3, 0x02D9ABDB           
+SUBI $2, $6, 0xF1A5EF57           
+NOP                               
+SUB $6, $6, $6
+STORE $6, $3, 0x23AB74EA          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+NOP                               
+SUB $4, $4, $4
+LOAD $4, $4, 0x23AB7506           
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+ADD $2, $3, $3                    
+SUBI $4, $5, 0x36FF741D           
+NOP                               
+SUB $2, $2, $2
+SUB $7, $7, $7
+ADDI $7, $7, 0x23AB74EA
+STORE $2, $1, $7                  
+SUB $0, $0, $0
+LOAD $0, $0, 0x23AB7502           
+SUBI $2, $3, 0x1E5AFAAB           
+SUB $2, $2, $2
+SUB $0, $0, $0
+ADDI $0, $0, 0x23AB74F2
+STORE $2, $6, $0                  
+SUB $7, $1, $2                    
+ADDI $7, $4, 0x58FF1F34           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $7, $7, $7
+LOAD $0, $7, 0x23AB7516           
+SUB $5, $3, $7                    
+SUBI $3, $4, 0x1C19EBBD           
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x23AB74EA
+LOAD $5, $3, $1                   
+NOP                               
+SUB $2, $1, $4                    
+SUB $3, $3, $3
+LOAD $1, $3, 0x23AB7506           
+ADD $4, $1, $5                    
+ADD $6, $6, $1                    
+NOP                               
+SUB $2, $2, $2
+SUB $3, $3, $3
+ADDI $3, $3, 0x23AB74F2
+LOAD $6, $2, $3                   
+SUB $1, $5, $0                    
+SUBI $6, $2, 0xEDA3F53F           
+NOP                               
+HALT $0
+#
+D@0x23AB74E6
+0xE7E12015		# 23AB74E6		= -404676587
+0xA33DA780		# 23AB74EA		= -1556240512
+0x87DE8371		# 23AB74EE		= -2015460495
+0x05DBE881		# 23AB74F2		= 98297985
+0x7FF9949D		# 23AB74F6		= 2147062941
+0xD5E0609F		# 23AB74FA		= -706715489
+0x0A879E3C		# 23AB74FE		= 176660028
+0x1A088ED5		# 23AB7502		= 436768469
+0x1D1F2819		# 23AB7506		= 488581145
+0x7DFD201F		# 23AB750A		= 2113740831
+0x1E280786		# 23AB750E		= 505939846
+0x2462BF7C		# 23AB7512		= 610451324
+0x7A7C5701		# 23AB7516		= 2054969089
+0xA85528B0		# 23AB751A		= -1470814032
+0x4884EA6F		# 23AB751E		= 1216670319

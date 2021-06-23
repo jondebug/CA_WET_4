@@ -1,0 +1,57 @@
+# Test N.1234
+#
+L10
+S10
+O6
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $0, $0
+LOAD $5, $0, 0x4BC369E1           
+NOP                               
+SUB $5, $5, $5
+SUB $7, $7, $7
+ADDI $7, $7, 0x4BC369D9
+LOAD $1, $5, $7                   
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x4BC369D9
+LOAD $2, $7, $0                   
+SUB $5, $5, $5
+STORE $5, $3, 0x4BC369E5          
+NOP                               
+SUB $1, $1, $1
+SUB $6, $6, $6
+ADDI $6, $6, 0x4BC369E1
+LOAD $6, $1, $6                   
+SUBI $1, $4, 0xC487E431           
+SUB $1, $1, $1
+SUB $5, $5, $5
+ADDI $5, $5, 0x4BC369E1
+LOAD $3, $1, $5                   
+SUBI $1, $6, 0xBACF8928           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+NOP                               
+ADDI $0, $2, 0x42B18CEE           
+SUB $7, $7, $7
+SUB $0, $0, $0
+ADDI $0, $0, 0x4BC369D5
+STORE $7, $0, $0                  
+NOP                               
+HALT $0
+#
+D@0x4BC369C9
+0x36B92CEC		# 4BC369C9		= 918105324
+0xF198D33C		# 4BC369CD		= -241642692
+0xD50ADF4F		# 4BC369D1		= -720707761
+0xD089DCF5		# 4BC369D5		= -796271371
+0x1FF8AB38		# 4BC369D9		= 536390456
+0x8B9D2B4A		# 4BC369DD		= -1952634038
+0x0A067C82		# 4BC369E1		= 168197250
+0xB5619610		# 4BC369E5		= -1251895792

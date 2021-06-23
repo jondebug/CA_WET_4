@@ -1,0 +1,102 @@
+# Test N.415
+#
+L6
+S5
+O8
+N6
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $4, $1, 0x5A4A3070           
+NOP                               
+NOP                               
+SUBI $6, $6, 0xC32CD98E           
+ADDI $3, $3, 0xD1766260           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $3, $3, $3
+STORE $3, $1, 0x5D71E6FC          
+ADDI $2, $2, 0xC362CC9E           
+ADDI $4, $4, 0x5C96A206           
+SUBI $2, $0, 0x3DA958A7           
+SUB $0, $0, $0
+STORE $0, $7, 0x5D71E700          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $0, 0x5D71E6EC          
+ADDI $2, $1, 0xA237339A           
+SUB $6, $6, $6
+LOAD $0, $6, 0x5D71E6F0           
+SUB $0, $0, $0
+SUB $1, $1, $1
+ADDI $1, $1, 0x5D71E704
+LOAD $4, $0, $1                   
+SUB $0, $0, $0
+LOAD $2, $0, 0x5D71E70C           
+ADD $7, $2, $6                    
+NOP                               
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+SUB $1, $1, $1
+LOAD $7, $1, 0x5D71E710           
+SUBI $2, $0, 0xF70E9A80           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $4, $4, $4
+SUB $3, $3, $3
+ADDI $3, $3, 0x5D71E6E8
+STORE $4, $2, $3                  
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x5D71E6F4
+STORE $2, $6, $1                  
+SUB $2, $2, $2
+STORE $2, $6, 0x5D71E6F4          
+SUBI $7, $5, 0x44BA2585           
+NOP                               
+ADDI $0, $4, 0x7E45CC43           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+ADD $6, $5, $5                    
+SUB $0, $2, $5                    
+SUB $6, $6, $6
+STORE $6, $7, 0x5D71E6D8          
+SUBI $6, $5, 0x97F8286F           
+HALT $0
+#
+D@0x5D71E6D4
+0x2974A1E0		# 5D71E6D4		= 695509472
+0x00F7C271		# 5D71E6D8		= 16237169
+0xE10567D8		# 5D71E6DC		= -519739432
+0x4716E67C		# 5D71E6E0		= 1192683132
+0x29BBBFB5		# 5D71E6E4		= 700170165
+0xC94B8C79		# 5D71E6E8		= -917795719
+0xBDB98124		# 5D71E6EC		= -1111916252
+0x2B3016E6		# 5D71E6F0		= 724571878
+0xD9B0866D		# 5D71E6F4		= -642742675
+0x6705767A		# 5D71E6F8		= 1728411258
+0x28FD0922		# 5D71E6FC		= 687671586
+0x769F1B5B		# 5D71E700		= 1990138715
+0x8FF24440		# 5D71E704		= -1879948224
+0x0F30F56A		# 5D71E708		= 254866794
+0x363E7DBD		# 5D71E70C		= 910065085
+0x2EF0583F		# 5D71E710		= 787503167
+0x5E706F00		# 5D71E714		= 1584426752

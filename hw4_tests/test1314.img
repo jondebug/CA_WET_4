@@ -1,0 +1,48 @@
+# Test N.1314
+#
+L9
+S6
+O2
+N3
+
+# Thread 0
+T0
+I@0x00000000
+SUB $7, $7, $7
+STORE $7, $6, 0x607F5E0D          
+ADDI $4, $3, 0x5AE92566           
+SUB $5, $5, $5
+LOAD $3, $5, 0x607F5E15           
+SUB $0, $5, $6                    
+SUB $1, $1, $1
+STORE $1, $0, 0x607F5E15          
+SUB $4, $4, $4
+LOAD $0, $4, 0x607F5E15           
+SUBI $3, $4, 0xFB583115           
+ADD $1, $0, $2                    
+ADDI $4, $6, 0xD4EA5DEC           
+ADD $7, $2, $5                    
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $4, $4, $2                    
+SUB $4, $5, $0                    
+ADD $5, $3, $2                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $1, $1
+LOAD $1, $1, 0x607F5E15           
+SUB $1, $1, $1
+STORE $1, $7, 0x607F5E0D          
+HALT $0
+#
+D@0x607F5E0D
+0xD754605C		# 607F5E0D		= -682336164
+0xD8A1A6DE		# 607F5E11		= -660494626
+0xFF973D01		# 607F5E15		= -6865663
+0x5045220E		# 607F5E19		= 1346707982

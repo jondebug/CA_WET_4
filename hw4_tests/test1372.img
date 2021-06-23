@@ -1,0 +1,85 @@
+# Test N.1372
+#
+L6
+S7
+O7
+N4
+
+# Thread 0
+T0
+I@0x00000000
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x52D8A481
+STORE $7, $3, $5                  
+SUB $2, $1, $2                    
+ADDI $5, $1, 0xD7265A7A           
+SUB $6, $6, $6
+STORE $6, $7, 0x52D8A479          
+NOP                               
+SUB $2, $2, $2
+STORE $2, $0, 0x52D8A471          
+SUB $0, $5, $0                    
+SUB $0, $0, $0
+SUB $2, $2, $2
+ADDI $2, $2, 0x52D8A471
+STORE $0, $6, $2                  
+SUB $7, $1, $2                    
+ADDI $5, $7, 0xAB5DF2C9           
+ADDI $1, $1, 0xC4528ED2           
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x52D8A471
+LOAD $7, $3, $2                   
+SUB $2, $2, $2
+SUB $1, $1, $1
+ADDI $1, $1, 0x52D8A481
+LOAD $1, $2, $1                   
+SUB $4, $4, $4
+LOAD $5, $4, 0x52D8A471           
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x52D8A475
+STORE $4, $6, $7                  
+ADD $0, $0, $2                    
+SUBI $6, $4, 0x2782100C           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $1, $4, $0                    
+SUBI $7, $2, 0xB8CFAF52           
+ADDI $4, $1, 0xE27742A1           
+SUB $4, $4, $4
+LOAD $4, $4, 0x52D8A475           
+ADD $4, $4, $4                    
+SUB $2, $2, $2
+LOAD $6, $2, 0x52D8A481           
+SUB $5, $5, $5
+LOAD $4, $5, 0x52D8A479           
+SUB $0, $3, $2                    
+SUB $2, $2, $2
+LOAD $7, $2, 0x52D8A481           
+SUB $3, $3, $3
+SUB $7, $7, $7
+ADDI $7, $7, 0x52D8A475
+LOAD $3, $3, $7                   
+HALT $0
+#
+D@0x52D8A471
+0x6A1F0745		# 52D8A471		= 1780418373
+0x2CF688A5		# 52D8A475		= 754354341
+0x04B4BE86		# 52D8A479		= 78954118
+0x0CD49FA0		# 52D8A47D		= 215261088
+0xF8ADB64A		# 52D8A481		= -122833334

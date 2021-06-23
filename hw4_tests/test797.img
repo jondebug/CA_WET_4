@@ -1,0 +1,131 @@
+# Test N.797
+#
+L9
+S3
+O1
+N5
+
+# Thread 0
+T0
+I@0x00000000
+SUBI $3, $3, 0x731C6844           
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x72AA498D
+LOAD $5, $6, $0                   
+NOP                               
+SUB $7, $7, $7
+LOAD $2, $7, 0x72AA49A1           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUB $5, $5, $5
+SUB $4, $4, $4
+ADDI $4, $4, 0x72AA4969
+STORE $5, $6, $4                  
+ADDI $3, $7, 0x495AFEE2           
+SUB $7, $7, $4                    
+ADD $1, $7, $3                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+ADD $5, $2, $3                    
+NOP                               
+SUB $6, $6, $6
+STORE $6, $4, 0x72AA4965          
+SUB $7, $4, $5                    
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x72AA49A1
+LOAD $0, $6, $1                   
+ADDI $3, $4, 0xA8A84CCD           
+SUB $3, $3, $3
+LOAD $0, $3, 0x72AA4995           
+ADD $1, $0, $2                    
+NOP                               
+SUB $7, $7, $2                    
+SUB $6, $6, $6
+SUB $2, $2, $2
+ADDI $2, $2, 0x72AA4965
+LOAD $3, $6, $2                   
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x72AA498D
+LOAD $7, $0, $3                   
+SUBI $6, $7, 0xAE3C336D           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $2, 0x72AA499D          
+SUB $0, $0, $0
+LOAD $7, $0, 0x72AA4999           
+ADD $2, $0, $4                    
+ADD $7, $6, $5                    
+ADD $2, $0, $0                    
+ADDI $6, $3, 0xCCFF91A3           
+SUB $3, $3, $3
+STORE $3, $2, 0x72AA4965          
+NOP                               
+SUB $7, $7, $7
+SUB $2, $2, $2
+ADDI $2, $2, 0x72AA4995
+STORE $7, $5, $2                  
+SUB $4, $4, $4
+STORE $4, $0, 0x72AA497D          
+NOP                               
+ADDI $0, $0, 0x571D0127           
+SUB $5, $2, $4                    
+SUB $0, $0, $0
+STORE $0, $4, 0x72AA496D          
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+SUBI $1, $4, 0x102FA0E7           
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x72AA4981
+STORE $4, $0, $7                  
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x72AA4971
+STORE $3, $2, $2                  
+SUB $2, $2, $2
+SUB $5, $5, $5
+ADDI $5, $5, 0x72AA4995
+STORE $2, $6, $5                  
+SUB $2, $2, $2
+STORE $2, $0, 0x72AA49A5          
+ADD $7, $3, $0                    
+SUBI $5, $2, 0x97F3F579           
+SUB $7, $7, $7
+LOAD $7, $7, 0x72AA498D           
+HALT $0
+#
+D@0x72AA4965
+0x568F1D9B		# 72AA4965		= 1452219803
+0xDC2977EC		# 72AA4969		= -601262100
+0x5BE09AE5		# 72AA496D		= 1541446373
+0x7E37EDC4		# 72AA4971		= 2117594564
+0x89D04BF7		# 72AA4975		= -1982837769
+0xC5FBD2B8		# 72AA4979		= -973352264
+0x0A1B9727		# 72AA497D		= 169580327
+0x9E0CD495		# 72AA4981		= -1643326315
+0x004E1D1D		# 72AA4985		= 5119261
+0x7B9686FD		# 72AA4989		= 2073462525
+0xC919FD39		# 72AA498D		= -921043655
+0x3F14452D		# 72AA4991		= 1058293037
+0x9E31CBCA		# 72AA4995		= -1640903734
+0x30DCEB9B		# 72AA4999		= 819784603
+0xDA76E9AD		# 72AA499D		= -629741139
+0x2AE53CFE		# 72AA49A1		= 719666430
+0x54D853CE		# 72AA49A5		= 1423463374

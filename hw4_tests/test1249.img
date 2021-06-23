@@ -1,0 +1,114 @@
+# Test N.1249
+#
+L5
+S2
+O4
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $0, $0, $0
+STORE $0, $4, 0x4F07CF76          
+NOP                               
+ADD $6, $0, $7                    
+ADDI $1, $5, 0x67C32455           
+SUB $1, $1, $1
+LOAD $2, $1, 0x4F07CF96           
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $3, $3, 0xF19744F5           
+ADD $3, $5, $2                    
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $5, $1, $4                    
+SUBI $4, $2, 0x33128823           
+ADD $4, $7, $6                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUB $7, $7, $7
+SUB $3, $3, $3
+ADDI $3, $3, 0x4F07CF86
+STORE $7, $5, $3                  
+SUB $4, $4, $4
+SUB $7, $7, $7
+ADDI $7, $7, 0x4F07CF7A
+LOAD $2, $4, $7                   
+NOP                               
+ADD $5, $1, $1                    
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+NOP                               
+NOP                               
+SUB $1, $6, $1                    
+SUB $1, $7, $4                    
+NOP                               
+ADDI $4, $0, 0x8E28E5CA           
+SUB $7, $2, $1                    
+SUB $6, $6, $6
+SUB $3, $3, $3
+ADDI $3, $3, 0x4F07CF7A
+STORE $6, $4, $3                  
+SUB $2, $1, $3                    
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $0, $0, $0
+SUB $3, $3, $3
+ADDI $3, $3, 0x4F07CF96
+STORE $0, $4, $3                  
+SUBI $7, $1, 0x937585EE           
+SUB $2, $0, $4                    
+ADDI $4, $3, 0xBDFC3F6E           
+SUB $5, $5, $5
+STORE $5, $4, 0x4F07CF7E          
+ADDI $2, $6, 0x54A1A84B           
+SUB $7, $7, $7
+STORE $7, $5, 0x4F07CF86          
+SUB $3, $3, $3
+SUB $1, $1, $1
+ADDI $1, $1, 0x4F07CF8A
+LOAD $2, $3, $1                   
+SUB $2, $2, $2
+SUB $6, $6, $6
+ADDI $6, $6, 0x4F07CF9A
+STORE $2, $7, $6                  
+ADD $6, $6, $1                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+HALT $0
+#
+D@0x4F07CF62
+0x86D2CB92		# 4F07CF62		= -2033005678
+0xE710FB87		# 4F07CF66		= -418317433
+0x9EC10732		# 4F07CF6A		= -1631516878
+0xBC9916F4		# 4F07CF6E		= -1130817804
+0x315AD283		# 4F07CF72		= 828035715
+0xC75CB5F7		# 4F07CF76		= -950225417
+0xB0B553F6		# 4F07CF7A		= -1330293770
+0x482F4877		# 4F07CF7E		= 1211058295
+0x83FBE8C5		# 4F07CF82		= -2080642875
+0x2DD2196D		# 4F07CF86		= 768743789
+0xC798AE4D		# 4F07CF8A		= -946295219
+0x7635F539		# 4F07CF8E		= 1983247673
+0x1FC8255C		# 4F07CF92		= 533210460
+0x0A3A92A2		# 4F07CF96		= 171610786
+0x6B3DCAB4		# 4F07CF9A		= 1799211700
+0x6AE726D3		# 4F07CF9E		= 1793533651

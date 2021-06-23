@@ -1,0 +1,103 @@
+# Test N.1390
+#
+L1
+S5
+O4
+N7
+
+# Thread 0
+T0
+I@0x00000000
+SUB $5, $5, $5
+STORE $5, $5, 0x63233082          
+ADDI $0, $2, 0xEFD003F2           
+ADDI $6, $0, 0xFC86AA65           
+SUB $3, $1, $0                    
+SUB $3, $3, $3
+STORE $3, $6, 0x63233082          
+SUB $5, $5, $5
+STORE $5, $6, 0x63233082          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+SUBI $2, $5, 0xBC61C664           
+SUB $0, $5, $4                    
+SUB $7, $4, $2                    
+ADD $0, $7, $2                    
+NOP                               
+NOP                               
+SUB $2, $2, $2
+STORE $2, $5, 0x63233082          
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $5, $3                    
+NOP                               
+NOP                               
+SUB $3, $5, $0                    
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+NOP                               
+NOP                               
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $1, $1
+STORE $1, $0, 0x63233082          
+SUB $4, $7, $2                    
+SUB $1, $1, $1
+SUB $7, $7, $7
+ADDI $7, $7, 0x63233082
+STORE $1, $2, $7                  
+ADDI $4, $5, 0x2A69AB72           
+SUB $0, $0, $0
+STORE $0, $0, 0x63233082          
+ADD $6, $4, $1                    
+SUB $5, $5, $5
+LOAD $6, $5, 0x63233082           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $2, $2, $2
+SUB $4, $4, $4
+ADDI $4, $4, 0x63233082
+LOAD $1, $2, $4                   
+SUB $3, $0, $2                    
+SUBI $5, $7, 0x02B37B4F           
+ADDI $1, $0, 0xBAFD4A1A           
+ADDI $0, $0, 0xF736FDE9           
+SUB $7, $7, $7
+STORE $7, $3, 0x63233082          
+SUB $0, $6, $2                    
+ADD $0, $2, $3                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUBI $4, $4, 0x59C312B2           
+SUB $3, $7, $3                    
+ADD $5, $4, $2                    
+ADD $0, $3, $1                    
+ADD $4, $1, $4                    
+ADD $0, $0, $0                    
+SUB $1, $1, $1
+STORE $1, $7, 0x63233082          
+SUB $1, $6, $0                    
+NOP                               
+SUB $2, $4, $7                    
+HALT $0
+#
+D@0x63233082
+0x2D5E1012		# 63233082		= 761139218

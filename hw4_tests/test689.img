@@ -1,0 +1,54 @@
+# Test N.689
+#
+L1
+S2
+O10
+N2
+
+# Thread 0
+T0
+I@0x00000000
+SUB $1, $1, $1
+LOAD $1, $1, 0x06498A04           
+SUBI $1, $5, 0x42AF41F2           
+NOP                               
+SUBI $4, $1, 0x3D0F88FE           
+ADD $7, $7, $0                    
+ADDI $4, $7, 0xEE7A84EA           
+SUB $4, $4, $4
+STORE $4, $4, 0x064989F8          
+SUBI $2, $7, 0x29C891D5           
+SUBI $7, $0, 0xCBC4C724           
+SUB $6, $6, $6
+STORE $6, $0, 0x064989F8          
+NOP                               
+SUB $5, $5, $5
+SUB $2, $2, $2
+ADDI $2, $2, 0x064989F8
+LOAD $4, $5, $2                   
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADDI $2, $6, 0xFF537AA8           
+SUB $2, $2, $2
+STORE $2, $1, 0x064989F8          
+SUBI $0, $4, 0x457F6CC5           
+ADD $3, $0, $7                    
+ADD $1, $3, $6                    
+ADDI $0, $1, 0x38F55112           
+SUB $6, $6, $6
+LOAD $7, $6, 0x06498A04           
+NOP                               
+SUB $7, $7, $7
+SUB $5, $5, $5
+ADDI $5, $5, 0x06498A00
+LOAD $2, $7, $5                   
+HALT $0
+#
+D@0x064989F8
+0x9C67BAB7		# 064989F8		= -1670923593
+0x7FFFCBE7		# 064989FC		= 2147470311
+0x77C1FF8E		# 06498A00		= 2009202574
+0x815BC7EE		# 06498A04		= -2124691474

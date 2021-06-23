@@ -1,0 +1,146 @@
+# Test N.810
+#
+L7
+S3
+O7
+N8
+
+# Thread 0
+T0
+I@0x00000000
+SUB $2, $2, $2
+STORE $2, $3, 0x30F30A89          
+HALT $0
+#
+# Thread 1
+T1
+I@0x00000000
+ADD $3, $4, $4                    
+SUB $1, $1, $1
+STORE $1, $5, 0x30F30A91          
+SUBI $1, $0, 0x7705F5F4           
+SUBI $3, $7, 0x4BCF66DD           
+ADDI $2, $0, 0xBC71BA33           
+ADD $6, $0, $2                    
+SUBI $3, $0, 0xF3F8A255           
+SUB $2, $0, $7                    
+SUBI $5, $7, 0xF9E0EBD0           
+ADD $6, $1, $7                    
+SUB $4, $0, $2                    
+ADD $4, $5, $3                    
+NOP                               
+HALT $0
+#
+# Thread 2
+T2
+I@0x00000000
+SUB $1, $1, $1
+LOAD $6, $1, 0x30F30A7D           
+NOP                               
+SUB $5, $5, $5
+LOAD $6, $5, 0x30F30A71           
+SUB $5, $5, $5
+SUB $1, $1, $1
+ADDI $1, $1, 0x30F30A71
+LOAD $1, $5, $1                   
+ADDI $2, $1, 0x3CCC3B34           
+ADD $5, $1, $1                    
+ADD $4, $5, $3                    
+SUBI $4, $0, 0x62F6FF59           
+NOP                               
+NOP                               
+ADDI $7, $6, 0x1E18E556           
+SUB $2, $2, $2
+LOAD $0, $2, 0x30F30A85           
+SUBI $5, $5, 0x5452EDCE           
+HALT $0
+#
+# Thread 3
+T3
+I@0x00000000
+SUBI $1, $1, 0x3ED9004C           
+SUB $6, $6, $6
+SUB $1, $1, $1
+ADDI $1, $1, 0x30F30A95
+LOAD $1, $6, $1                   
+SUB $3, $1, $7                    
+ADDI $3, $5, 0x434B673A           
+HALT $0
+#
+# Thread 4
+T4
+I@0x00000000
+SUB $1, $1, $1
+SUB $3, $3, $3
+ADDI $3, $3, 0x30F30A91
+LOAD $7, $1, $3                   
+SUB $6, $6, $6
+SUB $0, $0, $0
+ADDI $0, $0, 0x30F30A95
+LOAD $6, $6, $0                   
+ADDI $6, $2, 0x83BF0F26           
+SUBI $7, $6, 0xB1920809           
+SUBI $1, $1, 0xFC081EFC           
+NOP                               
+SUB $1, $1, $1
+SUB $2, $2, $2
+ADDI $2, $2, 0x30F30A71
+STORE $1, $1, $2                  
+SUB $6, $2, $2                    
+ADDI $0, $2, 0xEB651E79           
+SUB $3, $3, $3
+STORE $3, $3, 0x30F30A8D          
+ADD $6, $6, $2                    
+NOP                               
+SUBI $2, $3, 0xDD1D293C           
+HALT $0
+#
+# Thread 5
+T5
+I@0x00000000
+SUB $6, $7, $3                    
+NOP                               
+ADD $5, $1, $7                    
+HALT $0
+#
+# Thread 6
+T6
+I@0x00000000
+SUB $3, $3, $3
+SUB $5, $5, $5
+ADDI $5, $5, 0x30F30A85
+STORE $3, $0, $5                  
+SUB $3, $3, $3
+SUB $2, $2, $2
+ADDI $2, $2, 0x30F30A91
+STORE $3, $6, $2                  
+NOP                               
+SUB $0, $0, $0
+SUB $5, $5, $5
+ADDI $5, $5, 0x30F30A8D
+LOAD $6, $0, $5                   
+HALT $0
+#
+# Thread 7
+T7
+I@0x00000000
+ADDI $2, $6, 0x800A82DE           
+NOP                               
+ADD $4, $2, $0                    
+SUB $2, $7, $6                    
+SUBI $6, $3, 0xA704F521           
+ADDI $3, $4, 0xDBF45ED5           
+SUB $5, $2, $7                    
+HALT $0
+#
+D@0x30F30A71
+0xF852E3D6		# 30F30A71		= -128785450
+0x3F5664BE		# 30F30A75		= 1062626494
+0x5BC1926B		# 30F30A79		= 1539412587
+0xB1A7F24F		# 30F30A7D		= -1314393521
+0x1598AAAC		# 30F30A81		= 362326700
+0xB893B3E5		# 30F30A85		= -1198279707
+0xA16151B9		# 30F30A89		= -1587457607
+0x1E3CE342		# 30F30A8D		= 507306818
+0x28EC850F		# 30F30A91		= 686589199
+0x1758F4F6		# 30F30A95		= 391705846
