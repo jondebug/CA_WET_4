@@ -94,7 +94,6 @@ void execute_instruction (Instruction inst, std::vector<thread> * thread_vec, tc
 int get_next_thread_FG(std::vector<thread> * thread_vec, int current_thread){
 	int thread_num = (*thread_vec).size(), thread_it=0;
 	bool thread_active;
-	//int next_thread=-1;
 	for(int i=1; i<= thread_num; i++){
 		thread_it=(current_thread+i)%thread_num;
 		thread_active = !(*thread_vec)[thread_it].halted_flag && (*thread_vec)[thread_it].wait_CC_remaining==0;
@@ -243,11 +242,13 @@ void CORE_FinegrainedMT(){
 	while(num_of_halted_threads < thread_num){ // means we can still execute
 		//cout<< "prev_thread is: " <<next_thread;
 		next_thread = get_next_thread_FG(&thread_vec, current_thread);
+		update_wait_time(&thread_vec, 1);
 		
 		while(next_thread < 0){ // idle time
+			//cout<<"nop"<<", thread 10 wait time:" <<thread_vec[10].wait_CC_remaining <<endl;
+			next_thread = get_next_thread_FG(&thread_vec, current_thread);
 			CC++;
 			update_wait_time(&thread_vec, 1);
-			next_thread = get_next_thread_FG(&thread_vec, next_thread);
 		}
 		current_thread = next_thread;
 		
@@ -260,9 +261,8 @@ void CORE_FinegrainedMT(){
 		thread_vec[current_thread].next_line_to_read++;
 		////cout << "thread to run is: " << current_thread << " cycle " << CC << " instruction: " << current_instruction.opcode <<  endl;
 		CC++;
-		update_wait_time(&thread_vec, 1);
 		num_of_instructions++;
-		//cout<< " current_thread is: " <<next_thread << " opcode: " << current_instruction.opcode << endl;;
+		//cout<< " current_thread is: " <<next_thread << " opcode: " << current_instruction.opcode << ", thread 10 wait time:" <<thread_vec[10].wait_CC_remaining <<endl;
 		execute_instruction(current_instruction, &thread_vec, fine_grained, current_thread);
 		if (current_instruction.opcode == CMD_HALT){
 			num_of_halted_threads++;
